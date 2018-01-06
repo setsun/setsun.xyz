@@ -12,8 +12,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "test": "react-scripts test --env=jsdom",
+    "lint": "echo \"lint step\"; exit 0;",
+    "flow": "echo \"flow step\"; exit 0;",
     "deploy": "gh-pages --branch master --dist build",
     "publish": "npm run build && gh-pages -d build -b \"master\"",
     "serve": "serve -s build"

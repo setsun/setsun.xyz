@@ -1,0 +1,93 @@
+aliases:
+  - &restore-dependencies-cache
+    keys:
+      - v1-dependencies-{{ checksum "package.json" }}
+
+  - &save-dependencies-cache
+    paths:
+      - node_modules
+    key: v1-dependencies-{{ checksum "package.json" }}
+
+defaults:
+  - &job-defaults
+      working_directory: ~/setsun.github.io
+      docker:
+        - image: circleci/node:8.9
+
+version: 2
+jobs:
+  build:
+    <<: *job-defaults
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: ~/setsun.github.io
+
+      - restore_cache: *restore-dependencies-cache
+
+      - run: npm install
+
+      - save_cache: *save-dependencies-cache
+
+      - persist_to_workspace:
+          root: .
+          paths: .
+
+  lint:
+    <<: *job-defaults
+    steps:
+      - attach_workspace:
+          at: ~/setsun.github.io
+
+      - run: npm run lint
+
+  flow:
+    <<: *job-defaults
+    steps:
+      - attach_workspace:
+          at: ~/setsun.github.io
+
+      - run: npm run flow
+
+  test:
+    <<: *job-defaults
+    steps:
+      - attach_workspace:
+          at: ~/setsun.github.io
+
+      - run: npm run test
+
+  deploy:
+    <<: *job-defaults
+    steps:
+      - attach_workspace:
+          at: ~/setsun.github.io
+
+      - deploy:
+          name: GitHub Pages deploy
+          command: ./bin/deploy_gh_pages.sh
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - lint:
+          requires:
+            - build
+      - flow:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - lint
+            - flow
+            - test
+          filters:
+            branches:
+              only:
+                - develop
