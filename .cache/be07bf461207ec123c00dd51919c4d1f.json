@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_metadata", "loc": { "line": 1, "column": 23 } },
+    { "name": "./_an-object", "loc": { "line": 2, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_metadata\"),t=require(\"./_an-object\"),a=e.keys,r=e.key;e.exp({getOwnMetadataKeys:function(e){return a(t(e),arguments.length<2?void 0:r(arguments[1]))}});"
+  },
+  "hash": "b770343dce197acac4e31fbbdbfb6a6b"
+}

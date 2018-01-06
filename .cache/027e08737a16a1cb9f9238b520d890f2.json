@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 1, "column": 22 } },
+    { "name": "./_to-absolute-index", "loc": { "line": 2, "column": 30 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\"),o=require(\"./_to-absolute-index\"),e=String.fromCharCode,n=String.fromCodePoint;r(r.S+r.F*(!!n&&1!=n.length),\"String\",{fromCodePoint:function(r){for(var n,t=[],i=arguments.length,a=0;i>a;){if(n=+arguments[a++],o(n,1114111)!==n)throw RangeError(n+\" is not a valid code point\");t.push(n<65536?e(n):e(55296+((n-=65536)>>10),n%1024+56320))}return t.join(\"\")}});"
+  },
+  "hash": "3429fa9c6bd211c960e33eb6cd9bc377"
+}

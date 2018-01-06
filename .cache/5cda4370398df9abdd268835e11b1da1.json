@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_an-object", "loc": { "line": 4, "column": 23 } },
+    { "name": "./_iter-create", "loc": { "line": 12, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./_export\"),t=require(\"./_an-object\"),i=function(e){this._t=t(e),this._i=0;var i,r=this._k=[];for(i in e)r.push(i)};require(\"./_iter-create\")(i,\"Object\",function(){var e,t=this._k;do{if(this._i>=t.length)return{value:void 0,done:!0}}while(!((e=t[this._i++])in this._t));return{value:e,done:!1}}),e(e.S,\"Reflect\",{enumerate:function(e){return new i(e)}});"
+  },
+  "hash": "d85a45fe0d4216988f4482d0382a9d9d"
+}

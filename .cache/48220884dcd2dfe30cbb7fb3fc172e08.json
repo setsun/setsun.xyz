@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_global", "loc": { "line": 1, "column": 21 } },
+    { "name": "./_task", "loc": { "line": 2, "column": 24 } },
+    { "name": "./_cof", "loc": { "line": 6, "column": 21 } }
+  ],
+  "generated": {
+    "js":
+      "\n\nvar e=require(\"./_global\"),t=require(\"./_task\").set,r=e.MutationObserver||e.WebKitMutationObserver,n=e.process,o=e.Promise,a=\"process\"==require(\"./_cof\")(n);module.exports=function(){var i,c,s,v=function(){var e,t;for(a&&(e=n.domain)&&e.exit();i;){t=i.fn,i=i.next;try{t()}catch(e){throw i?s():c=void 0,e}}c=void 0,e&&e.enter()};if(a)s=function(){n.nextTick(v)};else if(!r||e.navigator&&e.navigator.standalone)if(o&&o.resolve){var u=o.resolve();s=function(){u.then(v)}}else s=function(){t.call(e,v)};else{var f=!0,l=document.createTextNode(\"\");new r(v).observe(l,{characterData:!0}),s=function(){l.data=f=!f}}return function(e){var t={fn:e,next:void 0};c&&(c.next=t),i||(i=t,s()),c=t}};"
+  },
+  "hash": "d41a0d97680e355bda7c5b5b1ca0a288"
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_string-at", "loc": { "line": 2, "column": 18 } },
+    { "name": "./_iter-define", "loc": { "line": 5, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var i=require(\"./_string-at\")(!0);require(\"./_iter-define\")(String,\"String\",function(i){this._t=String(i),this._i=0},function(){var t,e=this._t,n=this._i;return n>=e.length?{value:void 0,done:!0}:(t=i(e,n),this._i+=t.length,{value:t,done:!1})});"
+  },
+  "hash": "af48c090e8bc684ad89ab3c097a1204f"
+}

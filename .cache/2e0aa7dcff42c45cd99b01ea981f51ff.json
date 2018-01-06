@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_a-function", "loc": { "line": 2, "column": 24 } },
+    { "name": "./_is-object", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_invoke", "loc": { "line": 4, "column": 21 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var n=require(\"./_a-function\"),t=require(\"./_is-object\"),r=require(\"./_invoke\"),e=[].slice,i={},o=function(n,t,r){if(!(t in i)){for(var e=[],o=0;o<t;o++)e[o]=\"a[\"+o+\"]\";i[t]=Function(\"F,a\",\"return new F(\"+e.join(\",\")+\")\")}return i[t](n,r)};module.exports=Function.bind||function(i){var u=n(this),c=e.call(arguments,1),a=function(){var n=c.concat(e.call(arguments));return this instanceof a?o(u,n.length,n):r(u,n,i)};return t(u.prototype)&&(a.prototype=u.prototype),a};"
+  },
+  "hash": "1708576e69b33b4f2bad321c039ac4b9"
+}

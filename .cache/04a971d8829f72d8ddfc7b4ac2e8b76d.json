@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_global", "loc": { "line": 3, "column": 24 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\"),r=require(\"./_global\").isFinite;e(e.S,\"Number\",{isFinite:function(e){return\"number\"==typeof e&&r(e)}});"
+  },
+  "hash": "73d836be674b117400f0467b1247e35b"
+}

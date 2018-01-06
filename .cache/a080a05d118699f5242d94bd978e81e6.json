@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\"),t=Math.abs;r(r.S,\"Math\",{hypot:function(r,a){for(var e,h,n=0,o=0,u=arguments.length,M=0;o<u;)M<(e=t(arguments[o++]))?(n=n*(h=M/e)*h+1,M=e):n+=e>0?(h=e/M)*h:e;return M===1/0?1/0:M*Math.sqrt(n)}});"
+  },
+  "hash": "39de21614a875045ff0e1a2d4e638501"
+}

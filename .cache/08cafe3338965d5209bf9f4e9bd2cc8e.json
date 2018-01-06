@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_cof", "loc": { "line": 3, "column": 18 } },
+    { "name": "./_wks", "loc": { "line": 4, "column": 20 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_is-object\"),r=require(\"./_cof\"),i=require(\"./_wks\")(\"match\");module.exports=function(o){var u;return e(o)&&(void 0!==(u=o[i])?!!u:\"RegExp\"==r(o))};"
+  },
+  "hash": "b0a540408ea2d47670b956eab98a9821"
+}

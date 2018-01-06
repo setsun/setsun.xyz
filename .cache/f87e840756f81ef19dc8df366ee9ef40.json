@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_to-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_object-gpo", "loc": { "line": 3, "column": 30 } },
+    { "name": "./_object-sap", "loc": { "line": 5, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_to-object\"),r=require(\"./_object-gpo\");require(\"./_object-sap\")(\"getPrototypeOf\",function(){return function(t){return r(e(t))}});"
+  },
+  "hash": "c03841ca7963a57c51e83caaa246816a"
+}

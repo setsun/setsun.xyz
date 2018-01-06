@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    { "name": "./_set-collection-from", "loc": { "line": 2, "column": 8 } }
+  ],
+  "generated": { "js": "require(\"./_set-collection-from\")(\"WeakMap\");" },
+  "hash": "56078f29998b2bf31e2173b347e407e7"
+}

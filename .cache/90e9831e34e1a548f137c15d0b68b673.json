@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_global", "loc": { "line": 2, "column": 21 } },
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_user-agent", "loc": { "line": 4, "column": 24 } }
+  ],
+  "generated": {
+    "js":
+      "\nvar e=require(\"./_global\"),t=require(\"./_export\"),n=require(\"./_user-agent\"),r=[].slice,u=/MSIE .\\./.test(n),i=function(e){return function(t,n){var u=arguments.length>2,i=!!u&&r.call(arguments,2);return e(u?function(){(\"function\"==typeof t?t:Function(t)).apply(this,i)}:t,n)}};t(t.G+t.B+t.F*u,{setTimeout:i(e.setTimeout),setInterval:i(e.setInterval)});"
+  },
+  "hash": "b16b0d90d407c6421b8535143682658c"
+}

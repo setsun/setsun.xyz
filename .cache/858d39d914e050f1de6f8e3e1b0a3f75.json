@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_a-function", "loc": { "line": 4, "column": 24 } },
+    { "name": "./_ctx", "loc": { "line": 5, "column": 18 } },
+    { "name": "./_for-of", "loc": { "line": 6, "column": 20 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var r=require(\"./_export\"),e=require(\"./_a-function\"),i=require(\"./_ctx\"),t=require(\"./_for-of\");module.exports=function(u){r(r.S,u,{from:function(r){var u,o,n,s,f=arguments[1];return e(this),(u=void 0!==f)&&e(f),void 0==r?new this:(o=[],u?(n=0,s=i(f,arguments[2],2),t(r,!1,function(r){o.push(s(r,n++))})):t(r,!1,o.push,o),new this(o))}})};"
+  },
+  "hash": "75b87145c53786e124dd1ca1ecc16ead"
+}

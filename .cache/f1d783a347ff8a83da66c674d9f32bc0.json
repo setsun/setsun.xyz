@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_math-scale", "loc": { "line": 3, "column": 20 } },
+    { "name": "./_math-fround", "loc": { "line": 4, "column": 21 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\"),e=require(\"./_math-scale\"),a=require(\"./_math-fround\");r(r.S,\"Math\",{fscale:function(r,t,u,i,n){return a(e(r,t,u,i,n))}});"
+  },
+  "hash": "7a14482fb44592f81a414a3fa68f4735"
+}

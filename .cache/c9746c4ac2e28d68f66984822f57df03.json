@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_object-keys-internal", "loc": { "line": 2, "column": 20 } },
+    { "name": "./_enum-bug-keys", "loc": { "line": 3, "column": 26 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_object-keys-internal\"),r=require(\"./_enum-bug-keys\");module.exports=Object.keys||function(u){return e(u,r)};"
+  },
+  "hash": "74710cad4b806e5f7f1a7a331c3ed357"
+}

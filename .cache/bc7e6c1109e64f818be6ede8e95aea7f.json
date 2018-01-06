@@ -1,0 +1,8 @@
+{
+  "dependencies": [],
+  "generated": {
+    "js":
+      "module.exports=\"constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf\".split(\",\");"
+  },
+  "hash": "0f4f1ba162ae6fe85b59fba081ca0e1e"
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_object-dp", "loc": { "line": 2, "column": 30 } },
+    { "name": "./_property-desc", "loc": { "line": 3, "column": 25 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./_object-dp\"),r=require(\"./_property-desc\");module.exports=function(t,i,o){i in t?e.f(t,i,r(0,o)):t[i]=o};"
+  },
+  "hash": "237556bb43c7918b3987d63d71e50fa1"
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_an-object", "loc": { "line": 3, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\"),r=require(\"./_an-object\"),t=Object.isExtensible;e(e.S,\"Reflect\",{isExtensible:function(e){return r(e),!t||t(e)}});"
+  },
+  "hash": "015600b392e4824450cef561a183ee56"
+}

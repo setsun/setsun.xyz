@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_fails", "loc": { "line": 2, "column": 20 } }],
+  "generated": {
+    "js":
+      "\"use strict\";var l=require(\"./_fails\");module.exports=function(n,u){return!!n&&l(function(){u?n.call(null,function(){},1):n.call(null)})};"
+  },
+  "hash": "b2cb8e4a1d036abea4252a6a2e76478b"
+}

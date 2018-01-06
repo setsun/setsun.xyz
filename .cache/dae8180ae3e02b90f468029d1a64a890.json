@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_is-regexp", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_defined", "loc": { "line": 3, "column": 22 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_is-regexp\"),r=require(\"./_defined\");module.exports=function(i,t,n){if(e(t))throw TypeError(\"String#\"+n+\" doesn't accept regex!\");return String(r(i))};"
+  },
+  "hash": "3a6943e3826bd290e59cc05f1d546e75"
+}

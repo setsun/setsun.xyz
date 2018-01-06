@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_typed-array", "loc": { "line": 1, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "require(\"./_typed-array\")(\"Float64\",8,function(r){return function(t,n,e){return r(this,t,n,e)}});"
+  },
+  "hash": "b30245e540b5a588b6491ea730ff9905"
+}

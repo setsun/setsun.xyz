@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_meta", "loc": { "line": 3, "column": 19 } },
+    { "name": "./_object-sap", "loc": { "line": 5, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_is-object\"),r=require(\"./_meta\").onFreeze;require(\"./_object-sap\")(\"preventExtensions\",function(n){return function(t){return n&&e(t)?n(r(t)):t}});"
+  },
+  "hash": "829d1174e634dae1e71e00fdfcd46951"
+}

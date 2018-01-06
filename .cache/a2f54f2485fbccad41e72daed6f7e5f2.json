@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_is-integer", "loc": { "line": 3, "column": 24 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\"),r=require(\"./_is-integer\"),i=Math.abs;e(e.S,\"Number\",{isSafeInteger:function(e){return r(e)&&i(e)<=9007199254740991}});"
+  },
+  "hash": "8cbd21ec92947df8cdf367d1478e6d89"
+}

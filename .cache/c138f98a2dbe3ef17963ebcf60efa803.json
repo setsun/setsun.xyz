@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_array-methods", "loc": { "line": 3, "column": 20 } },
+    { "name": "./_strict-method", "loc": { "line": 5, "column": 41 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var r=require(\"./_export\"),e=require(\"./_array-methods\")(3);r(r.P+r.F*!require(\"./_strict-method\")([].some,!0),\"Array\",{some:function(r){return e(this,r,arguments[1])}});"
+  },
+  "hash": "371d2643df602f1042ae9ab20270458f"
+}

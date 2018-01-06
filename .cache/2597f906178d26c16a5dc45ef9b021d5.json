@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    { "name": "./es6.map", "loc": { "line": 1, "column": 18 } },
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_shared", "loc": { "line": 3, "column": 21 } },
+    { "name": "./es6.weak-map", "loc": { "line": 4, "column": 57 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./es6.map\"),r=require(\"./_export\"),t=require(\"./_shared\")(\"metadata\"),n=t.store||(t.store=new(require(\"./es6.weak-map\"))),i=function(r,t,i){var o=n.get(r);if(!o){if(!i)return;n.set(r,o=new e)}var u=o.get(t);if(!u){if(!i)return;o.set(t,u=new e)}return u},o=function(e,r,t){var n=i(r,t,!1);return void 0!==n&&n.has(e)},u=function(e,r,t){var n=i(r,t,!1);return void 0===n?void 0:n.get(e)},a=function(e,r,t,n){i(t,n,!0).set(e,r)},s=function(e,r){var t=i(e,r,!1),n=[];return t&&t.forEach(function(e,r){n.push(r)}),n},f=function(e){return void 0===e||\"symbol\"==typeof e?e:String(e)},c=function(e){r(r.S,\"Reflect\",e)};module.exports={store:n,map:i,has:o,get:u,set:a,keys:s,key:f,exp:c};"
+  },
+  "hash": "36f404ca01d3a1a4f339894107a6b29a"
+}

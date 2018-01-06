@@ -1,0 +1,8 @@
+{
+  "dependencies": [],
+  "generated": {
+    "js":
+      "var r={}.toString;module.exports=function(t){return r.call(t).slice(8,-1)};"
+  },
+  "hash": "aed115b1e630395a4e00dfbf2d1293bc"
+}

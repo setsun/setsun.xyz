@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    { "name": "./_global", "loc": { "line": 1, "column": 21 } },
+    { "name": "./_hide", "loc": { "line": 2, "column": 19 } },
+    { "name": "./_has", "loc": { "line": 3, "column": 18 } },
+    { "name": "./_uid", "loc": { "line": 4, "column": 18 } },
+    { "name": "./_core", "loc": { "line": 9, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "\nvar e=require(\"./_global\"),r=require(\"./_hide\"),t=require(\"./_has\"),i=require(\"./_uid\")(\"src\"),n=\"toString\",o=Function[n],u=(\"\"+o).split(n);require(\"./_core\").inspectSource=function(e){return o.call(e)},(module.exports=function(n,o,c,l){var a=\"function\"==typeof c;a&&(t(c,\"name\")||r(c,\"name\",o)),n[o]!==c&&(a&&(t(c,i)||r(c,i,n[o]?\"\"+n[o]:u.join(String(o)))),n===e?n[o]=c:l?n[o]?n[o]=c:r(n,o,c):(delete n[o],r(n,o,c)))})(Function.prototype,n,function(){return\"function\"==typeof this&&this[i]||o.call(this)});"
+  },
+  "hash": "0809f52e6a097dd6ef3514cb8b30fc2c"
+}

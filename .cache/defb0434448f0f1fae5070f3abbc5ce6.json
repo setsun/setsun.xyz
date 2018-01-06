@@ -1,0 +1,21 @@
+{
+  "dependencies": [
+    { "name": "./_global", "loc": { "line": 2, "column": 21 } },
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_redefine", "loc": { "line": 4, "column": 23 } },
+    { "name": "./_redefine-all", "loc": { "line": 5, "column": 26 } },
+    { "name": "./_meta", "loc": { "line": 6, "column": 19 } },
+    { "name": "./_for-of", "loc": { "line": 7, "column": 20 } },
+    { "name": "./_an-instance", "loc": { "line": 8, "column": 25 } },
+    { "name": "./_is-object", "loc": { "line": 9, "column": 23 } },
+    { "name": "./_fails", "loc": { "line": 10, "column": 20 } },
+    { "name": "./_iter-detect", "loc": { "line": 11, "column": 26 } },
+    { "name": "./_set-to-string-tag", "loc": { "line": 12, "column": 29 } },
+    { "name": "./_inherit-if-required", "loc": { "line": 13, "column": 32 } }
+  ],
+  "generated": {
+    "js":
+      "\n\"use strict\";var e=require(\"./_global\"),r=require(\"./_export\"),t=require(\"./_redefine\"),n=require(\"./_redefine-all\"),i=require(\"./_meta\"),u=require(\"./_for-of\"),o=require(\"./_an-instance\"),c=require(\"./_is-object\"),a=require(\"./_fails\"),s=require(\"./_iter-detect\"),f=require(\"./_set-to-string-tag\"),l=require(\"./_inherit-if-required\");module.exports=function(d,h,q,_,p,v){var g=e[d],w=g,y=p?\"set\":\"add\",x=w&&w.prototype,E={},b=function(e){var r=x[e];t(x,e,\"delete\"==e?function(e){return!(v&&!c(e))&&r.call(this,0===e?0:e)}:\"has\"==e?function(e){return!(v&&!c(e))&&r.call(this,0===e?0:e)}:\"get\"==e?function(e){return v&&!c(e)?void 0:r.call(this,0===e?0:e)}:\"add\"==e?function(e){return r.call(this,0===e?0:e),this}:function(e,t){return r.call(this,0===e?0:e,t),this})};if(\"function\"==typeof w&&(v||x.forEach&&!a(function(){(new w).entries().next()}))){var m=new w,j=m[y](v?{}:-0,1)!=m,C=a(function(){m.has(1)}),D=s(function(e){new w(e)}),F=!v&&a(function(){for(var e=new w,r=5;r--;)e[y](r,r);return!e.has(-0)});D||((w=h(function(e,r){o(e,w,d);var t=l(new g,e,w);return void 0!=r&&u(r,p,t[y],t),t})).prototype=x,x.constructor=w),(C||F)&&(b(\"delete\"),b(\"has\"),p&&b(\"get\")),(F||j)&&b(y),v&&x.clear&&delete x.clear}else w=_.getConstructor(h,d,p,y),n(w.prototype,q),i.NEED=!0;return f(w,d),E[d]=w,r(r.G+r.W+r.F*(w!=g),E),v||_.setStrong(w,d,p),w};"
+  },
+  "hash": "2ddd437cc8aff12c35ebca53dbd40e0e"
+}

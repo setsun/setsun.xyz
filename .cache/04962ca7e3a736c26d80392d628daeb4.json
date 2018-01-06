@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_fix-re-wks", "loc": { "line": 2, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "require(\"./_fix-re-wks\")(\"search\",1,function(r,i,e){return[function(e){\"use strict\";var n=r(this),t=void 0==e?void 0:e[i];return void 0!==t?t.call(e,n):new RegExp(e)[i](String(n))},e]});"
+  },
+  "hash": "c4b3f6e92fffdc55a81844b95f942479"
+}

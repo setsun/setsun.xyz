@@ -1,0 +1,5 @@
+{
+  "dependencies": [{ "name": "./_wks", "loc": { "line": 1, "column": 20 } }],
+  "generated": { "js": "exports.f=require(\"./_wks\");" },
+  "hash": "ead289896e7833930d50fdac10fca02b"
+}

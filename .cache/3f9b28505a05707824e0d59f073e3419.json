@@ -1,0 +1,8 @@
+{
+  "dependencies": [],
+  "generated": {
+    "js":
+      "var o=0,t=Math.random();module.exports=function(n){return\"Symbol(\".concat(void 0===n?\"\":n,\")_\",(++o+t).toString(36))};"
+  },
+  "hash": "52fde409bfbaad8f12ae68a345eed434"
+}

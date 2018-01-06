@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_collection-strong", "loc": { "line": 2, "column": 21 } },
+    { "name": "./_validate-collection", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_collection", "loc": { "line": 7, "column": 25 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./_collection-strong\"),t=require(\"./_validate-collection\"),r=\"Set\";module.exports=require(\"./_collection\")(r,function(e){return function(){return e(this,arguments.length>0?arguments[0]:void 0)}},{add:function(i){return e.def(t(this,r),i=0===i?0:i,i)}},e);"
+  },
+  "hash": "62d0d56bee2cb7da41a9d11a48603cb5"
+}

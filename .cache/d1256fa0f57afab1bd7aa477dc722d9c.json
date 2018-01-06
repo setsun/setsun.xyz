@@ -1,0 +1,8 @@
+{
+  "dependencies": [],
+  "generated": {
+    "js":
+      "var r={}.hasOwnProperty;module.exports=function(e,n){return r.call(e,n)};"
+  },
+  "hash": "a1d988ad2b26b4521ea143aa062871cf"
+}

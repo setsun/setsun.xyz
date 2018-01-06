@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_core", "loc": { "line": 4, "column": 19 } },
+    { "name": "./_global", "loc": { "line": 5, "column": 21 } },
+    { "name": "./_species-constructor", "loc": { "line": 6, "column": 33 } },
+    { "name": "./_promise-resolve", "loc": { "line": 7, "column": 29 } }
+  ],
+  "generated": {
+    "js":
+      "\n\"use strict\";var r=require(\"./_export\"),e=require(\"./_core\"),t=require(\"./_global\"),n=require(\"./_species-constructor\"),i=require(\"./_promise-resolve\");r(r.P+r.R,\"Promise\",{finally:function(r){var o=n(this,e.Promise||t.Promise),u=\"function\"==typeof r;return this.then(u?function(e){return i(o,r()).then(function(){return e})}:r,u?function(e){return i(o,r()).then(function(){throw e})}:r)}});"
+  },
+  "hash": "cecc9b2921a05e96f3c92c2891c761bc"
+}

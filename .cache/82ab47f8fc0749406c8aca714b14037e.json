@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    { "name": "./_hide", "loc": { "line": 2, "column": 19 } },
+    { "name": "./_redefine", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_fails", "loc": { "line": 4, "column": 20 } },
+    { "name": "./_defined", "loc": { "line": 5, "column": 22 } },
+    { "name": "./_wks", "loc": { "line": 6, "column": 18 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var r=require(\"./_hide\"),e=require(\"./_redefine\"),t=require(\"./_fails\"),i=require(\"./_defined\"),n=require(\"./_wks\");module.exports=function(u,o,c){var f=n(u),s=c(i,f,\"\"[u]),a=s[0],l=s[1];t(function(){var r={};return r[f]=function(){return 7},7!=\"\"[u](r)})&&(e(String.prototype,u,a),r(RegExp.prototype,f,2==o?function(r,e){return l.call(r,this,e)}:function(r){return l.call(r,this)}))};"
+  },
+  "hash": "51fe8759b0adc51e2f71634b8e655e11"
+}

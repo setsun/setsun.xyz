@@ -1,0 +1,33 @@
+{
+  "dependencies": [
+    { "name": "./_library", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_global", "loc": { "line": 3, "column": 21 } },
+    { "name": "./_ctx", "loc": { "line": 4, "column": 18 } },
+    { "name": "./_classof", "loc": { "line": 5, "column": 22 } },
+    { "name": "./_export", "loc": { "line": 6, "column": 22 } },
+    { "name": "./_is-object", "loc": { "line": 7, "column": 23 } },
+    { "name": "./_a-function", "loc": { "line": 8, "column": 24 } },
+    { "name": "./_an-instance", "loc": { "line": 9, "column": 25 } },
+    { "name": "./_for-of", "loc": { "line": 10, "column": 20 } },
+    { "name": "./_species-constructor", "loc": { "line": 11, "column": 33 } },
+    { "name": "./_task", "loc": { "line": 12, "column": 19 } },
+    { "name": "./_microtask", "loc": { "line": 13, "column": 24 } },
+    {
+      "name": "./_new-promise-capability",
+      "loc": { "line": 14, "column": 41 }
+    },
+    { "name": "./_perform", "loc": { "line": 15, "column": 22 } },
+    { "name": "./_promise-resolve", "loc": { "line": 16, "column": 29 } },
+    { "name": "./_wks", "loc": { "line": 30, "column": 57 } },
+    { "name": "./_redefine-all", "loc": { "line": 179, "column": 31 } },
+    { "name": "./_set-to-string-tag", "loc": { "line": 210, "column": 8 } },
+    { "name": "./_set-species", "loc": { "line": 211, "column": 8 } },
+    { "name": "./_core", "loc": { "line": 212, "column": 18 } },
+    { "name": "./_iter-detect", "loc": { "line": 230, "column": 56 } }
+  ],
+  "generated": {
+    "js":
+      "\n\n\"use strict\";var e,r,t,i,n=require(\"./_library\"),o=require(\"./_global\"),c=require(\"./_ctx\"),s=require(\"./_classof\"),u=require(\"./_export\"),a=require(\"./_is-object\"),_=require(\"./_a-function\"),h=require(\"./_an-instance\"),f=require(\"./_for-of\"),l=require(\"./_species-constructor\"),v=require(\"./_task\").set,p=require(\"./_microtask\")(),d=require(\"./_new-promise-capability\"),m=require(\"./_perform\"),q=require(\"./_promise-resolve\"),y=\"Promise\",j=o.TypeError,w=o.process,b=o[y],g=\"process\"==s(w),k=function(){},P=r=d.f,F=!!function(){try{var e=b.resolve(1),r=(e.constructor={})[require(\"./_wks\")(\"species\")]=function(e){e(k,k)};return(g||\"function\"==typeof PromiseRejectionEvent)&&e.then(k)instanceof r}catch(e){}}(),x=function(e){var r;return!(!a(e)||\"function\"!=typeof(r=e.then))&&r},S=function(e,r){if(!e._n){e._n=!0;var t=e._c;p(function(){for(var i=e._v,n=1==e._s,o=0,c=function(r){var t,o,c=n?r.ok:r.fail,s=r.resolve,u=r.reject,a=r.domain;try{c?(n||(2==e._h&&G(e),e._h=1),!0===c?t=i:(a&&a.enter(),t=c(i),a&&a.exit()),t===r.promise?u(j(\"Promise-chain cycle\")):(o=x(t))?o.call(t,s,u):s(t)):u(i)}catch(e){u(e)}};t.length>o;)c(t[o++]);e._c=[],e._n=!1,r&&!e._h&&E(e)})}},E=function(e){v.call(o,function(){var r,t,i,n=e._v,c=R(e);if(c&&(r=m(function(){g?w.emit(\"unhandledRejection\",n,e):(t=o.onunhandledrejection)?t({promise:e,reason:n}):(i=o.console)&&i.error&&i.error(\"Unhandled promise rejection\",n)}),e._h=g||R(e)?2:1),e._a=void 0,c&&r.e)throw r.v})},R=function(e){return 1!==e._h&&0===(e._a||e._c).length},G=function(e){v.call(o,function(){var r;g?w.emit(\"rejectionHandled\",e):(r=o.onrejectionhandled)&&r({promise:e,reason:e._v})})},H=function(e){var r=this;r._d||(r._d=!0,(r=r._w||r)._v=e,r._s=2,r._a||(r._a=r._c.slice()),S(r,!0))},T=function(e){var r,t=this;if(!t._d){t._d=!0,t=t._w||t;try{if(t===e)throw j(\"Promise can't be resolved itself\");(r=x(e))?p(function(){var i={_w:t,_d:!1};try{r.call(e,c(T,i,1),c(H,i,1))}catch(e){H.call(i,e)}}):(t._v=e,t._s=1,S(t,!1))}catch(e){H.call({_w:t,_d:!1},e)}}};F||(b=function(r){h(this,b,y,\"_h\"),_(r),e.call(this);try{r(c(T,this,1),c(H,this,1))}catch(e){H.call(this,e)}},(e=function(e){this._c=[],this._a=void 0,this._s=0,this._d=!1,this._v=void 0,this._h=0,this._n=!1}).prototype=require(\"./_redefine-all\")(b.prototype,{then:function(e,r){var t=P(l(this,b));return t.ok=\"function\"!=typeof e||e,t.fail=\"function\"==typeof r&&r,t.domain=g?w.domain:void 0,this._c.push(t),this._a&&this._a.push(t),this._s&&S(this,!1),t.promise},catch:function(e){return this.then(void 0,e)}}),t=function(){var r=new e;this.promise=r,this.resolve=c(T,r,1),this.reject=c(H,r,1)},d.f=P=function(e){return e===b||e===i?new t(e):r(e)}),u(u.G+u.W+u.F*!F,{Promise:b}),require(\"./_set-to-string-tag\")(b,y),require(\"./_set-species\")(y),i=require(\"./_core\")[y],u(u.S+u.F*!F,y,{reject:function(e){var r=P(this);return(0,r.reject)(e),r.promise}}),u(u.S+u.F*(n||!F),y,{resolve:function(e){return q(n&&this===i?b:this,e)}}),u(u.S+u.F*!(F&&require(\"./_iter-detect\")(function(e){b.all(e).catch(k)})),y,{all:function(e){var r=this,t=P(r),i=t.resolve,n=t.reject,o=m(function(){var t=[],o=0,c=1;f(e,!1,function(e){var s=o++,u=!1;t.push(void 0),c++,r.resolve(e).then(function(e){u||(u=!0,t[s]=e,--c||i(t))},n)}),--c||i(t)});return o.e&&n(o.v),t.promise},race:function(e){var r=this,t=P(r),i=t.reject,n=m(function(){f(e,!1,function(e){r.resolve(e).then(t.resolve,i)})});return n.e&&i(n.v),t.promise}});"
+  },
+  "hash": "3c64096452450687ca6926bd2a05503e"
+}

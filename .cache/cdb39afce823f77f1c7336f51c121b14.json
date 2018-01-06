@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\");r(r.S,\"Math\",{isubh:function(r,e,t,u){var a=r>>>0,i=t>>>0;return(e>>>0)-(u>>>0)-((~a&i|~(a^i)&a-i>>>0)>>>31)|0}});"
+  },
+  "hash": "9d78284abf88fcd94f85abed56e66837"
+}

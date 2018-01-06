@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 1, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_is-object\");module.exports=function(e,i){if(!r(e)||e._t!==i)throw TypeError(\"Incompatible receiver, \"+i+\" required!\");return e};"
+  },
+  "hash": "ad665c38692d48432e111600e47be6b8"
+}

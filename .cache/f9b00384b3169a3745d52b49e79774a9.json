@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_replacer", "loc": { "line": 3, "column": 18 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\"),r=require(\"./_replacer\")(/[\\\\^$*+?.()|[\\]{}]/g,\"\\\\$&\");e(e.S,\"RegExp\",{escape:function(e){return r(e)}});"
+  },
+  "hash": "d32bd8a24666c43aac3ab2d101fd92cd"
+}

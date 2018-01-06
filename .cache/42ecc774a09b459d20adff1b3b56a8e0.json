@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_object-dp", "loc": { "line": 1, "column": 17 } },
+    { "name": "./_descriptors", "loc": { "line": 7, "column": 26 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_object-dp\").f,t=Function.prototype,e=/^\\s*function ([^ (]*)/,n=\"name\";n in t||require(\"./_descriptors\")&&r(t,n,{configurable:!0,get:function(){try{return(\"\"+this).match(e)[1]}catch(r){return\"\"}}});"
+  },
+  "hash": "0dfdf3e9856fd837faf623da15158d12"
+}

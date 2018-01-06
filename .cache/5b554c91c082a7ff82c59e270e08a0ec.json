@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_fails", "loc": { "line": 2, "column": 26 } }],
+  "generated": {
+    "js":
+      "module.exports=!require(\"./_fails\")(function(){return 7!=Object.defineProperty({},\"a\",{get:function(){return 7}}).a});"
+  },
+  "hash": "c2d9652fb193fff83ae24f9ee3ea22a3"
+}

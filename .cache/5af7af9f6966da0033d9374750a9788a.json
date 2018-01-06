@@ -1,0 +1,8 @@
+{
+  "dependencies": [],
+  "generated": {
+    "js":
+      "var e=module.exports={version:\"2.5.3\"};\"number\"==typeof __e&&(__e=e);"
+  },
+  "hash": "6d75d53db0d96f2b7e7f477e10cdc9e3"
+}

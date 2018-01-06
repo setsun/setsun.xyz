@@ -1,0 +1,8 @@
+{
+  "dependencies": [],
+  "generated": {
+    "js":
+      "\"use strict\";var e=/([A-Z])/g;function r(r){return r.replace(e,\"-$1\").toLowerCase()}module.exports=r;"
+  },
+  "hash": "262232306469fffb1dafa2b83f0eadf8"
+}

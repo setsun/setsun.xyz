@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_math-expm1", "loc": { "line": 3, "column": 20 } },
+    { "name": "./_fails", "loc": { "line": 7, "column": 40 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\"),r=require(\"./_math-expm1\"),t=Math.exp;e(e.S+e.F*require(\"./_fails\")(function(){return-2e-17!=!Math.sinh(-2e-17)}),\"Math\",{sinh:function(e){return Math.abs(e=+e)<1?(r(e)-r(-e))/2:(t(e-1)-t(-e-1))*(Math.E/2)}});"
+  },
+  "hash": "ea029e9b42544026dcaaec2d4755604a"
+}

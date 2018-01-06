@@ -1,0 +1,21 @@
+{
+  "dependencies": [
+    { "name": "./_ctx", "loc": { "line": 2, "column": 18 } },
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_to-object", "loc": { "line": 4, "column": 23 } },
+    { "name": "./_iter-call", "loc": { "line": 5, "column": 19 } },
+    { "name": "./_is-array-iter", "loc": { "line": 6, "column": 26 } },
+    { "name": "./_to-length", "loc": { "line": 7, "column": 23 } },
+    { "name": "./_create-property", "loc": { "line": 8, "column": 29 } },
+    {
+      "name": "./core.get-iterator-method",
+      "loc": { "line": 9, "column": 24 }
+    },
+    { "name": "./_iter-detect", "loc": { "line": 11, "column": 41 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./_ctx\"),r=require(\"./_export\"),t=require(\"./_to-object\"),i=require(\"./_iter-call\"),o=require(\"./_is-array-iter\"),u=require(\"./_to-length\"),n=require(\"./_create-property\"),a=require(\"./core.get-iterator-method\");r(r.S+r.F*!require(\"./_iter-detect\")(function(e){Array.from(e)}),\"Array\",{from:function(r){var c,l,f,q,v=t(r),_=\"function\"==typeof this?this:Array,d=arguments.length,h=d>1?arguments[1]:void 0,y=void 0!==h,s=0,g=a(v);if(y&&(h=e(h,d>2?arguments[2]:void 0,2)),void 0==g||_==Array&&o(g))for(l=new _(c=u(v.length));c>s;s++)n(l,s,y?h(v[s],s):v[s]);else for(q=g.call(v),l=new _;!(f=q.next()).done;s++)n(l,s,y?i(q,h,[f.value,s],!0):f.value);return l.length=s,l}});"
+  },
+  "hash": "a54c72d4cb4a2a6ae4a26e7c86297927"
+}

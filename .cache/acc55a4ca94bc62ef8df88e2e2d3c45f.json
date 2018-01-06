@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_to-iobject", "loc": { "line": 2, "column": 24 } },
+    { "name": "./_object-gopd", "loc": { "line": 3, "column": 40 } },
+    { "name": "./_object-sap", "loc": { "line": 5, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_to-iobject\"),e=require(\"./_object-gopd\").f;require(\"./_object-sap\")(\"getOwnPropertyDescriptor\",function(){return function(t,o){return e(r(t),o)}});"
+  },
+  "hash": "90a350d029ca76ec22736680f7e0179f"
+}
