@@ -65,6 +65,10 @@ jobs:
       - attach_workspace:
           at: ~/setsun.github.io
 
+      - add_ssh_keys:
+          fingerprints:
+            - SSH_FINGERPRINT
+
       - deploy:
           name: GitHub Pages deploy
           command: ./bin/deploy-gh-pages.sh

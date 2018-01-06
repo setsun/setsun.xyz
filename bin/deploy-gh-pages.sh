@@ -2,4 +2,8 @@
 
 echo "Deploying setsun.github.io"
 
-exit 0
+git checkout -b stage-deploy
+git add build && git commit -m "deploy"
+git subtree push --prefix build origin master
+
+echo "Deployed setsun.github.io"
