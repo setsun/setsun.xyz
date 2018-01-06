@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html -d build",
+    "build": "parcel build src/index.html -d dist",
     "test": "echo \"test step\"; exit 0;",
     "lint": "echo \"lint step\"; exit 0;",
     "flow": "echo \"flow step\"; exit 0;",
@@ -30,7 +30,9 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-setsun": "^1.0.0",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint-config-setsun": "^1.0.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
