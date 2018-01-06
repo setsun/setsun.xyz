@@ -66,7 +66,7 @@ jobs:
 
       - deploy:
           name: GitHub Pages deploy
-          command: ./bin/deploy_gh_pages.sh
+          command: ./bin/deploy-gh-pages.sh
 
 workflows:
   version: 2
