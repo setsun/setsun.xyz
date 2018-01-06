@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_create-property", "loc": { "line": 3, "column": 29 } },
+    { "name": "./_fails", "loc": { "line": 6, "column": 40 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\nvar $export = require('./_export');\nvar createProperty = require('./_create-property');\n\n// WebKit Array.of isn't generic\n$export($export.S + $export.F * require('./_fails')(function () {\n  function F() { /* empty */ }\n  return !(Array.of.call(F) instanceof F);\n}), 'Array', {\n  // 22.1.2.3 Array.of( ...items)\n  of: function of(/* ...args */) {\n    var index = 0;\n    var aLen = arguments.length;\n    var result = new (typeof this == 'function' ? this : Array)(aLen);\n    while (aLen > index) createProperty(result, index, arguments[index++]);\n    result.length = aLen;\n    return result;\n  }\n});\n"
+  },
+  "hash": "1075515abfe611962211dcb1fdf39631"
+}

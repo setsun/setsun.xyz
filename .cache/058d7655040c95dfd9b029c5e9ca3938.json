@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_a-function", "loc": { "line": 3, "column": 24 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// 25.4.1.5 NewPromiseCapability(C)\nvar aFunction = require('./_a-function');\n\nfunction PromiseCapability(C) {\n  var resolve, reject;\n  this.promise = new C(function ($$resolve, $$reject) {\n    if (resolve !== undefined || reject !== undefined) throw TypeError('Bad Promise constructor');\n    resolve = $$resolve;\n    reject = $$reject;\n  });\n  this.resolve = aFunction(resolve);\n  this.reject = aFunction(reject);\n}\n\nmodule.exports.f = function (C) {\n  return new PromiseCapability(C);\n};\n"
+  },
+  "hash": "f2f2db2383691c6be93483c6f779935a"
+}

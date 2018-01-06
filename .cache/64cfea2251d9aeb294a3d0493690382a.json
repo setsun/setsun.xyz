@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_redefine", "loc": { "line": 7, "column": 10 } }
+  ],
+  "generated": {
+    "js":
+      "var DateProto = Date.prototype;\nvar INVALID_DATE = 'Invalid Date';\nvar TO_STRING = 'toString';\nvar $toString = DateProto[TO_STRING];\nvar getTime = DateProto.getTime;\nif (new Date(NaN) + '' != INVALID_DATE) {\n  require('./_redefine')(DateProto, TO_STRING, function toString() {\n    var value = getTime.call(this);\n    // eslint-disable-next-line no-self-compare\n    return value === value ? $toString.call(this) : INVALID_DATE;\n  });\n}\n"
+  },
+  "hash": "962898e1b561ad5d2c5d9c085cb3409c"
+}

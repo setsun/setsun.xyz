@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_global", "loc": { "line": 1, "column": 26 } },
+    { "name": "./_string-trim", "loc": { "line": 2, "column": 20 } },
+    { "name": "./_string-ws", "loc": { "line": 4, "column": 41 } }
+  ],
+  "generated": {
+    "js":
+      "var $parseFloat = require('./_global').parseFloat;\nvar $trim = require('./_string-trim').trim;\n\nmodule.exports = 1 / $parseFloat(require('./_string-ws') + '-0') !== -Infinity ? function parseFloat(str) {\n  var string = $trim(String(str), 3);\n  var result = $parseFloat(string);\n  return result === 0 && string.charAt(0) == '-' ? -0 : result;\n} : $parseFloat;\n"
+  },
+  "hash": "51e81bf75107f6fb6da1eaa80e868a94"
+}

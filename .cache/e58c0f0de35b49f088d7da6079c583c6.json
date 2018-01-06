@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "// 20.1.2.4 Number.isNaN(number)\nvar $export = require('./_export');\n\n$export($export.S, 'Number', {\n  isNaN: function isNaN(number) {\n    // eslint-disable-next-line no-self-compare\n    return number != number;\n  }\n});\n"
+  },
+  "hash": "3d6413c21f5d7f1d3e5f1e676522aa78"
+}

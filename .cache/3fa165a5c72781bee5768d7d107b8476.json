@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_math-expm1", "loc": { "line": 3, "column": 20 } },
+    { "name": "./_fails", "loc": { "line": 7, "column": 40 } }
+  ],
+  "generated": {
+    "js":
+      "// 20.2.2.30 Math.sinh(x)\nvar $export = require('./_export');\nvar expm1 = require('./_math-expm1');\nvar exp = Math.exp;\n\n// V8 near Chromium 38 has a problem with very small numbers\n$export($export.S + $export.F * require('./_fails')(function () {\n  return !Math.sinh(-2e-17) != -2e-17;\n}), 'Math', {\n  sinh: function sinh(x) {\n    return Math.abs(x = +x) < 1\n      ? (expm1(x) - expm1(-x)) / 2\n      : (exp(x - 1) - exp(-x - 1)) * (Math.E / 2);\n  }\n});\n"
+  },
+  "hash": "fff62891ca2faebca37806b924d26c01"
+}

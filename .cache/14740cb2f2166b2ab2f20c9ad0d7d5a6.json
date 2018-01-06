@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_a-function", "loc": { "line": 2, "column": 24 } },
+    { "name": "./_is-object", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_invoke", "loc": { "line": 4, "column": 21 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\nvar aFunction = require('./_a-function');\nvar isObject = require('./_is-object');\nvar invoke = require('./_invoke');\nvar arraySlice = [].slice;\nvar factories = {};\n\nvar construct = function (F, len, args) {\n  if (!(len in factories)) {\n    for (var n = [], i = 0; i < len; i++) n[i] = 'a[' + i + ']';\n    // eslint-disable-next-line no-new-func\n    factories[len] = Function('F,a', 'return new F(' + n.join(',') + ')');\n  } return factories[len](F, args);\n};\n\nmodule.exports = Function.bind || function bind(that /* , ...args */) {\n  var fn = aFunction(this);\n  var partArgs = arraySlice.call(arguments, 1);\n  var bound = function (/* args... */) {\n    var args = partArgs.concat(arraySlice.call(arguments));\n    return this instanceof bound ? construct(fn, args.length, args) : invoke(fn, args, that);\n  };\n  if (isObject(fn.prototype)) bound.prototype = fn.prototype;\n  return bound;\n};\n"
+  },
+  "hash": "06067245fd24edba20a2f5a19ddef0fa"
+}

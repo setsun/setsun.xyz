@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_object-keys", "loc": { "line": 1, "column": 22 } },
+    { "name": "./_to-iobject", "loc": { "line": 2, "column": 24 } },
+    { "name": "./_object-pie", "loc": { "line": 3, "column": 21 } }
+  ],
+  "generated": {
+    "js":
+      "var getKeys = require('./_object-keys');\nvar toIObject = require('./_to-iobject');\nvar isEnum = require('./_object-pie').f;\nmodule.exports = function (isEntries) {\n  return function (it) {\n    var O = toIObject(it);\n    var keys = getKeys(O);\n    var length = keys.length;\n    var i = 0;\n    var result = [];\n    var key;\n    while (length > i) if (isEnum.call(O, key = keys[i++])) {\n      result.push(isEntries ? [key, O[key]] : O[key]);\n    } return result;\n  };\n};\n"
+  },
+  "hash": "0e6cec28f78aaa97dfcf7cecabcb76f5"
+}

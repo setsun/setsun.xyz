@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 3, "column": 22 } }],
+  "generated": {
+    "js":
+      "'use strict';\n// https://tc39.github.io/proposal-setmap-offrom/\nvar $export = require('./_export');\n\nmodule.exports = function (COLLECTION) {\n  $export($export.S, COLLECTION, { of: function of() {\n    var length = arguments.length;\n    var A = new Array(length);\n    while (length--) A[length] = arguments[length];\n    return new this(A);\n  } });\n};\n"
+  },
+  "hash": "f72598c72b3bf56f349a8a6ee9f22ab5"
+}

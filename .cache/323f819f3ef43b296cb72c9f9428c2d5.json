@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 1, "column": 22 } },
+    { "name": "./_typed", "loc": { "line": 2, "column": 53 } },
+    { "name": "./_typed-buffer", "loc": { "line": 3, "column": 20 } }
+  ],
+  "generated": {
+    "js":
+      "var $export = require('./_export');\n$export($export.G + $export.W + $export.F * !require('./_typed').ABV, {\n  DataView: require('./_typed-buffer').DataView\n});\n"
+  },
+  "hash": "6be91e8f1f4697ef7d69145be19e1d8e"
+}

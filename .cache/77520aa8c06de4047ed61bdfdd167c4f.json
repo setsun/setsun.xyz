@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_to-length", "loc": { "line": 4, "column": 23 } },
+    { "name": "./_string-context", "loc": { "line": 5, "column": 22 } },
+    { "name": "./_fails-is-regexp", "loc": { "line": 9, "column": 40 } }
+  ],
+  "generated": {
+    "js":
+      "// 21.1.3.18 String.prototype.startsWith(searchString [, position ])\n'use strict';\nvar $export = require('./_export');\nvar toLength = require('./_to-length');\nvar context = require('./_string-context');\nvar STARTS_WITH = 'startsWith';\nvar $startsWith = ''[STARTS_WITH];\n\n$export($export.P + $export.F * require('./_fails-is-regexp')(STARTS_WITH), 'String', {\n  startsWith: function startsWith(searchString /* , position = 0 */) {\n    var that = context(this, searchString, STARTS_WITH);\n    var index = toLength(Math.min(arguments.length > 1 ? arguments[1] : undefined, that.length));\n    var search = String(searchString);\n    return $startsWith\n      ? $startsWith.call(that, search, index)\n      : that.slice(index, index + search.length) === search;\n  }\n});\n"
+  },
+  "hash": "ef421b9021a38a7803f89a112fa0f870"
+}

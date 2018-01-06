@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_wks", "loc": { "line": 1, "column": 27 } },
+    { "name": "./_hide", "loc": { "line": 4, "column": 38 } },
+    { "name": "./_date-to-primitive", "loc": { "line": 4, "column": 78 } }
+  ],
+  "generated": {
+    "js":
+      "var TO_PRIMITIVE = require('./_wks')('toPrimitive');\nvar proto = Date.prototype;\n\nif (!(TO_PRIMITIVE in proto)) require('./_hide')(proto, TO_PRIMITIVE, require('./_date-to-primitive'));\n"
+  },
+  "hash": "62f8f238386fcd421d73c2dfcaab7a82"
+}

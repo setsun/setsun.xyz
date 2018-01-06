@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_collection-strong", "loc": { "line": 2, "column": 21 } },
+    { "name": "./_validate-collection", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_collection", "loc": { "line": 7, "column": 25 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\nvar strong = require('./_collection-strong');\nvar validate = require('./_validate-collection');\nvar SET = 'Set';\n\n// 23.2 Set Objects\nmodule.exports = require('./_collection')(SET, function (get) {\n  return function Set() { return get(this, arguments.length > 0 ? arguments[0] : undefined); };\n}, {\n  // 23.2.3.1 Set.prototype.add(value)\n  add: function add(value) {\n    return strong.def(validate(this, SET), value = value === 0 ? 0 : value, value);\n  }\n}, strong);\n"
+  },
+  "hash": "e175071c6cd95e7f0e951a7ebd192abb"
+}

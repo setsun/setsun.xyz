@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_object-sap", "loc": { "line": 4, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "// 19.1.2.12 Object.isFrozen(O)\nvar isObject = require('./_is-object');\n\nrequire('./_object-sap')('isFrozen', function ($isFrozen) {\n  return function isFrozen(it) {\n    return isObject(it) ? $isFrozen ? $isFrozen(it) : false : true;\n  };\n});\n"
+  },
+  "hash": "25a7ecb2b997361068e49caeb9515f45"
+}

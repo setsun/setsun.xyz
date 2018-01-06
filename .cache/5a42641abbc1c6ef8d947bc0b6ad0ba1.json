@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_to-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_object-keys", "loc": { "line": 3, "column": 20 } },
+    { "name": "./_object-sap", "loc": { "line": 5, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "// 19.1.2.14 Object.keys(O)\nvar toObject = require('./_to-object');\nvar $keys = require('./_object-keys');\n\nrequire('./_object-sap')('keys', function () {\n  return function keys(it) {\n    return $keys(toObject(it));\n  };\n});\n"
+  },
+  "hash": "76731e5c9e48bf776cd9138c02e7922e"
+}

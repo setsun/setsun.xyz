@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "// 20.1.2.6 Number.MAX_SAFE_INTEGER\nvar $export = require('./_export');\n\n$export($export.S, 'Number', { MAX_SAFE_INTEGER: 0x1fffffffffffff });\n"
+  },
+  "hash": "b8cfff7d1adeea30fd0d341446ae7103"
+}

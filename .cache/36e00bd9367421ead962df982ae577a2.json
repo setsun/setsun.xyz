@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 1, "column": 22 } },
+    { "name": "./_task", "loc": { "line": 2, "column": 20 } }
+  ],
+  "generated": {
+    "js":
+      "var $export = require('./_export');\nvar $task = require('./_task');\n$export($export.G + $export.B, {\n  setImmediate: $task.set,\n  clearImmediate: $task.clear\n});\n"
+  },
+  "hash": "7c58592b7594ac496f8f30ccbd2720cb"
+}

@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_object-gpo", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_an-object", "loc": { "line": 4, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "// 26.1.8 Reflect.getPrototypeOf(target)\nvar $export = require('./_export');\nvar getProto = require('./_object-gpo');\nvar anObject = require('./_an-object');\n\n$export($export.S, 'Reflect', {\n  getPrototypeOf: function getPrototypeOf(target) {\n    return getProto(anObject(target));\n  }\n});\n"
+  },
+  "hash": "dd3390bc6db997ebb2108bbe7cb8d764"
+}

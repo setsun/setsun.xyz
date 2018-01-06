@@ -1,0 +1,20 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_typed", "loc": { "line": 3, "column": 21 } },
+    { "name": "./_typed-buffer", "loc": { "line": 4, "column": 21 } },
+    { "name": "./_an-object", "loc": { "line": 5, "column": 23 } },
+    { "name": "./_to-absolute-index", "loc": { "line": 6, "column": 30 } },
+    { "name": "./_to-length", "loc": { "line": 7, "column": 23 } },
+    { "name": "./_is-object", "loc": { "line": 8, "column": 23 } },
+    { "name": "./_global", "loc": { "line": 9, "column": 26 } },
+    { "name": "./_species-constructor", "loc": { "line": 10, "column": 33 } },
+    { "name": "./_fails", "loc": { "line": 27, "column": 52 } },
+    { "name": "./_set-species", "loc": { "line": 46, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\nvar $export = require('./_export');\nvar $typed = require('./_typed');\nvar buffer = require('./_typed-buffer');\nvar anObject = require('./_an-object');\nvar toAbsoluteIndex = require('./_to-absolute-index');\nvar toLength = require('./_to-length');\nvar isObject = require('./_is-object');\nvar ArrayBuffer = require('./_global').ArrayBuffer;\nvar speciesConstructor = require('./_species-constructor');\nvar $ArrayBuffer = buffer.ArrayBuffer;\nvar $DataView = buffer.DataView;\nvar $isView = $typed.ABV && ArrayBuffer.isView;\nvar $slice = $ArrayBuffer.prototype.slice;\nvar VIEW = $typed.VIEW;\nvar ARRAY_BUFFER = 'ArrayBuffer';\n\n$export($export.G + $export.W + $export.F * (ArrayBuffer !== $ArrayBuffer), { ArrayBuffer: $ArrayBuffer });\n\n$export($export.S + $export.F * !$typed.CONSTR, ARRAY_BUFFER, {\n  // 24.1.3.1 ArrayBuffer.isView(arg)\n  isView: function isView(it) {\n    return $isView && $isView(it) || isObject(it) && VIEW in it;\n  }\n});\n\n$export($export.P + $export.U + $export.F * require('./_fails')(function () {\n  return !new $ArrayBuffer(2).slice(1, undefined).byteLength;\n}), ARRAY_BUFFER, {\n  // 24.1.4.3 ArrayBuffer.prototype.slice(start, end)\n  slice: function slice(start, end) {\n    if ($slice !== undefined && end === undefined) return $slice.call(anObject(this), start); // FF fix\n    var len = anObject(this).byteLength;\n    var first = toAbsoluteIndex(start, len);\n    var final = toAbsoluteIndex(end === undefined ? len : end, len);\n    var result = new (speciesConstructor(this, $ArrayBuffer))(toLength(final - first));\n    var viewS = new $DataView(this);\n    var viewT = new $DataView(result);\n    var index = 0;\n    while (first < final) {\n      viewT.setUint8(index++, viewS.getUint8(first++));\n    } return result;\n  }\n});\n\nrequire('./_set-species')(ARRAY_BUFFER);\n"
+  },
+  "hash": "07acf5c4bd14df893bafb828daf48204"
+}

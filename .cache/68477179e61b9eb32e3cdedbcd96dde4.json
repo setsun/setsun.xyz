@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "// 20.2.2.12 Math.cosh(x)\nvar $export = require('./_export');\nvar exp = Math.exp;\n\n$export($export.S, 'Math', {\n  cosh: function cosh(x) {\n    return (exp(x = +x) + exp(-x)) / 2;\n  }\n});\n"
+  },
+  "hash": "5eae9b87ed2875d43a99ce80e9d07094"
+}

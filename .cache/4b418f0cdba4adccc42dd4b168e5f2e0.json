@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_global", "loc": { "line": 1, "column": 21 } }],
+  "generated": {
+    "js":
+      "\nvar global = require('./_global');\nvar navigator = global.navigator;\n\nmodule.exports = navigator && navigator.userAgent || '';\n"
+  },
+  "hash": "07ad7f2031d27a84cbe8fa6408c2296e"
+}

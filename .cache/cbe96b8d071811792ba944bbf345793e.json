@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-html", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// B.2.3.7 String.prototype.fontcolor(color)\nrequire('./_string-html')('fontcolor', function (createHTML) {\n  return function fontcolor(color) {\n    return createHTML(this, 'font', 'color', color);\n  };\n});\n"
+  },
+  "hash": "fe9700bd40d92a79b4eb5f08770eae2d"
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_object-sap", "loc": { "line": 2, "column": 8 } },
+    { "name": "./_object-gopn-ext", "loc": { "line": 3, "column": 17 } }
+  ],
+  "generated": {
+    "js":
+      "// 19.1.2.7 Object.getOwnPropertyNames(O)\nrequire('./_object-sap')('getOwnPropertyNames', function () {\n  return require('./_object-gopn-ext').f;\n});\n"
+  },
+  "hash": "8fd58134f92a1fc3190888a6f9279a59"
+}

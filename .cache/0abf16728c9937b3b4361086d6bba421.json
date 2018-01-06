@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_a-function", "loc": { "line": 4, "column": 24 } },
+    { "name": "./_ctx", "loc": { "line": 5, "column": 18 } },
+    { "name": "./_for-of", "loc": { "line": 6, "column": 20 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// https://tc39.github.io/proposal-setmap-offrom/\nvar $export = require('./_export');\nvar aFunction = require('./_a-function');\nvar ctx = require('./_ctx');\nvar forOf = require('./_for-of');\n\nmodule.exports = function (COLLECTION) {\n  $export($export.S, COLLECTION, { from: function from(source /* , mapFn, thisArg */) {\n    var mapFn = arguments[1];\n    var mapping, A, n, cb;\n    aFunction(this);\n    mapping = mapFn !== undefined;\n    if (mapping) aFunction(mapFn);\n    if (source == undefined) return new this();\n    A = [];\n    if (mapping) {\n      n = 0;\n      cb = ctx(mapFn, arguments[2], 2);\n      forOf(source, false, function (nextItem) {\n        A.push(cb(nextItem, n++));\n      });\n    } else {\n      forOf(source, false, A.push, A);\n    }\n    return new this(A);\n  } });\n};\n"
+  },
+  "hash": "334eec0d84eba6cbb6c33ecdd6f3d766"
+}

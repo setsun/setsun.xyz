@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_to-integer", "loc": { "line": 2, "column": 24 } },
+    { "name": "./_to-length", "loc": { "line": 3, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "// https://tc39.github.io/ecma262/#sec-toindex\nvar toInteger = require('./_to-integer');\nvar toLength = require('./_to-length');\nmodule.exports = function (it) {\n  if (it === undefined) return 0;\n  var number = toInteger(it);\n  var length = toLength(number);\n  if (number !== length) throw RangeError('Wrong length!');\n  return length;\n};\n"
+  },
+  "hash": "d09dbcb353d94e27d791bd95559fb5c1"
+}

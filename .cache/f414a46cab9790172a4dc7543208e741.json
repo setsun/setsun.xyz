@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_array-methods", "loc": { "line": 3, "column": 21 } },
+    { "name": "./_strict-method", "loc": { "line": 5, "column": 41 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\nvar $export = require('./_export');\nvar $every = require('./_array-methods')(4);\n\n$export($export.P + $export.F * !require('./_strict-method')([].every, true), 'Array', {\n  // 22.1.3.5 / 15.4.4.16 Array.prototype.every(callbackfn [, thisArg])\n  every: function every(callbackfn /* , thisArg */) {\n    return $every(this, callbackfn, arguments[1]);\n  }\n});\n"
+  },
+  "hash": "ba4ab6c9825d428b0e8f545706b20530"
+}

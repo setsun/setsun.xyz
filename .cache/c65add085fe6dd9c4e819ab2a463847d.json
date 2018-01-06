@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_object-gopd", "loc": { "line": 2, "column": 19 } },
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_an-object", "loc": { "line": 4, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "// 26.1.7 Reflect.getOwnPropertyDescriptor(target, propertyKey)\nvar gOPD = require('./_object-gopd');\nvar $export = require('./_export');\nvar anObject = require('./_an-object');\n\n$export($export.S, 'Reflect', {\n  getOwnPropertyDescriptor: function getOwnPropertyDescriptor(target, propertyKey) {\n    return gOPD.f(anObject(target), propertyKey);\n  }\n});\n"
+  },
+  "hash": "a978a3cbbbb1e8f4c92db7471b972a7e"
+}

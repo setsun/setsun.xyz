@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_collection-to-json", "loc": { "line": 4, "column": 56 } }
+  ],
+  "generated": {
+    "js":
+      "// https://github.com/DavidBruant/Map-Set.prototype.toJSON\nvar $export = require('./_export');\n\n$export($export.P + $export.R, 'Map', { toJSON: require('./_collection-to-json')('Map') });\n"
+  },
+  "hash": "1ed1fc94eaab48ec48deabc8a478ec0f"
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_object-to-array", "loc": { "line": 3, "column": 22 } }
+  ],
+  "generated": {
+    "js":
+      "// https://github.com/tc39/proposal-object-values-entries\nvar $export = require('./_export');\nvar $values = require('./_object-to-array')(false);\n\n$export($export.S, 'Object', {\n  values: function values(it) {\n    return $values(it);\n  }\n});\n"
+  },
+  "hash": "87a316ba5fc228acfccad6b392297f0a"
+}

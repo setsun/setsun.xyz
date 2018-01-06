@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    { "name": "core-js/shim", "loc": { "line": 3, "column": 8 } },
+    {
+      "name": "regenerator-runtime/runtime",
+      "loc": { "line": 5, "column": 8 }
+    },
+    { "name": "core-js/fn/regexp/escape", "loc": { "line": 7, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "var global = (1,eval)(\"this\");\n\"use strict\";\n\nrequire(\"core-js/shim\");\n\nrequire(\"regenerator-runtime/runtime\");\n\nrequire(\"core-js/fn/regexp/escape\");\n\nif (global._babelPolyfill) {\n  throw new Error(\"only one instance of babel-polyfill is allowed\");\n}\nglobal._babelPolyfill = true;\n\nvar DEFINE_PROPERTY = \"defineProperty\";\nfunction define(O, key, value) {\n  O[key] || Object[DEFINE_PROPERTY](O, key, {\n    writable: true,\n    configurable: true,\n    value: value\n  });\n}\n\ndefine(String.prototype, \"padLeft\", \"\".padStart);\ndefine(String.prototype, \"padRight\", \"\".padEnd);\n\n\"pop,reverse,shift,keys,values,entries,indexOf,every,some,forEach,map,filter,find,findIndex,includes,join,slice,concat,push,splice,unshift,sort,lastIndexOf,reduce,reduceRight,copyWithin,fill\".split(\",\").forEach(function (key) {\n  [][key] && define(Array, key, Function.call.bind([][key]));\n});"
+  },
+  "hash": "76b1c0d42a81b56e4b0bc2350b637a2b"
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_metadata", "loc": { "line": 1, "column": 23 } },
+    { "name": "./_an-object", "loc": { "line": 2, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var metadata = require('./_metadata');\nvar anObject = require('./_an-object');\nvar ordinaryGetOwnMetadata = metadata.get;\nvar toMetaKey = metadata.key;\n\nmetadata.exp({ getOwnMetadata: function getOwnMetadata(metadataKey, target /* , targetKey */) {\n  return ordinaryGetOwnMetadata(metadataKey, anObject(target)\n    , arguments.length < 3 ? undefined : toMetaKey(arguments[2]));\n} });\n"
+  },
+  "hash": "e4a4d2cc7d9d8af371fcf797867013f8"
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_own-keys", "loc": { "line": 4, "column": 49 } }
+  ],
+  "generated": {
+    "js":
+      "// 26.1.11 Reflect.ownKeys(target)\nvar $export = require('./_export');\n\n$export($export.S, 'Reflect', { ownKeys: require('./_own-keys') });\n"
+  },
+  "hash": "5fdbc53ec25503f794e39dceb624a954"
+}

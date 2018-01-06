@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_to-object", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_to-primitive", "loc": { "line": 4, "column": 26 } },
+    { "name": "./_fails", "loc": { "line": 6, "column": 40 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\nvar $export = require('./_export');\nvar toObject = require('./_to-object');\nvar toPrimitive = require('./_to-primitive');\n\n$export($export.P + $export.F * require('./_fails')(function () {\n  return new Date(NaN).toJSON() !== null\n    || Date.prototype.toJSON.call({ toISOString: function () { return 1; } }) !== 1;\n}), 'Date', {\n  // eslint-disable-next-line no-unused-vars\n  toJSON: function toJSON(key) {\n    var O = toObject(this);\n    var pv = toPrimitive(O);\n    return typeof pv == 'number' && !isFinite(pv) ? null : O.toISOString();\n  }\n});\n"
+  },
+  "hash": "3459f83ed9cd6c9fa61faa12c8b78b17"
+}

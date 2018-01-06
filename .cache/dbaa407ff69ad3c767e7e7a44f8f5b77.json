@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_typed-array", "loc": { "line": 1, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "require('./_typed-array')('Uint32', 4, function (init) {\n  return function Uint32Array(data, byteOffset, length) {\n    return init(this, data, byteOffset, length);\n  };\n});\n"
+  },
+  "hash": "fa7320ff364279af1d6f6c473c381fb1"
+}

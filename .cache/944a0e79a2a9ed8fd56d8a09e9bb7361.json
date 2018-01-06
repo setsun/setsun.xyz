@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_meta", "loc": { "line": 3, "column": 19 } },
+    { "name": "./_object-sap", "loc": { "line": 5, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "// 19.1.2.17 Object.seal(O)\nvar isObject = require('./_is-object');\nvar meta = require('./_meta').onFreeze;\n\nrequire('./_object-sap')('seal', function ($seal) {\n  return function seal(it) {\n    return $seal && isObject(it) ? $seal(meta(it)) : it;\n  };\n});\n"
+  },
+  "hash": "b8f6d29acb71d38c75db594a7072b73c"
+}

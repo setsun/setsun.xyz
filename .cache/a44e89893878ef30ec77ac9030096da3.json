@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_flatten-into-array", "loc": { "line": 4, "column": 31 } },
+    { "name": "./_to-object", "loc": { "line": 5, "column": 23 } },
+    { "name": "./_to-length", "loc": { "line": 6, "column": 23 } },
+    { "name": "./_a-function", "loc": { "line": 7, "column": 24 } },
+    { "name": "./_array-species-create", "loc": { "line": 8, "column": 33 } },
+    { "name": "./_add-to-unscopables", "loc": { "line": 22, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// https://tc39.github.io/proposal-flatMap/#sec-Array.prototype.flatMap\nvar $export = require('./_export');\nvar flattenIntoArray = require('./_flatten-into-array');\nvar toObject = require('./_to-object');\nvar toLength = require('./_to-length');\nvar aFunction = require('./_a-function');\nvar arraySpeciesCreate = require('./_array-species-create');\n\n$export($export.P, 'Array', {\n  flatMap: function flatMap(callbackfn /* , thisArg */) {\n    var O = toObject(this);\n    var sourceLen, A;\n    aFunction(callbackfn);\n    sourceLen = toLength(O.length);\n    A = arraySpeciesCreate(O, 0);\n    flattenIntoArray(A, O, O, sourceLen, 0, 1, callbackfn, arguments[1]);\n    return A;\n  }\n});\n\nrequire('./_add-to-unscopables')('flatMap');\n"
+  },
+  "hash": "c0accd762c45a89c95c2212e31d27e05"
+}

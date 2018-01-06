@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_object-sap", "loc": { "line": 4, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "// 19.1.2.13 Object.isSealed(O)\nvar isObject = require('./_is-object');\n\nrequire('./_object-sap')('isSealed', function ($isSealed) {\n  return function isSealed(it) {\n    return isObject(it) ? $isSealed ? $isSealed(it) : false : true;\n  };\n});\n"
+  },
+  "hash": "51691c4655c4c0fba860433a160ebd75"
+}

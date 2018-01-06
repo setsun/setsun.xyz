@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_is-array", "loc": { "line": 4, "column": 47 } }
+  ],
+  "generated": {
+    "js":
+      "// 22.1.2.2 / 15.4.3.2 Array.isArray(arg)\nvar $export = require('./_export');\n\n$export($export.S, 'Array', { isArray: require('./_is-array') });\n"
+  },
+  "hash": "a8c7c8791b12a6f0f7a068ef0b9f575a"
+}

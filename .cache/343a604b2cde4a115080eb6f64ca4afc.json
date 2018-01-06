@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_date-to-iso-string", "loc": { "line": 3, "column": 26 } }
+  ],
+  "generated": {
+    "js":
+      "// 20.3.4.36 / 15.9.5.43 Date.prototype.toISOString()\nvar $export = require('./_export');\nvar toISOString = require('./_date-to-iso-string');\n\n// PhantomJS / old WebKit has a broken implementations\n$export($export.P + $export.F * (Date.prototype.toISOString !== toISOString), 'Date', {\n  toISOString: toISOString\n});\n"
+  },
+  "hash": "08eb95200fd73e82eed1853466641964"
+}

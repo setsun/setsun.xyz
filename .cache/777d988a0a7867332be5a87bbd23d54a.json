@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_math-fround", "loc": { "line": 4, "column": 45 } }
+  ],
+  "generated": {
+    "js":
+      "// 20.2.2.16 Math.fround(x)\nvar $export = require('./_export');\n\n$export($export.S, 'Math', { fround: require('./_math-fround') });\n"
+  },
+  "hash": "7c0e348f57b167ee726c2f0420333f21"
+}

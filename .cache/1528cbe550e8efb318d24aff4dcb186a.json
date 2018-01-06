@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_an-object", "loc": { "line": 3, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// 21.2.5.3 get RegExp.prototype.flags\nvar anObject = require('./_an-object');\nmodule.exports = function () {\n  var that = anObject(this);\n  var result = '';\n  if (that.global) result += 'g';\n  if (that.ignoreCase) result += 'i';\n  if (that.multiline) result += 'm';\n  if (that.unicode) result += 'u';\n  if (that.sticky) result += 'y';\n  return result;\n};\n"
+  },
+  "hash": "12c2455b9c378e342393266fe66c9853"
+}

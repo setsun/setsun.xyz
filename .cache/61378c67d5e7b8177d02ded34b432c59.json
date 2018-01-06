@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_classof", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_array-from-iterable", "loc": { "line": 3, "column": 19 } }
+  ],
+  "generated": {
+    "js":
+      "// https://github.com/DavidBruant/Map-Set.prototype.toJSON\nvar classof = require('./_classof');\nvar from = require('./_array-from-iterable');\nmodule.exports = function (NAME) {\n  return function toJSON() {\n    if (classof(this) != NAME) throw TypeError(NAME + \"#toJSON isn't generic\");\n    return from(this);\n  };\n};\n"
+  },
+  "hash": "1e283f2989def5beffd1373bddd4e0d7"
+}

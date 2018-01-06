@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_array-methods", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_strict-method", "loc": { "line": 4, "column": 21 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\nvar $export = require('./_export');\nvar $forEach = require('./_array-methods')(0);\nvar STRICT = require('./_strict-method')([].forEach, true);\n\n$export($export.P + $export.F * !STRICT, 'Array', {\n  // 22.1.3.10 / 15.4.4.18 Array.prototype.forEach(callbackfn [, thisArg])\n  forEach: function forEach(callbackfn /* , thisArg */) {\n    return $forEach(this, callbackfn, arguments[1]);\n  }\n});\n"
+  },
+  "hash": "ccf620ac941a03676fb6ba5292d5ca5a"
+}

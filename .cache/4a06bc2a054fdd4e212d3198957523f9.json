@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "// 20.2.2.34 Math.trunc(x)\nvar $export = require('./_export');\n\n$export($export.S, 'Math', {\n  trunc: function trunc(it) {\n    return (it > 0 ? Math.floor : Math.ceil)(it);\n  }\n});\n"
+  },
+  "hash": "282a6f4fdbf4eedb97d75158953fbf2a"
+}

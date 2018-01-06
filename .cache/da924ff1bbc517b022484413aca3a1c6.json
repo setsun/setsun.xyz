@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_descriptors", "loc": { "line": 2, "column": 12 } },
+    { "name": "./_object-dp", "loc": { "line": 2, "column": 60 } },
+    { "name": "./_flags", "loc": { "line": 4, "column": 15 } }
+  ],
+  "generated": {
+    "js":
+      "// 21.2.5.3 get RegExp.prototype.flags()\nif (require('./_descriptors') && /./g.flags != 'g') require('./_object-dp').f(RegExp.prototype, 'flags', {\n  configurable: true,\n  get: require('./_flags')\n});\n"
+  },
+  "hash": "05ca232385e19174daba2ae9b6c308f0"
+}

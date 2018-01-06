@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_library", "loc": { "line": 3, "column": 25 } },
+    { "name": "./_fails", "loc": { "line": 3, "column": 51 } },
+    { "name": "./_global", "loc": { "line": 8, "column": 17 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// Forced replacement prototype accessors methods\nmodule.exports = require('./_library') || !require('./_fails')(function () {\n  var K = Math.random();\n  // In FF throws only define methods\n  // eslint-disable-next-line no-undef, no-useless-call\n  __defineSetter__.call(null, K, function () { /* empty */ });\n  delete require('./_global')[K];\n});\n"
+  },
+  "hash": "c6edc813e1968984528334f037b3bae7"
+}

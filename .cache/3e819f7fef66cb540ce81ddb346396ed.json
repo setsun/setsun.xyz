@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-trim", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// https://github.com/sebmarkbage/ecmascript-string-left-right-trim\nrequire('./_string-trim')('trimLeft', function ($trim) {\n  return function trimLeft() {\n    return $trim(this, 1);\n  };\n}, 'trimStart');\n"
+  },
+  "hash": "4515bf8fe0e5e281177faf90420f90c5"
+}

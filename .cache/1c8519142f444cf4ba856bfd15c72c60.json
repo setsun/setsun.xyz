@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 1, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var isObject = require('./_is-object');\nmodule.exports = function (it, TYPE) {\n  if (!isObject(it) || it._t !== TYPE) throw TypeError('Incompatible receiver, ' + TYPE + ' required!');\n  return it;\n};\n"
+  },
+  "hash": "3ee5654fd71b18311e3c029dcb1f5f88"
+}

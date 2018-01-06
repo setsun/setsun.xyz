@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "// 20.2.2.21 Math.log10(x)\nvar $export = require('./_export');\n\n$export($export.S, 'Math', {\n  log10: function log10(x) {\n    return Math.log(x) * Math.LOG10E;\n  }\n});\n"
+  },
+  "hash": "c1f189c688d3c5639232f4bb378d8a31"
+}

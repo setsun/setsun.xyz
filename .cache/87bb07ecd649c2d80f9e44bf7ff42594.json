@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_object-sap", "loc": { "line": 4, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "// 19.1.2.11 Object.isExtensible(O)\nvar isObject = require('./_is-object');\n\nrequire('./_object-sap')('isExtensible', function ($isExtensible) {\n  return function isExtensible(it) {\n    return isObject(it) ? $isExtensible ? $isExtensible(it) : true : false;\n  };\n});\n"
+  },
+  "hash": "e45c0afe9e132f1ceb70166bda31be15"
+}

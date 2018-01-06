@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_flatten-into-array", "loc": { "line": 4, "column": 31 } },
+    { "name": "./_to-object", "loc": { "line": 5, "column": 23 } },
+    { "name": "./_to-length", "loc": { "line": 6, "column": 23 } },
+    { "name": "./_to-integer", "loc": { "line": 7, "column": 24 } },
+    { "name": "./_array-species-create", "loc": { "line": 8, "column": 33 } },
+    { "name": "./_add-to-unscopables", "loc": { "line": 21, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// https://tc39.github.io/proposal-flatMap/#sec-Array.prototype.flatten\nvar $export = require('./_export');\nvar flattenIntoArray = require('./_flatten-into-array');\nvar toObject = require('./_to-object');\nvar toLength = require('./_to-length');\nvar toInteger = require('./_to-integer');\nvar arraySpeciesCreate = require('./_array-species-create');\n\n$export($export.P, 'Array', {\n  flatten: function flatten(/* depthArg = 1 */) {\n    var depthArg = arguments[0];\n    var O = toObject(this);\n    var sourceLen = toLength(O.length);\n    var A = arraySpeciesCreate(O, 0);\n    flattenIntoArray(A, O, O, sourceLen, 0, depthArg === undefined ? 1 : toInteger(depthArg));\n    return A;\n  }\n});\n\nrequire('./_add-to-unscopables')('flatten');\n"
+  },
+  "hash": "b23b31cd5007201e30b64d5b7000ec8f"
+}

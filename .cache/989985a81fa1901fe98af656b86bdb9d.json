@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-html", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// B.2.3.14 String.prototype.sup()\nrequire('./_string-html')('sup', function (createHTML) {\n  return function sup() {\n    return createHTML(this, 'sup', '', '');\n  };\n});\n"
+  },
+  "hash": "e4f8808c7dba612f45c5c85b1586323a"
+}

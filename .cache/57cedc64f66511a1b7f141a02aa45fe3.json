@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_set-collection-from", "loc": { "line": 2, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "// https://tc39.github.io/proposal-setmap-offrom/#sec-set.from\nrequire('./_set-collection-from')('Set');\n"
+  },
+  "hash": "a8f60bb699d3cda68315e2dddddec0a8"
+}

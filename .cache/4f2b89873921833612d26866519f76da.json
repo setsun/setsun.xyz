@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_math-expm1", "loc": { "line": 3, "column": 21 } }
+  ],
+  "generated": {
+    "js":
+      "// 20.2.2.14 Math.expm1(x)\nvar $export = require('./_export');\nvar $expm1 = require('./_math-expm1');\n\n$export($export.S + $export.F * ($expm1 != Math.expm1), 'Math', { expm1: $expm1 });\n"
+  },
+  "hash": "28bc76b706e3f225650818a481cea0f5"
+}

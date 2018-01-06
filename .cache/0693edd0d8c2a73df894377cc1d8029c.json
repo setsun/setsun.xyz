@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "// 20.1.2.1 Number.EPSILON\nvar $export = require('./_export');\n\n$export($export.S, 'Number', { EPSILON: Math.pow(2, -52) });\n"
+  },
+  "hash": "a13b33707f51931c6afe0a98444de5ec"
+}

@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-html", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// B.2.3.8 String.prototype.fontsize(size)\nrequire('./_string-html')('fontsize', function (createHTML) {\n  return function fontsize(size) {\n    return createHTML(this, 'font', 'size', size);\n  };\n});\n"
+  },
+  "hash": "98a8618f3e8630d710c85d34aa1649dd"
+}

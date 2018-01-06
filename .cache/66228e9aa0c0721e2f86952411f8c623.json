@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_a-function", "loc": { "line": 3, "column": 24 } },
+    { "name": "./_an-object", "loc": { "line": 4, "column": 23 } },
+    { "name": "./_global", "loc": { "line": 5, "column": 22 } },
+    { "name": "./_fails", "loc": { "line": 8, "column": 41 } }
+  ],
+  "generated": {
+    "js":
+      "// 26.1.1 Reflect.apply(target, thisArgument, argumentsList)\nvar $export = require('./_export');\nvar aFunction = require('./_a-function');\nvar anObject = require('./_an-object');\nvar rApply = (require('./_global').Reflect || {}).apply;\nvar fApply = Function.apply;\n// MS Edge argumentsList argument is optional\n$export($export.S + $export.F * !require('./_fails')(function () {\n  rApply(function () { /* empty */ });\n}), 'Reflect', {\n  apply: function apply(target, thisArgument, argumentsList) {\n    var T = aFunction(target);\n    var L = anObject(argumentsList);\n    return rApply ? rApply(T, thisArgument, L) : fApply.call(T, thisArgument, L);\n  }\n});\n"
+  },
+  "hash": "8e8ecaf59b55c956f270b4ec870abee6"
+}

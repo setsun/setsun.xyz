@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-html", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// B.2.3.3 String.prototype.big()\nrequire('./_string-html')('big', function (createHTML) {\n  return function big() {\n    return createHTML(this, 'big', '', '');\n  };\n});\n"
+  },
+  "hash": "5caeca01864c402f40a51db3f9980190"
+}

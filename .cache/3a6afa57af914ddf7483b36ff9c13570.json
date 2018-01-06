@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_to-object", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_to-primitive", "loc": { "line": 4, "column": 26 } },
+    { "name": "./_object-gpo", "loc": { "line": 5, "column": 29 } },
+    { "name": "./_object-gopd", "loc": { "line": 6, "column": 39 } },
+    { "name": "./_descriptors", "loc": { "line": 9, "column": 8 } },
+    { "name": "./_object-forced-pam", "loc": { "line": 9, "column": 57 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\nvar $export = require('./_export');\nvar toObject = require('./_to-object');\nvar toPrimitive = require('./_to-primitive');\nvar getPrototypeOf = require('./_object-gpo');\nvar getOwnPropertyDescriptor = require('./_object-gopd').f;\n\n// B.2.2.5 Object.prototype.__lookupSetter__(P)\nrequire('./_descriptors') && $export($export.P + require('./_object-forced-pam'), 'Object', {\n  __lookupSetter__: function __lookupSetter__(P) {\n    var O = toObject(this);\n    var K = toPrimitive(P, true);\n    var D;\n    do {\n      if (D = getOwnPropertyDescriptor(O, K)) return D.set;\n    } while (O = getPrototypeOf(O));\n  }\n});\n"
+  },
+  "hash": "c7d8bbcf7baf3e4a31456b095f817084"
+}

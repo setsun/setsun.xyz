@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-html", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "'use strict';\n// B.2.3.6 String.prototype.fixed()\nrequire('./_string-html')('fixed', function (createHTML) {\n  return function fixed() {\n    return createHTML(this, 'tt', '', '');\n  };\n});\n"
+  },
+  "hash": "bf9f2749aa83b4847716bca0bb15ea0c"
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 1, "column": 22 } },
+    { "name": "./_parse-float", "loc": { "line": 2, "column": 26 } }
+  ],
+  "generated": {
+    "js":
+      "var $export = require('./_export');\nvar $parseFloat = require('./_parse-float');\n// 18.2.4 parseFloat(string)\n$export($export.G + $export.F * (parseFloat != $parseFloat), { parseFloat: $parseFloat });\n"
+  },
+  "hash": "569d5cce4e7b4acaa07f876b979ac693"
+}
