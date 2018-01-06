@@ -1,0 +1,35 @@
+{
+  "name": "setsun.github.io",
+  "version": "1.0.0",
+  "description": "Setsun's personal web stuff",
+  "author": "Setsun",
+  "license": "MIT",
+  "homepage": "https://setsun.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/setsun/setsun.github.io.git"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages --branch master --dist build",
+    "publish": "npm run build && gh-pages -d build -b \"master\"",
+    "serve": "serve -s build"
+  },
+  "dependencies": {
+    "aframe": "^0.7.1",
+    "aframe-animation-component": "^4.0.0-beta9",
+    "aframe-particle-system-component": "^1.0.11",
+    "aframe-react": "^4.3.x",
+    "babel-polyfill": "^6.26.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0",
+    "serve": "^6.4.3"
+  }
+}
