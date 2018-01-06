@@ -15,7 +15,7 @@ git subtree split --prefix dist -b deploy
 git push -f origin deploy:master
 
 git reset --hard
-git co develop
+git checkout develop
 git branch -D staging
 git branch -D deploy
 

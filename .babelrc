@@ -1,3 +1,13 @@
 {
-  "presets": ["setsun"]
+  "presets": ["setsun"],
+  "plugins": [
+    ["transform-react-jsx", { "pragma":"h" }],
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "react": "preact-compat",
+        "react-dom": "preact-compat"
+      }
+    }]
+  ]
 }

@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    {
+      "name": "./factoryWithTypeCheckers",
+      "loc": { "line": 23, "column": 27 }
+    },
+    {
+      "name": "./factoryWithThrowingShims",
+      "loc": { "line": 27, "column": 27 }
+    }
+  ],
+  "generated": {
+    "js": "var r,e,i;module.exports=require(\"./factoryWithThrowingShims\")();"
+  },
+  "hash": "fd7cfbaf9be71d8deee85c287404f0f9"
+}
