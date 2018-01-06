@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 1, "column": 22 } },
+    { "name": "./_typed", "loc": { "line": 2, "column": 53 } },
+    { "name": "./_typed-buffer", "loc": { "line": 3, "column": 20 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\");e(e.G+e.W+e.F*!require(\"./_typed\").ABV,{DataView:require(\"./_typed-buffer\").DataView});"
+  },
+  "hash": "549351b059b67102794596479ce24707"
+}

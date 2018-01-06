@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    { "name": "./_wks-define", "loc": { "line": 1, "column": 8 } }
+  ],
+  "generated": { "js": "require(\"./_wks-define\")(\"observable\");" },
+  "hash": "15d740fed9f0a31b8f38df9b7141b16b"
+}

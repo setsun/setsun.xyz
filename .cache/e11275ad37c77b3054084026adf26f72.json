@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_metadata", "loc": { "line": 1, "column": 23 } },
+    { "name": "./_an-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_object-gpo", "loc": { "line": 3, "column": 29 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_metadata\"),r=require(\"./_an-object\"),t=require(\"./_object-gpo\"),a=e.has,n=e.get,u=e.key,i=function(e,r,u){if(a(e,r,u))return n(e,r,u);var o=t(r);return null!==o?i(e,o,u):void 0};e.exp({getMetadata:function(e,t){return i(e,r(t),arguments.length<3?void 0:u(arguments[2]))}});"
+  },
+  "hash": "4f5d8bfc94553bdc76d73044a6442cef"
+}

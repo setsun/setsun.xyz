@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-html", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";require(\"./_string-html\")(\"fontcolor\",function(t){return function(r){return t(this,\"font\",\"color\",r)}});"
+  },
+  "hash": "6fe921ea01eaeeddc8b0d954efc65aeb"
+}

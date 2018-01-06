@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-html", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";require(\"./_string-html\")(\"italics\",function(t){return function(){return t(this,\"i\",\"\",\"\")}});"
+  },
+  "hash": "3c2c299770048ce067b8292d3ef23351"
+}

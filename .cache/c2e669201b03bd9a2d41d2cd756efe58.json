@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_collection-strong", "loc": { "line": 2, "column": 21 } },
+    { "name": "./_validate-collection", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_collection", "loc": { "line": 7, "column": 25 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var t=require(\"./_collection-strong\"),e=require(\"./_validate-collection\"),r=\"Map\";module.exports=require(\"./_collection\")(r,function(t){return function(){return t(this,arguments.length>0?arguments[0]:void 0)}},{get:function(n){var i=t.getEntry(e(this,r),n);return i&&i.v},set:function(n,i){return t.def(e(this,r),0===n?0:n,i)}},t,!0);"
+  },
+  "hash": "344fc7407955042ef5238f035b8347c3"
+}

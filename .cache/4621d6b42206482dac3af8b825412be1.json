@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    { "name": "./_object-pie", "loc": { "line": 1, "column": 18 } },
+    { "name": "./_property-desc", "loc": { "line": 2, "column": 25 } },
+    { "name": "./_to-iobject", "loc": { "line": 3, "column": 24 } },
+    { "name": "./_to-primitive", "loc": { "line": 4, "column": 26 } },
+    { "name": "./_has", "loc": { "line": 5, "column": 18 } },
+    { "name": "./_ie8-dom-define", "loc": { "line": 6, "column": 29 } },
+    { "name": "./_descriptors", "loc": { "line": 9, "column": 20 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_object-pie\"),r=require(\"./_property-desc\"),i=require(\"./_to-iobject\"),t=require(\"./_to-primitive\"),o=require(\"./_has\"),c=require(\"./_ie8-dom-define\"),u=Object.getOwnPropertyDescriptor;exports.f=require(\"./_descriptors\")?u:function(p,q){if(p=i(p),q=t(q,!0),c)try{return u(p,q)}catch(e){}if(o(p,q))return r(!e.f.call(p,q),p[q])};"
+  },
+  "hash": "88c46c31a15996058ae02de8f1192dd8"
+}

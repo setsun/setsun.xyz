@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_metadata", "loc": { "line": 1, "column": 24 } },
+    { "name": "./_an-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_a-function", "loc": { "line": 3, "column": 24 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_metadata\"),t=require(\"./_an-object\"),a=require(\"./_a-function\"),r=e.key,n=e.set;e.exp({metadata:function(e,i){return function(u,o){n(e,i,(void 0!==o?t:a)(u),r(o))}}});"
+  },
+  "hash": "44e50895defdaefcd2f0437699f6a20a"
+}

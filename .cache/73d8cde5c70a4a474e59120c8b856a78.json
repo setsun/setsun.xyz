@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 2, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_is-object\"),r=Math.floor;module.exports=function(i){return!e(i)&&isFinite(i)&&r(i)===i};"
+  },
+  "hash": "4e5ef6dd9a9115095ff168ea70e7020a"
+}

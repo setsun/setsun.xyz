@@ -67,7 +67,10 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - SSH_FINGERPRINT
+            - f8:eb:09:4e:ba:35:57:ad:cd:c1:ff:e1:07:2a:0a:b4
+
+      # add github to known hosts
+      - run: echo '16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48' >> ~/.ssh/known_hosts
 
       - deploy:
           name: GitHub Pages deploy

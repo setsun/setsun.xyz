@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_fix-re-wks", "loc": { "line": 2, "column": 8 } },
+    { "name": "./_is-regexp", "loc": { "line": 4, "column": 25 } }
+  ],
+  "generated": {
+    "js":
+      "require(\"./_fix-re-wks\")(\"split\",2,function(e,i,t){\"use strict\";var n=require(\"./_is-regexp\"),l=t,s=[].push;if(\"c\"==\"abbc\".split(/(b)*/)[1]||4!=\"test\".split(/(?:)/,-1).length||2!=\"ab\".split(/(?:ab)*/).length||4!=\".\".split(/(.?)(.?)/).length||\".\".split(/()()/).length>1||\"\".split(/.?/).length){var r=void 0===/()??/.exec(\"\")[1];t=function(e,i){var t=String(this);if(void 0===e&&0===i)return[];if(!n(e))return l.call(t,e,i);var c,u,g,h,o,p=[],a=(e.ignoreCase?\"i\":\"\")+(e.multiline?\"m\":\"\")+(e.unicode?\"u\":\"\")+(e.sticky?\"y\":\"\"),d=0,v=void 0===i?4294967295:i>>>0,x=new RegExp(e.source,a+\"g\");for(r||(c=new RegExp(\"^\"+x.source+\"$(?!\\\\s)\",a));(u=x.exec(t))&&!((g=u.index+u[0].length)>d&&(p.push(t.slice(d,u.index)),!r&&u.length>1&&u[0].replace(c,function(){for(o=1;o<arguments.length-2;o++)void 0===arguments[o]&&(u[o]=void 0)}),u.length>1&&u.index<t.length&&s.apply(p,u.slice(1)),h=u[0].length,d=g,p.length>=v));)x.lastIndex===u.index&&x.lastIndex++;return d===t.length?!h&&x.test(\"\")||p.push(\"\"):p.push(t.slice(d)),p.length>v?p.slice(0,v):p}}else\"0\".split(void 0,0).length&&(t=function(e,i){return void 0===e&&0===i?[]:l.call(this,e,i)});return[function(n,l){var s=e(this),r=void 0==n?void 0:n[i];return void 0!==r?r.call(n,s,l):t.call(String(s),n,l)},t]});"
+  },
+  "hash": "326366b16f8c428db83c690c727c9a7f"
+}

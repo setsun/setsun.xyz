@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_bind", "loc": { "line": 4, "column": 47 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\");r(r.P,\"Function\",{bind:require(\"./_bind\")});"
+  },
+  "hash": "b1fcddc72aac76c436f52aa3f3575463"
+}

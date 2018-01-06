@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_typed-array", "loc": { "line": 1, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "require(\"./_typed-array\")(\"Int16\",2,function(r){return function(n,t,e){return r(this,n,t,e)}});"
+  },
+  "hash": "37f9e938066e7ae664c682ab7dc1e290"
+}

@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_descriptors", "loc": { "line": 1, "column": 26 } },
+    { "name": "./_fails", "loc": { "line": 1, "column": 56 } },
+    { "name": "./_dom-create", "loc": { "line": 2, "column": 39 } }
+  ],
+  "generated": {
+    "js":
+      "module.exports=!require(\"./_descriptors\")&&!require(\"./_fails\")(function(){return 7!=Object.defineProperty(require(\"./_dom-create\")(\"div\"),\"a\",{get:function(){return 7}}).a});"
+  },
+  "hash": "7ae1433cd4f150f93d7ef64f72ebe1c3"
+}

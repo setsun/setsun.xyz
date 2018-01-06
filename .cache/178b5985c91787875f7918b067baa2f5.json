@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_wks", "loc": { "line": 2, "column": 26 } },
+    { "name": "./_hide", "loc": { "line": 4, "column": 50 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_wks\")(\"unscopables\"),r=Array.prototype;void 0==r[e]&&require(\"./_hide\")(r,e,{}),module.exports=function(o){r[e][o]=!0};"
+  },
+  "hash": "c3e5556f1f08d2ba05682f6321250cc4"
+}

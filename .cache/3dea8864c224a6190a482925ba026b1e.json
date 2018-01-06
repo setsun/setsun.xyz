@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_string-context", "loc": { "line": 4, "column": 22 } },
+    { "name": "./_fails-is-regexp", "loc": { "line": 7, "column": 40 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./_export\"),i=require(\"./_string-context\"),r=\"includes\";e(e.P+e.F*require(\"./_fails-is-regexp\")(r),\"String\",{includes:function(e){return!!~i(this,e,r).indexOf(e,arguments.length>1?arguments[1]:void 0)}});"
+  },
+  "hash": "923496bb9d37f866334620ab3bc9402b"
+}

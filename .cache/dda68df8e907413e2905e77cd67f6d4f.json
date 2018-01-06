@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\");r(r.S,\"Math\",{signbit:function(r){return(r=+r)!=r?r:0==r?1/r==1/0:r>0}});"
+  },
+  "hash": "f474b5db2edac0ffe0cb830473b50fd0"
+}

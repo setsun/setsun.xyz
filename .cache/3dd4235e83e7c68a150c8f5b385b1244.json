@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_defined", "loc": { "line": 4, "column": 22 } },
+    { "name": "./_to-length", "loc": { "line": 5, "column": 23 } },
+    { "name": "./_is-regexp", "loc": { "line": 6, "column": 23 } },
+    { "name": "./_flags", "loc": { "line": 7, "column": 23 } },
+    { "name": "./_iter-create", "loc": { "line": 15, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./_export\"),r=require(\"./_defined\"),t=require(\"./_to-length\"),i=require(\"./_is-regexp\"),n=require(\"./_flags\"),s=RegExp.prototype,g=function(e,r){this._r=e,this._s=r};require(\"./_iter-create\")(g,\"RegExp String\",function(){var e=this._r.exec(this._s);return{value:e,done:null===e}}),e(e.P,\"String\",{matchAll:function(e){if(r(this),!i(e))throw TypeError(e+\" is not a regexp!\");var u=String(this),a=\"flags\"in s?String(e.flags):n.call(e),l=new RegExp(e.source,~a.indexOf(\"g\")?a:\"g\"+a);return l.lastIndex=t(e.lastIndex),new g(l,u)}});"
+  },
+  "hash": "4c66dbc85f0e1c625f2f707ef2d3ed7c"
+}

@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_an-object", "loc": { "line": 4, "column": 23 } },
+    { "name": "./_ctx", "loc": { "line": 13, "column": 22 } },
+    { "name": "./_object-gopd", "loc": { "line": 13, "column": 55 } }
+  ],
+  "generated": {
+    "js":
+      "var t=require(\"./_is-object\"),e=require(\"./_an-object\"),r=function(r,o){if(e(r),!t(o)&&null!==o)throw TypeError(o+\": can't set as prototype!\")};module.exports={set:Object.setPrototypeOf||(\"__proto__\"in{}?function(t,e,o){try{(o=require(\"./_ctx\")(Function.call,require(\"./_object-gopd\").f(Object.prototype,\"__proto__\").set,2))(t,[]),e=!(t instanceof Array)}catch(t){e=!0}return function(t,c){return r(t,c),e?t.__proto__=c:o(t,c),t}}({},!1):void 0),check:r};"
+  },
+  "hash": "9840cc0dd1f8a8f550bcf602e59f7182"
+}

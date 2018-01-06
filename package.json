@@ -12,7 +12,6 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "build:ci": "npm run build -- -d build",
     "test": "echo \"test step\"; exit 0;",
     "lint": "echo \"lint step\"; exit 0;",
     "flow": "echo \"flow step\"; exit 0;",

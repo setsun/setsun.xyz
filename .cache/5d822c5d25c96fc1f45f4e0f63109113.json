@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\");r(r.S,\"Number\",{EPSILON:Math.pow(2,-52)});"
+  },
+  "hash": "ad1b339169b5b8225036b8fbc830d03e"
+}

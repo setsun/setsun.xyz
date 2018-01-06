@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    { "name": "core-js/shim", "loc": { "line": 3, "column": 8 } },
+    {
+      "name": "regenerator-runtime/runtime",
+      "loc": { "line": 5, "column": 8 }
+    },
+    { "name": "core-js/fn/regexp/escape", "loc": { "line": 7, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "var global = (1,eval)(\"this\");\nvar e=(0,eval)(\"this\");if(require(\"core-js/shim\"),require(\"regenerator-runtime/runtime\"),require(\"core-js/fn/regexp/escape\"),e._babelPolyfill)throw new Error(\"only one instance of babel-polyfill is allowed\");e._babelPolyfill=!0;var r=\"defineProperty\";function i(e,i,n){e[i]||Object[r](e,i,{writable:!0,configurable:!0,value:n})}i(String.prototype,\"padLeft\",\"\".padStart),i(String.prototype,\"padRight\",\"\".padEnd),\"pop,reverse,shift,keys,values,entries,indexOf,every,some,forEach,map,filter,find,findIndex,includes,join,slice,concat,push,splice,unshift,sort,lastIndexOf,reduce,reduceRight,copyWithin,fill\".split(\",\").forEach(function(e){[][e]&&i(Array,e,Function.call.bind([][e]))});"
+  },
+  "hash": "ebfd1ef5c4bc4b8107294959d3866bdb"
+}

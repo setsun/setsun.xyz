@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    { "name": "./_set-species", "loc": { "line": 1, "column": 8 } }
+  ],
+  "generated": { "js": "require(\"./_set-species\")(\"Array\");" },
+  "hash": "f45829e0e16976c2bc120c78bdd14649"
+}

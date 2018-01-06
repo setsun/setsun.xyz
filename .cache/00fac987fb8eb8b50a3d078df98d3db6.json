@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 1, "column": 23 } },
+    { "name": "./_global", "loc": { "line": 2, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_is-object\"),r=require(\"./_global\").document,t=e(r)&&e(r.createElement);module.exports=function(e){return t?r.createElement(e):{}};"
+  },
+  "hash": "cd35bd12a76cc9a33e0903b0ef74fb89"
+}

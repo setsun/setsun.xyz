@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    { "name": "./_an-object", "loc": { "line": 1, "column": 23 } },
+    { "name": "./_ie8-dom-define", "loc": { "line": 2, "column": 29 } },
+    { "name": "./_to-primitive", "loc": { "line": 3, "column": 26 } },
+    { "name": "./_descriptors", "loc": { "line": 6, "column": 20 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_an-object\"),r=require(\"./_ie8-dom-define\"),t=require(\"./_to-primitive\"),i=Object.defineProperty;exports.f=require(\"./_descriptors\")?Object.defineProperty:function(o,n,u){if(e(o),n=t(n,!0),e(u),r)try{return i(o,n,u)}catch(e){}if(\"get\"in u||\"set\"in u)throw TypeError(\"Accessors not supported!\");return\"value\"in u&&(o[n]=u.value),o};"
+  },
+  "hash": "238263cd0839770eac3f7dd2b519c049"
+}

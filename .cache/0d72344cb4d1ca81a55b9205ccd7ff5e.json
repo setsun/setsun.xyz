@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_to-integer", "loc": { "line": 2, "column": 24 } },
+    { "name": "./_defined", "loc": { "line": 3, "column": 22 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var r=require(\"./_to-integer\"),e=require(\"./_defined\");module.exports=function(t){var i=String(e(this)),n=\"\",o=r(t);if(o<0||o==1/0)throw RangeError(\"Count can't be negative\");for(;o>0;(o>>>=1)&&(i+=i))1&o&&(n+=i);return n};"
+  },
+  "hash": "dd0846ba18cb3216362cda732abae3e0"
+}

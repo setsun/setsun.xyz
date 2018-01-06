@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-html", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";require(\"./_string-html\")(\"small\",function(t){return function(){return t(this,\"small\",\"\",\"\")}});"
+  },
+  "hash": "2016f4e775407a440f4f584375fd56a8"
+}

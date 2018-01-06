@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    {
+      "name": "../../modules/core.regexp.escape",
+      "loc": { "line": 1, "column": 8 }
+    },
+    { "name": "../../modules/_core", "loc": { "line": 2, "column": 25 } }
+  ],
+  "generated": {
+    "js":
+      "require(\"../../modules/core.regexp.escape\"),module.exports=require(\"../../modules/_core\").RegExp.escape;"
+  },
+  "hash": "181fdb96016203b1126bf9dc07f7e30b"
+}

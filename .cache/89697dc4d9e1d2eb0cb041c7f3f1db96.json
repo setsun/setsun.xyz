@@ -1,0 +1,17 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_object-create", "loc": { "line": 3, "column": 21 } },
+    { "name": "./_a-function", "loc": { "line": 4, "column": 24 } },
+    { "name": "./_an-object", "loc": { "line": 5, "column": 23 } },
+    { "name": "./_is-object", "loc": { "line": 6, "column": 23 } },
+    { "name": "./_fails", "loc": { "line": 7, "column": 20 } },
+    { "name": "./_bind", "loc": { "line": 8, "column": 19 } },
+    { "name": "./_global", "loc": { "line": 9, "column": 26 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\"),r=require(\"./_object-create\"),n=require(\"./_a-function\"),t=require(\"./_an-object\"),u=require(\"./_is-object\"),c=require(\"./_fails\"),i=require(\"./_bind\"),o=(require(\"./_global\").Reflect||{}).construct,a=c(function(){function e(){}return!(o(function(){},[],e)instanceof e)}),l=!c(function(){o(function(){})});e(e.S+e.F*(a||l),\"Reflect\",{construct:function(e,c){n(e),t(c);var f=arguments.length<3?e:n(arguments[2]);if(l&&!a)return o(e,c,f);if(e==f){switch(c.length){case 0:return new e;case 1:return new e(c[0]);case 2:return new e(c[0],c[1]);case 3:return new e(c[0],c[1],c[2]);case 4:return new e(c[0],c[1],c[2],c[3])}var p=[null];return p.push.apply(p,c),new(i.apply(e,p))}var s=f.prototype,q=r(u(s)?s:Object.prototype),_=Function.apply.call(e,q,c);return u(_)?_:q}});"
+  },
+  "hash": "5f1467a9570064f91d0a24f22d46715a"
+}

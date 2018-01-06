@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_to-object", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_a-function", "loc": { "line": 4, "column": 24 } },
+    { "name": "./_object-dp", "loc": { "line": 5, "column": 30 } },
+    { "name": "./_descriptors", "loc": { "line": 8, "column": 8 } },
+    { "name": "./_object-forced-pam", "loc": { "line": 8, "column": 57 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./_export\"),r=require(\"./_to-object\"),t=require(\"./_a-function\"),i=require(\"./_object-dp\");require(\"./_descriptors\")&&e(e.P+require(\"./_object-forced-pam\"),\"Object\",{__defineGetter__:function(e,u){i.f(r(this),e,{get:t(u),enumerable:!0,configurable:!0})}});"
+  },
+  "hash": "60b3ec446580f0254b805828211d240a"
+}

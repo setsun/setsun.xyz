@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_math-fround", "loc": { "line": 4, "column": 45 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\");r(r.S,\"Math\",{fround:require(\"./_math-fround\")});"
+  },
+  "hash": "bb88ee6ee5748c24cfba8d336b8ea7bb"
+}

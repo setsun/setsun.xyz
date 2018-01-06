@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_a-function", "loc": { "line": 3, "column": 24 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var r=require(\"./_a-function\");function e(e){var o,t;this.promise=new e(function(r,e){if(void 0!==o||void 0!==t)throw TypeError(\"Bad Promise constructor\");o=r,t=e}),this.resolve=r(o),this.reject=r(t)}module.exports.f=function(r){return new e(r)};"
+  },
+  "hash": "7430e3b92a6f361cc121c82ffcaa2d0e"
+}

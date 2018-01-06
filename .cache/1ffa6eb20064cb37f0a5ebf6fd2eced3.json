@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_new-promise-capability", "loc": { "line": 4, "column": 35 } },
+    { "name": "./_perform", "loc": { "line": 5, "column": 22 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var r=require(\"./_export\"),e=require(\"./_new-promise-capability\"),i=require(\"./_perform\");r(r.S,\"Promise\",{try:function(r){var t=e.f(this),o=i(r);return(o.e?t.reject:t.resolve)(o.v),t.promise}});"
+  },
+  "hash": "6f0b3f45a33af4dbe58ff41947bec214"
+}

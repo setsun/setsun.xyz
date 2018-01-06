@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "var a=require(\"./_export\"),t=Math.atanh;a(a.S+a.F*!(t&&1/t(-0)<0),\"Math\",{atanh:function(a){return 0==(a=+a)?a:Math.log((1+a)/(1-a))/2}});"
+  },
+  "hash": "356ce36be05c4895bf837a23e6917879"
+}

@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_to-length", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_string-repeat", "loc": { "line": 3, "column": 21 } },
+    { "name": "./_defined", "loc": { "line": 4, "column": 22 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_to-length\"),r=require(\"./_string-repeat\"),t=require(\"./_defined\");module.exports=function(i,n,l,g){var u=String(t(i)),a=u.length,h=void 0===l?\" \":String(l),o=e(n);if(o<=a||\"\"==h)return u;var c=o-a,d=r.call(h,Math.ceil(c/h.length));return d.length>c&&(d=d.slice(0,c)),g?d+u:u+d};"
+  },
+  "hash": "7dfe175001621696eb1eb455b742eed6"
+}

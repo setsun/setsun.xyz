@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_global", "loc": { "line": 1, "column": 24 } },
+    { "name": "./_string-trim", "loc": { "line": 2, "column": 20 } },
+    { "name": "./_string-ws", "loc": { "line": 3, "column": 17 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_global\").parseInt,e=require(\"./_string-trim\").trim,t=require(\"./_string-ws\"),i=/^[-+]?0[xX]/;module.exports=8!==r(t+\"08\")||22!==r(t+\"0x16\")?function(t,n){var s=e(String(t),3);return r(s,n>>>0||(i.test(s)?16:10))}:r;"
+  },
+  "hash": "a9831d5895e610d4203d580e305fb40e"
+}

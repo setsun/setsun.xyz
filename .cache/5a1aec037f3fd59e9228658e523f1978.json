@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\");r(r.S,\"Math\",{log10:function(r){return Math.log(r)*Math.LOG10E}});"
+  },
+  "hash": "c0846801885890d11c82ddda228d98b3"
+}

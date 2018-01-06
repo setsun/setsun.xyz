@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\");r(r.S,\"Math\",{iaddh:function(r,a,e,t){var i=r>>>0,n=e>>>0;return(a>>>0)+(t>>>0)+((i&n|(i|n)&~(i+n>>>0))>>>31)|0}});"
+  },
+  "hash": "e3ce26de8e59376e9664ce23f8bcf107"
+}

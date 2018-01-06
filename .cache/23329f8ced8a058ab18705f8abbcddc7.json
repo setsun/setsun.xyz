@@ -1,0 +1,8 @@
+{
+  "dependencies": [],
+  "generated": {
+    "js":
+      "\"use strict\";var e=!(\"undefined\"==typeof window||!window.document||!window.document.createElement),n={canUseDOM:e,canUseWorkers:\"undefined\"!=typeof Worker,canUseEventListeners:e&&!(!window.addEventListener&&!window.attachEvent),canUseViewport:e&&!!window.screen,isInWorker:!e};module.exports=n;"
+  },
+  "hash": "1a169ab343eaca27bff176708786acf6"
+}

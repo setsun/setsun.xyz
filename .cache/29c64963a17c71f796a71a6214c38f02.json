@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_defined", "loc": { "line": 2, "column": 22 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_defined\");module.exports=function(r){return Object(e(r))};"
+  },
+  "hash": "c08c21b2326b58bcfccf9f11c83c7663"
+}

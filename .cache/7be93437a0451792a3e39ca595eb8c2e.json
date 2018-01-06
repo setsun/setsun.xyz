@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_create-property", "loc": { "line": 3, "column": 29 } },
+    { "name": "./_fails", "loc": { "line": 6, "column": 40 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var r=require(\"./_export\"),e=require(\"./_create-property\");r(r.S+r.F*require(\"./_fails\")(function(){function r(){}return!(Array.of.call(r)instanceof r)}),\"Array\",{of:function(){for(var r=0,t=arguments.length,n=new(\"function\"==typeof this?this:Array)(t);t>r;)e(n,r,arguments[r++]);return n.length=t,n}});"
+  },
+  "hash": "f81c4b188b82d737090dd23099aa8d94"
+}

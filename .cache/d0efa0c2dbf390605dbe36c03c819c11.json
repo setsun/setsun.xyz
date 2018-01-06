@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    { "name": "./_object-dp", "loc": { "line": 1, "column": 17 } },
+    { "name": "./_an-object", "loc": { "line": 2, "column": 23 } },
+    { "name": "./_object-keys", "loc": { "line": 3, "column": 22 } },
+    { "name": "./_descriptors", "loc": { "line": 5, "column": 25 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_object-dp\"),r=require(\"./_an-object\"),t=require(\"./_object-keys\");module.exports=require(\"./_descriptors\")?Object.defineProperties:function(o,i){r(o);for(var u,c=t(i),n=c.length,s=0;n>s;)e.f(o,u=c[s++],i[u]);return o};"
+  },
+  "hash": "333f01afecf5b475aafec3f9e33f1efc"
+}

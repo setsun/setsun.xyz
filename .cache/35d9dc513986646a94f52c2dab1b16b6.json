@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_math-log1p", "loc": { "line": 4, "column": 44 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\");r(r.S,\"Math\",{log1p:require(\"./_math-log1p\")});"
+  },
+  "hash": "998dc04c6523cf750459323812c237fb"
+}

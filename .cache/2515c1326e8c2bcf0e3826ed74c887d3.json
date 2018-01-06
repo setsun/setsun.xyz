@@ -1,0 +1,17 @@
+{
+  "dependencies": [
+    { "name": "./_object-dp", "loc": { "line": 2, "column": 17 } },
+    { "name": "./_object-gopd", "loc": { "line": 3, "column": 19 } },
+    { "name": "./_object-gpo", "loc": { "line": 4, "column": 29 } },
+    { "name": "./_has", "loc": { "line": 5, "column": 18 } },
+    { "name": "./_export", "loc": { "line": 6, "column": 22 } },
+    { "name": "./_property-desc", "loc": { "line": 7, "column": 25 } },
+    { "name": "./_an-object", "loc": { "line": 8, "column": 23 } },
+    { "name": "./_is-object", "loc": { "line": 9, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_object-dp\"),r=require(\"./_object-gopd\"),t=require(\"./_object-gpo\"),i=require(\"./_has\"),u=require(\"./_export\"),o=require(\"./_property-desc\"),c=require(\"./_an-object\"),a=require(\"./_is-object\");function q(u,_,f){var l,b,n=arguments.length<4?u:arguments[3],p=r.f(c(u),_);if(!p){if(a(b=t(u)))return q(b,_,f,n);p=o(0)}return i(p,\"value\")?!(!1===p.writable||!a(n))&&((l=r.f(n,_)||o(0)).value=f,e.f(n,_,l),!0):void 0!==p.set&&(p.set.call(n,f),!0)}u(u.S,\"Reflect\",{set:q});"
+  },
+  "hash": "7e190f1f0d512edc26a3e5285ce7ef1c"
+}

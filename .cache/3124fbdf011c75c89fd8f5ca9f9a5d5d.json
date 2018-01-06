@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./index.js", "dynamic": true }],
+  "generated": {
+    "html":
+      "<!DOCTYPE html> <html> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>A-Frame React Boilerplate</title> </head> <body> <div id=\"sceneContainer\" style=\"height:100%;width:100%\"></div> <script type=\"application/javascript\" src=\"/dist/c361c30586bbaf21585570196d87dba1.js\"></script> </body> </html> "
+  },
+  "hash": "57e477d59ff2856cf5d2e73012bcb40e"
+}

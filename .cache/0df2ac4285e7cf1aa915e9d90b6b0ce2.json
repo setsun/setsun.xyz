@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    { "name": "./_object-gopd", "loc": { "line": 2, "column": 19 } },
+    { "name": "./_object-gpo", "loc": { "line": 3, "column": 29 } },
+    { "name": "./_has", "loc": { "line": 4, "column": 18 } },
+    { "name": "./_export", "loc": { "line": 5, "column": 22 } },
+    { "name": "./_is-object", "loc": { "line": 6, "column": 23 } },
+    { "name": "./_an-object", "loc": { "line": 7, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_object-gopd\"),r=require(\"./_object-gpo\"),t=require(\"./_has\"),i=require(\"./_export\"),o=require(\"./_is-object\"),u=require(\"./_an-object\");function a(i,c){var v,g,l=arguments.length<3?i:arguments[2];return u(i)===l?i[c]:(v=e.f(i,c))?t(v,\"value\")?v.value:void 0!==v.get?v.get.call(l):void 0:o(g=r(i))?a(g,c,l):void 0}i(i.S,\"Reflect\",{get:a});"
+  },
+  "hash": "f3fd313aec2ff1b42ce7c975ec0c07c5"
+}

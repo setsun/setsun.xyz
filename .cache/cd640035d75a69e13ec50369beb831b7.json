@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_collection-to-json", "loc": { "line": 4, "column": 56 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\");e(e.P+e.R,\"Map\",{toJSON:require(\"./_collection-to-json\")(\"Map\")});"
+  },
+  "hash": "67472b55586d4546108340410b844c36"
+}

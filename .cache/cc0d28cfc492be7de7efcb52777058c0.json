@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_microtask", "loc": { "line": 3, "column": 24 } },
+    { "name": "./_global", "loc": { "line": 4, "column": 22 } },
+    { "name": "./_cof", "loc": { "line": 5, "column": 21 } }
+  ],
+  "generated": {
+    "js":
+      "\nvar r=require(\"./_export\"),e=require(\"./_microtask\")(),i=require(\"./_global\").process,o=\"process\"==require(\"./_cof\")(i);r(r.G,{asap:function(r){var a=o&&i.domain;e(a?a.bind(r):r)}});"
+  },
+  "hash": "9e8cfd7f2bb5c5252bb301800b829f23"
+}

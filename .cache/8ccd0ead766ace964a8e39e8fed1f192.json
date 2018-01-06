@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 1, "column": 22 } },
+    { "name": "./_to-iobject", "loc": { "line": 2, "column": 24 } },
+    { "name": "./_to-length", "loc": { "line": 3, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var r=require(\"./_export\"),e=require(\"./_to-iobject\"),t=require(\"./_to-length\");r(r.S,\"String\",{raw:function(r){for(var n=e(r.raw),i=t(n.length),o=arguments.length,u=[],g=0;i>g;)u.push(String(n[g++])),g<o&&u.push(String(arguments[g]));return u.join(\"\")}});"
+  },
+  "hash": "efc905f2e8a4110387ce13d4de1ec129"
+}

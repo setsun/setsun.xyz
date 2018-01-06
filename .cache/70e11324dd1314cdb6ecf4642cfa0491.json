@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_collection-weak", "loc": { "line": 2, "column": 19 } },
+    { "name": "./_validate-collection", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_collection", "loc": { "line": 7, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./_collection-weak\"),t=require(\"./_validate-collection\"),i=\"WeakSet\";require(\"./_collection\")(i,function(e){return function(){return e(this,arguments.length>0?arguments[0]:void 0)}},{add:function(r){return e.def(t(this,i),r,!0)}},e,!1,!0);"
+  },
+  "hash": "622d5b8d5b588e32bf01d3e5dc9920fb"
+}

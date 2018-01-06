@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_is-object", "loc": { "line": 1, "column": 23 } },
+    { "name": "./_set-proto", "loc": { "line": 2, "column": 29 } }
+  ],
+  "generated": {
+    "js":
+      "var t=require(\"./_is-object\"),o=require(\"./_set-proto\").set;module.exports=function(r,e,p){var u,n=e.constructor;return n!==p&&\"function\"==typeof n&&(u=n.prototype)!==p.prototype&&t(u)&&o&&o(r,u),r};"
+  },
+  "hash": "577b878221eab114b21a0a8c81cc72f7"
+}

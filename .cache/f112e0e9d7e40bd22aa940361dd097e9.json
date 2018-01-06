@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_metadata", "loc": { "line": 1, "column": 23 } },
+    { "name": "./_an-object", "loc": { "line": 2, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_metadata\"),t=require(\"./_an-object\"),r=e.key,a=e.map,i=e.store;e.exp({deleteMetadata:function(e,d){var n=arguments.length<3?void 0:r(arguments[2]),u=a(t(d),n,!1);if(void 0===u||!u.delete(e))return!1;if(u.size)return!0;var l=i.get(d);return l.delete(n),!!l.size||i.delete(d)}});"
+  },
+  "hash": "9346bc74644cdb7d4f3b5564620459ce"
+}

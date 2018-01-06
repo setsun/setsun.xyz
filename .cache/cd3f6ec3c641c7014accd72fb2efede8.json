@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_own-keys", "loc": { "line": 4, "column": 49 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\");e(e.S,\"Reflect\",{ownKeys:require(\"./_own-keys\")});"
+  },
+  "hash": "d551efae5afb5a1fe3ca552a011d7fcf"
+}

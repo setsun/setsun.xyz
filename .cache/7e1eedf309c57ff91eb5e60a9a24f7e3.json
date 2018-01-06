@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_array-includes", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_strict-method", "loc": { "line": 7, "column": 59 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var r=require(\"./_export\"),e=require(\"./_array-includes\")(!1),i=[].indexOf,t=!!i&&1/[1].indexOf(1,-0)<0;r(r.P+r.F*(t||!require(\"./_strict-method\")(i)),\"Array\",{indexOf:function(r){return t?i.apply(this,arguments)||0:e(this,r,arguments[1])}});"
+  },
+  "hash": "3c2cd62b74e8bcfc09da928573fefd6d"
+}

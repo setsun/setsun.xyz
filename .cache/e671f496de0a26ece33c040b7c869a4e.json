@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    { "name": "./es6.set", "loc": { "line": 1, "column": 18 } },
+    { "name": "./_array-from-iterable", "loc": { "line": 2, "column": 19 } },
+    { "name": "./_metadata", "loc": { "line": 3, "column": 23 } },
+    { "name": "./_an-object", "loc": { "line": 4, "column": 23 } },
+    { "name": "./_object-gpo", "loc": { "line": 5, "column": 29 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./es6.set\"),r=require(\"./_array-from-iterable\"),t=require(\"./_metadata\"),a=require(\"./_an-object\"),n=require(\"./_object-gpo\"),u=t.keys,i=t.key,o=function(t,a){var i=u(t,a),c=n(t);if(null===c)return i;var l=o(c,a);return l.length?i.length?r(new e(i.concat(l))):l:i};t.exp({getMetadataKeys:function(e){return o(a(e),arguments.length<2?void 0:i(arguments[1]))}});"
+  },
+  "hash": "7af1f25c8b1ffca4f60ec3f7cbae4f9e"
+}

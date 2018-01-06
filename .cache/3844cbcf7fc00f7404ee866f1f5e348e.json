@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    { "name": "./_ctx", "loc": { "line": 1, "column": 18 } },
+    { "name": "./_iter-call", "loc": { "line": 2, "column": 19 } },
+    { "name": "./_is-array-iter", "loc": { "line": 3, "column": 26 } },
+    { "name": "./_an-object", "loc": { "line": 4, "column": 23 } },
+    { "name": "./_to-length", "loc": { "line": 5, "column": 23 } },
+    { "name": "./core.get-iterator-method", "loc": { "line": 6, "column": 24 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_ctx\"),r=require(\"./_iter-call\"),t=require(\"./_is-array-iter\"),i=require(\"./_an-object\"),o=require(\"./_to-length\"),n=require(\"./core.get-iterator-method\"),u={},a={},f=module.exports=function(f,l,c,q,_){var h,s,d,g,p=_?function(){return f}:n(f),v=e(c,q,l?2:1),x=0;if(\"function\"!=typeof p)throw TypeError(f+\" is not iterable!\");if(t(p)){for(h=o(f.length);h>x;x++)if((g=l?v(i(s=f[x])[0],s[1]):v(f[x]))===u||g===a)return g}else for(d=p.call(f);!(s=d.next()).done;)if((g=r(d,v,s.value,l))===u||g===a)return g};f.BREAK=u,f.RETURN=a;"
+  },
+  "hash": "9c762bc288f0ef7c9e761d4448b171e2"
+}

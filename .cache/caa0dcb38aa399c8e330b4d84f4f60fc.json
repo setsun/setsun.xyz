@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./hyphenate", "loc": { "line": 12, "column": 24 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./hyphenate\"),r=/^ms-/;function t(t){return e(t).replace(r,\"-ms-\")}module.exports=t;"
+  },
+  "hash": "c7d11f28a1fe29dbaad9f50fdd787d29"
+}

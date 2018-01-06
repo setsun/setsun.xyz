@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_an-object", "loc": { "line": 3, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./_an-object\");module.exports=function(){var i=e(this),r=\"\";return i.global&&(r+=\"g\"),i.ignoreCase&&(r+=\"i\"),i.multiline&&(r+=\"m\"),i.unicode&&(r+=\"u\"),i.sticky&&(r+=\"y\"),r};"
+  },
+  "hash": "53583296f2ae168ba7cc3ed707c24fe8"
+}

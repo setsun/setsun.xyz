@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./camelize", "loc": { "line": 12, "column": 23 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=require(\"./camelize\"),r=/^-ms-/;function s(s){return e(s.replace(r,\"ms-\"))}module.exports=s;"
+  },
+  "hash": "adcfcc7678fd504f7d15a33beda4679b"
+}

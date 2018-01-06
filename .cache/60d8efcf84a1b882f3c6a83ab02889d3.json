@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    { "name": "./_export", "loc": { "line": 2, "column": 22 } },
+    { "name": "./_a-function", "loc": { "line": 3, "column": 24 } },
+    { "name": "./_an-object", "loc": { "line": 4, "column": 23 } },
+    { "name": "./_global", "loc": { "line": 5, "column": 22 } },
+    { "name": "./_fails", "loc": { "line": 8, "column": 41 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_export\"),r=require(\"./_a-function\"),n=require(\"./_an-object\"),i=(require(\"./_global\").Reflect||{}).apply,u=Function.apply;e(e.S+e.F*!require(\"./_fails\")(function(){i(function(){})}),\"Reflect\",{apply:function(e,a,l){var t=r(e),c=n(l);return i?i(t,a,c):u.call(t,a,c)}});"
+  },
+  "hash": "e197ad659de0a9725e5169fb03b8a696"
+}

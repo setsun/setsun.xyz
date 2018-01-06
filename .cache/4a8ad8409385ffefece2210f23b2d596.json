@@ -1,0 +1,8 @@
+{
+  "dependencies": [{ "name": "./_cof", "loc": { "line": 2, "column": 18 } }],
+  "generated": {
+    "js":
+      "var e=require(\"./_cof\");module.exports=Object(\"z\").propertyIsEnumerable(0)?Object:function(r){return\"String\"==e(r)?r.split(\"\"):Object(r)};"
+  },
+  "hash": "a40ed6ca786b11132e113f1a3c213490"
+}

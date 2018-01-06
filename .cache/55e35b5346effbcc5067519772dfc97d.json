@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    { "name": "./_string-html", "loc": { "line": 3, "column": 8 } }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";require(\"./_string-html\")(\"link\",function(r){return function(t){return r(this,\"a\",\"href\",t)}});"
+  },
+  "hash": "1a1f17cd7c3524e7f9a18ebf350c4f55"
+}

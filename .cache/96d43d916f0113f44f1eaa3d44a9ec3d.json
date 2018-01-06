@@ -1,0 +1,8 @@
+{
+  "dependencies": [],
+  "generated": {
+    "js":
+      "module.exports=Math.sign||function(n){return 0==(n=+n)||n!=n?n:n<0?-1:1};"
+  },
+  "hash": "d6430f2a16e1eeff9620ee9bc55f443c"
+}

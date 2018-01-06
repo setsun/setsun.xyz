@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    { "name": "./_set-collection-of", "loc": { "line": 2, "column": 8 } }
+  ],
+  "generated": { "js": "require(\"./_set-collection-of\")(\"Map\");" },
+  "hash": "beceebae90951195d899f4bc8e6b68bc"
+}

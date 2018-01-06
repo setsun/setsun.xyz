@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    { "name": "./_to-iobject", "loc": { "line": 2, "column": 24 } },
+    { "name": "./_object-gopn", "loc": { "line": 3, "column": 19 } }
+  ],
+  "generated": {
+    "js":
+      "var e=require(\"./_to-iobject\"),t=require(\"./_object-gopn\").f,o={}.toString,r=\"object\"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],n=function(e){try{return t(e)}catch(e){return r.slice()}};module.exports.f=function(c){return r&&\"[object Window]\"==o.call(c)?n(c):t(e(c))};"
+  },
+  "hash": "514daf1c2fb353e24f4c2925f560e824"
+}
