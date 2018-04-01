@@ -19,9 +19,9 @@ const RevealContainer = styled.div`
 
 const SlideUpTransition = transitionFactory(opacity, translate.bottom);
 
-const Reveal = ({ children, size }) => (
+const Reveal = ({ children, size, delay }) => (
   <RevealContainer size={size}>
-    <SlideUpTransition timeout={500} delay={250}>
+    <SlideUpTransition timeout={500} delay={delay}>
       {children}
     </SlideUpTransition>
   </RevealContainer>
