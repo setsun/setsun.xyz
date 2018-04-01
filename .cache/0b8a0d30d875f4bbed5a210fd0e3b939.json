@@ -1,0 +1,425 @@
+{
+  "dependencies": [
+    {
+      "name": "/mnt/c/Users/seanl/Code/setsun.github.io/.babelrc",
+      "includedInParent": true,
+      "mtime": 1522387257506
+    },
+    {
+      "name": "/mnt/c/Users/seanl/Code/setsun.github.io/package.json",
+      "includedInParent": true,
+      "mtime": 1522387655071
+    },
+    { "name": "react" },
+    { "name": "react-dom" }
+  ],
+  "generated": {
+    "js":
+      "\"use strict\";var e=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,\"value\"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),t=require(\"react\"),r=u(t),n=require(\"react-dom\"),o=u(n);function u(e){return e&&e.__esModule?e:{default:e}}function a(e,t){if(!(e instanceof t))throw new TypeError(\"Cannot call a class as a function\")}function l(e,t){if(!e)throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\");return!t||\"object\"!=typeof t&&\"function\"!=typeof t?e:t}function c(e,t){if(\"function\"!=typeof t&&null!==t)throw new TypeError(\"Super expression must either be null or a function, not \"+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}var i=function(t){function n(e){a(this,n);var t=l(this,(n.__proto__||Object.getPrototypeOf(n)).call(this,e));return t.state={color:\"red\"},t}return c(n,r.default.Component),e(n,[{key:\"changeColor\",value:function(){var e=[\"red\",\"orange\",\"yellow\",\"green\",\"blue\"];this.setState({color:e[Math.floor(Math.random()*e.length)]})}},{key:\"render\",value:function(){return r.default.createElement(\"div\",null)}}]),n}();o.default.render(r.default.createElement(i,null),document.querySelector(\"#sceneContainer\"));",
+    "map": {
+      "mappings": [
+        {
+          "generated": { "line": 5, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 2, "column": 0 }
+        },
+        {
+          "generated": { "line": 9, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 3, "column": 0 }
+        },
+        {
+          "name": "App",
+          "generated": { "line": 21, "column": 4 },
+          "source": "index.js",
+          "original": { "line": 5, "column": 6 }
+        },
+        {
+          "generated": { "line": 24, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 6, "column": 2 }
+        },
+        {
+          "name": "props",
+          "generated": { "line": 24, "column": 15 },
+          "source": "index.js",
+          "original": { "line": 6, "column": 14 }
+        },
+        {
+          "generated": { "line": 24, "column": 20 },
+          "source": "index.js",
+          "original": { "line": 6, "column": 2 }
+        },
+        {
+          "generated": { "line": 24, "column": 22 },
+          "source": "index.js",
+          "original": { "line": 6, "column": 21 }
+        },
+        {
+          "generated": { "line": 25, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 6, "column": 21 }
+        },
+        {
+          "generated": { "line": 27, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 6, "column": 21 }
+        },
+        {
+          "name": "props",
+          "generated": { "line": 27, "column": 106 },
+          "source": "index.js",
+          "original": { "line": 7, "column": 10 }
+        },
+        {
+          "generated": { "line": 27, "column": 111 },
+          "source": "index.js",
+          "original": { "line": 6, "column": 21 }
+        },
+        {
+          "generated": { "line": 29, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 8, "column": 4 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 29, "column": 10 },
+          "source": "index.js",
+          "original": { "line": 8, "column": 9 }
+        },
+        {
+          "generated": { "line": 29, "column": 15 },
+          "source": "index.js",
+          "original": { "line": 8, "column": 4 }
+        },
+        {
+          "generated": { "line": 29, "column": 18 },
+          "source": "index.js",
+          "original": { "line": 8, "column": 17 }
+        },
+        {
+          "name": "color",
+          "generated": { "line": 29, "column": 20 },
+          "source": "index.js",
+          "original": { "line": 8, "column": 19 }
+        },
+        {
+          "generated": { "line": 29, "column": 27 },
+          "source": "index.js",
+          "original": { "line": 8, "column": 26 }
+        },
+        {
+          "generated": { "line": 29, "column": 32 },
+          "source": "index.js",
+          "original": { "line": 8, "column": 17 }
+        },
+        {
+          "generated": { "line": 29, "column": 34 },
+          "source": "index.js",
+          "original": { "line": 8, "column": 4 }
+        },
+        {
+          "generated": { "line": 30, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 6, "column": 21 }
+        },
+        {
+          "generated": { "line": 31, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 9, "column": 3 }
+        },
+        {
+          "generated": { "line": 35, "column": 34 },
+          "source": "index.js",
+          "original": { "line": 11, "column": 16 }
+        },
+        {
+          "generated": { "line": 36, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 4 }
+        },
+        {
+          "name": "colors",
+          "generated": { "line": 36, "column": 10 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 10 }
+        },
+        {
+          "generated": { "line": 36, "column": 19 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 19 }
+        },
+        {
+          "generated": { "line": 36, "column": 20 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 20 }
+        },
+        {
+          "generated": { "line": 36, "column": 25 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 19 }
+        },
+        {
+          "generated": { "line": 36, "column": 27 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 27 }
+        },
+        {
+          "generated": { "line": 36, "column": 35 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 19 }
+        },
+        {
+          "generated": { "line": 36, "column": 37 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "generated": { "line": 36, "column": 45 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 19 }
+        },
+        {
+          "generated": { "line": 36, "column": 47 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 47 }
+        },
+        {
+          "generated": { "line": 36, "column": 54 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 19 }
+        },
+        {
+          "generated": { "line": 36, "column": 56 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 56 }
+        },
+        {
+          "generated": { "line": 36, "column": 62 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 19 }
+        },
+        {
+          "generated": { "line": 36, "column": 63 },
+          "source": "index.js",
+          "original": { "line": 12, "column": 4 }
+        },
+        {
+          "generated": { "line": 37, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 13, "column": 4 }
+        },
+        {
+          "name": "setState",
+          "generated": { "line": 37, "column": 11 },
+          "source": "index.js",
+          "original": { "line": 13, "column": 9 }
+        },
+        {
+          "generated": { "line": 37, "column": 19 },
+          "source": "index.js",
+          "original": { "line": 13, "column": 4 }
+        },
+        {
+          "generated": { "line": 37, "column": 20 },
+          "source": "index.js",
+          "original": { "line": 13, "column": 18 }
+        },
+        {
+          "name": "color",
+          "generated": { "line": 38, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 6 }
+        },
+        {
+          "name": "colors",
+          "generated": { "line": 38, "column": 15 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 13 }
+        },
+        {
+          "name": "Math",
+          "generated": { "line": 38, "column": 22 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 20 }
+        },
+        {
+          "name": "floor",
+          "generated": { "line": 38, "column": 27 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 25 }
+        },
+        {
+          "generated": { "line": 38, "column": 32 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 20 }
+        },
+        {
+          "name": "Math",
+          "generated": { "line": 38, "column": 33 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 31 }
+        },
+        {
+          "name": "random",
+          "generated": { "line": 38, "column": 38 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 36 }
+        },
+        {
+          "generated": { "line": 38, "column": 44 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 31 }
+        },
+        {
+          "name": "colors",
+          "generated": { "line": 38, "column": 49 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 47 }
+        },
+        {
+          "name": "length",
+          "generated": { "line": 38, "column": 56 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 54 }
+        },
+        {
+          "generated": { "line": 38, "column": 62 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 20 }
+        },
+        {
+          "generated": { "line": 38, "column": 63 },
+          "source": "index.js",
+          "original": { "line": 14, "column": 13 }
+        },
+        {
+          "generated": { "line": 39, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 13, "column": 18 }
+        },
+        {
+          "generated": { "line": 39, "column": 7 },
+          "source": "index.js",
+          "original": { "line": 13, "column": 4 }
+        },
+        {
+          "generated": { "line": 40, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 16, "column": 3 }
+        },
+        {
+          "generated": { "line": 43, "column": 29 },
+          "source": "index.js",
+          "original": { "line": 18, "column": 11 }
+        },
+        {
+          "generated": { "line": 44, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 19, "column": 4 }
+        },
+        {
+          "generated": { "line": 44, "column": 13 },
+          "source": "index.js",
+          "original": { "line": 20, "column": 6 }
+        },
+        {
+          "generated": { "line": 44, "column": 55 },
+          "source": "index.js",
+          "original": { "line": 19, "column": 4 }
+        },
+        {
+          "generated": { "line": 45, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 22, "column": 3 }
+        },
+        {
+          "generated": { "line": 49, "column": 2 },
+          "source": "index.js",
+          "original": { "line": 5, "column": 18 }
+        },
+        {
+          "name": "Component",
+          "generated": { "line": 49, "column": 18 },
+          "source": "index.js",
+          "original": { "line": 5, "column": 24 }
+        },
+        {
+          "generated": { "line": 51, "column": 0 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 0 }
+        },
+        {
+          "name": "render",
+          "generated": { "line": 51, "column": 19 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 9 }
+        },
+        {
+          "generated": { "line": 51, "column": 25 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 0 }
+        },
+        {
+          "generated": { "line": 51, "column": 26 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 16 }
+        },
+        {
+          "generated": { "line": 51, "column": 56 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 17 }
+        },
+        {
+          "generated": { "line": 51, "column": 59 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 16 }
+        },
+        {
+          "generated": { "line": 51, "column": 66 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 0 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 51, "column": 68 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 25 }
+        },
+        {
+          "name": "querySelector",
+          "generated": { "line": 51, "column": 77 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 34 }
+        },
+        {
+          "generated": { "line": 51, "column": 90 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 25 }
+        },
+        {
+          "generated": { "line": 51, "column": 91 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 48 }
+        },
+        {
+          "generated": { "line": 51, "column": 108 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 25 }
+        },
+        {
+          "generated": { "line": 51, "column": 109 },
+          "source": "index.js",
+          "original": { "line": 25, "column": 0 }
+        }
+      ],
+      "sources": {
+        "index.js":
+          "\nimport React from 'react';\nimport ReactDOM from 'react-dom';\n\nclass App extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = { color: 'red' };\n  }\n\n  changeColor() {\n    const colors = ['red', 'orange', 'yellow', 'green', 'blue'];\n    this.setState({\n      color: colors[Math.floor(Math.random() * colors.length)],\n    });\n  }\n\n  render() {\n    return (\n      <div />\n    );\n  }\n}\n\nReactDOM.render(<App />, document.querySelector('#sceneContainer'));\n"
+      },
+      "lineCount": null
+    }
+  },
+  "hash": "c2a4afd4a547c10b108907e62833eb92",
+  "cacheData": { "env": {} }
+}
