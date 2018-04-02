@@ -33,6 +33,7 @@
     "styled-components": "^3.2.5"
   },
   "devDependencies": {
+    "babel-plugin-inline-react-svg": "^0.5.2",
     "babel-plugin-module-resolver": "3.1.1",
     "babel-preset-setsun": "1.0.0",
     "eslint": "^4.19.1",

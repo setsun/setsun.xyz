@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Absolute } from 'rebass';
+import { Absolute, Box } from 'rebass';
 import transitionFactory, {
   opacity,
   translate,
 } from 'react-transition-factory';
 
-const RevealContainer = styled.div`
+const RevealContainer = Box.extend`
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -19,8 +19,8 @@ const RevealContainer = styled.div`
 
 const SlideUpTransition = transitionFactory(opacity, translate.bottom);
 
-const Reveal = ({ children, size, delay }) => (
-  <RevealContainer size={size}>
+const Reveal = ({ children, size, delay, ...rest }) => (
+  <RevealContainer size={size} {...rest}>
     <SlideUpTransition timeout={500} delay={delay}>
       {children}
     </SlideUpTransition>
