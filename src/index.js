@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled, { injectGlobal, keyframes } from 'styled-components';
-import { Provider, Flex, Box, Image, Heading } from 'rebass';
+import styled, { injectGlobal } from 'styled-components';
+import { Provider, Flex, Box, Image, Heading, Absolute } from 'rebass';
 import { Router } from 'react-router';
 import transitionFactory, { opacity } from 'react-transition-factory';
 import createBrowserHistory from 'history/createBrowserHistory';
@@ -13,6 +13,7 @@ import frameLogo from './img/frame.png';
 import RedEnsoLogo from './img/red_enso.svg';
 
 import Reveal from './components/Reveal';
+import PulseButton from './components/PulseButton';
 
 const history = createBrowserHistory();
 
@@ -28,6 +29,23 @@ injectGlobal`
     height: 100%;
     margin: 0;
   }
+`;
+
+const CenterContainer = Flex.extend.attrs({
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+})`
+  position: relative;
+`;
+
+const NameHeader = styled.h1`
+  color: #cc0000;
+  text-align: center;
+`;
+
+const Title = styled.p`
+  text-align: center;
 `;
 
 const LogoImage = Image.extend`
@@ -69,13 +87,16 @@ class App extends React.Component {
             </Reveal>
           </Flex>
           <FadeTransition delay={1100}>
-            <Flex
-              alignItems="center"
-              justifyContent="center"
-              flexDirection="column"
-            >
-              <RedEnsoLogo width={360} height={360} fill={'#F8002B'} />
-            </Flex>
+            <CenterContainer>
+              <RedEnsoLogo width={600} height={600} fill={'#cc0000'} />
+              <Absolute>
+                <CenterContainer>
+                  <NameHeader>Setsun</NameHeader>
+                  <Title>Creative Technologist</Title>
+                  <PulseButton size={100} children="Enter" />
+                </CenterContainer>
+              </Absolute>
+            </CenterContainer>
           </FadeTransition>
         </div>
       </FadeTransition>
