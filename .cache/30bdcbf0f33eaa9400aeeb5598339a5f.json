@@ -1,8 +1,0 @@
-{
-  "dependencies": [],
-  "generated": {
-    "js":
-      "module.exports = function (it, Constructor, name, forbiddenField) {\n  if (!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)) {\n    throw TypeError(name + ': incorrect invocation!');\n  } return it;\n};\n"
-  },
-  "hash": "dd71adce6f69525a35f375a7cd567d37"
-}

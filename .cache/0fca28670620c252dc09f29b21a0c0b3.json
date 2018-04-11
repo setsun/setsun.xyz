@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_wks", "loc": { "line": 1, "column": 20 } }],
-  "generated": {
-    "js":
-      "var r=require(\"./_wks\")(\"match\");module.exports=function(t){var c=/./;try{\"/./\"[t](c)}catch(e){try{return c[r]=!1,!\"/./\"[t](c)}catch(r){}}return!0};"
-  },
-  "hash": "1eb14c403779b48a0cc8239b43f72575"
-}

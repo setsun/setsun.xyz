@@ -1,8 +1,0 @@
-{
-  "dependencies": [],
-  "generated": {
-    "js":
-      "module.exports=function(o){if(void 0==o)throw TypeError(\"Can't call method on  \"+o);return o};"
-  },
-  "hash": "0bbaf6205f4db16d8532bd5a393e944a"
-}

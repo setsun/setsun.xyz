@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "// 20.2.2.5 Math.asinh(x)\nvar $export = require('./_export');\nvar $asinh = Math.asinh;\n\nfunction asinh(x) {\n  return !isFinite(x = +x) || x == 0 ? x : x < 0 ? -asinh(-x) : Math.log(x + Math.sqrt(x * x + 1));\n}\n\n// Tor Browser bug: Math.asinh(0) -> -0\n$export($export.S + $export.F * !($asinh && 1 / $asinh(0) > 0), 'Math', { asinh: asinh });\n"
-  },
-  "hash": "ba5f7cd12e98e91137114e925a89cac4"
-}

@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "// https://rwaldron.github.io/proposal-math-extensions/\nvar $export = require('./_export');\n\n$export($export.S, 'Math', {\n  clamp: function clamp(x, lower, upper) {\n    return Math.min(upper, Math.max(lower, x));\n  }\n});\n"
-  },
-  "hash": "f83d552ba191bdecb86d1b469ef5c153"
-}

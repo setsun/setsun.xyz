@@ -1,8 +1,0 @@
-{
-  "dependencies": [],
-  "generated": {
-    "js":
-      "module.exports=function(o){return\"object\"==typeof o?null!==o:\"function\"==typeof o};"
-  },
-  "hash": "d240041b1798749adc6342ab7ff6d3b8"
-}

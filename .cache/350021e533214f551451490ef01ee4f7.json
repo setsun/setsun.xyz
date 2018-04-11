@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "var r=require(\"./_export\");r(r.S,\"Math\",{DEG_PER_RAD:Math.PI/180});"
-  },
-  "hash": "27f46e1c8b574e6f90dbb1baba8c5833"
-}

@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_for-of", "loc": { "line": 1, "column": 20 } }],
-  "generated": {
-    "js":
-      "var forOf = require('./_for-of');\n\nmodule.exports = function (iter, ITERATOR) {\n  var result = [];\n  forOf(iter, false, result.push, result, ITERATOR);\n  return result;\n};\n"
-  },
-  "hash": "e05d2ef1ed936696411cf4cd1c27ddd8"
-}

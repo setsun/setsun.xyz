@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "// 20.2.2.11 Math.clz32(x)\nvar $export = require('./_export');\n\n$export($export.S, 'Math', {\n  clz32: function clz32(x) {\n    return (x >>>= 0) ? 31 - Math.floor(Math.log(x + 0.5) * Math.LOG2E) : 32;\n  }\n});\n"
-  },
-  "hash": "564b9885ced38ad4accdc7d158be2fe0"
-}

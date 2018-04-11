@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "// 20.2.2.7 Math.atanh(x)\nvar $export = require('./_export');\nvar $atanh = Math.atanh;\n\n// Tor Browser bug: Math.atanh(-0) -> 0\n$export($export.S + $export.F * !($atanh && 1 / $atanh(-0) < 0), 'Math', {\n  atanh: function atanh(x) {\n    return (x = +x) == 0 ? x : Math.log((1 + x) / (1 - x)) / 2;\n  }\n});\n"
-  },
-  "hash": "a108dda337b8ad639b4449050a69c45a"
-}

@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "// 20.1.2.10 Number.MIN_SAFE_INTEGER\nvar $export = require('./_export');\n\n$export($export.S, 'Number', { MIN_SAFE_INTEGER: -0x1fffffffffffff });\n"
-  },
-  "hash": "817ef20f56830c0825ab576796ea8f3c"
-}

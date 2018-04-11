@@ -1,8 +1,0 @@
-{
-  "dependencies": [],
-  "generated": {
-    "js":
-      "\"use strict\";function t(t){try{t.focus()}catch(t){}}module.exports=t;"
-  },
-  "hash": "ca1014ba7c6f170753dd811918631497"
-}

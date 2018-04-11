@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "// https://rwaldron.github.io/proposal-math-extensions/\nvar $export = require('./_export');\n\n$export($export.S, 'Math', { DEG_PER_RAD: Math.PI / 180 });\n"
-  },
-  "hash": "aec392aac90b441f1f69eb43068d4204"
-}

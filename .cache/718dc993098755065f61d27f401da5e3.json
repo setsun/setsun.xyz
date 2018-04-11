@@ -1,8 +1,0 @@
-{
-  "dependencies": [],
-  "generated": {
-    "js":
-      "\"use strict\";var _=\"SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED\";module.exports=_;"
-  },
-  "hash": "c41bad95b24452e5187ccdabab7c2cff"
-}

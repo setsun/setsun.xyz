@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_for-of", "loc": { "line": 1, "column": 20 } }],
-  "generated": {
-    "js":
-      "var r=require(\"./_for-of\");module.exports=function(e,o){var u=[];return r(e,!1,u.push,u,o),u};"
-  },
-  "hash": "642bde53d5e0b3a5c5878ea75552493a"
-}

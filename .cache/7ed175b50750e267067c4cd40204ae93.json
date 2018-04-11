@@ -1,8 +1,0 @@
-{
-  "dependencies": [],
-  "generated": {
-    "js":
-      "module.exports=Math.scale||function(e,t,n,a,l){return 0===arguments.length||e!=e||t!=t||n!=n||a!=a||l!=l?NaN:e===1/0||e===-1/0?e:(e-t)*(l-a)/(n-t)+a};"
-  },
-  "hash": "9600eafcde6d0acaada7a3d54c70e989"
-}

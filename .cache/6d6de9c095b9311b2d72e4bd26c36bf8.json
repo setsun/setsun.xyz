@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "var t=require(\"./_export\"),a=Math.asinh;function i(t){return isFinite(t=+t)&&0!=t?t<0?-i(-t):Math.log(t+Math.sqrt(t*t+1)):t}t(t.S+t.F*!(a&&1/a(0)>0),\"Math\",{asinh:i});"
-  },
-  "hash": "3192228b5d798b230db7224d168e969f"
-}

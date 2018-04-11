@@ -1,7 +1,0 @@
-{
-  "dependencies": [
-    { "name": "./_set-collection-of", "loc": { "line": 2, "column": 8 } }
-  ],
-  "generated": { "js": "require(\"./_set-collection-of\")(\"Set\");" },
-  "hash": "07a86abc43c5d169cf4261d27574888d"
-}

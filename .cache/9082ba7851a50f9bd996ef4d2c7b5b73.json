@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "var r=require(\"./_export\"),e=Math.exp;r(r.S,\"Math\",{cosh:function(r){return(e(r=+r)+e(-r))/2}});"
-  },
-  "hash": "4c29c1e7fe9acb73bc614cdcf86795a4"
-}

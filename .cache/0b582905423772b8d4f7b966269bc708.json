@@ -1,8 +1,0 @@
-{
-  "dependencies": [],
-  "generated": {
-    "js":
-      "\"use strict\";exports.byteLength=c,exports.toByteArray=u,exports.fromByteArray=d;for(var r=[],t=[],e=\"undefined\"!=typeof Uint8Array?Uint8Array:Array,n=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\",o=0,a=n.length;o<a;++o)r[o]=n[o],t[n.charCodeAt(o)]=o;t[\"-\".charCodeAt(0)]=62,t[\"_\".charCodeAt(0)]=63;function h(r){var t=r.length;if(t%4>0)throw new Error(\"Invalid string. Length must be a multiple of 4\");return\"=\"===r[t-2]?2:\"=\"===r[t-1]?1:0}function c(r){return 3*r.length/4-h(r)}function u(r){var n,o,a,c,u,A=r.length;c=h(r),u=new e(3*A/4-c),o=c>0?A-4:A;var i=0;for(n=0;n<o;n+=4)a=t[r.charCodeAt(n)]<<18|t[r.charCodeAt(n+1)]<<12|t[r.charCodeAt(n+2)]<<6|t[r.charCodeAt(n+3)],u[i++]=a>>16&255,u[i++]=a>>8&255,u[i++]=255&a;return 2===c?(a=t[r.charCodeAt(n)]<<2|t[r.charCodeAt(n+1)]>>4,u[i++]=255&a):1===c&&(a=t[r.charCodeAt(n)]<<10|t[r.charCodeAt(n+1)]<<4|t[r.charCodeAt(n+2)]>>2,u[i++]=a>>8&255,u[i++]=255&a),u}function A(t){return r[t>>18&63]+r[t>>12&63]+r[t>>6&63]+r[63&t]}function i(r,t,e){for(var n,o=[],a=t;a<e;a+=3)n=(r[a]<<16)+(r[a+1]<<8)+r[a+2],o.push(A(n));return o.join(\"\")}function d(t){for(var e,n=t.length,o=n%3,a=\"\",h=[],c=0,u=n-o;c<u;c+=16383)h.push(i(t,c,c+16383>u?u:c+16383));return 1===o?(e=t[n-1],a+=r[e>>2],a+=r[e<<4&63],a+=\"==\"):2===o&&(e=(t[n-2]<<8)+t[n-1],a+=r[e>>10],a+=r[e>>4&63],a+=r[e<<2&63],a+=\"=\"),h.push(a),h.join(\"\")}"
-  },
-  "hash": "29ff4646335d0485c0adfc78d196d360"
-}

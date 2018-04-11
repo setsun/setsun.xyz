@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_fails", "loc": { "line": 2, "column": 20 } }],
-  "generated": {
-    "js":
-      "'use strict';\nvar fails = require('./_fails');\n\nmodule.exports = function (method, arg) {\n  return !!method && fails(function () {\n    // eslint-disable-next-line no-useless-call\n    arg ? method.call(null, function () { /* empty */ }, 1) : method.call(null);\n  });\n};\n"
-  },
-  "hash": "286299fc9054ee34afed7a79d1bd8906"
-}

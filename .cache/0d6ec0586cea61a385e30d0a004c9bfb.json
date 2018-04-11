@@ -1,8 +1,0 @@
-{
-  "dependencies": [],
-  "generated": {
-    "js":
-      "var r={}.toString;module.exports=Array.isArray||function(t){return\"[object Array]\"==r.call(t)};"
-  },
-  "hash": "31bdf871776dd08a0e02494ecb77199f"
-}

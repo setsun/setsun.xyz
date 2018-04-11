@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import styled, { injectGlobal } from 'styled-components';
 import { Provider, Flex, Box, Image, Heading, Absolute } from 'rebass';
 import { Router } from 'react-router';
-import transitionFactory, { opacity } from 'react-transition-factory';
+import { FadeTransition } from 'react-transition-components';
+import something from 'react-transition-components';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import wayfairLogo from './img/wayfair.png';
@@ -16,8 +17,6 @@ import Reveal from './components/Reveal';
 import PulseButton from './components/PulseButton';
 
 const history = createBrowserHistory();
-
-const FadeTransition = transitionFactory(opacity);
 
 injectGlobal`
   * {

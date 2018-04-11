@@ -1,13 +1,0 @@
-{
-  "dependencies": [
-    { "name": "./_export", "loc": { "line": 1, "column": 22 } },
-    { "name": "./_defined", "loc": { "line": 2, "column": 22 } },
-    { "name": "./_fails", "loc": { "line": 3, "column": 20 } },
-    { "name": "./_string-ws", "loc": { "line": 4, "column": 21 } }
-  ],
-  "generated": {
-    "js":
-      "var r=require(\"./_export\"),e=require(\"./_defined\"),i=require(\"./_fails\"),n=require(\"./_string-ws\"),t=\"[\"+n+\"]\",u=\"​\",o=RegExp(\"^\"+t+t+\"*\"),p=RegExp(t+t+\"*$\"),a=function(e,t,o){var p={},a=i(function(){return!!n[e]()||u[e]()!=u}),f=p[e]=a?t(c):n[e];o&&(p[o]=f),r(r.P+r.F*a,\"String\",p)},c=a.trim=function(r,i){return r=String(e(r)),1&i&&(r=r.replace(o,\"\")),2&i&&(r=r.replace(p,\"\")),r};module.exports=a;"
-  },
-  "hash": "d50acb81e5ea3a45a94020c7b5ea673c"
-}

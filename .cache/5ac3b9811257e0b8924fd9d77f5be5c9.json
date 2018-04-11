@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_fails", "loc": { "line": 3, "column": 20 } }],
-  "generated": {
-    "js":
-      "\"use strict\";var t=require(\"./_fails\"),e=Date.prototype.getTime,i=Date.prototype.toISOString,n=function(t){return t>9?t:\"0\"+t};module.exports=t(function(){return\"0385-07-25T07:06:39.999Z\"!=i.call(new Date(-5e13-1))})||!t(function(){i.call(new Date(NaN))})?function(){if(!isFinite(e.call(this)))throw RangeError(\"Invalid time value\");var t=this.getUTCFullYear(),i=this.getUTCMilliseconds(),r=t<0?\"-\":t>9999?\"+\":\"\";return r+(\"00000\"+Math.abs(t)).slice(r?-6:-4)+\"-\"+n(this.getUTCMonth()+1)+\"-\"+n(this.getUTCDate())+\"T\"+n(this.getUTCHours())+\":\"+n(this.getUTCMinutes())+\":\"+n(this.getUTCSeconds())+\".\"+(i>99?i:\"0\"+n(i))+\"Z\"}:i;"
-  },
-  "hash": "3760d628adb697ad93c872149bd4a6d2"
-}

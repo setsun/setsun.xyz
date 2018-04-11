@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "// https://rwaldron.github.io/proposal-math-extensions/\nvar $export = require('./_export');\nvar RAD_PER_DEG = 180 / Math.PI;\n\n$export($export.S, 'Math', {\n  degrees: function degrees(radians) {\n    return radians * RAD_PER_DEG;\n  }\n});\n"
-  },
-  "hash": "f02e6a795c9e0f89b3193d336cdf22f8"
-}

@@ -1,7 +1,0 @@
-{
-  "dependencies": [
-    { "name": "./_set-collection-of", "loc": { "line": 2, "column": 8 } }
-  ],
-  "generated": { "js": "require(\"./_set-collection-of\")(\"WeakSet\");" },
-  "hash": "ff1ce712ff05d941e7dcc0de76cda357"
-}

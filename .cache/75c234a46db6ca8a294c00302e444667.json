@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_global", "loc": { "line": 1, "column": 21 } }],
-  "generated": {
-    "js":
-      "\nvar r=require(\"./_global\"),e=\"__core-js_shared__\",_=r[e]||(r[e]={});module.exports=function(r){return _[r]||(_[r]={})};"
-  },
-  "hash": "7ae006afaa74e04a2a5fefad4ce7a600"
-}

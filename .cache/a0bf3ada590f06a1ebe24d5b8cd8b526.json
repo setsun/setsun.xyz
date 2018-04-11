@@ -1,9 +1,0 @@
-{
-  "dependencies": [{ "name": "./index.js", "dynamic": true }],
-  "generated": {
-    "html":
-      "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Setsun</title>\n  </head>\n  <body>\n    <div id=\"root\" style=\"height: 100%; width: 100%\"></div>\n    <script type=\"application/javascript\" src=\"/b00c51b966a4b5370179d07761a8e207.js\"></script>\n  </body>\n</html>\n"
-  },
-  "hash": "fb95acba9f30135050ee1758dba99bf4",
-  "cacheData": {}
-}

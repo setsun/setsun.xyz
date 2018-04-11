@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "var r=require(\"./_export\");r(r.S,\"Math\",{imulh:function(r,e){var t=+r,u=+e,a=65535&t,i=65535&u,n=t>>16,h=u>>16,o=(n*i>>>0)+(a*i>>>16);return n*h+(o>>16)+((a*h>>>0)+(65535&o)>>16)}});"
-  },
-  "hash": "a691d8af2d0da44ff076c4b8d1263316"
-}

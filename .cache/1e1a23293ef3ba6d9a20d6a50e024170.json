@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "var r=require(\"./_export\");r(r.S,\"Number\",{MIN_SAFE_INTEGER:-9007199254740991});"
-  },
-  "hash": "e2daf5253c5af9aeb2ab70ac1c60b15d"
-}

@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_cof", "loc": { "line": 1, "column": 18 } }],
-  "generated": {
-    "js":
-      "var cof = require('./_cof');\nmodule.exports = function (it, msg) {\n  if (typeof it != 'number' && cof(it) != 'Number') throw TypeError(msg);\n  return +it;\n};\n"
-  },
-  "hash": "4c4680bdaa7b905774f2515ebab8a1c2"
-}

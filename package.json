@@ -24,10 +24,11 @@
     ]
   },
   "dependencies": {
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "react-router-dom": "^4.2.2",
-    "react-transition-factory": "^2.0.0-alpha.1",
+    "react-transition-components": "2.0.0-alpha.9",
+    "react-transition-factory": "2.0.0-alpha.9",
     "react-transition-group": "^2.3.0",
     "rebass": "^2.0.0-0",
     "styled-components": "^3.2.5"
@@ -39,7 +40,7 @@
     "eslint": "^4.19.1",
     "eslint-config-setsun": "1.0.0",
     "husky": "0.14.3",
-    "lint-staged": "7.0.2",
+    "lint-staged": "7.0.4",
     "parcel-bundler": "1.7.0",
     "prettier": "1.11.1"
   }

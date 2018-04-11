@@ -1,8 +1,0 @@
-{
-  "dependencies": [{ "name": "./_export", "loc": { "line": 2, "column": 22 } }],
-  "generated": {
-    "js":
-      "var e=require(\"./_export\");e(e.S,\"Date\",{now:function(){return(new Date).getTime()}});"
-  },
-  "hash": "713fd3144f64d8cff548feddae5328e2"
-}

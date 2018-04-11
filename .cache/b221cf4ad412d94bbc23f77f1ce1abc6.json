@@ -1,7 +1,0 @@
-{
-  "dependencies": [
-    { "name": "./_wks-define", "loc": { "line": 1, "column": 8 } }
-  ],
-  "generated": { "js": "require(\"./_wks-define\")(\"asyncIterator\");" },
-  "hash": "465a433e488572f93a72e893fb0e8b4e"
-}
