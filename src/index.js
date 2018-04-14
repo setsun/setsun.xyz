@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import styled, { injectGlobal } from 'styled-components';
 import { Provider, Flex, Box, Image, Heading, Absolute } from 'rebass';
 import { Router } from 'react-router';
-import { FadeTransition } from 'react-transition-components';
-import something from 'react-transition-components';
+import { FadeTransition, SlideTransition } from 'react-transition-components';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import wayfairLogo from './img/wayfair.png';
 import hubspotLogo from './img/hubspot.png';
 import jetLogo from './img/jet.png';
 import frameLogo from './img/frame.png';
-import RedEnsoLogo from './img/red_enso.svg';
+import RedEnso from './img/red_enso.svg';
 
 import Reveal from './components/Reveal';
 import PulseButton from './components/PulseButton';
@@ -36,15 +35,18 @@ const CenterContainer = Flex.extend.attrs({
   flexDirection: 'column',
 })`
   position: relative;
+  height: 100%;
 `;
 
 const NameHeader = styled.h1`
-  color: #cc0000;
   text-align: center;
+  margin: 0;
 `;
 
-const Title = styled.p`
+const Title = styled.h1`
+  color: #cc0000;
   text-align: center;
+  font-size: 72px;
 `;
 
 const LogoImage = Image.extend`
@@ -53,8 +55,8 @@ const LogoImage = Image.extend`
 
   &:hover {
     transition-delay: 0s !important;
-    transition-duration: 0.3s !important;
-    transform: scale(1.05) !important;
+    transition-duration: 0.15s !important;
+    transform: scale(1.1) !important;
   }
 `;
 
@@ -72,31 +74,36 @@ class App extends React.Component {
             alignContent="space-around"
             justifyContent="center"
           >
-            <Reveal m={2} size={240} delay={250}>
-              <LogoImage width={204} src={wayfairLogo} />
+            <Reveal m={2} size={256} timeout={500} delay={250}>
+              <LogoImage src={wayfairLogo} />
             </Reveal>
-            <Reveal m={2} size={240} delay={350}>
-              <LogoImage width={256} src={hubspotLogo} />
+            <Reveal m={2} size={256} timeout={500} delay={450}>
+              <LogoImage src={hubspotLogo} />
             </Reveal>
-            <Reveal m={2} size={240} delay={450}>
-              <LogoImage width={256} src={jetLogo} />
+            <Reveal m={2} size={256} timeout={500} delay={650}>
+              <LogoImage src={jetLogo} />
             </Reveal>
-            <Reveal m={2} size={240} delay={550}>
-              <LogoImage width={256} src={frameLogo} left={12} />
+            <Reveal m={2} size={256} timeout={500} delay={850}>
+              <LogoImage src={frameLogo} left={12} />
             </Reveal>
           </Flex>
-          <FadeTransition delay={1100}>
-            <CenterContainer>
-              <RedEnsoLogo width={600} height={600} fill={'#cc0000'} />
-              <Absolute>
+          <CenterContainer>
+            <Reveal m={2} size={400} timeout={500} delay={1250}>
+              <div />
+            </Reveal>
+            <SlideTransition direction="bottom" timeout={500} delay={1250} style={{ height: '100%' }}>
+              <Absolute top={12}>
                 <CenterContainer>
                   <NameHeader>Setsun</NameHeader>
                   <Title>Creative Technologist</Title>
-                  <PulseButton size={100} children="Enter" />
+                  <PulseButton
+                    size={100}
+                    children="Enter"
+                  />
                 </CenterContainer>
               </Absolute>
-            </CenterContainer>
-          </FadeTransition>
+            </SlideTransition>
+          </CenterContainer>
         </div>
       </FadeTransition>
     );

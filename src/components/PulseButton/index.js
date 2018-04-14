@@ -25,17 +25,13 @@ const Button = ButtonCircle.extend`
   text-transform: uppercase;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  background-color: transparent;
-  color: black;
+  background-color: #cc0000;
+  color: #fff;
   border: 1px solid #cc0000;
 
   &:hover {
     background-color: #cc0000;
     color: white;
-  }
-
-  &:focus {
-    animation: ${pulse} 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
   }
 `;
 
@@ -53,7 +49,7 @@ const Ring = styled.div`
 `;
 
 export default ({ ...props }) => (
-  <div style={{ position: 'relative' }}>
+  <div style={{ position: 'relative', display: 'inline-block' }}>
     <Button {...props} />
     <Ring />
   </div>
