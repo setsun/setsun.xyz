@@ -3,7 +3,12 @@ import ReactDOM from 'react-dom';
 import styled, { injectGlobal } from 'styled-components';
 import { Provider, Flex, Box, Image, Heading, Absolute } from 'rebass';
 import { Router } from 'react-router';
-import { FadeTransition, SlideTransition } from 'react-transition-components';
+import { TransitionGroup } from 'react-transition-group';
+import {
+  FadeTransition,
+  SlideTransition,
+  FlipTransition,
+} from 'react-transition-components';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import wayfairLogo from './img/wayfair.png';
@@ -46,12 +51,12 @@ const NameHeader = styled.h1`
 const Title = styled.h1`
   color: #cc0000;
   text-align: center;
-  font-size: 72px;
+  font-size: 64px;
+  margin: 32px 0;
 `;
 
 const LogoImage = Image.extend`
   position: relative;
-  left: ${props => props.left || 0}px;
 
   &:hover {
     transition-delay: 0s !important;
@@ -60,9 +65,27 @@ const LogoImage = Image.extend`
   }
 `;
 
+const titles = [
+  'Creative Technologist',
+  'WebXR Enthusiast',
+  'Growth Engineer',
+  'Animation Tinkerer',
+];
+
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      titleIndex: 0,
+    };
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.setState({
+        titleIndex: (this.state.titleIndex + 1) % titles.length,
+      });
+    }, 5000);
   }
 
   render() {
@@ -75,7 +98,7 @@ class App extends React.Component {
             justifyContent="center"
           >
             <Reveal m={2} size={256} timeout={500} delay={250}>
-              <LogoImage src={wayfairLogo} />
+              <LogoImage src={wayfairLogo} size={220} />
             </Reveal>
             <Reveal m={2} size={256} timeout={500} delay={450}>
               <LogoImage src={hubspotLogo} />
@@ -84,22 +107,60 @@ class App extends React.Component {
               <LogoImage src={jetLogo} />
             </Reveal>
             <Reveal m={2} size={256} timeout={500} delay={850}>
-              <LogoImage src={frameLogo} left={12} />
+              <LogoImage src={frameLogo} />
             </Reveal>
           </Flex>
           <CenterContainer>
             <Reveal m={2} size={400} timeout={500} delay={1250}>
               <div />
             </Reveal>
-            <SlideTransition direction="bottom" timeout={500} delay={1250} style={{ height: '100%' }}>
+            <SlideTransition
+              direction="bottom"
+              timeout={500}
+              delay={1250}
+              style={{ height: '100%', width: '100%' }}
+            >
               <Absolute top={12}>
                 <CenterContainer>
                   <NameHeader>Setsun</NameHeader>
-                  <Title>Creative Technologist</Title>
-                  <PulseButton
-                    size={100}
-                    children="Enter"
-                  />
+                  <TransitionGroup
+                    style={{ position: 'relative', width: '100%' }}
+                  >
+                    <FlipTransition
+                      direction="bottom"
+                      timeout={300}
+                      key={this.state.titleIndex}
+                    >
+                      {(state, { style: transitionStyle }) => {
+                        const style = {
+                          ...transitionStyle,
+                          ...(state === 'entering'
+                            ? {
+                                transitionDelay: '100ms',
+                              }
+                            : {}),
+                          ...(state === 'exiting'
+                            ? {
+                                position: 'absolute',
+                                top: 0,
+                                width: '100%',
+                                transformOrigin: 'top',
+                              }
+                            : {}),
+                        };
+
+                        const textIndex =
+                          state === 'exiting'
+                            ? this.state.titleIndex - 1 < 0
+                              ? titles.length - 1
+                              : this.state.titleIndex - 1
+                            : this.state.titleIndex;
+
+                        return <Title style={style}>{titles[textIndex]}</Title>;
+                      }}
+                    </FlipTransition>
+                  </TransitionGroup>
+                  <PulseButton size={100} children="Enter" />
                 </CenterContainer>
               </Absolute>
             </SlideTransition>

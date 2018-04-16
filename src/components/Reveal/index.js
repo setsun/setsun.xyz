@@ -11,7 +11,6 @@ const RevealContainer = Box.extend`
   justify-content: center;
   height: ${props => props.size + TOP_SPACING}px;
   width: ${props => props.size}px;
-  margin: 0;
   border-bottom-left-radius: 100vh;
   border-bottom-right-radius: 100vh;
   overflow: hidden;
