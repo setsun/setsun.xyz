@@ -25,10 +25,11 @@ const Heading = styled.h1`
     bottom: 2%;
     height: 2px;
     background: red;
-    animation: 2s ${animateUnderline} ease-in-out;
-    animation-delay: 1s;
+    animation: ${animateUnderline} ease-in-out;
     animation-fill-mode: forwards;
+    animation-duration: ${props => (props.animate ? 2 : 0)}s;
   }
 `;
+Heading.defaultProps = { animate: true };
 
 export default Heading;

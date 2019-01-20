@@ -44,8 +44,9 @@ const Sky = styled.div`
   height: 65%;
   width: 100%;
   background-size: 100% 200%;
-  animation: 2s ${animateSky} ease-in-out;
+  animation: ${animateSky} ease-in-out;
   animation-fill-mode: forwards;
+  animation-duration: ${props => (props.animate ? 2 : 0)}s;
 `;
 
 const Ocean = styled.div`
@@ -54,8 +55,9 @@ const Ocean = styled.div`
   width: 100%;
   transform: translateZ(0);
   background-size: 200% 200%;
-  animation: 2s ${animateOcean} ease-in-out;
+  animation: ${animateOcean} ease-in-out;
   animation-fill-mode: forwards;
+  animation-duration: ${props => (props.animate ? 2 : 0)}s;
 `;
 
 const Sun = styled.div`
@@ -66,16 +68,18 @@ const Sun = styled.div`
   border-radius: 50%;
   background: yellow;
   box-shadow: 0 0 20px rgba(242, 239, 136, 0.7);
-  animation: 2s ${animateSun} ease-in-out;
+  animation: ${animateSun} ease-in-out;
   animation-fill-mode: forwards;
+  animation-duration: ${props => (props.animate ? 2 : 0)}s;
 `;
 
 const Sunset = props => (
   <World {...props}>
-    <Sun />
-    <Sky />
-    <Ocean />
+    <Sun animate={props.animate} />
+    <Sky animate={props.animate} />
+    <Ocean animate={props.animate} />
   </World>
 );
+Sunset.defaultProps = { animate: true };
 
 export default Sunset;
