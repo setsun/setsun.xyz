@@ -73,11 +73,20 @@ const Sun = styled.div`
   animation-duration: ${props => (props.animate ? 2 : 0)}s;
 `;
 
+const EclipseAnimation = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+
 const Sunset = props => (
   <World {...props}>
     <Sun animate={props.animate} />
     <Sky animate={props.animate} />
     <Ocean animate={props.animate} />
+    <EclipseAnimation />
   </World>
 );
 Sunset.defaultProps = { animate: true };

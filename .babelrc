@@ -1,4 +1,7 @@
 {
   "presets": ["setsun"],
-  "plugins": ["inline-react-svg"]
+  "plugins": [
+    "inline-react-svg",
+    "react-hot-loader/babel"
+  ]
 }

@@ -41,5 +41,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
+  devServer: {
+    port: 8888,
+    hot: true,
+    inline: true,
+  },
 };
