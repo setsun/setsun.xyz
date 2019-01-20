@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { Transition } from 'react-spring';
 import { Router } from 'react-router';
@@ -11,6 +11,18 @@ import PulseButton from './components/PulseButton';
 import Sunset from './components/Sunset';
 
 const history = createBrowserHistory();
+
+const invert = keyframes`
+  from {
+    color: black;
+    background: white;
+  }
+
+  to {
+    color: white;
+    background: black;
+  }
+`;
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -28,6 +40,8 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     margin: 0;
     padding: 0;
+    animation: 2.5s ${invert} ease-in-out;
+    animation-fill-mode: forwards;
   }
 `;
 
@@ -36,20 +50,7 @@ const Center = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0.75rem;
-`;
-
-const Card = styled.div`
-  background: white;
-  /* box-shadow: 2px 2px 8px 6px #ccc; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
   padding: 2rem;
-  transition: 0.3s all ease-in-out;
 `;
 
 class App extends React.Component {
@@ -58,49 +59,47 @@ class App extends React.Component {
     this.state = {
       showNext: false,
     };
-    setTimeout(() => this.setState({ showNext: true }), 3000);
+    setTimeout(() => this.setState({ showNext: true }), 3500);
   }
 
   render() {
     return (
       <Center>
-        <Card>
-          <Flipper flipKey={this.state.showNext}>
-            {!this.state.showNext ? (
-              <Transition
-                items={[
-                  <div>
-                    <Flipped flipId="sunset">
-                      <Sunset />
-                    </Flipped>
-                  </div>,
-                  <div>
-                    <Flipped flipId="heading">
-                      <Heading>I am Setsun.</Heading>
-                    </Flipped>
-                  </div>,
-                ]}
-                keys={item => Math.random()}
-                trail={300}
-                from={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
-                enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                leave={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
-              >
-                {item => style => React.cloneElement(item, { style })}
-              </Transition>
-            ) : (
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Flipped flipId="sunset">
-                  <Sunset animate={false} style={{ marginRight: '1rem' }} />
-                </Flipped>
-                ,
-                <Flipped flipId="heading">
-                  <Heading animate={false}>I am Setsun.</Heading>
-                </Flipped>
-              </div>
-            )}
-          </Flipper>
-        </Card>
+        <Flipper flipKey={this.state.showNext}>
+          {!this.state.showNext ? (
+            <Transition
+              items={[
+                <div>
+                  <Flipped flipId="sunset">
+                    <Sunset />
+                  </Flipped>
+                </div>,
+                <div>
+                  <Flipped flipId="heading">
+                    <Heading>I am Setsun.</Heading>
+                  </Flipped>
+                </div>,
+              ]}
+              keys={item => Math.random()}
+              trail={300}
+              from={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
+              enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+              leave={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
+            >
+              {item => style => React.cloneElement(item, { style })}
+            </Transition>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Flipped flipId="sunset">
+                <Sunset animate={false} style={{ marginRight: '1rem' }} />
+              </Flipped>
+              ,
+              <Flipped flipId="heading">
+                <Heading animate={false}>I am Setsun.</Heading>
+              </Flipped>
+            </div>
+          )}
+        </Flipper>
       </Center>
     );
   }
