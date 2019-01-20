@@ -45,8 +45,9 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
+  height: 100%;
   width: 100%;
+  padding: 2rem;
   transition: 0.3s all ease-in-out;
 `;
 
@@ -54,9 +55,9 @@ const App = () => (
   <Center>
     <Card>
       <Transition
-        items={[<Heading>Creative Technologist.</Heading>, <Sunset />]}
+        items={[<Sunset />, <Heading>I am Setsun.</Heading>]}
         keys={item => Math.random()}
-        trail={200}
+        trail={600}
         from={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
         enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
         leave={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
