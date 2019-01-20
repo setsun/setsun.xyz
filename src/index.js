@@ -7,6 +7,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 
 import Heading from './components/Heading';
 import PulseButton from './components/PulseButton';
+import Sunset from './components/Sunset';
 
 const history = createBrowserHistory();
 
@@ -25,24 +26,45 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
   }
 `;
 
+const Center = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem;
+`;
+
+const Card = styled.div`
+  background: white;
+  box-shadow: 2px 2px 8px 6px #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  width: 100%;
+  transition: 0.3s all ease-in-out;
+`;
+
 const App = () => (
-  <Transition
-    items={[
-      <Heading>Creative Technologist.</Heading>,
-      <p>This is an example body paragraph. WebXR and beyond.</p>,
-      <PulseButton>Hello</PulseButton>,
-    ]}
-    keys={item => Math.random()}
-    trail={200}
-    from={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
-    enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-    leave={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
-  >
-    {item => style => React.cloneElement(item, { style })}
-  </Transition>
+  <Center>
+    <Card>
+      <Transition
+        items={[<Heading>Creative Technologist.</Heading>, <Sunset />]}
+        keys={item => Math.random()}
+        trail={200}
+        from={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
+        enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+        leave={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
+      >
+        {item => style => React.cloneElement(item, { style })}
+      </Transition>
+    </Card>
+  </Center>
 );
 
 ReactDOM.render(
