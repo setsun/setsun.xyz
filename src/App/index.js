@@ -1,7 +1,8 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Flipper, Flipped } from 'react-flip-toolkit';
-import { Spring } from 'react-spring';
+import { Spring, Transition } from 'react-spring';
 import { hot } from 'react-hot-loader/root';
 
 import Heading from '../components/Heading';
@@ -19,10 +20,35 @@ const LoadingContainer = styled.div`
 `;
 
 const MainContainer = styled.div`
-  display: flex;
-  align-items: center;
   width: 100%;
   padding: 1rem;
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+`;
+
+const PortfolioCard = styled.div`
+  width: 300px;
+  padding: 1rem;
+  margin: 0.5rem;
+  background: white;
+  color: black;
+  transition: 0.3s transform ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.025);
+  }
 `;
 
 class App extends React.Component {
@@ -56,14 +82,65 @@ class App extends React.Component {
   renderMain() {
     return (
       <MainContainer>
-        <Flipped flipId="sunset">
-          <Sunset animate={false} size={64} style={{ marginRight: '1rem' }} />
-        </Flipped>
-        <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={100}>
+        <HeaderContainer>
+          <Flipped flipId="sunset">
+            <Sunset animate={false} size={64} style={{ marginRight: '1rem' }} />
+          </Flipped>
+          <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={100}>
+            {style => (
+              <Heading style={style} fontSize={3}>
+                I am Setsun.
+              </Heading>
+            )}
+          </Spring>
+        </HeaderContainer>
+        <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
           {style => (
-            <Heading style={style} fontSize={3}>
-              I am Setsun.
-            </Heading>
+            <div style={style}>
+              <FlexContainer>
+                <Heading fontSize={2.5}>Work</Heading>
+              </FlexContainer>
+              <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
+                <Transition
+                  items={[
+                    {
+                      heading: 'Kickstarter',
+                      text: 'Bringing creative projects to life.',
+                    },
+                    {
+                      heading: 'Frame.io',
+                      text: 'Video review and collaboration, solved.',
+                    },
+                    {
+                      heading: 'Jet',
+                      text: 'Brands and city essentials, all in one place.',
+                    },
+                    {
+                      heading: 'HubSpot',
+                      text: 'There’s a better way to grow.',
+                    },
+                    {
+                      heading: 'Wayfair',
+                      text: 'A zillion things home.',
+                    },
+                  ]}
+                  trail={250}
+                  keys={item => item.heading}
+                  from={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
+                  enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                  leave={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
+                >
+                  {item => style => (
+                    <div style={style}>
+                      <PortfolioCard>
+                        <Heading fontSize={1.5}>{item.heading}</Heading>
+                        <p>{item.text}</p>
+                      </PortfolioCard>
+                    </div>
+                  )}
+                </Transition>
+              </FlexContainer>
+            </div>
           )}
         </Spring>
       </MainContainer>
