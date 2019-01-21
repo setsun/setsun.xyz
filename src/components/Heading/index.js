@@ -16,7 +16,7 @@ const Heading = styled.h1`
   position: relative;
   font-weight: 800;
   letter-spacing: -0.02em;
-  font-size: 4em;
+  font-size: ${({ fontSize }) => fontSize}rem;
   overflow: hidden;
 
   :before {
@@ -30,6 +30,9 @@ const Heading = styled.h1`
     animation-duration: ${props => (props.animate ? 2 : 0)}s;
   }
 `;
-Heading.defaultProps = { animate: true };
+Heading.defaultProps = {
+  animate: true,
+  fontSize: 3,
+};
 
 export default Heading;

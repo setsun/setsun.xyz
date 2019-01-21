@@ -8,14 +8,12 @@ import App from './App';
 
 const history = createBrowserHistory();
 
-const invert = keyframes`
+const fadeToBlack = keyframes`
   from {
-    color: black;
     background: white;
   }
 
   to {
-    color: white;
     background: black;
   }
 `;
@@ -36,7 +34,8 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     margin: 0;
     padding: 0;
-    animation: 2.5s ${invert} ease-in-out;
+    color: white;
+    animation: 2s ${fadeToBlack} ease-in-out;
     animation-fill-mode: forwards;
   }
 `;

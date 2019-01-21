@@ -12,6 +12,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack src/index.js",
+    "deploy": "npm run build; bin/deploy-gh-pages.sh",
     "test": "echo \"test step\"; exit 0;",
     "lint": "echo \"lint step\"; exit 0;",
     "precommit": "lint-staged"
