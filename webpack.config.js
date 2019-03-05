@@ -47,5 +47,8 @@ module.exports = {
     port: 8888,
     hot: true,
     inline: true,
+    historyApiFallback: {
+      index: 'index.html',
+    },
   },
 };
