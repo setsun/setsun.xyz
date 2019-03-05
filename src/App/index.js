@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Flipper, Flipped } from 'react-flip-toolkit';
-import { Spring, Transition } from 'react-spring';
+import { Spring, Transition } from 'react-spring/renderprops';
 import { hot } from 'react-hot-loader/root';
 
 import Heading from '../components/Heading';
