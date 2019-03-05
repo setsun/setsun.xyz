@@ -1,5 +1,6 @@
-# setsun.github.io
+# setsun.io
 
-**CircleCI Status**: [![CircleCI](https://circleci.com/gh/Setsun/setsun.github.io/tree/develop.svg?style=svg)](https://circleci.com/gh/Setsun/setsun.github.io/tree/develop)
+a stream of consciousness
 
-Developed using A-Frame and React. Bundled with Parcel.
+/sketches
+/work
