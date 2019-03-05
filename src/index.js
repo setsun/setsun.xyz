@@ -6,6 +6,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 
 import App from './routes/App';
 import Sketches from './routes/Sketches';
+import Work from './routes/Work';
 
 const history = createBrowserHistory();
 
@@ -63,6 +64,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" component={App} />
         <Route path="/sketches" component={Sketches} />
+        <Route path="/work" component={Work} />
       </Switch>
     </Router>
   </>,

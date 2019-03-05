@@ -20,7 +20,7 @@ const LoadingContainer = styled.div`
 
 const MainContainer = styled.div`
   width: 100%;
-  padding: 1rem;
+  padding: 2rem 1rem;
 `;
 
 const HeaderContainer = styled.div`
@@ -129,6 +129,29 @@ const Main = () => {
                   </div>
                 )}
               </Transition>
+            </FlexContainer>
+
+            <FlexContainer>
+              <Heading fontSize={2.5}>Sketches</Heading>
+            </FlexContainer>
+            <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
+              Coming Soon
+            </FlexContainer>
+
+            <FlexContainer>
+              <Heading fontSize={2.5}>Social</Heading>
+            </FlexContainer>
+            <FlexContainer
+              style={{
+                maxWidth: '1150px',
+                margin: '0 auto',
+                flexDirection: 'column',
+              }}
+            >
+              <a href="https://github.com/setsun">https://github.com/setsun</a>
+              <a href="https://linkedin.com/in/setsun">
+                https://linkedin.com/in/setsun
+              </a>
             </FlexContainer>
           </div>
         )}
