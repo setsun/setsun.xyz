@@ -67,29 +67,7 @@ const Loading = () => {
   );
 };
 
-const Main = () => {
-  const items = [
-    {
-      heading: 'Kickstarter',
-      text: 'Bringing creative projects to life.',
-    },
-    {
-      heading: 'Frame.io',
-      text: 'Video review and collaboration, solved.',
-    },
-    {
-      heading: 'Jet',
-      text: 'Brands and city essentials, all in one place.',
-    },
-    {
-      heading: 'HubSpot',
-      text: 'There’s a better way to grow.',
-    },
-    {
-      heading: 'Wayfair',
-      text: 'A zillion things home.',
-    },
-  ];
+const Main = ({ items }) => {
   const transitionSprings = useTransition(items, item => item.heading, {
     from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
     enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
@@ -162,15 +140,43 @@ const Main = () => {
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const finishLoadingEffect = () => {
+    if (loading) setTimeout(() => setLoading(false), 3000);
+  };
 
-  useEffect(() => {
-    if (loading) {
-      setTimeout(() => setLoading(false), 3000);
-    }
-  });
+  useEffect(finishLoadingEffect);
 
   return (
-    <Flipper flipKey={loading}>{loading ? <Loading /> : <Main />}</Flipper>
+    <Flipper flipKey={loading}>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Main
+          items={[
+            {
+              heading: 'Kickstarter',
+              text: 'Bringing creative projects to life.',
+            },
+            {
+              heading: 'Frame.io',
+              text: 'Video review and collaboration, solved.',
+            },
+            {
+              heading: 'Jet',
+              text: 'Brands and city essentials, all in one place.',
+            },
+            {
+              heading: 'HubSpot',
+              text: 'There’s a better way to grow.',
+            },
+            {
+              heading: 'Wayfair',
+              text: 'A zillion things home.',
+            },
+          ]}
+        />
+      )}
+    </Flipper>
   );
 };
 
