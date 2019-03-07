@@ -8,7 +8,7 @@ module.exports = {
   target: 'web',
   mode: 'development',
   context: src,
-  entry: 'index.js',
+  entry: 'index.tsx',
   output: {
     path: dist,
     filename: 'index.js',
@@ -23,7 +23,7 @@ module.exports = {
       {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
-        use: [{ loader: 'babel-loader' }, { loader: 'ts-loader' }],
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.js(x?)$/,

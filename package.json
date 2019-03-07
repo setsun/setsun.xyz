@@ -24,12 +24,12 @@
     ]
   },
   "dependencies": {
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-flip-toolkit": "^6.5.7",
-    "react-hot-loader": "^4.7.2",
+    "react-hot-loader": "^4.8.0",
     "react-router-dom": "^4.3.1",
-    "react-spring": "^8.0.11",
+    "react-spring": "^8.0.12",
     "react-three-fiber": "^1.3.0",
     "react-transition-components": "^2.0.0-alpha.11",
     "react-transition-factory": "^2.0.0-alpha.13",
