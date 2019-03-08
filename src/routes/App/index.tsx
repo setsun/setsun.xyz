@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { useSpring, useTransition, animated } from 'react-spring';
+import { Link } from 'react-router-dom'
 import { hot } from 'react-hot-loader/root';
 
 import Heading from '../../components/Heading';
-import PulseButton from '../../components/PulseButton';
 import Sunset from '../../components/Sunset';
 
 const LoadingContainer = styled.div`
@@ -50,10 +50,18 @@ const PortfolioCard = styled.div`
   }
 `;
 
+const WorkLink = styled(Link)`
+  padding: 0;
+  margin: 0;
+`;
+
+const AnimatedHeading = animated(Heading)
+
 const Loading = () => {
   const spring = useSpring({
     from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
     to: { opacity: 1, transform: 'translate3d(0,0px,0)' },
+    delay: 100,
   });
 
   return (
@@ -72,9 +80,9 @@ const Main = ({ items }) => {
     from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
     enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
     leave: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
-    trail: 250,
+    trail: 300,
   });
-  const headerSpring = useSpring({
+  const headingSpring = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
     delay: 100,
@@ -82,6 +90,7 @@ const Main = ({ items }) => {
   const contentSpring = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
+    delay: 300,
   });
 
   return (
@@ -91,9 +100,9 @@ const Main = ({ items }) => {
           <Sunset animate={false} size={64} style={{ marginRight: '1rem' }} />
         </Flipped>
 
-        <Heading style={headerSpring} fontSize={3}>
+        <AnimatedHeading style={headingSpring} fontSize={3}>
           I am Setsun.
-        </Heading>
+        </AnimatedHeading>
       </HeaderContainer>
 
       <animated.div style={contentSpring}>
@@ -103,10 +112,12 @@ const Main = ({ items }) => {
         <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
           {transitionSprings.map(({ item, props, key }) => (
             <animated.div style={props} key={key}>
-              <PortfolioCard>
-                <Heading fontSize={1.5}>{item.heading}</Heading>
-                <p>{item.text}</p>
-              </PortfolioCard>
+              <WorkLink to={`/work/${item.heading.toLowerCase()}`}>
+                <PortfolioCard>
+                  <Heading fontSize={1.5}>{item.heading}</Heading>
+                  <p>{item.text}</p>
+                </PortfolioCard>
+              </WorkLink>
             </animated.div>
           ))}
         </FlexContainer>

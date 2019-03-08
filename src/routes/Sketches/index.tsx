@@ -3,7 +3,6 @@ import * as THREE from 'three';
 import { Canvas } from 'react-three-fiber';
 
 const Sketches = () => {
-  const color = 'blue';
   const vertices = [[-1, 0, 0], [0, 1, 0], [1, 0, 0]];
 
   return (

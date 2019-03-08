@@ -30,6 +30,7 @@ const Heading = styled.h1`
     animation-duration: ${props => (props.animate ? 2 : 0)}s;
   }
 `;
+
 Heading.defaultProps = {
   animate: true,
   fontSize: 3,

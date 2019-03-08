@@ -52,7 +52,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: white;
-    animation: 2s ${fadeToBlack} ease-in-out;
+    animation: 1.5s ${fadeToBlack} ease-in-out;
+    animation-delay: 0.5s;
     animation-fill-mode: forwards;
   }
 `;
