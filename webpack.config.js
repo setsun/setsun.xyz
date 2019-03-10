@@ -38,6 +38,17 @@ module.exports = {
         exclude: /node_modules/,
         use: [{ loader: 'graphql-tag/loader' }],
       },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 2048,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [

@@ -29,6 +29,10 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     transition: 0.3s color ease-in-out;
     margin: 0 0.25rem;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
 
     &:hover {
       color: #808080;

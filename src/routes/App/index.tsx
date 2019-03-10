@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as Icon from 'react-feather';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { useSpring, useTransition, animated } from 'react-spring';
-import { Spring } from 'react-spring/renderprops';
+import { Spring, Transition } from 'react-spring/renderprops';
 import { Route, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
@@ -13,13 +13,17 @@ import Sunset from '../../components/Sunset';
 
 import { fadeIn } from '../../animations/springs';
 
+import kickstarterImg from '../../img/kickstarter.png';
+import frameImg from '../../img/frame.png';
+import jetImg from '../../img/jet.png';
+import hubspotImg from '../../img/hubspot.png';
+import wayfairImg from '../../img/wayfair.png';
+
 const AnimatedHeading = animated(Heading);
 
-const WorkLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin: 0;
+const WorkImage = styled.img`
+  height: 32px;
+  width: auto;
 `;
 
 const LoadingContainer = styled.div`
@@ -54,6 +58,12 @@ const FlexContainer = styled.div`
   margin: 1rem 0;
 `;
 
+const slideTransition = {
+  from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
+  enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
+  leave: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
+};
+
 const Loading = () => {
   const spring = useSpring({
     ...fadeIn,
@@ -75,23 +85,32 @@ const WorkRoute = ({ items }) => (
   <Route
     path="/work/:id"
     exact
-    render={(props) => (
-      <Card fullscreen flipId={props.location.pathname}>
-        <CardHeaderContainer>
-          <Heading fontSize={1.5}>{items.find(i => i.heading.toLowerCase() === props.match.params.id).heading}</Heading>
-          <Spring {...fadeIn} delay={1000}>
-            {spring => (
-              <WorkLink to="/" style={spring}>
-                Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
-              </WorkLink>
-            )}
-          </Spring>
-        </CardHeaderContainer>
-        <p>{items.find(i => i.heading.toLowerCase() === props.match.params.id).text}</p>
-        <h3>Selected Works</h3>
-        <p>Coming soon.</p>
-      </Card>
-    )}
+    render={(props) => {
+      const item = items.find(i => i.heading.toLowerCase() === props.match.params.id);
+
+      return (
+        <Card fullscreen flipId={props.location.pathname}>
+          <CardHeaderContainer>
+            <Heading fontSize={1.5}>{item.heading}</Heading>
+            <Spring {...fadeIn} delay={600}>
+              {spring => (
+                <>
+                  <a href={item.link} target="_blank">
+                    <WorkImage src={item.image} style={spring} />
+                  </a>
+                  <Link to="/" style={spring}>
+                    Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
+                  </Link>
+                </>
+              )}
+            </Spring>
+          </CardHeaderContainer>
+          <p>{item.text}</p>
+          <h3>Selected Works</h3>
+          <p>Coming soon.</p>
+        </Card>
+      );
+    }}
   />
 );
 
@@ -100,9 +119,7 @@ const Main = ({
   location,
 }) => {
   const transitionSprings = useTransition(items, item => item.heading, {
-    from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
-    enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
-    leave: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
+    ...slideTransition,
     trail: 300,
   });
   const headingSpring = useSpring({
@@ -138,12 +155,12 @@ const Main = ({
 
             return (
               <animated.div style={props} key={key}>
-                <WorkLink to={pathname}>
+                <Link to={pathname}>
                   <Card flipId={pathname}>
                     <Heading fontSize={1.5}>{item.heading}</Heading>
                     <p>{item.text}</p>
                   </Card>
-                </WorkLink>
+                </Link>
               </animated.div>
             );
           })}
@@ -206,22 +223,32 @@ const App = ({
     {
       heading: 'Kickstarter',
       text: 'Bringing creative projects to life.',
+      link: 'https://kickstarter.com',
+      image: kickstarterImg,
     },
     {
       heading: 'Frame.io',
       text: 'Video review and collaboration, solved.',
+      link: 'https://frame.io',
+      image: frameImg,
     },
     {
       heading: 'Jet',
       text: 'Brands and city essentials, all in one place.',
+      link: 'https://jet.com',
+      image: jetImg,
     },
     {
       heading: 'HubSpot',
       text: 'There’s a better way to grow.',
+      link: 'https://hubspot.com',
+      image: hubspotImg,
     },
     {
       heading: 'Wayfair',
       text: 'A zillion things home.',
+      link: 'https://wayfair.com',
+      image: wayfairImg,
     },
   ]
 
