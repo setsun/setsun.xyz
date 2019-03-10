@@ -6,7 +6,7 @@ const dist = path.resolve(__dirname, 'dist');
 
 module.exports = {
   target: 'web',
-  mode: 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   context: src,
   entry: 'index.tsx',
   output: {
