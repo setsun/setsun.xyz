@@ -55,6 +55,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
+      favicon: './img/favicon.ico',
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],

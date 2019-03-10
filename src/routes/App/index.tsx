@@ -11,6 +11,8 @@ import Card from '../../components/Card';
 import Heading from '../../components/Heading';
 import Sunset from '../../components/Sunset';
 
+import Sketches from '../Sketches';
+
 import { fadeIn } from '../../animations/springs';
 
 import kickstarterImg from '../../img/kickstarter.png';
@@ -94,6 +96,20 @@ const Loading = () => {
   );
 };
 
+const SketchesRoute = () => (
+  <Route
+    path="/sketches/:id"
+    exact
+    render={(props) => {
+      return (
+        <Card fullscreen flipId={props.location.pathname}>
+          <Sketches />
+        </Card>
+      );
+    }}
+  />
+);
+
 const WorkRoute = ({ items }) => (
   <Route
     path="/work/:id"
@@ -103,24 +119,24 @@ const WorkRoute = ({ items }) => (
 
       return (
         <Card fullscreen flipId={props.location.pathname}>
-          <CardHeaderContainer>
-            <Heading fontSize={1.5}>{item.heading}</Heading>
-            <Spring {...fadeIn} delay={600}>
-              {spring => (
-                <>
+          <Spring {...fadeIn} delay={600}>
+            {spring => (
+              <>
+                <CardHeaderContainer>
+                  <Heading fontSize={1.5}>{item.heading}</Heading>
                   <a href={item.link} target="_blank">
                     <WorkImage src={item.image} style={spring} />
                   </a>
                   <Link to="/" style={spring}>
                     Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
                   </Link>
-                </>
-              )}
-            </Spring>
-          </CardHeaderContainer>
-          <p>{item.text}</p>
-          <h3>Selected Works</h3>
-          <p>Coming soon.</p>
+                </CardHeaderContainer>
+                <p>{item.text}</p>
+                <h3 style={spring}>Selected Works</h3>
+                <p style={spring}>Coming soon.</p>
+              </>
+            )}
+          </Spring>
         </Card>
       );
     }}
@@ -185,7 +201,6 @@ const Main = ({
         <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
           Coming soon.
         </FlexContainer>
-
 
         <FlexContainer>
           <Heading fontSize={2.5}>Sketches</Heading>
@@ -272,7 +287,7 @@ const App = ({
       link: 'https://wayfair.com',
       image: wayfairImg,
     },
-  ]
+  ];
 
   return (
     <Flipper
@@ -292,6 +307,7 @@ const App = ({
       )}
 
       <WorkRoute items={items} />
+      <SketchesRoute />
 
       {overlaySpring.map(({ item, props }) => item && (
         <Overlay

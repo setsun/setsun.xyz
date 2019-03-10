@@ -16,10 +16,11 @@ const fullscreenStyle = css`
   left: 7.5%;
   right: 7.5%;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
 `;
 
 const BaseCard = styled.div`
-  margin: 0.5rem;
+  margin: 0.25rem;
   background: white;
   color: black;
 
