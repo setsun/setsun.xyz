@@ -8,12 +8,14 @@ type Props = {
   flipId?: string;
 }
 
-const fixedStyle = css`
+const fullscreenStyle = css`
+  z-index: 999;
   position: fixed;
   top: 7.5%;
   bottom: 7.5%;
   left: 7.5%;
   right: 7.5%;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
 `;
 
 const BaseCard = styled.div`
@@ -21,7 +23,7 @@ const BaseCard = styled.div`
   background: white;
   color: black;
 
-  ${(props: Props) => props.fullscreen ? fixedStyle : null}
+  ${(props: Props) => props.fullscreen ? fullscreenStyle : null}
 `;
 
 const CardContent = styled.div`

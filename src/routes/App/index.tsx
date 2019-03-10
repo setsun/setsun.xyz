@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as Icon from 'react-feather';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { useSpring, useTransition, animated } from 'react-spring';
-import { Spring, Transition } from 'react-spring/renderprops';
+import { Spring } from 'react-spring/renderprops';
 import { Route, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
@@ -57,6 +57,19 @@ const FlexContainer = styled.div`
   justify-content: center;
   margin: 1rem 0;
 `;
+
+const Overlay = animated(
+  styled.div`
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  `
+);
 
 const slideTransition = {
   from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
@@ -219,6 +232,15 @@ const App = ({
 
   useEffect(finishLoadingEffect);
 
+  const isRootPath = location.pathname === '/';
+
+  const overlaySpring = useTransition(!isRootPath, null, {
+    from: { opacity: 0, },
+    enter: { opacity: 1 },
+    leave: { opacity: 0, },
+    trail: 300,
+  });
+
   const items = [
     {
       heading: 'Kickstarter',
@@ -270,6 +292,13 @@ const App = ({
       )}
 
       <WorkRoute items={items} />
+
+      {overlaySpring.map(({ item, props }) => item && (
+        <Overlay
+          style={props}
+          onClick={() => history.push('/')}
+        />
+      ))}
     </Flipper>
   );
 };
