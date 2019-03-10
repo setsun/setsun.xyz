@@ -4709,6 +4709,10 @@ react-dom@^16.8.4:
     prop-types "^15.6.2"
     scheduler "^0.13.4"
 
+react-feather@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/react-feather/-/react-feather-1.1.6.tgz#2a547e3d5cd5e383d3da0128d593cbdb3c1b32f7"
+
 react-flip-toolkit@^6.5.7:
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/react-flip-toolkit/-/react-flip-toolkit-6.5.7.tgz#1ddc1479d64113f859d1f6ab02ed0cc33d7c1778"

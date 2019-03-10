@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import * as Icon from 'react-feather';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { useSpring, useTransition, animated } from 'react-spring';
+import { Spring } from 'react-spring/renderprops';
 import { Route, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
@@ -36,6 +38,14 @@ const FlexContainer = styled.div`
   margin: 1rem 0;
 `;
 
+const WorkLink = styled(Link)`
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+`;
+
 const PortfolioCard = styled.div`
   width: ${(props) => props.fullscreen ? 'auto' : '300px'};
   padding: 1rem;
@@ -58,21 +68,31 @@ const PortfolioCard = styled.div`
     bottom: 7.5%;
     left: 7.5%;
     right: 7.5%;
+
+    ${WorkLink} {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   ` : null
   }
 `;
 
-const WorkLink = styled(Link)`
-  padding: 0;
-  margin: 0;
-`;
-
 const AnimatedHeading = animated(Heading)
+
+const slide = {
+  from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
+  to: { opacity: 1, transform: 'translate3d(0,0px,0)' },
+}
+
+const fade = {
+  from: { opacity: 0 },
+  to: { opacity: 1 },
+}
 
 const Loading = () => {
   const spring = useSpring({
-    from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
-    to: { opacity: 1, transform: 'translate3d(0,0px,0)' },
+    ...slide,
     delay: 100,
   });
 
@@ -95,17 +115,25 @@ const WorkRoute = ({ items }) => (
       <Flipped flipId={props.location.pathname}>
         <PortfolioCard fullscreen>
           <Flipped inverseFlipId={props.location.pathname} scale>
-            <div>
+            <div style={{ height: '100%' }}>
               <Heading fontSize={1.5}>{items.find(i => i.heading.toLowerCase() === props.match.params.id).heading}</Heading>
               <p>{items.find(i => i.heading.toLowerCase() === props.match.params.id).text}</p>
-              <WorkLink to="/">Go Back</WorkLink>
+              <h3>Selected Works</h3>
+              <p>Coming soon.</p>
+              <Spring {...fade} delay={1000}>
+                {spring => (
+                  <WorkLink to="/" style={spring}>
+                    Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
+                  </WorkLink>
+                )}
+              </Spring>
             </div>
           </Flipped>
         </PortfolioCard>
       </Flipped>
     )}
   />
-)
+);
 
 const Main = ({
   items,
@@ -118,13 +146,11 @@ const Main = ({
     trail: 300,
   });
   const headingSpring = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
+    ...fade,
     delay: 100,
   });
   const contentSpring = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
+    ...fade,
     delay: 300,
   });
 
@@ -152,7 +178,7 @@ const Main = ({
                   <Flipped flipId={`/work/${item.heading.toLowerCase()}`}>
                     <PortfolioCard>
                       <Flipped inverseFlipId={`/work/${item.heading.toLowerCase()}`} scale>
-                        <div>
+                        <div style={{ height: '100%' }}>
                           <Heading fontSize={1.5}>{item.heading}</Heading>
                           <p>{item.text}</p>
                         </div>
@@ -171,7 +197,7 @@ const Main = ({
           <Heading fontSize={2.5}>Sketches</Heading>
         </FlexContainer>
         <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-          Coming Soon
+          Coming soon.
         </FlexContainer>
 
         <FlexContainer>
