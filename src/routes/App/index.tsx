@@ -196,11 +196,18 @@ const Main = ({
 
 const App = ({
   location,
-  match,
+  search,
+  history,
 }) => {
   const [loading, setLoading] = useState(true);
+
   const finishLoadingEffect = () => {
-    if (loading) setTimeout(() => setLoading(false), 3000);
+    if (!loading) return;
+
+    setTimeout(() => {
+      setLoading(false);
+      history.push({ state: { loading: false }});
+    }, 3000);
   };
 
   useEffect(finishLoadingEffect);
@@ -229,7 +236,13 @@ const App = ({
   ]
 
   return (
-    <Flipper flipKey={location.key}>
+    <Flipper
+      flipKey={loading || location}
+      decisionData={{
+        location,
+        search
+      }}
+    >
       {loading ? (
         <Loading />
       ) : (
