@@ -4,14 +4,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const src = path.resolve(__dirname, 'src');
 const dist = path.resolve(__dirname, 'dist');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
   target: 'web',
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  mode: isProduction ? 'production' : 'development',
   context: src,
   entry: 'index.tsx',
   output: {
     path: dist,
-    filename: 'index.js',
+    filename: '[name]-[hash].js',
+    chunkFilename: '[id].[hash].bundle.js',
     publicPath: '/',
   },
   resolve: {
@@ -39,16 +42,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: 'index.html',
       template: 'index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
+  devtool: 'cheap-module-source-map',
   devServer: {
     port: 8888,
     hot: true,
     inline: true,
-    historyApiFallback: {
-      index: 'index.html',
-    },
+    historyApiFallback: true,
   },
 };

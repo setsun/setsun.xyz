@@ -56,12 +56,18 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-ReactDOM.render(
-  <>
-    <GlobalStyle />
-    <Router history={history}>
-      <Route path="/" component={App} />
-    </Router>
-  </>,
-  document.querySelector('#root')
-);
+const render = () => {
+  ReactDOM.render(
+    <>
+      <GlobalStyle />
+      <Router history={history}>
+        <Route path="/" component={App} />
+      </Router>
+    </>,
+    document.querySelector('#root')
+  );
+}
+
+render();
+
+export default render;
