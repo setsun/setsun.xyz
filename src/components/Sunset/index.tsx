@@ -26,7 +26,7 @@ const Sky = styled.div<Props>`
   height: 65%;
   width: 100%;
   background-size: 100% 200%;
-  background-position: 0 60%;
+  background-position: ${props => (props.animate ? '0 10%' : '0 60%')};
   animation: ${animateSky} ease-in-out;
   animation-duration: ${props => (props.animate ? 2 : 0)}s;
   animation-delay: ${props => (props.animate ? 0.3 : 0)}s;
@@ -45,7 +45,7 @@ const Ocean = styled.div<Props>`
   height: 35%;
   width: 100%;
   background-size: 200% 200%;
-  background-position: 0 50%;
+  background-position: ${props => (props.animate ? '0 0' : '0 50%')};
   animation: ${animateOcean} ease-in-out;
   animation-duration: ${props => (props.animate ? 2 : 0)}s;
   animation-delay: ${props => (props.animate ? 0.3 : 0)}s;
@@ -60,7 +60,7 @@ const animateSun = keyframes`
 const Sun = styled.div<Props>`
   position: absolute;
   left: calc(50% - 10%); /* center on x-axis */
-  top: 5%;
+  top: ${props => (props.animate ? '5%' : '55%')};
   width: 20%;
   height: 20%;
   border-radius: 50%;

@@ -22,7 +22,7 @@ import wayfairImg from '../../img/wayfair.png';
 const AnimatedHeading = animated(Heading);
 
 const WorkImage = styled.img`
-  height: 32px;
+  height: 24px;
   width: auto;
 `;
 
