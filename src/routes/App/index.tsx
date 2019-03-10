@@ -210,8 +210,8 @@ const Main = ({
             flexDirection: 'column',
           }}
         >
-          <a href="https://github.com/setsun">https://github.com/setsun</a>
-          <a href="https://linkedin.com/in/setsun">
+          <a href="https://github.com/setsun" target="_blank">https://github.com/setsun</a>
+          <a href="https://linkedin.com/in/setsun" target="_blank">
             https://linkedin.com/in/setsun
           </a>
         </FlexContainer>
