@@ -11,9 +11,16 @@ import Card from '../../components/Card';
 import Heading from '../../components/Heading';
 import Sunset from '../../components/Sunset';
 
-import { fadeIn, slideDown } from '../../animations/springs';
+import { fadeIn } from '../../animations/springs';
 
 const AnimatedHeading = animated(Heading);
+
+const WorkLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+`;
 
 const LoadingContainer = styled.div`
   display: flex;
@@ -35,19 +42,16 @@ const HeaderContainer = styled.div`
   align-items: center;
 `;
 
+const CardHeaderContainer = styled(HeaderContainer)`
+  justify-content: space-between;
+`
+
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   margin: 1rem 0;
-`;
-
-const WorkLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin: 0;
 `;
 
 const Loading = () => {
@@ -73,17 +77,19 @@ const WorkRoute = ({ items }) => (
     exact
     render={(props) => (
       <Card fullscreen flipId={props.location.pathname}>
-        <Heading fontSize={1.5}>{items.find(i => i.heading.toLowerCase() === props.match.params.id).heading}</Heading>
+        <CardHeaderContainer>
+          <Heading fontSize={1.5}>{items.find(i => i.heading.toLowerCase() === props.match.params.id).heading}</Heading>
+          <Spring {...fadeIn} delay={1000}>
+            {spring => (
+              <WorkLink to="/" style={spring}>
+                Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
+              </WorkLink>
+            )}
+          </Spring>
+        </CardHeaderContainer>
         <p>{items.find(i => i.heading.toLowerCase() === props.match.params.id).text}</p>
         <h3>Selected Works</h3>
         <p>Coming soon.</p>
-        <Spring {...fadeIn} delay={1000}>
-          {spring => (
-            <WorkLink to="/" style={spring}>
-              Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
-            </WorkLink>
-          )}
-        </Spring>
       </Card>
     )}
   />
@@ -125,21 +131,31 @@ const Main = ({
           <Heading fontSize={2.5}>Work</Heading>
         </FlexContainer>
         <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-          {transitionSprings.map(({ item, props, key }) =>
-            location.pathname !== `/work/${item.heading.toLowerCase()}` ? (
+          {transitionSprings.map(({ item, props, key }) => {
+            const pathname = `/work/${item.heading.toLowerCase()}`;
+
+            if (location.pathname === pathname) return null;
+
+            return (
               <animated.div style={props} key={key}>
-                <WorkLink to={`/work/${item.heading.toLowerCase()}`}>
-                  <Card flipId={`/work/${item.heading.toLowerCase()}`}>
+                <WorkLink to={pathname}>
+                  <Card flipId={pathname}>
                     <Heading fontSize={1.5}>{item.heading}</Heading>
                     <p>{item.text}</p>
                   </Card>
                 </WorkLink>
               </animated.div>
-            ) : (
-              <animated.div style={props} key={key} />
-            )
-          )}
+            );
+          })}
         </FlexContainer>
+
+        <FlexContainer>
+          <Heading fontSize={2.5}>Projects</Heading>
+        </FlexContainer>
+        <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
+          Coming soon.
+        </FlexContainer>
+
 
         <FlexContainer>
           <Heading fontSize={2.5}>Sketches</Heading>
@@ -149,7 +165,7 @@ const Main = ({
         </FlexContainer>
 
         <FlexContainer>
-          <Heading fontSize={2.5}>Social</Heading>
+          <Heading fontSize={2.5}>Connect</Heading>
         </FlexContainer>
         <FlexContainer
           style={{

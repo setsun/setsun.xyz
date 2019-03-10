@@ -9,7 +9,7 @@ touch dist/CNAME
 echo 'setsun.io' >> dist/CNAME
 
 git add dist
-git -c user.name='CircleCI Deploy' -c user.email='deploy@setsun.io' commit -m "deploy" --no-verify
+git -c user.name='Setsun' -c user.email='setsun@setsun.io' commit -m "deploy" --no-verify
 
 git subtree split --prefix dist -b deploy
 git push -f origin deploy:master

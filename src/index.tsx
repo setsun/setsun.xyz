@@ -8,14 +8,9 @@ import App from './routes/App';
 
 const history = createBrowserHistory();
 
-const fadeToBlack = keyframes`
-  from {
-    background: white;
-  }
-
-  to {
-    background: black;
-  }
+const lightsOff = keyframes`
+  from { background: white; }
+  to { background: black; }
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -30,13 +25,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
+    color: inherit;
     text-decoration: none;
-    color: white;
     transition: 0.3s color ease-in-out;
     margin: 0 0.25rem;
 
     &:hover {
-      color: #b2b2b2;
+      color: #808080;
     }
   }
 
@@ -50,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: white;
-    animation: 1.5s ${fadeToBlack} ease-in-out;
+    animation: 1.5s ${lightsOff} ease-in-out;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
   }
