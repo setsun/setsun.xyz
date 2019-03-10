@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled, { createGlobalStyle, keyframes } from 'styled-components';
-import { Router, Switch, Route } from 'react-router';
+import { createGlobalStyle, keyframes } from 'styled-components';
+import { Router, Route } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import App from './routes/App';
-import Sketches from './routes/Sketches';
-import Work from './routes/Work';
 
 const history = createBrowserHistory();
 
@@ -62,11 +60,7 @@ ReactDOM.render(
   <>
     <GlobalStyle />
     <Router history={history}>
-      <Switch>
-        <Route path="/" component={App} />
-        <Route path="/sketches" component={Sketches} />
-        <Route path="/work" component={Work} />
-      </Switch>
+      <Route path="/" component={App} />
     </Router>
   </>,
   document.querySelector('#root')

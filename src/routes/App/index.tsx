@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { useSpring, useTransition, animated } from 'react-spring';
-import { Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
 import Heading from '../../components/Heading';
@@ -37,16 +37,28 @@ const FlexContainer = styled.div`
 `;
 
 const PortfolioCard = styled.div`
-  width: 300px;
+  width: ${(props) => props.fullscreen ? 'auto' : '300px'};
   padding: 1rem;
   margin: 0.5rem;
   background: white;
   color: black;
-  transition: 0.3s transform ease-in-out;
-  cursor: pointer;
+  cursor: ${(props) => props.fullscreen ? false : 'pointer'};
+
+  a {
+    color: black;
+  }
 
   &:hover {
-    transform: scale(1.025);
+    transform: ${(props) => props.fullscreen ? false : 'scale(1.025)'};
+  }
+
+  ${(props) => props.fullscreen ? css`
+    position: absolute;
+    top: 7.5%;
+    bottom: 7.5%;
+    left: 7.5%;
+    right: 7.5%;
+  ` : null
   }
 `;
 
@@ -75,7 +87,30 @@ const Loading = () => {
   );
 };
 
-const Main = ({ items }) => {
+const WorkRoute = ({ items }) => (
+  <Route
+    path="/work/:id"
+    exact
+    render={(props) => (
+      <Flipped flipId={props.location.pathname}>
+        <PortfolioCard fullscreen>
+          <Flipped inverseFlipId={props.location.pathname} scale>
+            <div>
+              <Heading fontSize={1.5}>{items.find(i => i.heading.toLowerCase() === props.match.params.id).heading}</Heading>
+              <p>{items.find(i => i.heading.toLowerCase() === props.match.params.id).text}</p>
+              <WorkLink to="/">Go Back</WorkLink>
+            </div>
+          </Flipped>
+        </PortfolioCard>
+      </Flipped>
+    )}
+  />
+)
+
+const Main = ({
+  items,
+  location,
+}) => {
   const transitionSprings = useTransition(items, item => item.heading, {
     from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
     enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
@@ -110,16 +145,26 @@ const Main = ({ items }) => {
           <Heading fontSize={2.5}>Work</Heading>
         </FlexContainer>
         <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-          {transitionSprings.map(({ item, props, key }) => (
-            <animated.div style={props} key={key}>
-              <WorkLink to={`/work/${item.heading.toLowerCase()}`}>
-                <PortfolioCard>
-                  <Heading fontSize={1.5}>{item.heading}</Heading>
-                  <p>{item.text}</p>
-                </PortfolioCard>
-              </WorkLink>
-            </animated.div>
-          ))}
+          {transitionSprings.map(({ item, props, key }) =>
+            location.pathname !== `/work/${item.heading.toLowerCase()}` ? (
+              <animated.div style={props} key={key}>
+                <WorkLink to={`/work/${item.heading.toLowerCase()}`}>
+                  <Flipped flipId={`/work/${item.heading.toLowerCase()}`}>
+                    <PortfolioCard>
+                      <Flipped inverseFlipId={`/work/${item.heading.toLowerCase()}`} scale>
+                        <div>
+                          <Heading fontSize={1.5}>{item.heading}</Heading>
+                          <p>{item.text}</p>
+                        </div>
+                      </Flipped>
+                    </PortfolioCard>
+                  </Flipped>
+                </WorkLink>
+              </animated.div>
+            ) : (
+              <animated.div style={props} key={key} />
+            )
+          )}
         </FlexContainer>
 
         <FlexContainer>
@@ -149,7 +194,10 @@ const Main = ({ items }) => {
   );
 };
 
-const App = () => {
+const App = ({
+  location,
+  match,
+}) => {
   const [loading, setLoading] = useState(true);
   const finishLoadingEffect = () => {
     if (loading) setTimeout(() => setLoading(false), 3000);
@@ -157,36 +205,41 @@ const App = () => {
 
   useEffect(finishLoadingEffect);
 
+  const items = [
+    {
+      heading: 'Kickstarter',
+      text: 'Bringing creative projects to life.',
+    },
+    {
+      heading: 'Frame.io',
+      text: 'Video review and collaboration, solved.',
+    },
+    {
+      heading: 'Jet',
+      text: 'Brands and city essentials, all in one place.',
+    },
+    {
+      heading: 'HubSpot',
+      text: 'There’s a better way to grow.',
+    },
+    {
+      heading: 'Wayfair',
+      text: 'A zillion things home.',
+    },
+  ]
+
   return (
-    <Flipper flipKey={loading}>
+    <Flipper flipKey={location.key}>
       {loading ? (
         <Loading />
       ) : (
         <Main
-          items={[
-            {
-              heading: 'Kickstarter',
-              text: 'Bringing creative projects to life.',
-            },
-            {
-              heading: 'Frame.io',
-              text: 'Video review and collaboration, solved.',
-            },
-            {
-              heading: 'Jet',
-              text: 'Brands and city essentials, all in one place.',
-            },
-            {
-              heading: 'HubSpot',
-              text: 'There’s a better way to grow.',
-            },
-            {
-              heading: 'Wayfair',
-              text: 'A zillion things home.',
-            },
-          ]}
+          location={location}
+          items={items}
         />
       )}
+
+      <WorkRoute items={items} />
     </Flipper>
   );
 };

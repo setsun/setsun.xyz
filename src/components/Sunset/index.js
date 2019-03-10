@@ -32,6 +32,7 @@ const animateSun = keyframes`
 `;
 
 const World = styled.div`
+  z-index: 0;
   height: ${({ size }) => `${size}`}px;
   width: ${({ size }) => `${size}`}px;
   border-radius: 50%;
@@ -51,8 +52,8 @@ const Sky = styled.div`
 `;
 
 const Ocean = styled.div`
-  position: relative;
   z-index: 1;
+  position: relative;
   background: linear-gradient(#10eac8, #006994);
   height: 35%;
   width: 100%;
