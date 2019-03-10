@@ -1,5 +1,9 @@
-import React from 'react';
 import styled, { keyframes } from 'styled-components';
+
+type Props = {
+  fontSize?: number;
+  animate?: boolean;
+}
 
 const animateUnderline = keyframes`
   from {
@@ -11,7 +15,7 @@ const animateUnderline = keyframes`
   }
 `;
 
-const Heading = styled.h1`
+const Heading = styled.h1<Props>`
   display: table;
   position: relative;
   font-weight: 800;
@@ -26,8 +30,8 @@ const Heading = styled.h1`
     height: 2px;
     background: red;
     animation: ${animateUnderline} ease-in-out;
-    animation-fill-mode: forwards;
     animation-duration: ${props => (props.animate ? 2 : 0)}s;
+    animation-fill-mode: forwards;
   }
 `;
 

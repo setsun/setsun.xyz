@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import * as Icon from 'react-feather';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { useSpring, useTransition, animated } from 'react-spring';
@@ -7,8 +7,13 @@ import { Spring } from 'react-spring/renderprops';
 import { Route, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
+import Card from '../../components/Card';
 import Heading from '../../components/Heading';
 import Sunset from '../../components/Sunset';
+
+import { fadeIn, slideDown } from '../../animations/springs';
+
+const AnimatedHeading = animated(Heading);
 
 const LoadingContainer = styled.div`
   display: flex;
@@ -39,61 +44,16 @@ const FlexContainer = styled.div`
 `;
 
 const WorkLink = styled(Link)`
-  padding: 0;
-  margin: 0;
-
   display: flex;
   align-items: center;
+  padding: 0;
+  margin: 0;
 `;
-
-const PortfolioCard = styled.div`
-  width: ${(props) => props.fullscreen ? 'auto' : '300px'};
-  padding: 1rem;
-  margin: 0.5rem;
-  background: white;
-  color: black;
-  cursor: ${(props) => props.fullscreen ? false : 'pointer'};
-
-  a {
-    color: black;
-  }
-
-  &:hover {
-    transform: ${(props) => props.fullscreen ? false : 'scale(1.025)'};
-  }
-
-  ${(props) => props.fullscreen ? css`
-    position: fixed;
-    top: 7.5%;
-    bottom: 7.5%;
-    left: 7.5%;
-    right: 7.5%;
-
-    ${WorkLink} {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-  ` : null
-  }
-`;
-
-const AnimatedHeading = animated(Heading)
-
-const slide = {
-  from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
-  to: { opacity: 1, transform: 'translate3d(0,0px,0)' },
-}
-
-const fade = {
-  from: { opacity: 0 },
-  to: { opacity: 1 },
-}
 
 const Loading = () => {
   const spring = useSpring({
-    ...slide,
-    delay: 100,
+    ...fadeIn,
+    duration: 300,
   });
 
   return (
@@ -112,25 +72,19 @@ const WorkRoute = ({ items }) => (
     path="/work/:id"
     exact
     render={(props) => (
-      <Flipped flipId={props.location.pathname}>
-        <PortfolioCard fullscreen>
-          <Flipped inverseFlipId={props.location.pathname} scale>
-            <div style={{ height: '100%' }}>
-              <Heading fontSize={1.5}>{items.find(i => i.heading.toLowerCase() === props.match.params.id).heading}</Heading>
-              <p>{items.find(i => i.heading.toLowerCase() === props.match.params.id).text}</p>
-              <h3>Selected Works</h3>
-              <p>Coming soon.</p>
-              <Spring {...fade} delay={1000}>
-                {spring => (
-                  <WorkLink to="/" style={spring}>
-                    Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
-                  </WorkLink>
-                )}
-              </Spring>
-            </div>
-          </Flipped>
-        </PortfolioCard>
-      </Flipped>
+      <Card fullscreen flipId={props.location.pathname}>
+        <Heading fontSize={1.5}>{items.find(i => i.heading.toLowerCase() === props.match.params.id).heading}</Heading>
+        <p>{items.find(i => i.heading.toLowerCase() === props.match.params.id).text}</p>
+        <h3>Selected Works</h3>
+        <p>Coming soon.</p>
+        <Spring {...fadeIn} delay={1000}>
+          {spring => (
+            <WorkLink to="/" style={spring}>
+              Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
+            </WorkLink>
+          )}
+        </Spring>
+      </Card>
     )}
   />
 );
@@ -146,11 +100,11 @@ const Main = ({
     trail: 300,
   });
   const headingSpring = useSpring({
-    ...fade,
+    ...fadeIn,
     delay: 100,
   });
   const contentSpring = useSpring({
-    ...fade,
+    ...fadeIn,
     delay: 300,
   });
 
@@ -175,16 +129,10 @@ const Main = ({
             location.pathname !== `/work/${item.heading.toLowerCase()}` ? (
               <animated.div style={props} key={key}>
                 <WorkLink to={`/work/${item.heading.toLowerCase()}`}>
-                  <Flipped flipId={`/work/${item.heading.toLowerCase()}`}>
-                    <PortfolioCard>
-                      <Flipped inverseFlipId={`/work/${item.heading.toLowerCase()}`} scale>
-                        <div style={{ height: '100%' }}>
-                          <Heading fontSize={1.5}>{item.heading}</Heading>
-                          <p>{item.text}</p>
-                        </div>
-                      </Flipped>
-                    </PortfolioCard>
-                  </Flipped>
+                  <Card flipId={`/work/${item.heading.toLowerCase()}`}>
+                    <Heading fontSize={1.5}>{item.heading}</Heading>
+                    <p>{item.text}</p>
+                  </Card>
                 </WorkLink>
               </animated.div>
             ) : (
