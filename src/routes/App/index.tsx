@@ -53,7 +53,7 @@ const PortfolioCard = styled.div`
   }
 
   ${(props) => props.fullscreen ? css`
-    position: absolute;
+    position: fixed;
     top: 7.5%;
     bottom: 7.5%;
     left: 7.5%;
