@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import * as Icon from 'react-feather';
-import { Flipper, Flipped } from 'react-flip-toolkit';
+import { Flipper } from 'react-flip-toolkit';
 import { useSpring, useTransition, animated } from 'react-spring';
 import { Spring } from 'react-spring/renderprops';
 import { Route, Link } from 'react-router-dom';
@@ -88,9 +88,7 @@ const Loading = () => {
   return (
     <LoadingContainer>
       <animated.div style={spring}>
-        <Flipped flipId="sunset">
-          <Sunset />
-        </Flipped>
+        <Sunset flipId="sunset" />
       </animated.div>
     </LoadingContainer>
   );
@@ -163,9 +161,12 @@ const Main = ({
   return (
     <MainContainer>
       <HeaderContainer>
-        <Flipped flipId="sunset">
-          <Sunset animate={false} size={64} style={{ marginRight: '1rem' }} />
-        </Flipped>
+        <Sunset
+          flipId="sunset"
+          animate={false}
+          size={64}
+          style={{ marginRight: '1rem' }}
+        />
 
         <AnimatedHeading style={headingSpring} fontSize={3}>
           I am Setsun.

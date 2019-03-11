@@ -1,7 +1,9 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Flipped } from 'react-flip-toolkit';
 
 type Props = {
+  flipId?: string;
   size?: number;
   animate?: boolean;
   style?: Object;
@@ -73,11 +75,13 @@ const Sun = styled.div<Props>`
 `;
 
 const Sunset = (props: Props) => (
-  <World {...props}>
-    <Sun animate={props.animate} />
-    <Sky animate={props.animate} />
-    <Ocean animate={props.animate} />
-  </World>
+  <Flipped flipId={props.flipId}>
+    <World {...props}>
+      <Sun animate={props.animate} />
+      <Sky animate={props.animate} />
+      <Ocean animate={props.animate} />
+    </World>
+  </Flipped>
 );
 
 Sunset.defaultProps = {
