@@ -34,7 +34,7 @@
     "react-spring": "^8.0.19",
     "react-spring-components": "^0.1.0",
     "react-three-components": "^0.0.1",
-    "react-three-fiber": "^1.5.3",
+    "react-three-fiber": "^2.0.0",
     "react-transition-components": "^3.1.0",
     "react-transition-group": "^2.8.0",
     "styled-components": "^4.2.0",

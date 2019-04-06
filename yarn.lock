@@ -4591,6 +4591,10 @@ pn@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/pn/-/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
 
+pointer-events-polyfill@^0.4.4-pre:
+  version "0.4.4-pre"
+  resolved "https://registry.yarnpkg.com/pointer-events-polyfill/-/pointer-events-polyfill-0.4.4-pre.tgz#d745eb0cef8aa3f661cdba1364b9728b46d0872f"
+
 portfinder@^1.0.9:
   version "1.0.20"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.20.tgz#bea68632e54b2e13ab7b0c4775e9b41bf270e44a"
@@ -4884,12 +4888,13 @@ react-three-components@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/react-three-components/-/react-three-components-0.0.1.tgz#62158ac3dbb7733c788d394724c28738ab298449"
 
-react-three-fiber@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-1.5.3.tgz#5e9284e3f21c9c7c9530c8cef39d4e3c630c7b33"
+react-three-fiber@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.0.0.tgz#311da5f12f7cb7a6a53646c92f1394e8b69e9d78"
   dependencies:
     "@babel/runtime" "^7.3.4"
     lodash-es "^4.17.11"
+    pointer-events-polyfill "^0.4.4-pre"
     react-reconciler "^0.20.1"
     resize-observer-polyfill "^1.5.1"
     scheduler "^0.13.3"
