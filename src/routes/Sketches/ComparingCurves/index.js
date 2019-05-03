@@ -4,3 +4,5 @@ import { useSpring, a } from 'react-spring/three';
 import { Canvas, useRender, useThree } from 'react-three-fiber';
 
 const Curve = () => {};
+
+export default Curve;

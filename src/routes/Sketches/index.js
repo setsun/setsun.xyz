@@ -7,8 +7,21 @@ import Stars from './Stars';
 import OctahedronDance from './OctahedronDance';
 import ComparingCurves from './ComparingCurves';
 
-const Sketches = () => {
-  return <Boxes />;
+const Sketches = ({ id }) => {
+  switch (id) {
+    case 1: {
+      return <Boxes />;
+    }
+    case 2: {
+      return <Stars />;
+    }
+    case 3: {
+      return <OctahedronDance />;
+    }
+    case 4: {
+      return <ComparingCurves />;
+    }
+  }
 };
 
 export default Sketches;

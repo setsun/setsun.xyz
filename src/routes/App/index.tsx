@@ -101,7 +101,7 @@ const SketchesRoute = () => (
     render={(props) => {
       return (
         <Card fullscreen flipId={props.location.pathname}>
-          <Sketches />
+          <Sketches id={parseInt(props.match.params.id, 10)}/>
         </Card>
       );
     }}
