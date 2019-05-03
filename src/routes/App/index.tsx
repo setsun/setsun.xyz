@@ -10,8 +10,7 @@ import { hot } from 'react-hot-loader/root';
 import Card from '../../components/Card';
 import Heading from '../../components/Heading';
 import Sunset from '../../components/Sunset';
-
-import Sketches from '../Sketches';
+import withLazy from '../../components/withLazy';
 
 import { fadeIn } from '../../animations/springs';
 
@@ -20,6 +19,12 @@ import frameImg from '../../img/frame.png';
 import jetImg from '../../img/jet.png';
 import hubspotImg from '../../img/hubspot.png';
 import wayfairImg from '../../img/wayfair.png';
+
+const LazySketches = withLazy(
+  () => import('../Sketches')
+);
+
+LazySketches.preload();
 
 const AnimatedHeading = animated(Heading);
 
@@ -101,7 +106,7 @@ const SketchesRoute = () => (
     render={(props) => {
       return (
         <Card fullscreen flipId={props.location.pathname}>
-          <Sketches id={parseInt(props.match.params.id, 10)}/>
+          <LazySketches id={parseInt(props.match.params.id, 10)}/>
         </Card>
       );
     }}

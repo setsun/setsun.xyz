@@ -21,6 +21,11 @@ module.exports = {
     modules: [path.resolve('./node_modules'), path.resolve('./src')],
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx', '.json'],
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   module: {
     rules: [
       {
