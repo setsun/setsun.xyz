@@ -6,6 +6,7 @@ import { useSpring, useTransition, animated } from 'react-spring';
 import { Spring } from 'react-spring/renderprops';
 import { Route, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
+import { FadeTransition } from 'react-transition-components';
 
 import Card from '../../components/Card';
 import Heading from '../../components/Heading';
@@ -65,18 +66,16 @@ const FlexContainer = styled.div`
   margin: 1rem 0;
 `;
 
-const Overlay = animated(
-  styled.div`
-    z-index: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-  `
-);
+const Overlay = styled.div`
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+`;
 
 const slideTransition = {
   from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
@@ -84,20 +83,13 @@ const slideTransition = {
   leave: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
 };
 
-const Loading = () => {
-  const spring = useSpring({
-    ...fadeIn,
-    duration: 300,
-  });
-
-  return (
-    <LoadingContainer>
-      <animated.div style={spring}>
-        <Sunset flipId="sunset" />
-      </animated.div>
-    </LoadingContainer>
-  );
-};
+const Loading = () => (
+  <LoadingContainer>
+    <FadeTransition>
+      <Sunset flipId="sunset" />
+    </FadeTransition>
+  </LoadingContainer>
+);
 
 const SketchesRoute = () => (
   <Route
@@ -122,24 +114,24 @@ const WorkRoute = ({ items }) => (
 
       return (
         <Card fullscreen flipId={props.location.pathname}>
-          <Spring {...fadeIn} delay={600}>
-            {spring => (
+          <FadeTransition timeout={300}>
+            {(status, style) => (
               <>
                 <CardHeaderContainer>
                   <Heading fontSize={1.5}>{item.heading}</Heading>
                   <a href={item.link} target="_blank">
-                    <WorkImage src={item.image} style={spring} />
+                    <WorkImage src={item.image} style={{ ...style, transitionDelay: 600 }} />
                   </a>
-                  <Link to="/" style={spring}>
+                  <Link to="/" style={{ ...style, transitionDelay: 600 }}>
                     Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
                   </Link>
                 </CardHeaderContainer>
                 <p>{item.text}</p>
-                <h3 style={spring}>Selected Works</h3>
-                <p style={spring}>Coming soon.</p>
+                <h3 style={{ ...style, transitionDelay: 600 }}>Selected Works</h3>
+                <p style={{ ...style, transitionDelay: 600 }}>Coming soon.</p>
               </>
             )}
-          </Spring>
+          </FadeTransition>
         </Card>
       );
     }}
@@ -255,13 +247,6 @@ const App = ({
 
   const isRootPath = location.pathname === '/';
 
-  const overlaySpring = useTransition(!isRootPath, null, {
-    from: { opacity: 0, },
-    enter: { opacity: 1 },
-    leave: { opacity: 0, },
-    trail: 300,
-  });
-
   const items = [
     {
       heading: 'Kickstarter',
@@ -316,12 +301,9 @@ const App = ({
 
       <SketchesRoute />
 
-      {overlaySpring.map(({ item, props }) => item && (
-        <Overlay
-          style={props}
-          onClick={() => history.push('/')}
-        />
-      ))}
+      <FadeTransition in={!isRootPath}>
+        <Overlay onClick={() => history.push('/')} />
+      </FadeTransition>
     </Flipper>
   );
 };

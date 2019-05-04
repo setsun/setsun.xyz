@@ -1,21 +1,16 @@
 import * as React from 'react';
 
 function withLazy<P>(
-  importFn: () => Promise<{ default: React.ComponentType<P> }>
+  importFn: () => Promise<{ default: React.ComponentType<P> }>,
+  fallback = <div />
 ) {
   const Component = React.lazy(importFn);
 
-  type LazyProps = P & { fallback: JSX.Element };
-
-  const LazyComponent = ({ fallback, ...rest }: LazyProps) => (
+  const LazyComponent = (props: React.PropsWithoutRef<P>) => (
     <React.Suspense fallback={fallback}>
-      <Component {...rest} />
+      <Component {...props} />
     </React.Suspense>
   );
-
-  LazyComponent.defaultProps = {
-    fallback: <div />
-  };
 
   // allow users to preload files async, by invoking the dynamic import directly
   LazyComponent.preload = importFn
