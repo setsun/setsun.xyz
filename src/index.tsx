@@ -6,8 +6,6 @@ import createBrowserHistory from 'history/createBrowserHistory';
 
 import App from './routes/App';
 
-const history = createBrowserHistory();
-
 const lightsOff = keyframes`
   from { background: white; }
   to { background: black; }
@@ -59,7 +57,7 @@ const render = () => {
   ReactDOM.render(
     <>
       <GlobalStyle />
-      <Router history={history}>
+      <Router history={createBrowserHistory()}>
         <Route path="/" component={App} />
       </Router>
     </>,

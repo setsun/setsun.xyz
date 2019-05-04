@@ -2,18 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import * as Icon from 'react-feather';
 import { Flipper } from 'react-flip-toolkit';
-import { useSpring, useTransition, animated } from 'react-spring';
-import { Spring } from 'react-spring/renderprops';
+import { useTransition, animated } from 'react-spring';
 import { Route, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
-import { FadeTransition } from 'react-transition-components';
+import { FadeTransition, TranslateTransition } from 'react-transition-components';
 
 import Card from '../../components/Card';
 import Heading from '../../components/Heading';
 import Sunset from '../../components/Sunset';
 import withLazy from '../../components/withLazy';
-
-import { fadeIn } from '../../animations/springs';
 
 import kickstarterImg from '../../img/kickstarter.png';
 import frameImg from '../../img/frame.png';
@@ -21,13 +18,9 @@ import jetImg from '../../img/jet.png';
 import hubspotImg from '../../img/hubspot.png';
 import wayfairImg from '../../img/wayfair.png';
 
-const LazySketches = withLazy(
-  () => import('../Sketches')
-);
+const LazySketches = withLazy(() => import('../Sketches'));
 
 LazySketches.preload();
-
-const AnimatedHeading = animated(Heading);
 
 const WorkImage = styled.img`
   height: 24px;
@@ -67,21 +60,15 @@ const FlexContainer = styled.div`
 `;
 
 const Overlay = styled.div`
-  z-index: 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 0;
   background: rgba(0, 0, 0, 0.5);
   cursor: pointer;
 `;
-
-const slideTransition = {
-  from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
-  enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
-  leave: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
-};
 
 const Loading = () => (
   <LoadingContainer>
@@ -91,68 +78,15 @@ const Loading = () => (
   </LoadingContainer>
 );
 
-const SketchesRoute = () => (
-  <Route
-    path="/sketches/:id"
-    exact
-    render={(props) => {
-      return (
-        <Card fullscreen flipId={props.location.pathname}>
-          <LazySketches id={parseInt(props.match.params.id, 10)}/>
-        </Card>
-      );
-    }}
-  />
-);
-
-const WorkRoute = ({ items }) => (
-  <Route
-    path="/work/:id"
-    exact
-    render={(props) => {
-      const item = items.find(i => i.heading.toLowerCase() === props.match.params.id);
-
-      return (
-        <Card fullscreen flipId={props.location.pathname}>
-          <FadeTransition timeout={300}>
-            {(status, style) => (
-              <>
-                <CardHeaderContainer>
-                  <Heading fontSize={1.5}>{item.heading}</Heading>
-                  <a href={item.link} target="_blank">
-                    <WorkImage src={item.image} style={{ ...style, transitionDelay: 600 }} />
-                  </a>
-                  <Link to="/" style={{ ...style, transitionDelay: 600 }}>
-                    Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
-                  </Link>
-                </CardHeaderContainer>
-                <p>{item.text}</p>
-                <h3 style={{ ...style, transitionDelay: 600 }}>Selected Works</h3>
-                <p style={{ ...style, transitionDelay: 600 }}>Coming soon.</p>
-              </>
-            )}
-          </FadeTransition>
-        </Card>
-      );
-    }}
-  />
-);
-
 const Main = ({
   items,
   location,
 }) => {
   const transitionSprings = useTransition(items, item => item.heading, {
-    ...slideTransition,
+    from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
+    enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
+    leave: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
     trail: 300,
-  });
-  const headingSpring = useSpring({
-    ...fadeIn,
-    delay: 100,
-  });
-  const contentSpring = useSpring({
-    ...fadeIn,
-    delay: 300,
   });
 
   return (
@@ -165,64 +99,68 @@ const Main = ({
           style={{ marginRight: '1rem' }}
         />
 
-        <AnimatedHeading style={headingSpring} fontSize={3}>
-          I am Setsun.
-        </AnimatedHeading>
+        <FadeTransition>
+          <Heading fontSize={3}>
+            I am Setsun.
+          </Heading>
+        </FadeTransition>
       </HeaderContainer>
 
-      <animated.div style={contentSpring}>
-        <FlexContainer>
-          <Heading fontSize={2.5}>Work</Heading>
-        </FlexContainer>
-        <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-          {transitionSprings.map(({ item, props, key }) => {
-            const pathname = `/work/${item.heading.toLowerCase()}`;
+      <FadeTransition>
+        <div>
+          <FlexContainer>
+            <Heading fontSize={2.5}>Work</Heading>
+          </FlexContainer>
+          <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
+            {transitionSprings.map(({ item, props, key }) => {
+              const pathname = `/work/${item.heading.toLowerCase()}`;
 
-            if (location.pathname === pathname) return null;
+              if (location.pathname === pathname) return null;
 
-            return (
-              <animated.div style={props} key={key}>
-                <Link to={pathname}>
-                  <Card flipId={pathname}>
-                    <Heading fontSize={1.5}>{item.heading}</Heading>
-                    <p>{item.text}</p>
-                  </Card>
-                </Link>
-              </animated.div>
-            );
-          })}
-        </FlexContainer>
+              return (
+                <animated.div style={props} key={key}>
+                  <Link to={pathname}>
+                    <Card flipId={pathname}>
+                      <Heading fontSize={1.5}>{item.heading}</Heading>
+                      <p>{item.text}</p>
+                    </Card>
+                  </Link>
+                </animated.div>
+              );
+            })}
+          </FlexContainer>
 
-        <FlexContainer>
-          <Heading fontSize={2.5}>Projects</Heading>
-        </FlexContainer>
-        <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-          Coming soon.
-        </FlexContainer>
+          <FlexContainer>
+            <Heading fontSize={2.5}>Projects</Heading>
+          </FlexContainer>
+          <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
+            Coming soon.
+          </FlexContainer>
 
-        <FlexContainer>
-          <Heading fontSize={2.5}>Sketches</Heading>
-        </FlexContainer>
-        <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-          Coming soon.
-        </FlexContainer>
+          <FlexContainer>
+            <Heading fontSize={2.5}>Sketches</Heading>
+          </FlexContainer>
+          <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
+            Coming soon.
+          </FlexContainer>
 
-        <FlexContainer>
-          <Heading fontSize={2.5}>Connect</Heading>
-        </FlexContainer>
-        <FlexContainer
-          style={{
-            maxWidth: '1150px',
-            margin: '0 auto',
-            flexDirection: 'column',
-          }}
-        >
-          <a href="https://github.com/setsun" target="_blank">https://github.com/setsun</a>
-          <a href="https://linkedin.com/in/setsun" target="_blank">
-            https://linkedin.com/in/setsun
-          </a>
-        </FlexContainer>
-      </animated.div>
+          <FlexContainer>
+            <Heading fontSize={2.5}>Connect</Heading>
+          </FlexContainer>
+          <FlexContainer
+            style={{
+              maxWidth: '1150px',
+              margin: '0 auto',
+              flexDirection: 'column',
+            }}
+          >
+            <a href="https://github.com/setsun" target="_blank">https://github.com/setsun</a>
+            <a href="https://linkedin.com/in/setsun" target="_blank">
+              https://linkedin.com/in/setsun
+            </a>
+          </FlexContainer>
+        </div>
+      </FadeTransition>
     </MainContainer>
   );
 };
@@ -234,16 +172,14 @@ const App = ({
 }) => {
   const [loading, setLoading] = useState(true);
 
-  const finishLoadingEffect = () => {
+  useEffect(() => {
     if (!loading) return;
 
     setTimeout(() => {
       setLoading(false);
       history.push({ state: { loading: false }});
     }, 3000);
-  };
-
-  useEffect(finishLoadingEffect);
+  });
 
   const isRootPath = location.pathname === '/';
 
@@ -297,11 +233,48 @@ const App = ({
         />
       )}
 
-      <WorkRoute items={items} />
+      <Route
+        exact
+        path="/work/:id"
+        render={(props) => {
+          const item = items.find(i => i.heading.toLowerCase() === props.match.params.id);
 
-      <SketchesRoute />
+          return (
+            <Card fullscreen flipId={props.location.pathname}>
+              <FadeTransition delay={150}>
+                {(style) => (
+                  <>
+                    <CardHeaderContainer>
+                      <Heading fontSize={1.5}>{item.heading}</Heading>
+                      <a href={item.link} target="_blank">
+                        <WorkImage src={item.image} style={style} />
+                      </a>
+                      <Link to="/" style={style}>
+                        Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
+                      </Link>
+                    </CardHeaderContainer>
+                    <p>{item.text}</p>
+                    <h3 style={style}>Selected Works</h3>
+                    <p style={style}>Coming soon.</p>
+                  </>
+                )}
+              </FadeTransition>
+            </Card>
+          );
+        }}
+      />
 
-      <FadeTransition in={!isRootPath}>
+      <Route
+        exact
+        path="/sketches/:id"
+        render={(props) => (
+          <Card fullscreen flipId={props.location.pathname}>
+            <LazySketches id={parseInt(props.match.params.id, 10)}/>
+          </Card>
+        )}
+      />
+
+      <FadeTransition delay={100} in={!isRootPath}>
         <Overlay onClick={() => history.push('/')} />
       </FadeTransition>
     </Flipper>
