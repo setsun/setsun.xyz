@@ -7,6 +7,7 @@ type Props = {
   size?: number;
   animate?: boolean;
   style?: Object;
+  onFinish?: Function;
 };
 
 const World = styled.div<Props>`
@@ -77,7 +78,10 @@ const Sun = styled.div<Props>`
 const Sunset = (props: Props) => (
   <Flipped flipId={props.flipId}>
     <World {...props}>
-      <Sun animate={props.animate} />
+      <Sun
+        animate={props.animate}
+        onAnimationEnd={() => props.onFinish()}
+      />
       <Sky animate={props.animate} />
       <Ocean animate={props.animate} />
     </World>
@@ -87,6 +91,7 @@ const Sunset = (props: Props) => (
 Sunset.defaultProps = {
   animate: true,
   size: 320,
+  onFinish: () => {},
 };
 
 export default Sunset;

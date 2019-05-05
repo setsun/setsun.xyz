@@ -5,7 +5,7 @@ import { Flipper } from 'react-flip-toolkit';
 import { useTransition, animated } from 'react-spring';
 import { Route, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
-import { FadeTransition, TranslateTransition } from 'react-transition-components';
+import { FadeTransition } from 'react-transition-components';
 
 import Card from '../../components/Card';
 import Heading from '../../components/Heading';
@@ -17,6 +17,8 @@ import frameImg from '../../img/frame.png';
 import jetImg from '../../img/jet.png';
 import hubspotImg from '../../img/hubspot.png';
 import wayfairImg from '../../img/wayfair.png';
+
+const delay = ms => new Promise((resolve) => setTimeout(resolve, ms));
 
 const LazySketches = withLazy(() => import('../Sketches'));
 
@@ -70,10 +72,10 @@ const Overlay = styled.div`
   cursor: pointer;
 `;
 
-const Loading = () => (
+const Loading = ({ onFinish }: { onFinish: Function }) => (
   <LoadingContainer>
     <FadeTransition>
-      <Sunset flipId="sunset" />
+      <Sunset flipId="sunset" onFinish={onFinish} />
     </FadeTransition>
   </LoadingContainer>
 );
@@ -172,15 +174,6 @@ const App = ({
 }) => {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!loading) return;
-
-    setTimeout(() => {
-      setLoading(false);
-      history.push({ state: { loading: false }});
-    }, 3000);
-  });
-
   const isRootPath = location.pathname === '/';
 
   const items = [
@@ -225,7 +218,13 @@ const App = ({
       }}
     >
       {loading ? (
-        <Loading />
+        <Loading
+          onFinish={async () => {
+            await delay(600);
+            setLoading(false);
+            history.push({ state: { loading: false }});
+          }}
+        />
       ) : (
         <Main
           location={location}

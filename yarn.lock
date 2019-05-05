@@ -663,6 +663,13 @@
     "@babel/helper-regex" "^7.4.4"
     regexpu-core "^4.5.4"
 
+"@babel/polyfill@^7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.4.4.tgz#78801cf3dbe657844eeabf31c1cae3828051e893"
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.2"
+
 "@babel/preset-env@7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.4.4.tgz#b6f6825bfb27b3e1394ca3de4f926482722c1d6f"
@@ -1885,6 +1892,10 @@ core-js@^1.0.0:
 core-js@^2.4.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.2.tgz#267988d7268323b349e20b4588211655f0e83944"
+
+core-js@^2.6.5:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -5007,9 +5018,9 @@ react-spring@^8.0.20:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
 
-react-three-fiber@^2.0.12:
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.0.12.tgz#2f28a357ebd1cac28b38f700c83d0584c0787ea3"
+react-three-fiber@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.1.1.tgz#16183835cbb5db68ae4611468c37580c87be8d48"
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@types/three" "^0.103.2"
@@ -5019,16 +5030,16 @@ react-three-fiber@^2.0.12:
     resize-observer-polyfill "^1.5.1"
     scheduler "0.13.3"
 
-react-transition-components@4.0.0-beta.3:
-  version "4.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/react-transition-components/-/react-transition-components-4.0.0-beta.3.tgz#590ecb8b4707f06b3b4be28a90584c75c018c4b1"
+react-transition-components@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/react-transition-components/-/react-transition-components-4.0.2.tgz#e20d0850cf787f22032599dad9fd9d5181220d97"
   dependencies:
     "@types/react" "*"
     "@types/react-transition-group" "^2.9.1"
 
-react-transition-group@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.0.0.tgz#1d82b20d78aa09eac6268ceef0349307146942c6"
+react-transition-group@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.0.1.tgz#8cb8d58763e259da465385bb83b3b41b3ecba629"
   dependencies:
     dom-helpers "^3.4.0"
     loose-envify "^1.4.0"
@@ -6345,9 +6356,9 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.30.0:
-  version "4.30.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.30.0.tgz#aca76ef75630a22c49fcc235b39b4c57591d33a9"
+webpack@^4.31.0:
+  version "4.31.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.31.0.tgz#ae201d45f0571336e42d1c2b5c8ab56c4d3b0c63"
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
