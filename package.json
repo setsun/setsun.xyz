@@ -30,13 +30,13 @@
     "react-feather": "^1.1.6",
     "react-flip-toolkit": "^6.5.9",
     "react-hot-loader": "^4.8.4",
-    "react-router-dom": "^5.0.0",
     "react-spring": "^8.0.20",
     "react-three-fiber": "^2.1.1",
-    "react-transition-components": "4.0.2",
+    "react-transition-components": "4.0.4",
     "react-transition-group": "4.0.1",
-    "styled-components": "^5.0.0-3.canary-sheet",
-    "three": "^0.104.0"
+    "styled-components": "^5.0.0-4.canary-sheet",
+    "three": "^0.104.0",
+    "wouter": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",

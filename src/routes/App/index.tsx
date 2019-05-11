@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import * as Icon from 'react-feather';
+import { XCircle } from 'react-feather';
 import { Flipper } from 'react-flip-toolkit';
 import { useTransition, animated } from 'react-spring';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, useRoute, useRouter } from 'wouter';
 import { hot } from 'react-hot-loader/root';
 import { FadeTransition } from 'react-transition-components';
 
@@ -82,7 +82,7 @@ const Loading = ({ onFinish }: { onFinish: Function }) => (
 
 const Main = ({
   items,
-  location,
+  pathname,
 }) => {
   const transitionSprings = useTransition(items, item => item.heading, {
     from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
@@ -115,17 +115,17 @@ const Main = ({
           </FlexContainer>
           <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
             {transitionSprings.map(({ item, props, key }) => {
-              const pathname = `/work/${item.heading.toLowerCase()}`;
+              const itemPathname = `/work/${item.heading.toLowerCase()}`;
 
-              if (location.pathname === pathname) return null;
-
-              return (
+              return itemPathname !== pathname && (
                 <animated.div style={props} key={key}>
-                  <Link to={pathname}>
-                    <Card flipId={pathname}>
-                      <Heading fontSize={1.5}>{item.heading}</Heading>
-                      <p>{item.text}</p>
-                    </Card>
+                  <Link href={itemPathname}>
+                    <a>
+                      <Card flipId={itemPathname}>
+                        <Heading fontSize={1.5}>{item.heading}</Heading>
+                        <p>{item.text}</p>
+                      </Card>
+                    </a>
                   </Link>
                 </animated.div>
               );
@@ -167,14 +167,11 @@ const Main = ({
   );
 };
 
-const App = ({
-  location,
-  search,
-  history,
-}) => {
+const App = () => {
+  const { history } = useRouter();
+  const pathname = history.path();
+  const [match] = useRoute("/");
   const [loading, setLoading] = useState(true);
-
-  const isRootPath = location.pathname === '/';
 
   const items = [
     {
@@ -211,10 +208,10 @@ const App = ({
 
   return (
     <Flipper
-      flipKey={loading || location}
+      flipKey={loading || pathname}
       decisionData={{
-        location,
-        search
+        pathname,
+        loading,
       }}
     >
       {loading ? (
@@ -222,24 +219,21 @@ const App = ({
           onFinish={async () => {
             await delay(600);
             setLoading(false);
-            history.push({ state: { loading: false }});
           }}
         />
       ) : (
         <Main
-          location={location}
+          pathname={pathname}
           items={items}
         />
       )}
 
-      <Route
-        exact
-        path="/work/:id"
-        render={(props) => {
-          const item = items.find(i => i.heading.toLowerCase() === props.match.params.id);
+      <Route path="/work/:id">
+        {({ id }) => {
+          const item = items.find(i => i.heading.toLowerCase() === id);
 
           return (
-            <Card fullscreen flipId={props.location.pathname}>
+            <Card fullscreen flipId={`/work/${id}`}>
               <FadeTransition delay={150}>
                 {(style) => (
                   <>
@@ -248,8 +242,8 @@ const App = ({
                       <a href={item.link} target="_blank">
                         <WorkImage src={item.image} style={style} />
                       </a>
-                      <Link to="/" style={style}>
-                        Close <Icon.XCircle style={{ marginLeft: '0.25rem' }} />
+                      <Link href="/" style={style}>
+                        Close <XCircle style={{ marginLeft: '0.25rem' }} />
                       </Link>
                     </CardHeaderContainer>
                     <p>{item.text}</p>
@@ -261,19 +255,17 @@ const App = ({
             </Card>
           );
         }}
-      />
+      </Route>
 
-      <Route
-        exact
-        path="/sketches/:id"
-        render={(props) => (
-          <Card fullscreen flipId={props.location.pathname}>
-            <LazySketches id={parseInt(props.match.params.id, 10)}/>
+      <Route path="/sketches/:id">
+        {({ id }) => (
+          <Card fullscreen flipId={pathname}>
+            <LazySketches id={parseInt(id, 10)}/>
           </Card>
         )}
-      />
+      </Route>
 
-      <FadeTransition delay={100} in={!isRootPath}>
+      <FadeTransition delay={100} in={!match}>
         <Overlay onClick={() => history.push('/')} />
       </FadeTransition>
     </Flipper>

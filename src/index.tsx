@@ -2,8 +2,6 @@ import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createGlobalStyle, keyframes } from 'styled-components';
-import { Router, Route } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
 
 import App from './routes/App';
 
@@ -58,9 +56,7 @@ const render = () => {
   ReactDOM.render(
     <>
       <GlobalStyle />
-      <Router history={createBrowserHistory()}>
-        <Route path="/" component={App} />
-      </Router>
+      <App />
     </>,
     document.querySelector('#root')
   );
