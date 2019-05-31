@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'linaria/react';
 import { XCircle } from 'react-feather';
 import { Flipper } from 'react-flip-toolkit';
 import { useTransition, animated } from 'react-spring';

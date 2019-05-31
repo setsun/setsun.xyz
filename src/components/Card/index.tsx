@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Flipped } from 'react-flip-toolkit';
-import styled, { css } from 'styled-components';
+import { styled } from 'linaria/react';
+import { css } from 'linaria';
 
 type Props = {
   children: React.ReactNode;
@@ -8,7 +9,7 @@ type Props = {
   flipId?: string;
 }
 
-const fullscreenStyle = css`
+const fullscreenCss = css`
   z-index: 999;
   position: fixed;
   top: 7.5%;
@@ -23,15 +24,13 @@ const BaseCard = styled.div`
   margin: 0.25rem;
   background: white;
   color: black;
-
-  ${(props: Props) => props.fullscreen ? fullscreenStyle : null}
 `;
 
 const CardContent = styled.div`
   height: 100%;
   padding: 1rem;
-  cursor: ${(props: Props) => props.fullscreen ? false : 'pointer'};
-  width: ${(props: Props) => props.fullscreen ? false : '300px'};
+  cursor: ${(props: Props) => !props.fullscreen && 'pointer'};
+  width: ${(props: Props) => !props.fullscreen && '300px'};
 `;
 
 const Card = ({
@@ -40,7 +39,7 @@ const Card = ({
   flipId,
 }: Props) => (
   <Flipped flipId={flipId}>
-    <BaseCard fullscreen={fullscreen}>
+    <BaseCard className={fullscreen && fullscreenCss}>
       <Flipped inverseFlipId={flipId} scale>
         <CardContent fullscreen={fullscreen}>
           {children}

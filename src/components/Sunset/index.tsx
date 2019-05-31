@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import { styled } from 'linaria/react';
 import { Flipped } from 'react-flip-toolkit';
 
 type Props = {
@@ -8,6 +8,7 @@ type Props = {
   animate?: boolean;
   style?: Object;
   onFinish?: Function;
+  onAnimationEnd?: Function;
 };
 
 const World = styled.div<Props>`
@@ -19,26 +20,21 @@ const World = styled.div<Props>`
   position: relative;
 `;
 
-const animateSky = keyframes`
-  from { background-position: 0 60%; }
-  to { background-position: 0 10%; }
-`;
-
 const Sky = styled.div<Props>`
   background: radial-gradient(#f6c60c, #be4405);
   height: 65%;
   width: 100%;
   background-size: 100% 200%;
   background-position: ${props => (props.animate ? '0 10%' : '0 60%')};
-  animation: ${animateSky} ease-in-out;
+  animation: animateSky ease-in-out;
   animation-duration: ${props => (props.animate ? 2 : 0)}s;
   animation-delay: ${props => (props.animate ? 0.3 : 0)}s;
   animation-fill-mode: forwards;
-`;
 
-const animateOcean = keyframes`
-  from { background-position: 0 50%; }
-  to { background-position: 0 0; }
+  @keyframes animateSky {
+    from { background-position: 0 60%; }
+    to { background-position: 0 10%; }
+  }
 `;
 
 const Ocean = styled.div<Props>`
@@ -49,15 +45,15 @@ const Ocean = styled.div<Props>`
   width: 100%;
   background-size: 200% 200%;
   background-position: ${props => (props.animate ? '0 0' : '0 50%')};
-  animation: ${animateOcean} ease-in-out;
+  animation: animateOcean ease-in-out;
   animation-duration: ${props => (props.animate ? 2 : 0)}s;
   animation-delay: ${props => (props.animate ? 0.3 : 0)}s;
   animation-fill-mode: forwards;
-`;
 
-const animateSun = keyframes`
-  from { top: 5%; }
-  to { top: 55%; }
+  @keyframes animateOcean {
+    from { background-position: 0 50%; }
+    to { background-position: 0 0; }
+  }
 `;
 
 const Sun = styled.div<Props>`
@@ -69,10 +65,15 @@ const Sun = styled.div<Props>`
   border-radius: 50%;
   background: yellow;
   box-shadow: 0 0 20px rgba(242, 239, 136, 0.7);
-  animation: ${animateSun} ease-in-out;
+  animation: animateSun ease-in-out;
   animation-duration: ${props => (props.animate ? 2 : 0)}s;
   animation-delay: ${props => (props.animate ? 0.3 : 0)}s;
   animation-fill-mode: forwards;
+
+  @keyframes animateSun {
+    from { top: 5%; }
+    to { top: 55%; }
+  }
 `;
 
 const Sunset = (props: Props) => (
