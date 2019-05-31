@@ -28,15 +28,15 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-feather": "^1.1.6",
-    "react-flip-toolkit": "^6.6.2",
-    "react-hot-loader": "^4.8.7",
+    "react-flip-toolkit": "^6.6.3",
+    "react-hot-loader": "^4.8.8",
     "react-spring": "^8.0.20",
-    "react-three-fiber": "^2.1.2",
+    "react-three-fiber": "^2.1.6",
     "react-transition-components": "4.0.7",
-    "react-transition-group": "4.0.1",
+    "react-transition-group": "4.1.0",
     "styled-components": "^5.0.0-4.canary-sheet",
-    "three": "^0.104.0",
-    "wouter": "^1.2.3"
+    "three": "^0.105.1",
+    "wouter": "^1.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -57,7 +57,7 @@
     "prerender-loader": "^1.3.0",
     "prettier": "1.17.1",
     "url-loader": "^1.1.2",
-    "webpack": "^4.32.0",
+    "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
   }
