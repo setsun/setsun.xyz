@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from 'linaria/react';
-import { XCircle } from 'react-feather';
+import XCircle from 'react-feather/dist/icons/x-circle';
 import { Flipper } from 'react-flip-toolkit';
 import { useTransition, animated } from 'react-spring';
 import { Route, Link, useRoute, useRouter } from 'wouter';
