@@ -16,7 +16,6 @@ import kickstarterImg from '../../img/kickstarter.png';
 import frameImg from '../../img/frame.png';
 import jetImg from '../../img/jet.png';
 import hubspotImg from '../../img/hubspot.png';
-import wayfairImg from '../../img/wayfair.png';
 
 const delay = ms => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -197,12 +196,6 @@ const App = () => {
       text: 'There’s a better way to grow.',
       link: 'https://hubspot.com',
       image: hubspotImg,
-    },
-    {
-      heading: 'Wayfair',
-      text: 'A zillion things home.',
-      link: 'https://wayfair.com',
-      image: wayfairImg,
     },
   ];
 
