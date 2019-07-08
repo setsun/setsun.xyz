@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import React, { useRef } from 'react';
-import { useSpring, a } from 'react-spring/three';
-import { Canvas, useRender, useThree } from 'react-three-fiber';
+import { a } from 'react-spring/three';
+import { Canvas, useRender } from 'react-three-fiber';
 
 function Octahedron({ position, theta, animate }) {
-  let ref = useRef();
+  const ref = useRef<THREE.Mesh>();
 
   useRender(() => {
     if (animate) {
@@ -32,7 +32,7 @@ Octahedron.defaultProps = {
 };
 
 function BaseOctahedronDance() {
-  let group = useRef();
+  const group = useRef<THREE.Mesh>();
   let theta = 0;
 
   useRender(() => {

@@ -3,12 +3,9 @@ import React, {
   useState,
   useRef,
   useMemo,
-  useContext,
-  useEffect,
-  useCallback,
 } from 'react';
 import { useSpring, a } from 'react-spring/three';
-import { Canvas, useRender, useThree } from 'react-three-fiber';
+import { Canvas, useRender } from 'react-three-fiber';
 
 function Polygon() {
   const [active, setActive] = useState(false);
@@ -57,7 +54,7 @@ function Polygon() {
 }
 
 function StarMap() {
-  let group = useRef();
+  const group = useRef<THREE.Mesh>();
   let theta = 0;
 
   useRender(() => {
@@ -70,16 +67,19 @@ function StarMap() {
 
   const [geo, mat, coords] = useMemo(() => {
     const geo = new THREE.SphereBufferGeometry(1, 10, 10);
+
     const mat = new THREE.MeshBasicMaterial({
       color: new THREE.Color('lightpink'),
     });
-    const coords = new Array(1000)
-      .fill()
-      .map(i => [
+
+    const coords = [...new Array(1000)].map((_) =>
+      [
         Math.random() * 800 - 400,
         Math.random() * 800 - 400,
         Math.random() * 800 - 400,
-      ]);
+      ]
+    );
+
     return [geo, mat, coords];
   }, []);
 

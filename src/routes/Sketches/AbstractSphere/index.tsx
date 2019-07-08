@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import React, { useRef } from 'react';
-import { useSpring, a } from 'react-spring/three';
-import { Canvas, useRender, useThree } from 'react-three-fiber';
+import { a } from 'react-spring/three';
+import { Canvas, useRender } from 'react-three-fiber';
 
 const CirclePulse = ({ position, theta }) => {
-  const ref = useRef();
+  const ref = useRef<THREE.Mesh>();
 
   useRender(() => {
     theta += 0.05;
