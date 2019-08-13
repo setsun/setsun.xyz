@@ -3,7 +3,7 @@ import { styled } from 'linaria/react';
 import XCircle from 'react-feather/dist/icons/x-circle';
 import { Flipper } from 'react-flip-toolkit';
 import { useTransition, animated } from 'react-spring';
-import { Route, Link, useRoute, useRouter } from 'wouter';
+import { Route, Link, useRoute, useLocation } from 'wouter';
 import { hot } from 'react-hot-loader/root';
 import { FadeTransition } from 'react-transition-components';
 
@@ -81,7 +81,7 @@ const Loading = ({ onFinish }: { onFinish: Function }) => (
 
 const Main = ({
   items,
-  pathname,
+  location,
 }) => {
   const transitionSprings = useTransition(items, item => item.heading, {
     from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
@@ -114,13 +114,13 @@ const Main = ({
           </FlexContainer>
           <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
             {transitionSprings.map(({ item, props, key }) => {
-              const itemPathname = `/work/${item.heading.toLowerCase()}`;
+              const itemLocation = `/work/${item.heading.toLowerCase()}`;
 
-              return itemPathname !== pathname && (
+              return itemLocation !== location && (
                 <animated.div style={props} key={key}>
-                  <Link href={itemPathname}>
+                  <Link href={itemLocation}>
                     <a>
-                      <Card flipId={itemPathname}>
+                      <Card flipId={itemLocation}>
                         <Heading fontSize={1.5}>{item.heading}</Heading>
                         <p>{item.text}</p>
                       </Card>
@@ -167,8 +167,7 @@ const Main = ({
 };
 
 const App = () => {
-  const { history } = useRouter();
-  const pathname = history.path();
+  const [location, setLocation] = useLocation();
   const [match] = useRoute("/");
   const [loading, setLoading] = useState(true);
 
@@ -201,9 +200,9 @@ const App = () => {
 
   return (
     <Flipper
-      flipKey={loading || pathname}
+      flipKey={loading || location}
       decisionData={{
-        pathname,
+        location,
         loading,
       }}
     >
@@ -216,7 +215,7 @@ const App = () => {
         />
       ) : (
         <Main
-          pathname={pathname}
+          location={location}
           items={items}
         />
       )}
@@ -252,14 +251,14 @@ const App = () => {
 
       <Route path="/sketches/:id">
         {({ id }) => (
-          <Card fullscreen flipId={pathname}>
+          <Card fullscreen flipId={location}>
             <LazySketches id={parseInt(id, 10)}/>
           </Card>
         )}
       </Route>
 
       <FadeTransition delay={100} in={!match}>
-        <Overlay onClick={() => history.push('/')} />
+        <Overlay onClick={() => setLocation('/')} />
       </FadeTransition>
     </Flipper>
   );

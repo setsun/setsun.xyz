@@ -32,11 +32,11 @@
     "react-flip-toolkit": "^6.6.9",
     "react-hot-loader": "^4.12.11",
     "react-spring": "^8.0.27",
-    "react-three-fiber": "^2.2.17",
+    "react-three-fiber": "^2.3.0",
     "react-transition-components": "4.1.2",
     "react-transition-group": "4.2.2",
     "three": "^0.107.0",
-    "wouter": "^1.3.2"
+    "wouter": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
