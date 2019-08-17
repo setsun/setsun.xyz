@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { styled } from 'linaria/react';
-import XCircle from 'react-feather/dist/icons/x-circle';
 import { Flipper } from 'react-flip-toolkit';
-import { useTransition, animated } from 'react-spring';
 import { Route, Link, useRoute, useLocation } from 'wouter';
 import { hot } from 'react-hot-loader/root';
-import { FadeTransition } from 'react-transition-components';
+import { FadeTransition, TranslateTransition } from 'react-transition-components';
+import XCircle from 'react-feather/dist/icons/x-circle';
 
 import Card from '../../components/Card';
 import Heading from '../../components/Heading';
@@ -83,13 +82,6 @@ const Main = ({
   items,
   location,
 }) => {
-  const transitionSprings = useTransition(items, item => item.heading, {
-    from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
-    enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
-    leave: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
-    trail: 300,
-  });
-
   return (
     <MainContainer>
       <HeaderContainer>
@@ -113,22 +105,22 @@ const Main = ({
             <Heading fontSize={2.5}>Work</Heading>
           </FlexContainer>
           <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-            {transitionSprings.map(({ item, props, key }) => {
-              const itemLocation = `/work/${item.heading.toLowerCase()}`;
-
-              return itemLocation !== location && (
-                <animated.div style={props} key={key}>
-                  <Link href={itemLocation}>
-                    <a>
-                      <Card flipId={itemLocation}>
-                        <Heading fontSize={1.5}>{item.heading}</Heading>
-                        <p>{item.text}</p>
-                      </Card>
+            {items.map((item, i) => (
+              <TranslateTransition delay={300 * i}>
+                {(style) => (
+                  <Link href={`/work/${item.heading.toLowerCase()}`}>
+                    <a style={style}>
+                      {`/work/${item.heading.toLowerCase()}` !== location && (
+                        <Card flipId={`/work/${item.heading.toLowerCase()}`}>
+                          <Heading fontSize={1.5}>{item.heading}</Heading>
+                          <p>{item.text}</p>
+                        </Card>
+                      )}
                     </a>
                   </Link>
-                </animated.div>
-              );
-            })}
+                )}
+              </TranslateTransition>
+            ))}
           </FlexContainer>
 
           <FlexContainer>
