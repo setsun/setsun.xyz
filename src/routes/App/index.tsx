@@ -78,85 +78,95 @@ const Loading = ({ onFinish }: { onFinish: Function }) => (
   </LoadingContainer>
 );
 
+const Section = ({
+  heading,
+  items,
+  location,
+}) => (
+  <>
+    <FlexContainer>
+      <Heading fontSize={2.5}>{heading}</Heading>
+    </FlexContainer>
+    <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
+      {items.length ? items.map((item, i) => (
+        <TranslateTransition delay={300 * i}>
+          {(style) => (
+            <Link href={`/work/${item.heading.toLowerCase()}`}>
+              <a style={style}>
+                {`/work/${item.heading.toLowerCase()}` !== location && (
+                  <Card flipId={`/work/${item.heading.toLowerCase()}`}>
+                    <Heading fontSize={1.5}>{item.heading}</Heading>
+                    <p>{item.text}</p>
+                  </Card>
+                )}
+              </a>
+            </Link>
+          )}
+        </TranslateTransition>
+      )) : 'Coming Soon'}
+    </FlexContainer>
+  </>
+)
+
 const Main = ({
   items,
   location,
-}) => {
-  return (
-    <MainContainer>
-      <HeaderContainer>
-        <Sunset
-          flipId="sunset"
-          animate={false}
-          size={64}
-          style={{ marginRight: '1rem' }}
-        />
-
-        <FadeTransition>
-          <Heading fontSize={3}>
-            I am Setsun.
-          </Heading>
-        </FadeTransition>
-      </HeaderContainer>
+}) => (
+  <MainContainer>
+    <HeaderContainer>
+      <Sunset
+        flipId="sunset"
+        animate={false}
+        size={64}
+        style={{ marginRight: '1rem' }}
+      />
 
       <FadeTransition>
-        <div>
-          <FlexContainer>
-            <Heading fontSize={2.5}>Work</Heading>
-          </FlexContainer>
-          <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-            {items.map((item, i) => (
-              <TranslateTransition delay={300 * i}>
-                {(style) => (
-                  <Link href={`/work/${item.heading.toLowerCase()}`}>
-                    <a style={style}>
-                      {`/work/${item.heading.toLowerCase()}` !== location && (
-                        <Card flipId={`/work/${item.heading.toLowerCase()}`}>
-                          <Heading fontSize={1.5}>{item.heading}</Heading>
-                          <p>{item.text}</p>
-                        </Card>
-                      )}
-                    </a>
-                  </Link>
-                )}
-              </TranslateTransition>
-            ))}
-          </FlexContainer>
-
-          <FlexContainer>
-            <Heading fontSize={2.5}>Projects</Heading>
-          </FlexContainer>
-          <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-            Coming soon.
-          </FlexContainer>
-
-          <FlexContainer>
-            <Heading fontSize={2.5}>Sketches</Heading>
-          </FlexContainer>
-          <FlexContainer style={{ maxWidth: '1150px', margin: '0 auto' }}>
-            Coming soon.
-          </FlexContainer>
-
-          <FlexContainer>
-            <Heading fontSize={2.5}>Connect</Heading>
-          </FlexContainer>
-          <FlexContainer
-            style={{
-              maxWidth: '1150px',
-              margin: '0 auto',
-              flexDirection: 'column',
-            }}
-          >
-            <a href="https://github.com/setsun" target="_blank">https://github.com/setsun</a>
-            <a href="https://linkedin.com/in/setsun" target="_blank">
-              https://linkedin.com/in/setsun
-            </a>
-          </FlexContainer>
-        </div>
+        <Heading fontSize={3}>
+          I am Setsun.
+        </Heading>
       </FadeTransition>
-    </MainContainer>
-  );
-};
+    </HeaderContainer>
+
+    <FadeTransition>
+      <div>
+        <Section
+          heading="Work"
+          items={items}
+          location={location}
+        />
+
+        <Section
+          heading="Projects"
+          items={[]}
+          location={location}
+        />
+
+        <Section
+          heading="Sketches"
+          items={[]}
+          location={location}
+        />
+
+        <FlexContainer>
+          <Heading fontSize={2.5}>Connect</Heading>
+        </FlexContainer>
+        <FlexContainer
+          style={{
+            maxWidth: '1150px',
+            margin: '0 auto',
+            flexDirection: 'column',
+          }}
+        >
+          <a href="https://github.com/setsun" target="_blank">https://github.com/setsun</a>
+          <a href="https://linkedin.com/in/setsun" target="_blank">
+            https://linkedin.com/in/setsun
+          </a>
+        </FlexContainer>
+      </div>
+    </FadeTransition>
+  </MainContainer>
+);
 
 const App = () => {
   const [location, setLocation] = useLocation();
