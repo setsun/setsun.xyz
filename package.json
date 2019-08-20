@@ -32,7 +32,7 @@
     "react-flip-toolkit": "^7.0.2",
     "react-hot-loader": "^4.12.11",
     "react-spring": "^9.0.0-beta.31",
-    "react-three-fiber": "^2.3.5",
+    "react-three-fiber": "^2.3.6",
     "react-transition-components": "4.1.2",
     "react-transition-group": "4.2.2",
     "three": "^0.107.0",
@@ -46,7 +46,7 @@
     "babel-plugin-module-resolver": "3.2.0",
     "babel-preset-setsun": "2.3.0",
     "css-loader": "^3.2.0",
-    "eslint": "^6.1.0",
+    "eslint": "^6.2.1",
     "eslint-config-setsun": "2.3.0",
     "extract-loader": "^3.1.0",
     "file-loader": "^4.2.0",
@@ -61,7 +61,7 @@
     "terser-webpack-plugin": "^1.4.1",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.6",
+    "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   }
 }
