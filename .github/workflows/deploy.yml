@@ -1,0 +1,14 @@
+name: Deploy
+
+on: [push]
+
+jobs:
+  build:
+    name: Deploy
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
