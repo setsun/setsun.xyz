@@ -1,13 +1,31 @@
 const webpack = require('webpack');
 const path = require('path');
+const os = require('os');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const src = path.resolve(__dirname, 'src');
 const dist = path.resolve(__dirname, 'dist');
+const webpackCache = path.resolve(__dirname, '.webpack-cache');
 
 const isProduction = process.env.NODE_ENV === 'production';
+
+const threadLoader = {
+  loader: 'thread-loader',
+  options: {
+    workers: Math.ceil(os.cpus() / 2),
+    workerParallelJobs: 50,
+    workerNodeArgs: ['--max-old-space-size=4096'],
+  },
+};
+
+const cacheLoader = {
+  loader: 'cache-loader',
+  options: {
+    cacheDirectory: webpackCache,
+  },
+};
 
 module.exports = {
   target: 'web',
@@ -33,22 +51,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
+        test: /\.(j|t)s(x?)$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'babel-loader' },
-          {
-            loader: 'linaria/loader',
-            options: {
-              sourceMap: process.env.NODE_ENV !== 'production',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.js(x?)$/,
-        exclude: /(node_modules)/,
-        use: [
+          cacheLoader,
+          threadLoader,
           { loader: 'babel-loader' },
           {
             loader: 'linaria/loader',
