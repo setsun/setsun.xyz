@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import React, { useRef } from 'react';
-import { a } from 'react-spring/three';
+import { a } from '@react-spring/three';
 import { Canvas, useRender } from 'react-three-fiber';
 
 function Octahedron({ position, theta, animate }) {

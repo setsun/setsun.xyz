@@ -4,7 +4,7 @@ import React, {
   useRef,
   useMemo,
 } from 'react';
-import { useSpring, a } from 'react-spring/three';
+import { useSpring, a } from '@react-spring/three';
 import { Canvas, useRender } from 'react-three-fiber';
 
 function Polygon() {
