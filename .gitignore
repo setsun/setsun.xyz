@@ -59,6 +59,7 @@ typings/
 
 # build folder
 dist/
+.webpack-cache/
 
 # misc
 .DS_Store

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { styled } from 'linaria/react';
+import styled from 'styled-components';
 import { Flipper } from 'react-flip-toolkit';
 import { Route, Link, useRoute, useLocation } from 'wouter';
 import { hot } from 'react-hot-loader/root';

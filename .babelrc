@@ -1,7 +1,6 @@
 {
   "presets": [
-    "setsun",
-    "linaria/babel"
+    "setsun"
   ],
   "plugins": [
     "inline-react-svg",
