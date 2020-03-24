@@ -8,6 +8,7 @@ const cache = path.resolve(__dirname, '.webpack-cache');
 const node_modules = path.resolve(__dirname, 'node_modules');
 
 module.exports = config.create({
+  port: 8800,
   paths: {
     entry: 'index.tsx',
     src,
