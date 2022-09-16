@@ -1,0 +1,3 @@
+# setsun.ai
+
+〰 consciousness stream 〰
