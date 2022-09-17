@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { ReactNode } from "react";
 import Header from "./Header";
 
@@ -6,7 +7,12 @@ type Props = {
 };
 
 const Layout: React.FC<Props> = (props) => (
-  <div>
+  <>
+    <Head>
+      <title>setsun.ai</title>
+      <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌅</text></svg>" />
+    </Head>
+
     <Header />
     <div className="layout">{props.children}</div>
     <style jsx global>{`
@@ -27,7 +33,8 @@ const Layout: React.FC<Props> = (props) => (
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
           "Segoe UI Symbol";
-        background: rgba(0, 0, 0, 0.05);
+        background: #0d1117;
+        color: white;
       }
 
       input,
@@ -44,7 +51,7 @@ const Layout: React.FC<Props> = (props) => (
         padding: 0 2rem;
       }
     `}</style>
-  </div>
+  </>
 );
 
 export default Layout;
