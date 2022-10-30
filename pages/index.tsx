@@ -28,8 +28,8 @@ const Blog: React.FC<Props> = (props) => {
   return (
     <Layout>
       <main>
-        {props.feed.map((post) => (
-          <Post post={post} />
+        {props.feed.map((post, i) => (
+          <Post key={i} post={post} />
         ))}
       </main>
     </Layout>

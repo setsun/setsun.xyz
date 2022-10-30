@@ -9,10 +9,8 @@ const Header: React.FC = () => {
 
   let left = (
     <div className="left">
-      <Link href="/">
-        <a className="bold" data-active={isActive("/")}>
-          setsun.ai (切ない)
-        </a>
+      <Link href="/" className="bold" data-active={isActive("/")}>
+        setsun.ai (切ない)
       </Link>
       <style jsx>{`
         .bold {
