@@ -1,3 +1,5 @@
+import '../styles/globals.css';
+
 import { Analytics } from '@vercel/analytics/react';
 import { AppProps } from 'next/app';
 import { ThemeProvider, DefaultTheme } from 'styled-components'
