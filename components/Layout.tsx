@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
 import styled from 'styled-components';
+import Footer from "./Footer";
 import Header from "./Header";
 
 type Props = {
@@ -21,6 +22,8 @@ const Layout: React.FC<Props> = (props) => (
     <Header />
 
     <LayoutContainer>{props.children}</LayoutContainer>
+
+    <Footer />
   </>
 );
 
