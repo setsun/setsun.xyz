@@ -1,12 +1,10 @@
 
-interface Props {
-  src: string;
-}
+type Props = Pick<React.IframeHTMLAttributes<HTMLIFrameElement>, "src" | "className">
 
-const SpotifyIframePlaylist = ({ src }: Props) => {
+const SpotifyIframePlaylist = (props: Props) => {
   return (
     <iframe
-      src={src}
+      {...props}
       style={{ borderRadius: '12px' }}
       width="100%"
       height="352"
