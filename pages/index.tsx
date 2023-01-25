@@ -30,6 +30,11 @@ const Blog: React.FC<Props> = (props) => {
   return (
     <Layout>
       <main>
+        <div className="mb-6">
+          <p>Engineering @ <a href="https://digitalocean.com">DigitalOcean</a>.</p>
+          <p>Previously worked on engineering teams @ <a href="https://aws.amazon.com">Amazon Web Services (AWS)</a>, <a href="https://kickstarter.com">Kickstarter</a>, <a href="https://frame.io">Frame.io</a>, <a href="https://tech.walmart.com">Walmart Global Tech</a>, <a href="https://hubspot.com">HubSpot</a>, and <a href="https://wayfair.com">Wayfair</a></p>
+        </div>
+
         {props.feed.map((post, i) => (
           <Post key={i} post={post} />
         ))}
@@ -48,7 +53,6 @@ const Blog: React.FC<Props> = (props) => {
             <SpotifyIframePlaylist src="https://open.spotify.com/embed/playlist/26ItkYptyl56YEIYQDQs7r?theme=0" />
           </Collapsible.Content>
         </Collapsible.Root>
-
       </main>
     </Layout>
   )
