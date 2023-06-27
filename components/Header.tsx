@@ -9,10 +9,8 @@ const Header: React.FC = () => {
 
   let left = (
     <div className="left">
-      <Link href="/">
-        <a className="bold" data-active={isActive("/")}>
-          Feed
-        </a>
+      <Link href="/" className="bold" data-active={isActive("/")}>
+        setsun.xyz
       </Link>
       <style jsx>{`
         .bold {
@@ -21,12 +19,8 @@ const Header: React.FC = () => {
 
         a {
           text-decoration: none;
-          color: #000;
+          color: white;
           display: inline-block;
-        }
-
-        .left a[data-active="true"] {
-          color: gray;
         }
 
         a + a {

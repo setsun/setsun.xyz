@@ -3,6 +3,7 @@ import { GetStaticProps } from "next"
 import Layout from "../components/Layout"
 import Post, { PostProps } from "../components/Post"
 import prisma from "../lib/prisma";
+import SpotifyIframePlaylist from "../components/SpotifyIframePlaylist";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -14,9 +15,9 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   });
 
-  return { 
-    props: { feed }, 
-    revalidate: 10 
+  return {
+    props: { feed },
+    revalidate: 10
   }
 }
 
@@ -27,30 +28,22 @@ type Props = {
 const Blog: React.FC<Props> = (props) => {
   return (
     <Layout>
-      <div className="page">
-        <h1>Public Feed</h1>
-        <main>
-          {props.feed.map((post) => (
-            <div key={post.id} className="post">
-              <Post post={post} />
-            </div>
-          ))}
-        </main>
-      </div>
-      <style jsx>{`
-        .post {
-          background: white;
-          transition: box-shadow 0.1s ease-in;
-        }
+      <main>
+        <div className="mb-6">
+          <p>Engineering @ <a href="https://digitalocean.com">DigitalOcean</a>.</p>
+        </div>
 
-        .post:hover {
-          box-shadow: 1px 1px 3px #aaa;
-        }
+        {props.feed.map((post, i) => (
+          <Post key={i} post={post} />
+        ))}
 
-        .post + .post {
-          margin-top: 2rem;
-        }
-      `}</style>
+        {/* <SpotifyIframePlaylist src="https://open.spotify.com/embed/playlist/1bUUPhe0zP9FgrsqYjxbTp?theme=0" />
+        <SpotifyIframePlaylist src="https://open.spotify.com/embed/playlist/1cUbQxIOFcxeL5oUheu85i?theme=0" />
+        <SpotifyIframePlaylist src="https://open.spotify.com/embed/playlist/3xx5COLUZ7Xwvyfg8MF4Nb?theme=0" />
+        <SpotifyIframePlaylist src="https://open.spotify.com/embed/playlist/4LddzZkIk08J3IwqXladlJ?theme=0" />
+        <SpotifyIframePlaylist src="https://open.spotify.com/embed/playlist/1aQK4Hz4Xmz3Y4NEhz9ReT?theme=0" />
+        <SpotifyIframePlaylist src="https://open.spotify.com/embed/playlist/26ItkYptyl56YEIYQDQs7r?theme=0" /> */}
+      </main>
     </Layout>
   )
 }

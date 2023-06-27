@@ -1,3 +1,3 @@
-# setsun.ai
+# setsun.xyz
 
 〰 consciousness stream 〰
