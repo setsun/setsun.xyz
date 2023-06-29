@@ -4,6 +4,8 @@ import Layout from "../components/Layout"
 import Post, { PostProps } from "../components/Post"
 import prisma from "../lib/prisma";
 import SpotifyIframePlaylist from "../components/SpotifyIframePlaylist";
+import { Canvas } from "@react-three/fiber";
+import WireframePlanet from "../components/hero-scenes/WireframePlanet";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -29,13 +31,16 @@ const Blog: React.FC<Props> = (props) => {
   return (
     <Layout>
       <main>
-        <div className="mb-6">
-          <p>Engineering @ <a href="https://digitalocean.com">DigitalOcean</a>.</p>
-        </div>
+        <Canvas className="w-full aspect-video">
+          <WireframePlanet />
+        </Canvas>
 
-        {props.feed.map((post, i) => (
-          <Post key={i} post={post} />
-        ))}
+        <div className="mt-6 p-4">
+          <h2 className="underline mb-2">Recent Posts</h2>
+          {props.feed.map((post, i) => (
+            <Post key={i} post={post} />
+          ))}
+        </div>
 
         {/* <SpotifyIframePlaylist src="https://open.spotify.com/embed/playlist/1bUUPhe0zP9FgrsqYjxbTp?theme=0" />
         <SpotifyIframePlaylist src="https://open.spotify.com/embed/playlist/1cUbQxIOFcxeL5oUheu85i?theme=0" />

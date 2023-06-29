@@ -32,7 +32,7 @@ const PostTitle = styled.h3`
 const Post: React.FC<{ post: PostProps }> = ({ post }) => {
   const authorName = post.author ? post.author.name : "Unknown author";
   return (
-    <Container onClick={() => Router.push("/p/[id]", `/p/${post.id}`)}>
+    <Container onClick={() => Router.push("/writing/[id]", `/writing/${post.id}`)}>
       <PostTitle>{post.title}</PostTitle>
       <small>By {authorName}</small>
       <ReactMarkdown>
