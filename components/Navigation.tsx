@@ -7,7 +7,7 @@ interface Props {
 }
 
 const SideNavigation: React.FC<Props> = ({ className }) => (
-  <nav className={classNames('p-4 border-r-2 border-r-zinc-200 min-w-max', className)}>
+  <nav className={classNames('p-6 border-r-2 border-r-zinc-200 min-w-max', className)}>
     {/* <HamburgerMenuIcon className='h-8 w-8' /> */}
 
     {/* <Cross1Icon className='h-8 w-8' /> */}

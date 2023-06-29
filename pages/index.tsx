@@ -31,11 +31,16 @@ const Blog: React.FC<Props> = (props) => {
   return (
     <Layout>
       <main>
-        <Canvas className="w-full aspect-video">
+        <Canvas
+          className="w-full aspect-video"
+          camera={{
+            position: [0, 0, -30]
+          }}
+        >
           <WireframePlanet />
         </Canvas>
 
-        <div className="mt-6 p-4">
+        <div className="mt-6">
           <h2 className="underline mb-2">Recent Posts</h2>
           {props.feed.map((post, i) => (
             <Post key={i} post={post} />

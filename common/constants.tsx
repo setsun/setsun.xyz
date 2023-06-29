@@ -29,6 +29,10 @@ export const SOCIAL_LINKS = [
 
 export const NAVIGATION_ITEMS = [
   {
+    name: 'About',
+    link: '/'
+  },
+  {
     name: 'Writing',
     link: '/writing'
   },
