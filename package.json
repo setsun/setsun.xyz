@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "🤍 / 🖤",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,6 +14,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@module-federation/nextjs-mf": "^6.6.3",
     "@prisma/client": "^4.16.1",
     "@radix-ui/colors": "^1.0.0",
     "@radix-ui/react-icons": "^1.3.0",

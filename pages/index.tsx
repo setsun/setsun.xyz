@@ -1,11 +1,21 @@
 import React from "react"
 import { GetStaticProps } from "next"
+import dynamic from "next/dynamic";
 import Layout from "../components/Layout"
 import Post, { PostProps } from "../components/Post"
 import prisma from "../lib/prisma";
 import SpotifyIframePlaylist from "../components/SpotifyIframePlaylist";
 import { Canvas } from "@react-three/fiber";
 import WireframePlanet from "../components/hero-scenes/WireframePlanet";
+
+// const Visual = dynamic(
+//   () => {
+//     // @ts-ignore
+//     const mod = import('visualizers/VisualizerOne');
+//     return mod;
+//   },
+//   { ssr: false },
+// );
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
