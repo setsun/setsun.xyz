@@ -1,33 +1,43 @@
-import { PerspectiveCamera } from '@react-three/drei';
 import { DoubleSide } from 'three';
 import { useTurntable } from '../../hooks/useTurntable';
 
 const WireframePlanet = () => {
-  const ringOneTurntable = useTurntable({ speed: 0.0001 });
-  const ringTwoTurntable = useTurntable({ speed: 0.0001 });
-  const planetTurntable = useTurntable({ speed: 0.0001, reverse: true });
+  const ringOneTurntable = useTurntable({ speed: 0.001, axis: 'x' });
+  const ringTwoTurntable = useTurntable({ speed: 0.001, axis: 'x', reverse: true });
+  const ringThreeTurntable = useTurntable({ speed: 0.001, axis: 'y' });
+  const ringFourTurntable = useTurntable({ speed: 0.001, axis: 'y', reverse: true });
+  const planetTurntable = useTurntable({ speed: 0.0025, axis: 'x', reverse: true });
 
   return (
     <>
-      {/* <PerspectiveCamera
-        makeDefault
-        args={[75, window.innerWidth / window.innerHeight, 0.01, 5000]}
-        position={[550, 325, -500]}
-      /> */}
-
-      <mesh rotation={[0, Math.PI / 2, 0]} ref={ringOneTurntable}>
-        <ringGeometry args={[15.5, 16, 100, 100]} />
+      <mesh rotation={[Math.PI / 2, 0, 0]} ref={ringOneTurntable}>
+        <ringGeometry args={[15.95, 16, 100, 100]} />
         <meshBasicMaterial attach="material" color="white" side={DoubleSide} />
       </mesh>
 
-      <mesh ref={ringTwoTurntable}>
-        <ringGeometry args={[15.5, 16, 100, 100]} />
+      <mesh rotation={[-Math.PI / 2, 0, 0]} ref={ringTwoTurntable}>
+        <ringGeometry args={[15.95, 16, 100, 100]} />
+        <meshBasicMaterial attach="material" color="white" side={DoubleSide} />
+      </mesh>
+
+      <mesh rotation={[0, -Math.PI / 2, 0]} ref={ringThreeTurntable}>
+        <ringGeometry args={[15.95, 16, 100, 100]} />
+        <meshBasicMaterial attach="material" color="white" side={DoubleSide} />
+      </mesh>
+
+      <mesh rotation={[0, Math.PI / 2, 0]} ref={ringFourTurntable}>
+        <ringGeometry args={[15.95, 16, 100, 100]} />
+        <meshBasicMaterial attach="material" color="white" side={DoubleSide} />
+      </mesh>
+
+      <mesh rotation={[0, 0, Math.PI / 2]}>
+        <ringGeometry args={[15.95, 16, 100, 100]} />
         <meshBasicMaterial attach="material" color="white" side={DoubleSide} />
       </mesh>
 
       <mesh ref={planetTurntable}>
         <dodecahedronGeometry args={[10, 10]} />
-        <meshBasicMaterial attach="material" color="#fff" wireframe />
+        <meshNormalMaterial attach="material" wireframe />
       </mesh>
     </>
   )
