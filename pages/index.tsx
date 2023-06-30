@@ -1,23 +1,11 @@
-import { useTrail, animated, config } from '@react-spring/web';
+import { useTrail, animated } from '@react-spring/web';
+import { Canvas } from "@react-three/fiber";
 import React from "react"
 import { GetStaticProps } from "next"
-import { Canvas } from "@react-three/fiber";
 import WireframePlanet from "../components/hero-scenes/WireframePlanet";
 
-// const Visual = dynamic(
-//   () => {
-//     // @ts-ignore
-//     const mod = import('visualizers/VisualizerOne');
-//     return mod;
-//   },
-//   { ssr: false },
-// );
-
 const ANIMATED_TEXT = [
-  "I'll miss the sea, but a person needs new experiences.",
-  "They jar something deep inside, allowing him to grow",
-  "Without change something sleeps inside us, and seldom awakens.",
-  "The sleeper must awaken."
+  "I am Setsun",
 ];
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -56,7 +44,7 @@ const Index: React.FC<Props> = (props) => {
         <WireframePlanet />
       </Canvas>
     </div>
-  )
+  );
 }
 
 export default Index;

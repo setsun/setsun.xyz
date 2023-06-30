@@ -18,11 +18,6 @@ module.exports = {
           remotes: {
             visualizers: 'visualizers@http://localhost:3001/_next/static/chunks/remoteEntry.js',
           },
-          shared: [
-            '@react-three/fiber',
-            '@react-three/drei',
-            'three',
-          ]
         }),
       );
     }
