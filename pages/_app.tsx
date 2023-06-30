@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { AppProps } from 'next/app';
 import { ThemeProvider, DefaultTheme } from 'styled-components'
 import GlobalStyle from '../components/GlobalStyle';
+import Layout from '../components/Layout';
 
 const theme: DefaultTheme = {
   colors: {
@@ -15,7 +16,11 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Component {...pageProps} />
+
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+
       <Analytics />
     </ThemeProvider>
   );

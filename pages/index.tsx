@@ -26,16 +26,14 @@ interface Props {}
 
 const Index: React.FC<Props> = (props) => {
   return (
-    <Layout>
-      <Canvas
-        className="w-full aspect-video"
-        camera={{
-          position: [0, 0, -30]
-        }}
-      >
-        <WireframePlanet />
-      </Canvas>
-    </Layout>
+    <Canvas
+      className="w-full aspect-video"
+      camera={{
+        position: [0, 0, -30]
+      }}
+    >
+      <WireframePlanet />
+    </Canvas>
   )
 }
 
