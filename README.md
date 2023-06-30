@@ -2,4 +2,4 @@
 
 〰 consciousness stream 〰
 
-##### just a playground for new technologies, and personal explorations / musing.
+##### just a playground for new technologies, and personal explorations / musings.

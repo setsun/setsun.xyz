@@ -1,6 +1,5 @@
 import React from "react"
 import { GetStaticProps } from "next"
-import Layout from "../../components/Layout"
 import Post, { PostProps } from "../../components/Post"
 import prisma from "../../lib/prisma";
 
@@ -26,12 +25,12 @@ type Props = {
 
 const Blog: React.FC<Props> = (props) => {
   return (
-    <Layout>
+    <div>
       <h2 className="underline mb-2">Recent Posts</h2>
       {props.feed.map((post, i) => (
         <Post key={i} post={post} />
       ))}
-    </Layout>
+    </div>
   );
 }
 
