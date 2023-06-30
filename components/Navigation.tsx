@@ -1,4 +1,5 @@
 import { HamburgerMenuIcon, Cross1Icon } from '@radix-ui/react-icons';
+import { useState } from 'react';
 import classNames from 'classnames';
 import { NAVIGATION_ITEMS } from '../common/constants';
 
@@ -6,20 +7,42 @@ interface Props {
   className?: string
 }
 
-const SideNavigation: React.FC<Props> = ({ className }) => (
-  <nav className={classNames('p-6 border-r-2 border-r-zinc-200 min-w-max', className)}>
-    {/* <HamburgerMenuIcon className='h-8 w-8' /> */}
+const SideNavigation: React.FC<Props> = ({ className }) => {
+  const [isOpen, setOpen] = useState(false);
 
-    {/* <Cross1Icon className='h-8 w-8' /> */}
+  return (
+    <nav className={classNames('flex flex-col items-center p-6 border-r-2 border-r-zinc-200 min-w-max', className)}>
+      <button onClick={() => setOpen(!isOpen)}>
+        {isOpen ? (
+          <Cross1Icon className='h-8 w-8' />
 
-    <div className='flex flex-col gap-1'>
-      {NAVIGATION_ITEMS.map(({ name, link }) => (
-        <a href={link} key={link}>
-          {name}
-        </a>
-      ))}
-    </div>
-  </nav>
-);
+        ) : (
+          <HamburgerMenuIcon className='h-8 w-8' />
+        )}
+      </button>
+
+
+      <div className='flex flex-col gap-1 mt-4'>
+        {isOpen ?
+          NAVIGATION_ITEMS.map(({ name, link }) => (
+            <a href={link} key={link}>
+              {name}
+            </a>
+          ))
+          : (
+            <div
+              className='uppercase text-xl font-light'
+              style={{
+                textOrientation: 'upright',
+                writingMode: 'vertical-lr',
+              }}
+            >
+              setsun.xyz
+            </div>
+          )}
+      </div>
+    </nav>
+  );
+}
 
 export default SideNavigation;

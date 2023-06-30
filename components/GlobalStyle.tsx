@@ -1,4 +1,8 @@
+import { Noto_Sans, Antonio } from 'next/font/google';
 import { createGlobalStyle } from 'styled-components';
+
+// If loading a variable font, you don't need to specify the font weight
+const antonio = Antonio({ subsets: ['latin'] })
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -18,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    font-family: ${antonio.style.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
