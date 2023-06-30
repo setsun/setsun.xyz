@@ -17,8 +17,8 @@ const Layout: React.FC<Props> = (props) => (
     <div className="flex h-screen overflow-hidden">
       <Navigation />
 
-      <div className="w-full overflow-scroll relative">
-        <main className="p-4" style={{ minHeight: 'calc(100vh - 4rem)'}}>
+      <div className="w-full overflow-y-auto relative">
+        <main className="p-4" style={{ minHeight: 'calc(100vh - 5rem)'}}>
           {props.children}
         </main>
 
