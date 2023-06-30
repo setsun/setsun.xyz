@@ -17,12 +17,12 @@ const Layout: React.FC<Props> = (props) => (
     <div className="flex h-screen overflow-hidden">
       <Navigation />
 
-      <div className="w-full overflow-scroll">
-        <div className="p-4">
+      <div className="w-full overflow-scroll relative">
+        <main className="p-4" style={{ minHeight: 'calc(100vh - 4rem)'}}>
           {props.children}
+        </main>
 
-          <Footer />
-        </div>
+        <Footer />
       </div>
     </div>
   </>
