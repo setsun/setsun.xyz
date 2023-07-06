@@ -1,6 +1,5 @@
 import React from "react";
 import Router from "next/router";
-import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 
 export type PostProps = {
@@ -14,31 +13,16 @@ export type PostProps = {
   published: boolean;
 };
 
-const Container = styled.div`
-  border: 1px solid white;
-  color: white;
-  padding: 2rem;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-`;
-
-const PostTitle = styled.h3`
-  margin: 0;
-  margin-bottom: 0.5rem;
-`;
-
 const Post: React.FC<{ post: PostProps }> = ({ post }) => {
   const authorName = post.author ? post.author.name : "Unknown author";
   return (
-    <Container onClick={() => Router.push("/writing/[id]", `/writing/${post.id}`)}>
-      <PostTitle>{post.title}</PostTitle>
+    <div className="border-b-[1px] text-white p-8 last:mb-0" onClick={() => Router.push("/writing/[id]", `/writing/${post.id}`)}>
+      <h3 className="mb-2">{post.title}</h3>
       <small>By {authorName}</small>
       <ReactMarkdown>
        {post.content}
       </ReactMarkdown>
-    </Container>
+    </div>
   );
 };
 
