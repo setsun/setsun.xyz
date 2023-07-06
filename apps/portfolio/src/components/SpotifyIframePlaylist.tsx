@@ -1,11 +1,13 @@
-
-type Props = Pick<React.IframeHTMLAttributes<HTMLIFrameElement>, "src" | "className">
+type Props = Pick<
+  React.IframeHTMLAttributes<HTMLIFrameElement>,
+  "src" | "className"
+>;
 
 const SpotifyIframePlaylist = (props: Props) => {
   return (
     <iframe
       {...props}
-      style={{ borderRadius: '12px' }}
+      style={{ borderRadius: "12px" }}
       width="100%"
       height="352"
       frameBorder="0"
@@ -14,6 +16,6 @@ const SpotifyIframePlaylist = (props: Props) => {
       loading="lazy"
     />
   );
-}
+};
 
 export default SpotifyIframePlaylist;

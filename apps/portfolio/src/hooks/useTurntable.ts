@@ -1,13 +1,13 @@
-import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 
 interface Props {
   speed?: number;
   reverse?: boolean;
-  axis?: 'x' | 'y' | 'z';
+  axis?: "x" | "y" | "z";
 }
 
-export function useTurntable({ speed = 0.01, reverse, axis = 'y' }: Props) {
+export function useTurntable({ speed = 0.01, reverse, axis = "y" }: Props) {
   const ref = useRef<any>(null!);
 
   useFrame(() => {

@@ -1,12 +1,12 @@
 import { client } from "database";
-import React from "react"
-import ReactMarkdown from "react-markdown"
-import { PostProps } from "../../../components/Post"
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import { PostProps } from "../../../components/Post";
 
 async function getPost(postId: string) {
   const post = await client.post.findUnique({
     where: {
-      id: postId
+      id: postId,
     },
     include: {
       author: {
@@ -24,7 +24,7 @@ export default async function Post(props) {
   let title = post.title;
 
   if (!props.published) {
-    title = `${title} (Draft)`
+    title = `${title} (Draft)`;
   }
 
   return (
@@ -32,10 +32,8 @@ export default async function Post(props) {
       <div>
         <h2>{title}</h2>
         <p>By {post.author.name || "Unknown author"}</p>
-        <ReactMarkdown>
-          {props.content}
-        </ReactMarkdown>
+        <ReactMarkdown>{props.content}</ReactMarkdown>
       </div>
     </>
-  )
-};
+  );
+}

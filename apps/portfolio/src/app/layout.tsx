@@ -2,18 +2,18 @@ import "../styles/globals.css";
 // include styles from the ui package
 import "ui/styles.css";
 
-import { Antonio, Inter } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/react';
-import Layout from '../components/Layout';
+import { Antonio, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import Layout from "../components/Layout";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 const antonio = Antonio({
-  subsets: ['latin'],
-  variable: '--font-antonio',
+  subsets: ["latin"],
+  variable: "--font-antonio",
 });
 
 export default function RootLayout({
@@ -24,9 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${antonio.variable}`}>
       <body>
-        <Layout>
-          {children}
-        </Layout>
+        <Layout>{children}</Layout>
       </body>
 
       <Analytics />
