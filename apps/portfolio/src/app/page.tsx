@@ -3,7 +3,6 @@
 import { useTrail, animated } from '@react-spring/web';
 import { Canvas } from "@react-three/fiber";
 import { Metadata } from "next";
-import { Button } from "ui";
 import WireframePlanet from "../components/hero-scenes/WireframePlanet";
 
 // export const metadata: Metadata = {

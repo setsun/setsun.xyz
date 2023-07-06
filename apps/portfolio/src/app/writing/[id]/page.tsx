@@ -1,10 +1,10 @@
+import { client } from "database";
 import React from "react"
 import ReactMarkdown from "react-markdown"
 import { PostProps } from "../../../components/Post"
-import prisma from "../../../lib/prisma";
 
 async function getPost(postId: string) {
-  const post = await prisma.post.findUnique({
+  const post = await client.post.findUnique({
     where: {
       id: postId
     },
