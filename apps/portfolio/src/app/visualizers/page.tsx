@@ -6,6 +6,7 @@ import {
   VisualizerThree,
   VisualizerFour,
   VisualizerFive,
+  VisualizerSix,
 } from "visualizers";
 
 interface Props {}
@@ -18,6 +19,7 @@ const Visualizers: React.FC<Props> = (props) => {
       <VisualizerThree />
       <VisualizerFour />
       <VisualizerFive />
+      <VisualizerSix />
     </div>
   );
 };
