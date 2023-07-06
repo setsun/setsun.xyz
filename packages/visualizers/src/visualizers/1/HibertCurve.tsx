@@ -1,7 +1,7 @@
-import { useMemo, useRef, forwardRef, useImperativeHandle } from 'react';
-import { GeometryUtils, Line2 } from 'three-stdlib';
-import { Line, LineProps } from '@react-three/drei';
-import { Vector3 } from 'three';
+import { useMemo, useRef, forwardRef, useImperativeHandle } from "react";
+import { GeometryUtils, Line2 } from "three-stdlib";
+import { Line, LineProps } from "@react-three/drei";
+import { Vector3 } from "three";
 
 interface Props {
   lineProps?: Partial<LineProps>;
@@ -24,7 +24,7 @@ export const HilbertCurve = forwardRef<HilbertCurveRefData, Props>(
         GeometryUtils.hilbert3D(new Vector3(0), size, iterations).map((p) => [
           p.x,
           p.y,
-          p.z
+          p.z,
         ]),
       [size, iterations]
     );
@@ -47,7 +47,7 @@ export const HilbertCurve = forwardRef<HilbertCurveRefData, Props>(
       },
       get vertexColors() {
         return vertexColors;
-      }
+      },
     }));
 
     return (
@@ -63,4 +63,4 @@ export const HilbertCurve = forwardRef<HilbertCurveRefData, Props>(
   }
 );
 
-HilbertCurve.displayName = 'HilbertCurve';
+HilbertCurve.displayName = "HilbertCurve";

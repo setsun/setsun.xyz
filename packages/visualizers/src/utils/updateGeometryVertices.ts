@@ -2,8 +2,8 @@ import {
   BufferAttribute,
   BufferGeometry,
   InterleavedBufferAttribute,
-  Vector3
-} from 'three';
+  Vector3,
+} from "three";
 
 export function updateGeometryVertices(
   geometry: BufferGeometry,
@@ -13,7 +13,7 @@ export function updateGeometryVertices(
     index: number
   ) => void
 ) {
-  const positionAttribute = geometry.getAttribute('position');
+  const positionAttribute = geometry.getAttribute("position");
 
   const currentVertex = new Vector3();
 

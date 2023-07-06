@@ -1,24 +1,21 @@
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame } from "@react-three/fiber";
 import {
   InstancedRigidBodies,
   RapierRigidBody,
-  Physics
-} from '@react-three/rapier';
-import { useRef, Suspense, useEffect, useMemo } from 'react';
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
-import {
-  AttractorSun,
-  AttractorSunRefData
-} from './AttractorSun';
-import { Bloom, EffectComposer, GodRays } from '@react-three/postprocessing';
-import { Displace, LayerMaterial } from 'lamina';
-import { Displace as DisplaceType } from 'lamina/vanilla';
-import clamp from 'lodash.clamp';
-import { Vector3 } from 'three';
-import * as random from 'maath/random';
-import { useAudioAnalyzer } from '../../hooks/useAudioAnalyzer';
-import { useTurntable } from '../../hooks/useTurntable';
-import { GodRaysEffect } from 'postprocessing';
+  Physics,
+} from "@react-three/rapier";
+import { useRef, Suspense, useEffect, useMemo } from "react";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { AttractorSun, AttractorSunRefData } from "./AttractorSun";
+import { Bloom, EffectComposer, GodRays } from "@react-three/postprocessing";
+import { Displace, LayerMaterial } from "lamina";
+import { Displace as DisplaceType } from "lamina/vanilla";
+import clamp from "lodash.clamp";
+import { Vector3 } from "three";
+import * as random from "maath/random";
+import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
+import { useTurntable } from "../../hooks/useTurntable";
+import { GodRaysEffect } from "postprocessing";
 
 const COUNT = 250;
 const SUN_RADIUS = 6;
@@ -26,9 +23,9 @@ const CELL_RADIUS = 2;
 
 const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
   const { audio, analyzer } = useAudioAnalyzer({
-    url: 'audio/Bloodstream.mp3',
+    url: "audio/Bloodstream.mp3",
     loop: true,
-    fftSize: 512
+    fftSize: 512,
   });
 
   const attractorSunRef = useRef<AttractorSunRefData>(null!);
@@ -40,13 +37,13 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
     const instances = [];
 
     const p = random.onSphere(new Float32Array(COUNT * 3), {
-      radius: SUN_RADIUS + CELL_RADIUS + 5
+      radius: SUN_RADIUS + CELL_RADIUS + 5,
     });
 
     for (let i = 0; i < COUNT; i++) {
       instances.push({
         position: new Vector3().fromArray(p, i * 3).toArray(),
-        key: i
+        key: i,
       });
     }
 
@@ -83,7 +80,7 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
       {
         x: Math.sin(clock.getElapsedTime()) * 1.25,
         y: Math.sin(clock.getElapsedTime()) * 1.25,
-        z: 0
+        z: 0,
       },
       true
     );
@@ -166,7 +163,7 @@ const Visualizer = () => {
       <Canvas shadows>
         <Suspense>
           <Physics>
-            <color attach="background" args={['black']} />
+            <color attach="background" args={["black"]} />
 
             <>
               <ambientLight intensity={0.8} />

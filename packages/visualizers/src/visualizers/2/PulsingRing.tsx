@@ -1,7 +1,7 @@
-import { useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
-import { AudioAnalyser, Mesh, DoubleSide } from 'three';
-import clamp from 'lodash.clamp';
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+import { AudioAnalyser, Mesh, DoubleSide } from "three";
+import clamp from "lodash.clamp";
 
 interface Props {
   audioAnalyzer: AudioAnalyser;
@@ -14,7 +14,7 @@ const PulsingRing = ({
   audioAnalyzer,
   innerRadius = 0.9,
   outerRadius = 1,
-  maxScale = 1
+  maxScale = 1,
 }: Props) => {
   const mesh = useRef<Mesh>(null!);
 

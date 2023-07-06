@@ -1,7 +1,7 @@
-import { useFrame } from '@react-three/fiber';
-import { Segment, SegmentObject, Segments } from '@react-three/drei';
-import { useState, createRef } from 'react';
-import { AudioAnalyser, Vector3 } from 'three';
+import { useFrame } from "@react-three/fiber";
+import { Segment, SegmentObject, Segments } from "@react-three/drei";
+import { useState, createRef } from "react";
+import { AudioAnalyser, Vector3 } from "three";
 
 interface Props {
   audioAnalyzer: AudioAnalyser;
@@ -16,7 +16,7 @@ const RadialBarFrequencyGraph = ({
   radius = 1,
   intensity = 0.005,
   countOverride,
-  lineWidth = 0.1
+  lineWidth = 0.1,
 }: Props) => {
   const count = countOverride ?? audioAnalyzer.analyser.frequencyBinCount;
 

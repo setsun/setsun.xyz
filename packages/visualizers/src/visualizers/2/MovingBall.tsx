@@ -1,8 +1,8 @@
-import { useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
-import { createNoise3D } from 'simplex-noise';
-import { Mesh, AudioAnalyser } from 'three';
-import { updateGeometryVertices } from '../../utils/updateGeometryVertices';
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+import { createNoise3D } from "simplex-noise";
+import { Mesh, AudioAnalyser } from "three";
+import { updateGeometryVertices } from "../../utils/updateGeometryVertices";
 interface Props {
   radius?: number;
   detail?: number;
@@ -45,7 +45,7 @@ const MovingBall = ({
   radius = 1,
   detail = 1,
   amplitude = 10,
-  audioAnalyzer
+  audioAnalyzer,
 }: Props) => {
   const mesh = useRef<Mesh>(null!);
 
@@ -84,8 +84,8 @@ const MovingBall = ({
           vertex.y + time * rf * 8,
           vertex.z + time * rf * 9
         ) *
-        amplitude *
-        topFr;
+          amplitude *
+          topFr;
 
       vertex.multiplyScalar(distance);
 
