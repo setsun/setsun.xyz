@@ -1,10 +1,9 @@
+import { client } from "database";
 import React from "react"
 import Post, { PostProps } from "../../components/Post"
-import prisma from "../../lib/prisma";
-
 
 async function getFeed() {
-  const feed = await prisma.post.findMany({
+  const feed = await client.post.findMany({
     where: { published: true },
     include: {
       author: {
