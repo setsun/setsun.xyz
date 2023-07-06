@@ -5,7 +5,6 @@ module.exports = {
     removeConsole: {
       exclude: ['error'],
     },
-    styledComponents: true,
   },
   swcMinify: true,
   webpack(config, { isServer }) {
