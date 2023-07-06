@@ -1,20 +1,24 @@
-import { InstagramLogoIcon, GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
+import {
+  InstagramLogoIcon,
+  GitHubLogoIcon,
+  TwitterLogoIcon,
+} from "@radix-ui/react-icons";
 
 export const SOCIAL_LINKS = [
   {
     name: "GitHub",
     link: "https://github.com/setsun",
-    icon: <GitHubLogoIcon />
+    icon: <GitHubLogoIcon />,
   },
   {
     name: "Instagram",
     link: "https://instagram.com/i.am.setsun",
-    icon: <InstagramLogoIcon />
+    icon: <InstagramLogoIcon />,
   },
   {
     name: "Twitter",
     link: "https://twitter.com/setsun_",
-    icon: <TwitterLogoIcon />
+    icon: <TwitterLogoIcon />,
   },
   // {
   //   name: "Spotify",
@@ -26,30 +30,29 @@ export const SOCIAL_LINKS = [
   // }
 ];
 
-
 export const NAVIGATION_ITEMS = [
   {
-    name: 'About',
-    link: '/'
+    name: "About",
+    link: "/",
   },
   {
-    name: 'Writing',
-    link: '/writing'
+    name: "Writing",
+    link: "/writing",
   },
   {
-    name: 'Visualizers',
-    link: '/visualizers'
+    name: "Visualizers",
+    link: "/visualizers",
   },
   {
-    name: 'Games',
-    link: '/games'
+    name: "Games",
+    link: "/games",
   },
   {
-    name: 'Photos',
-    link: '/photos'
+    name: "Photos",
+    link: "/photos",
   },
   {
-    name: 'Now Playing',
-    link: '/now-playing'
+    name: "Now Playing",
+    link: "/now-playing",
   },
-]
+];

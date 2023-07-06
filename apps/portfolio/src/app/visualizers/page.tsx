@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-interface Props { }
+interface Props {}
 
 // const VisualizerOne = dynamic(
 //   // @ts-ignore
@@ -10,10 +10,10 @@ interface Props { }
 
 const Visualizers: React.FC<Props> = (props) => {
   return (
-    <div className="h-screen text-3xl flex justify-center items-center">
+    <div className="flex h-screen items-center justify-center text-3xl">
       {/* <VisualizerOne /> */}
     </div>
   );
-}
+};
 
 export default Visualizers;

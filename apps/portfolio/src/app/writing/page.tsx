@@ -1,6 +1,6 @@
 import { client } from "database";
-import React from "react"
-import Post, { PostProps } from "../../components/Post"
+import React from "react";
+import Post, { PostProps } from "../../components/Post";
 
 async function getFeed() {
   const feed = await client.post.findMany({
@@ -20,11 +20,11 @@ export default async function Blog() {
 
   return (
     <div>
-      <h2 className="underline mb-2">Recent Posts</h2>
+      <h2 className="mb-2 underline">Recent Posts</h2>
       {feed.map((post, i) => (
         // @ts-ignore
         <Post key={i} post={post} />
       ))}
     </div>
-  )
+  );
 }
