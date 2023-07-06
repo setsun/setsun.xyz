@@ -17,5 +17,6 @@
     "skipLibCheck": true,
     "strict": true
   },
+  "include": ["@types"],
   "exclude": ["node_modules"]
 }
