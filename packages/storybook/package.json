@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run storybook:dev",
-    "storybook:dev": "storybook dev -p 6006",
+    "storybook:dev": "storybook dev --no-open --port 6006",
     "storybook:build": "storybook build"
   },
   "dependencies": {
