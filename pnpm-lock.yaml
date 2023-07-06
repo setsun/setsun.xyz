@@ -136,6 +136,7 @@ importers:
       tsup: ^7.1.0
       typescript: ^5.1.6
       ui: workspace:*
+      vite: ^4.3.9
     dependencies:
       ui: link:../ui
     devDependencies:
@@ -158,6 +159,7 @@ importers:
       tsconfig: link:../tsconfig
       tsup: 7.1.0_7ipdbfbwoebef6vqazro5y4muq
       typescript: 5.1.6
+      vite: 4.3.9
 
   packages/tailwind-config:
     specifiers:

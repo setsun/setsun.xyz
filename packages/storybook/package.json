@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "dev": "npm run storybook:dev",
+    "storybook:dev": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
   },
   "dependencies": {
     "ui": "workspace:*"
@@ -28,7 +29,8 @@
     "@storybook/addon-interactions": "^7.0.26",
     "@storybook/testing-library": "^0.2.0",
     "react-dom": "^18.2.0",
-    "prop-types": "^15.8.1"
+    "prop-types": "^15.8.1",
+    "vite": "^4.3.9"
   },
   "peerDependencies": {
     "react": "^18.2.0"
