@@ -1,7 +1,7 @@
-import { RigidBody, RapierRigidBody } from '@react-three/rapier';
-import { Attractor } from '@react-three/rapier-addons';
-import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { Mesh } from 'three';
+import { RigidBody, RapierRigidBody } from "@react-three/rapier";
+import { Attractor } from "@react-three/rapier-addons";
+import { forwardRef, useImperativeHandle, useRef } from "react";
+import { Mesh } from "three";
 
 interface Props {
   position: [number, number, number];
@@ -27,7 +27,7 @@ export const AttractorSun = forwardRef<AttractorSunRefData, Props>(
       },
       get rigidBody() {
         return rigidBodyRef.current;
-      }
+      },
     }));
 
     return (
@@ -43,4 +43,4 @@ export const AttractorSun = forwardRef<AttractorSunRefData, Props>(
   }
 );
 
-AttractorSun.displayName = 'AttractorSun';
+AttractorSun.displayName = "AttractorSun";

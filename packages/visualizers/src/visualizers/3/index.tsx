@@ -1,29 +1,29 @@
-import { Canvas } from '@react-three/fiber';
-import { useState, useEffect, Suspense, useRef } from 'react';
+import { Canvas } from "@react-three/fiber";
+import { useState, useEffect, Suspense, useRef } from "react";
 import {
   OrbitControls,
   MarchingCube,
   MarchingCubes,
-  PerspectiveCamera
-} from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { Geometry, Base, Subtraction } from '@react-three/csg';
+  PerspectiveCamera,
+} from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { Geometry, Base, Subtraction } from "@react-three/csg";
 import {
   BallCollider,
   Physics,
   RigidBody,
-  RapierRigidBody
-} from '@react-three/rapier';
+  RapierRigidBody,
+} from "@react-three/rapier";
 import {
   AudioAnalyser,
   BoxGeometry,
   Color,
   CylinderGeometry,
   Mesh,
-  Vector3
-} from 'three';
-import { useAudioAnalyzer } from '../../hooks/useAudioAnalyzer';
-import { useTurntable } from '../../hooks/useTurntable';
+  Vector3,
+} from "three";
+import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
+import { useTurntable } from "../../hooks/useTurntable";
 
 const box = new BoxGeometry();
 const cyl = new CylinderGeometry(0.6, 0.6, 1.5, 32);
@@ -108,9 +108,9 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
   const ref6 = useRef<Mesh>(null!);
 
   const { audio, analyzer } = useAudioAnalyzer({
-    url: 'audio/Ghost_Voices_Remix.mp3',
+    url: "audio/Ghost_Voices_Remix.mp3",
     loop: true,
-    fftSize: 512
+    fftSize: 512,
   });
 
   useEffect(() => {
@@ -227,7 +227,7 @@ const Visualizer = () => {
   return (
     <>
       <Canvas shadows>
-        <color attach="background" args={['black']} />
+        <color attach="background" args={["black"]} />
 
         <OrbitControls makeDefault />
 

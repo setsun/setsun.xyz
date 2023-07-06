@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useLoader, useThree } from '@react-three/fiber';
+import { useState, useEffect } from "react";
+import { useLoader, useThree } from "@react-three/fiber";
 import {
   AudioLoader,
   AudioListener,
   AudioAnalyser,
-  Audio as ThreeAudio
-} from 'three';
+  Audio as ThreeAudio,
+} from "three";
 
 interface Props {
   url: string;
@@ -37,6 +37,6 @@ export function useAudioAnalyzer({ url, loop, fftSize = 32 }: Props) {
 
   return {
     audio,
-    analyzer
+    analyzer,
   };
 }

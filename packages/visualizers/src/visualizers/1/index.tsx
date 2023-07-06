@@ -1,17 +1,14 @@
-import { Canvas, useFrame } from '@react-three/fiber';
-import {
-  HilbertCurve,
-  HilbertCurveRefData
-} from './HibertCurve';
-import { useTurntable } from '../../hooks/useTurntable';
-import { useAudioAnalyzer } from '../../hooks/useAudioAnalyzer';
-import { useEffect, useRef } from 'react';
+import { Canvas, useFrame } from "@react-three/fiber";
+import { HilbertCurve, HilbertCurveRefData } from "./HibertCurve";
+import { useTurntable } from "../../hooks/useTurntable";
+import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
+import { useEffect, useRef } from "react";
 
 const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
   const { audio, analyzer } = useAudioAnalyzer({
-    url: 'audio/Bring_Back.mp3',
+    url: "audio/Bring_Back.mp3",
     loop: true,
-    fftSize: 512
+    fftSize: 512,
   });
 
   const turntableRef = useTurntable({ speed: 0.0025 });
@@ -46,11 +43,10 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
           dashed: true,
           dashSize: 50,
           gapSize: 25,
-          lineWidth: 2.5
+          lineWidth: 2.5,
         }}
       />
     </mesh>
-
   );
 };
 
@@ -59,12 +55,12 @@ const Visualizer = () => {
     <Canvas
       className="aspect-video w-full"
       camera={{
-        position: [0, 0, -30]
+        position: [0, 0, -30],
       }}
     >
       <MainScene isPlaying />
     </Canvas>
   );
-}
+};
 
 export default Visualizer;
