@@ -31,7 +31,7 @@
     "react-markdown": "8.0.7",
     "simplex-noise": "^4.0.1",
     "swr": "^2.2.0",
-    "three": "^0.154.0",
+    "three": "^0.152.2",
     "tunnel-rat": "^0.1.2",
     "ui": "workspace:*",
     "visualizers": "workspace:*",

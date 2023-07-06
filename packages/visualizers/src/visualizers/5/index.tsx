@@ -97,8 +97,6 @@ const Visualizer = () => {
   return (
     <>
       <Canvas shadows>
-        <color attach="background" args={["black"]} />
-
         <OrbitControls makeDefault />
 
         <PerspectiveCamera

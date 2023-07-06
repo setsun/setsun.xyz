@@ -163,8 +163,6 @@ const Visualizer = () => {
       <Canvas shadows>
         <Suspense>
           <Physics>
-            <color attach="background" args={["black"]} />
-
             <>
               <ambientLight intensity={0.8} />
               <pointLight intensity={1} position={[0, 6, 0]} />
