@@ -30,29 +30,30 @@ export const SOCIAL_LINKS = [
   // }
 ];
 
+// todo: uncomment pages as they are ready
 export const NAVIGATION_ITEMS = [
   {
-    name: "About",
+    name: "Home",
     link: "/",
   },
-  {
-    name: "Writing",
-    link: "/writing",
-  },
+  // {
+  //   name: "Writing",
+  //   link: "/writing",
+  // },
   {
     name: "Visualizers",
     link: "/visualizers",
   },
-  {
-    name: "Games",
-    link: "/games",
-  },
-  {
-    name: "Photos",
-    link: "/photos",
-  },
-  {
-    name: "Now Playing",
-    link: "/now-playing",
-  },
+  // {
+  //   name: "Games",
+  //   link: "/games",
+  // },
+  // {
+  //   name: "Photos",
+  //   link: "/photos",
+  // },
+  // {
+  //   name: "Now Playing",
+  //   link: "/now-playing",
+  // },
 ];
