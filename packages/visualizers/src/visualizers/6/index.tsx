@@ -170,7 +170,7 @@ const MainScene = () => {
 const Visualizer = () => {
   return (
     <VisualizerCanvas
-      headline="VISUALIZER _06"
+      headline="VISUALIZER_06"
       camera={{
         position: [0, 0, 7.5],
         rotation: new Euler(
