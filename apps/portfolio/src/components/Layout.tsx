@@ -21,7 +21,7 @@ const Layout: React.FC<Props> = (props) => (
       <Navigation />
 
       <div className="relative w-full overflow-y-auto">
-        <main className="p-4" style={{ minHeight: "calc(100vh - 5rem)" }}>
+        <main style={{ minHeight: "calc(100vh - 5rem)" }}>
           {props.children}
         </main>
 

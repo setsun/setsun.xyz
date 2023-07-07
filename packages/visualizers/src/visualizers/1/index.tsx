@@ -4,6 +4,7 @@ import { useTurntable } from "../../hooks/useTurntable";
 import { useRef } from "react";
 import VisualizerCanvas from "../../components/VisualizerCanvas";
 import { AudioAnalyser } from "three";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 const MainScene = ({
   analyzer,
@@ -46,22 +47,30 @@ const MainScene = ({
 };
 
 const Visualizer = () => {
-  /**
-   *    position: [-125, 75, 25],
-        fov: 75,
-        aspect: window.innerWidth / window.innerHeight,
-        near: 0.01,
-        far: 5000,
-   */
   return (
     <VisualizerCanvas
-      songUrl="audio/Bring_Back.mp3"
-      songName="Qrion - Bring Back"
+      songProps={{
+        url: "audio/Bring_Back.mp3",
+        name: "Qrion - Bring Back",
+        externalHref: "https://soundcloud.com/nesthq/qrion-bring-back",
+      }}
       headline="VISUALIZER _01"
-      href="https://soundcloud.com/nesthq/qrion-bring-back"
+      camera={{
+        position: [-125, 75, 25],
+      }}
     >
       {({ analyzer, isPlaying }) => (
-        <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+        <>
+          <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+
+          <EffectComposer>
+            <Bloom
+              luminanceThreshold={0}
+              luminanceSmoothing={0.9}
+              height={600}
+            />
+          </EffectComposer>
+        </>
       )}
     </VisualizerCanvas>
   );

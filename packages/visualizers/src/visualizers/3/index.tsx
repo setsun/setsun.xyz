@@ -214,10 +214,16 @@ const MainScene = ({
 const Visualizer = () => {
   return (
     <VisualizerCanvas
-      songUrl="audio/Ghost_Voices_Remix.mp3"
-      songName="Virtual Self - Ghost Voices (Lane 8 Remix)"
+      songProps={{
+        url: "audio/Ghost_Voices_Remix.mp3",
+        name: "Virtual Self - Ghost Voices (Lane 8 Remix)",
+        externalHref:
+          "https://soundcloud.com/thisneverhappenedlabel/virtual-self-ghost-voices-lane-8-remix",
+      }}
       headline="VISUALIZER _03"
-      href="https://soundcloud.com/thisneverhappenedlabel/virtual-self-ghost-voices-lane-8-remix"
+      camera={{
+        position: [0, 0, -2.25],
+      }}
     >
       {({ analyzer, isPlaying }) => (
         <>

@@ -48,6 +48,7 @@ importers:
       react-dom: ^18.2.0
       react-loading-skeleton: ^3.3.1
       react-markdown: 8.0.7
+      react-spinners: ^0.13.8
       simplex-noise: ^4.0.1
       swr: ^2.2.0
       tailwind-config: workspace:*
@@ -86,6 +87,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-loading-skeleton: 3.3.1_react@18.2.0
       react-markdown: 8.0.7_i73ekzlbntu7jol6ph2fvy4mga
+      react-spinners: 0.13.8_biqbaboplfbrettd7655fr4n2y
       simplex-noise: 4.0.1
       swr: 2.2.0_react@18.2.0
       three: 0.151.3
@@ -10547,6 +10549,16 @@ packages:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /react-spinners/0.13.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-3e+k56lUkPj0vb5NDXPVFAOkPC//XyhKPJjvcGjyMNPWsBKpplfeyialP74G7H7+It7KzhtET+MvGqbKgAqpZA==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-use-measure/2.1.1_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-nocZhN26cproIiIduswYpV5y5lQpSQS1y/4KuvUCjSKmw7ZWIS/+g3aFnX3WdBkyuGUtTLif3UTqnLLhbDoQig==}

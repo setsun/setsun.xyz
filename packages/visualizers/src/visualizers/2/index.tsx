@@ -66,22 +66,18 @@ const MainScene = ({
 };
 
 const Visualizer = () => {
-  /**
-   *
-   *    type: "PerspectiveCamera",
-        position: [550, 325, -500],
-        fov: 75,
-        aspect: window.innerWidth / window.innerHeight,
-        near: 0.01,
-        far: 5000,
-   */
-
   return (
     <VisualizerCanvas
-      songUrl="audio/Funk.mp3"
-      songName="Martin Garrix & Julian Jordan - Funk"
+      songProps={{
+        url: "audio/Funk.mp3",
+        name: "Martin Garrix & Julian Jordan - Funk",
+        externalHref:
+          "https://soundcloud.com/martingarrix/martin-garrix-julian-jordan-the-funk",
+      }}
       headline="VISUALIZER _02"
-      href="https://soundcloud.com/martingarrix/martin-garrix-julian-jordan-the-funk"
+      camera={{
+        position: [550, 325, -500],
+      }}
     >
       {({ analyzer, isPlaying }) => (
         <>

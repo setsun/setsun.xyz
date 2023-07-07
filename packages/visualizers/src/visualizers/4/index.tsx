@@ -151,21 +151,18 @@ const MainScene = ({
 };
 
 const Visualizer = () => {
-  /**
-   *    type: "PerspectiveCamera",
-        position: [0, 16, -16],
-        fov: 75,
-        aspect: window.innerWidth / window.innerHeight,
-        near: 0.01,
-        far: 5000,
-   */
-
   return (
     <VisualizerCanvas
-      songUrl="audio/Bloodstream.mp3"
-      songName="Ferry Corsten - Bloodstream"
+      songProps={{
+        url: "audio/Bloodstream.mp3",
+        name: "Ferry Corsten - Bloodstream",
+        externalHref:
+          "https://soundcloud.com/ferry-corsten/ferry-corsten-ruben-de-ronde",
+      }}
       headline="VISUALIZER _04"
-      href="https://soundcloud.com/ferry-corsten/ferry-corsten-ruben-de-ronde"
+      camera={{
+        position: [0, 16, -16],
+      }}
     >
       {({ analyzer, isPlaying }) => (
         <Suspense>
