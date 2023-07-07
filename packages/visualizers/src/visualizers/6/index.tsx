@@ -19,6 +19,7 @@ import {
 import { SketchCat } from "./SketchCat";
 import { useTurntable } from "../../hooks/useTurntable";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
+import VisualizerCanvas from "../../components/VisualizerCanvas";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
@@ -168,23 +169,19 @@ const MainScene = () => {
 
 const Visualizer = () => {
   return (
-    <Canvas
+    <VisualizerCanvas
+      headline="VISUALIZER _06"
       camera={{
-        type: "PerspectiveCamera",
         position: [0, 0, 7.5],
         rotation: new Euler(
           -0.3959453296134719,
           -0.24111278576897252,
           -0.0994871453099729
         ),
-        fov: 75,
-        aspect: window.innerWidth / window.innerHeight,
-        near: 0.01,
-        far: 5000,
       }}
     >
-      <MainScene />
-    </Canvas>
+      {() => <MainScene />}
+    </VisualizerCanvas>
   );
 };
 

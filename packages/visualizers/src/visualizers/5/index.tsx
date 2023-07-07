@@ -84,21 +84,19 @@ const MainScene = ({
 };
 
 const Visualizer = () => {
-  /**
-   *    type: "PerspectiveCamera",
-        position: [135, 10, 160],
-        rotation: new Euler(-0.075, 0.68, 0.05),
-        fov: 75,
-        aspect: window.innerWidth / window.innerHeight,
-        near: 0.01,
-        far: 5000,
-   */
   return (
     <VisualizerCanvas
-      songUrl="audio/Sun_&_Moon_Remix.mp3"
-      songName="Above & Beyond feat. Richard Bedford - Sun & Moon (ilan Bluestone Remix)"
-      href="https://soundcloud.com/aboveandbeyond/above-beyond-feat-richard-bedford-sun-moon-ilan-bluestone-remix"
+      songProps={{
+        url: "audio/Sun_&_Moon_Remix.mp3",
+        name: "Above & Beyond feat. Richard Bedford - Sun & Moon (ilan Bluestone Remix)",
+        externalHref:
+          "https://soundcloud.com/aboveandbeyond/above-beyond-feat-richard-bedford-sun-moon-ilan-bluestone-remix",
+      }}
       headline="VISUALIZER _05"
+      camera={{
+        position: [135, 10, 160],
+        rotation: new Euler(-0.075, 0.68, 0.05),
+      }}
     >
       {({ analyzer, isPlaying }) => (
         <MainScene analyzer={analyzer} isPlaying={isPlaying} />
