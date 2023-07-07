@@ -87,12 +87,12 @@ const Visualizer = () => {
   return (
     <VisualizerCanvas
       songProps={{
-        url: "audio/Sun_&_Moon_Remix.mp3",
+        url: "https://www.setsun.xyz/audio/Sun_&_Moon_Remix.mp3",
         name: "Above & Beyond feat. Richard Bedford - Sun & Moon (ilan Bluestone Remix)",
         externalHref:
           "https://soundcloud.com/aboveandbeyond/above-beyond-feat-richard-bedford-sun-moon-ilan-bluestone-remix",
       }}
-      headline="VISUALIZER _05"
+      headline="VISUALIZER_05"
       camera={{
         position: [135, 10, 160],
         rotation: new Euler(-0.075, 0.68, 0.05),

@@ -154,12 +154,12 @@ const Visualizer = () => {
   return (
     <VisualizerCanvas
       songProps={{
-        url: "audio/Bloodstream.mp3",
+        url: "https://www.setsun.xyz/audio/Bloodstream.mp3",
         name: "Ferry Corsten - Bloodstream",
         externalHref:
           "https://soundcloud.com/ferry-corsten/ferry-corsten-ruben-de-ronde",
       }}
-      headline="VISUALIZER _04"
+      headline="VISUALIZER_04"
       camera={{
         position: [0, 16, -16],
       }}

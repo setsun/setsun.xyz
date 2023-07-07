@@ -50,11 +50,11 @@ const Visualizer = () => {
   return (
     <VisualizerCanvas
       songProps={{
-        url: "audio/Bring_Back.mp3",
+        url: "https://www.setsun.xyz/audio/Bring_Back.mp3",
         name: "Qrion - Bring Back",
         externalHref: "https://soundcloud.com/nesthq/qrion-bring-back",
       }}
-      headline="VISUALIZER _01"
+      headline="VISUALIZER_01"
       camera={{
         position: [-125, 75, 25],
       }}

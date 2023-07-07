@@ -215,12 +215,12 @@ const Visualizer = () => {
   return (
     <VisualizerCanvas
       songProps={{
-        url: "audio/Ghost_Voices_Remix.mp3",
+        url: "https://www.setsun.xyz/audio/Ghost_Voices_Remix.mp3",
         name: "Virtual Self - Ghost Voices (Lane 8 Remix)",
         externalHref:
           "https://soundcloud.com/thisneverhappenedlabel/virtual-self-ghost-voices-lane-8-remix",
       }}
-      headline="VISUALIZER _03"
+      headline="VISUALIZER_03"
       camera={{
         position: [0, 0, -2.25],
       }}
