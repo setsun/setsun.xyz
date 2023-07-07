@@ -70,7 +70,6 @@ const MovingBall = ({
 
     updateGeometryVertices(geometry, (vertex, positionAttribute, index) => {
       const offset = 150;
-      // @ts-ignore
       const time = window.performance.now();
       vertex.normalize();
 

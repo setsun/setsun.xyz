@@ -1,14 +1,12 @@
-"use client";
-
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera, Stars } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 import { useState, useEffect } from "react";
 import { Color, Euler } from "three";
 import ThreeGlobe from "three-globe";
 import json from "./data/globe.json";
 import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
 import { useTurntable } from "../../hooks/useTurntable";
-import RadialBarFrequencyGraph from "../components/RadialBarFrequencyGraph";
+import RadialBarFrequencyGraph from "../../components/RadialBarFrequencyGraph";
 
 const arcsData = [...new Array(300)].map(() => ({
   startLat: (Math.random() - 0.5) * 180,
@@ -97,21 +95,19 @@ const Visualizer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <>
-      <Canvas shadows>
-        <OrbitControls makeDefault />
-
-        <PerspectiveCamera
-          makeDefault
-          // @ts-ignore
-          args={[75, window.innerWidth / window.innerHeight, 0.01, 5000]}
-          position={[135, 10, 160]}
-          rotation={new Euler(-0.075, 0.68, 0.05)}
-        />
-
-        <MainScene isPlaying />
-      </Canvas>
-    </>
+    <Canvas
+      camera={{
+        type: "PerspectiveCamera",
+        position: [135, 10, 160],
+        rotation: new Euler(-0.075, 0.68, 0.05),
+        fov: 75,
+        aspect: window.innerWidth / window.innerHeight,
+        near: 0.01,
+        far: 5000,
+      }}
+    >
+      <MainScene isPlaying />
+    </Canvas>
   );
 };
 
