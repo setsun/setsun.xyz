@@ -1,5 +1,4 @@
-import { Canvas } from "@react-three/fiber";
-import { useEffect, Suspense, useRef } from "react";
+import { Suspense, useRef } from "react";
 import { MarchingCube, MarchingCubes } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Geometry, Base, Subtraction } from "@react-three/csg";
@@ -17,8 +16,8 @@ import {
   Mesh,
   Vector3,
 } from "three";
-import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
 import { useTurntable } from "../../hooks/useTurntable";
+import VisualizerCanvas from "../../components/VisualizerCanvas";
 
 const box = new BoxGeometry();
 const cyl = new CylinderGeometry(0.6, 0.6, 1.5, 32);
@@ -93,7 +92,13 @@ function MetaBall({ color, position, audioAnalyzer, ...props }: MetaBallProps) {
   );
 }
 
-const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
+const MainScene = ({
+  analyzer,
+  isPlaying,
+}: {
+  analyzer: AudioAnalyser;
+  isPlaying: boolean;
+}) => {
   // lol fix this later
   const ref1 = useRef<Mesh>(null!);
   const ref2 = useRef<Mesh>(null!);
@@ -101,18 +106,6 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
   const ref4 = useRef<Mesh>(null!);
   const ref5 = useRef<Mesh>(null!);
   const ref6 = useRef<Mesh>(null!);
-
-  const { audio, analyzer } = useAudioAnalyzer({
-    url: "audio/Ghost_Voices_Remix.mp3",
-    loop: true,
-    fftSize: 512,
-  });
-
-  useEffect(() => {
-    if (isPlaying && !audio.isPlaying) {
-      audio.play();
-    }
-  }, [audio, isPlaying]);
 
   useFrame(({ clock, camera }) => {
     const elapsedTime = clock.getElapsedTime() / 2;
@@ -220,27 +213,26 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
 
 const Visualizer = () => {
   return (
-    <Canvas
-      shadows
-      camera={{
-        type: "PerspectiveCamera",
-        position: [0, 0, -2.25],
-        fov: 75,
-        aspect: window.innerWidth / window.innerHeight,
-        near: 0.01,
-        far: 5000,
-      }}
+    <VisualizerCanvas
+      songUrl="audio/Ghost_Voices_Remix.mp3"
+      songName="Virtual Self - Ghost Voices (Lane 8 Remix)"
+      headline="VISUALIZER _03"
+      href="https://soundcloud.com/thisneverhappenedlabel/virtual-self-ghost-voices-lane-8-remix"
     >
-      <ambientLight intensity={1} />
-      <directionalLight intensity={1} />
-      <directionalLight
-        intensity={10}
-        position={[-10, -10, -10]}
-        color="purple"
-      />
+      {({ analyzer, isPlaying }) => (
+        <>
+          <ambientLight intensity={1} />
+          <directionalLight intensity={1} />
+          <directionalLight
+            intensity={10}
+            position={[-10, -10, -10]}
+            color="purple"
+          />
 
-      <MainScene isPlaying />
-    </Canvas>
+          <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+        </>
+      )}
+    </VisualizerCanvas>
   );
 };
 
