@@ -53,9 +53,12 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
 const Visualizer = () => {
   return (
     <Canvas
-      className="aspect-video w-full"
       camera={{
-        position: [0, 0, -30],
+        position: [-125, 75, 25],
+        fov: 75,
+        aspect: window.innerWidth / window.innerHeight,
+        near: 0.01,
+        far: 5000,
       }}
     >
       <MainScene isPlaying />

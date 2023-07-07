@@ -28,6 +28,7 @@
     "next": "^13.4.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-loading-skeleton": "^3.3.1",
     "react-markdown": "8.0.7",
     "simplex-noise": "^4.0.1",
     "swr": "^2.2.0",

@@ -8,7 +8,6 @@ import {
   useMask,
 } from "@react-three/drei";
 import { useMemo, useRef } from "react";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import {
   CatmullRomCurve3,
   DoubleSide,
@@ -33,8 +32,6 @@ const PortalLine: React.FC<PortalLineProps> = ({ curve }) => {
   const material = useRef<MeshLineMaterial>(null!);
 
   useFrame(({ camera }) => {
-    console.log(camera.rotation, camera.position);
-
     material.current.uniforms.dashOffset.value -= 0.001;
   });
 
@@ -171,23 +168,21 @@ const MainScene = () => {
 
 const Visualizer = () => {
   return (
-    <Canvas shadows>
-      <OrbitControls makeDefault />
-
-      <PerspectiveCamera
-        makeDefault
-        // @ts-ignore
-        args={[75, window.innerWidth / window.innerHeight, 0.01, 5000]}
-        position={[0, 0, 7.5]}
-        rotation={
-          new Euler(
-            -0.3959453296134719,
-            -0.24111278576897252,
-            -0.0994871453099729
-          )
-        }
-      />
-
+    <Canvas
+      camera={{
+        type: "PerspectiveCamera",
+        position: [0, 0, 7.5],
+        rotation: new Euler(
+          -0.3959453296134719,
+          -0.24111278576897252,
+          -0.0994871453099729
+        ),
+        fov: 75,
+        aspect: window.innerWidth / window.innerHeight,
+        near: 0.01,
+        far: 5000,
+      }}
+    >
       <MainScene />
     </Canvas>
   );

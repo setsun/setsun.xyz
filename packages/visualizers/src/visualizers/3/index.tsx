@@ -1,11 +1,6 @@
 import { Canvas } from "@react-three/fiber";
-import { useState, useEffect, Suspense, useRef } from "react";
-import {
-  OrbitControls,
-  MarchingCube,
-  MarchingCubes,
-  PerspectiveCamera,
-} from "@react-three/drei";
+import { useEffect, Suspense, useRef } from "react";
+import { MarchingCube, MarchingCubes } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Geometry, Base, Subtraction } from "@react-three/csg";
 import {
@@ -225,27 +220,27 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
 
 const Visualizer = () => {
   return (
-    <>
-      <Canvas shadows>
-        <OrbitControls makeDefault />
+    <Canvas
+      shadows
+      camera={{
+        type: "PerspectiveCamera",
+        position: [0, 0, -2.25],
+        fov: 75,
+        aspect: window.innerWidth / window.innerHeight,
+        near: 0.01,
+        far: 5000,
+      }}
+    >
+      <ambientLight intensity={1} />
+      <directionalLight intensity={1} />
+      <directionalLight
+        intensity={10}
+        position={[-10, -10, -10]}
+        color="purple"
+      />
 
-        <ambientLight intensity={1} />
-        <directionalLight intensity={1} />
-        <directionalLight
-          intensity={10}
-          position={[-10, -10, -10]}
-          color="purple"
-        />
-
-        <PerspectiveCamera
-          makeDefault
-          // @ts-ignore
-          args={[75, window.innerWidth / window.innerHeight, 0.01, 5000]}
-          position={[0, 0, -2.25]}
-        />
-        <MainScene isPlaying />
-      </Canvas>
-    </>
+      <MainScene isPlaying />
+    </Canvas>
   );
 };
 

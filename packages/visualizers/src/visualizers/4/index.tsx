@@ -5,7 +5,6 @@ import {
   Physics,
 } from "@react-three/rapier";
 import { useRef, Suspense, useEffect, useMemo } from "react";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { AttractorSun, AttractorSunRefData } from "./AttractorSun";
 import { Bloom, EffectComposer, GodRays } from "@react-three/postprocessing";
 import { Displace, LayerMaterial } from "lamina";
@@ -159,31 +158,27 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
 
 const Visualizer = () => {
   return (
-    <>
-      <Canvas shadows>
-        <Suspense>
-          <Physics>
-            <>
-              <ambientLight intensity={0.8} />
-              <pointLight intensity={1} position={[0, 6, 0]} />
-              <pointLight intensity={1} position={[0, 0, 0]} />
-              <pointLight intensity={1} position={[0, -6, 0]} />
-            </>
+    <Canvas
+      camera={{
+        type: "PerspectiveCamera",
+        position: [0, 16, -16],
+        fov: 75,
+        aspect: window.innerWidth / window.innerHeight,
+        near: 0.01,
+        far: 5000,
+      }}
+    >
+      <Suspense>
+        <Physics>
+          <ambientLight intensity={0.8} />
+          <pointLight intensity={1} position={[0, 6, 0]} />
+          <pointLight intensity={1} position={[0, 0, 0]} />
+          <pointLight intensity={1} position={[0, -6, 0]} />
 
-            <PerspectiveCamera
-              makeDefault
-              // @ts-ignore
-              args={[75, window.innerWidth / window.innerHeight, 0.01, 5000]}
-              position={[0, 16, -16]}
-            />
-
-            <OrbitControls makeDefault />
-
-            <MainScene isPlaying />
-          </Physics>
-        </Suspense>
-      </Canvas>
-    </>
+          <MainScene isPlaying />
+        </Physics>
+      </Suspense>
+    </Canvas>
   );
 };
 

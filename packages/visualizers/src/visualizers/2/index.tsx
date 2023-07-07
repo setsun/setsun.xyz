@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera, Stars } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 import { EffectComposer, Glitch } from "@react-three/postprocessing";
 import { useTurntable } from "../../hooks/useTurntable";
 import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
@@ -7,7 +7,7 @@ import { Vector2 } from "three";
 import { useEffect } from "react";
 import MovingBall from "./MovingBall";
 import PulsingRing from "./PulsingRing";
-import RadialBarFrequencyGraph from "../components/RadialBarFrequencyGraph";
+import RadialBarFrequencyGraph from "../../components/RadialBarFrequencyGraph";
 
 const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
   const { audio, analyzer } = useAudioAnalyzer({
@@ -72,24 +72,22 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
 
 const Visualizer = () => {
   return (
-    <>
-      <Canvas shadows>
-        <OrbitControls makeDefault />
+    <Canvas
+      camera={{
+        type: "PerspectiveCamera",
+        position: [550, 325, -500],
+        fov: 75,
+        aspect: window.innerWidth / window.innerHeight,
+        near: 0.01,
+        far: 5000,
+      }}
+    >
+      <MainScene isPlaying />
 
-        <PerspectiveCamera
-          makeDefault
-          // @ts-ignore
-          args={[75, window.innerWidth / window.innerHeight, 0.01, 5000]}
-          position={[550, 325, -500]}
-        />
-
-        <MainScene isPlaying />
-
-        <EffectComposer>
-          <Glitch delay={new Vector2(5, 5)} duration={new Vector2(0.3, 0.3)} />
-        </EffectComposer>
-      </Canvas>
-    </>
+      <EffectComposer>
+        <Glitch delay={new Vector2(5, 5)} duration={new Vector2(0.3, 0.3)} />
+      </EffectComposer>
+    </Canvas>
   );
 };
 
