@@ -1,32 +1,32 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import {
   InstancedRigidBodies,
   RapierRigidBody,
   Physics,
 } from "@react-three/rapier";
-import { useRef, Suspense, useEffect, useMemo } from "react";
+import { useRef, Suspense, useMemo } from "react";
 import { AttractorSun, AttractorSunRefData } from "./AttractorSun";
 import { Bloom, EffectComposer, GodRays } from "@react-three/postprocessing";
 import { Displace, LayerMaterial } from "lamina";
 import { Displace as DisplaceType } from "lamina/vanilla";
 import clamp from "lodash.clamp";
-import { Vector3 } from "three";
+import { AudioAnalyser, Vector3 } from "three";
 import * as random from "maath/random";
-import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
 import { useTurntable } from "../../hooks/useTurntable";
 import { GodRaysEffect } from "postprocessing";
+import VisualizerCanvas from "../../components/VisualizerCanvas";
 
 const COUNT = 250;
 const SUN_RADIUS = 6;
 const CELL_RADIUS = 2;
 
-const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
-  const { audio, analyzer } = useAudioAnalyzer({
-    url: "audio/Bloodstream.mp3",
-    loop: true,
-    fftSize: 512,
-  });
-
+const MainScene = ({
+  analyzer,
+  isPlaying,
+}: {
+  analyzer: AudioAnalyser;
+  isPlaying: boolean;
+}) => {
   const attractorSunRef = useRef<AttractorSunRefData>(null!);
   const rigidBodiesRef = useRef<RapierRigidBody[]>(null!);
   const displaceLayerRef = useRef<DisplaceType>(null!);
@@ -50,12 +50,6 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
   }, []);
 
   const turntableRef = useTurntable({ speed: 0.004 });
-
-  useEffect(() => {
-    if (isPlaying && !audio.isPlaying) {
-      audio.play();
-    }
-  }, [audio, isPlaying]);
 
   useFrame(({ clock, camera }) => {
     const rigidBody = attractorSunRef.current?.rigidBody;
@@ -157,28 +151,35 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
 };
 
 const Visualizer = () => {
-  return (
-    <Canvas
-      camera={{
-        type: "PerspectiveCamera",
+  /**
+   *    type: "PerspectiveCamera",
         position: [0, 16, -16],
         fov: 75,
         aspect: window.innerWidth / window.innerHeight,
         near: 0.01,
         far: 5000,
-      }}
-    >
-      <Suspense>
-        <Physics>
-          <ambientLight intensity={0.8} />
-          <pointLight intensity={1} position={[0, 6, 0]} />
-          <pointLight intensity={1} position={[0, 0, 0]} />
-          <pointLight intensity={1} position={[0, -6, 0]} />
+   */
 
-          <MainScene isPlaying />
-        </Physics>
-      </Suspense>
-    </Canvas>
+  return (
+    <VisualizerCanvas
+      songUrl="audio/Bloodstream.mp3"
+      songName="Ferry Corsten - Bloodstream"
+      headline="VISUALIZER _04"
+      href="https://soundcloud.com/ferry-corsten/ferry-corsten-ruben-de-ronde"
+    >
+      {({ analyzer, isPlaying }) => (
+        <Suspense>
+          <Physics>
+            <ambientLight intensity={0.8} />
+            <pointLight intensity={1} position={[0, 6, 0]} />
+            <pointLight intensity={1} position={[0, 0, 0]} />
+            <pointLight intensity={1} position={[0, -6, 0]} />
+
+            <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+          </Physics>
+        </Suspense>
+      )}
+    </VisualizerCanvas>
   );
 };
 

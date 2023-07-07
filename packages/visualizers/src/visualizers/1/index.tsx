@@ -1,24 +1,19 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { HilbertCurve, HilbertCurveRefData } from "./HibertCurve";
 import { useTurntable } from "../../hooks/useTurntable";
-import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import VisualizerCanvas from "../../components/VisualizerCanvas";
+import { AudioAnalyser } from "three";
 
-const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
-  const { audio, analyzer } = useAudioAnalyzer({
-    url: "audio/Bring_Back.mp3",
-    loop: true,
-    fftSize: 512,
-  });
-
+const MainScene = ({
+  analyzer,
+  isPlaying,
+}: {
+  analyzer: AudioAnalyser;
+  isPlaying: boolean;
+}) => {
   const turntableRef = useTurntable({ speed: 0.0025 });
   const curveRef = useRef<HilbertCurveRefData>(null!);
-
-  useEffect(() => {
-    if (isPlaying && !audio.isPlaying) {
-      audio.play();
-    }
-  }, [audio, isPlaying]);
 
   useFrame(() => {
     const line = curveRef.current.line;
@@ -51,18 +46,24 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
 };
 
 const Visualizer = () => {
-  return (
-    <Canvas
-      camera={{
-        position: [-125, 75, 25],
+  /**
+   *    position: [-125, 75, 25],
         fov: 75,
         aspect: window.innerWidth / window.innerHeight,
         near: 0.01,
         far: 5000,
-      }}
+   */
+  return (
+    <VisualizerCanvas
+      songUrl="audio/Bring_Back.mp3"
+      songName="Qrion - Bring Back"
+      headline="VISUALIZER _01"
+      href="https://soundcloud.com/nesthq/qrion-bring-back"
     >
-      <MainScene isPlaying />
-    </Canvas>
+      {({ analyzer, isPlaying }) => (
+        <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+      )}
+    </VisualizerCanvas>
   );
 };
 

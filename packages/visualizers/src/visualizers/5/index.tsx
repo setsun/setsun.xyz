@@ -1,12 +1,10 @@
-import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
-import { useState, useEffect } from "react";
-import { Color, Euler } from "three";
+import { AudioAnalyser, Color, Euler } from "three";
 import ThreeGlobe from "three-globe";
 import json from "./data/globe.json";
-import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
 import { useTurntable } from "../../hooks/useTurntable";
 import RadialBarFrequencyGraph from "../../components/RadialBarFrequencyGraph";
+import VisualizerCanvas from "../../components/VisualizerCanvas";
 
 const arcsData = [...new Array(300)].map(() => ({
   startLat: (Math.random() - 0.5) * 180,
@@ -45,21 +43,15 @@ globeMaterial.shininess = 0;
 // @ts-ignore
 globeMaterial.color = new Color("#000080");
 
-const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
-  const { audio, analyzer } = useAudioAnalyzer({
-    url: "audio/Sun_&_Moon_Remix.mp3",
-    loop: true,
-    fftSize: 512,
-  });
-
+const MainScene = ({
+  analyzer,
+  isPlaying,
+}: {
+  analyzer: AudioAnalyser;
+  isPlaying: boolean;
+}) => {
   const globeTurntable = useTurntable({ speed: 0.0005 });
   const radialBarTurnable = useTurntable({ speed: 0.001, axis: "x" });
-
-  useEffect(() => {
-    if (isPlaying && !audio.isPlaying) {
-      audio.play();
-    }
-  }, [audio, isPlaying]);
 
   return (
     <mesh>
@@ -92,22 +84,26 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
 };
 
 const Visualizer = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  return (
-    <Canvas
-      camera={{
-        type: "PerspectiveCamera",
+  /**
+   *    type: "PerspectiveCamera",
         position: [135, 10, 160],
         rotation: new Euler(-0.075, 0.68, 0.05),
         fov: 75,
         aspect: window.innerWidth / window.innerHeight,
         near: 0.01,
         far: 5000,
-      }}
+   */
+  return (
+    <VisualizerCanvas
+      songUrl="audio/Sun_&_Moon_Remix.mp3"
+      songName="Above & Beyond feat. Richard Bedford - Sun & Moon (ilan Bluestone Remix)"
+      href="https://soundcloud.com/aboveandbeyond/above-beyond-feat-richard-bedford-sun-moon-ilan-bluestone-remix"
+      headline="VISUALIZER _05"
     >
-      <MainScene isPlaying />
-    </Canvas>
+      {({ analyzer, isPlaying }) => (
+        <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+      )}
+    </VisualizerCanvas>
   );
 };
 

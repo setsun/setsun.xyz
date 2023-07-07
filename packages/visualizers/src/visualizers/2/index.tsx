@@ -3,29 +3,24 @@ import { Stars } from "@react-three/drei";
 import { EffectComposer, Glitch } from "@react-three/postprocessing";
 import { useTurntable } from "../../hooks/useTurntable";
 import { useAudioAnalyzer } from "../../hooks/useAudioAnalyzer";
-import { Vector2 } from "three";
+import { AudioAnalyser, Vector2 } from "three";
 import { useEffect } from "react";
 import MovingBall from "./MovingBall";
 import PulsingRing from "./PulsingRing";
 import RadialBarFrequencyGraph from "../../components/RadialBarFrequencyGraph";
+import VisualizerCanvas from "../../components/VisualizerCanvas";
 
-const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
-  const { audio, analyzer } = useAudioAnalyzer({
-    url: "audio/Funk.mp3",
-    loop: true,
-    fftSize: 512,
-  });
-
+const MainScene = ({
+  analyzer,
+  isPlaying,
+}: {
+  analyzer: AudioAnalyser;
+  isPlaying: boolean;
+}) => {
   const starRef = useTurntable({ speed: 0.0005 });
   const curveRef = useTurntable({ speed: 0.0005, reverse: true });
   const ringTwoRef = useTurntable({ speed: 0.005, reverse: true });
   const ringThreeRef = useTurntable({ speed: 0.005, reverse: true });
-
-  useEffect(() => {
-    if (isPlaying && !audio.isPlaying) {
-      audio.play();
-    }
-  }, [audio, isPlaying]);
 
   return (
     <group>
@@ -71,23 +66,36 @@ const MainScene = ({ isPlaying }: { isPlaying: boolean }) => {
 };
 
 const Visualizer = () => {
-  return (
-    <Canvas
-      camera={{
-        type: "PerspectiveCamera",
+  /**
+   *
+   *    type: "PerspectiveCamera",
         position: [550, 325, -500],
         fov: 75,
         aspect: window.innerWidth / window.innerHeight,
         near: 0.01,
         far: 5000,
-      }}
-    >
-      <MainScene isPlaying />
+   */
 
-      <EffectComposer>
-        <Glitch delay={new Vector2(5, 5)} duration={new Vector2(0.3, 0.3)} />
-      </EffectComposer>
-    </Canvas>
+  return (
+    <VisualizerCanvas
+      songUrl="audio/Funk.mp3"
+      songName="Martin Garrix & Julian Jordan - Funk"
+      headline="VISUALIZER _02"
+      href="https://soundcloud.com/martingarrix/martin-garrix-julian-jordan-the-funk"
+    >
+      {({ analyzer, isPlaying }) => (
+        <>
+          <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+
+          <EffectComposer>
+            <Glitch
+              delay={new Vector2(5, 5)}
+              duration={new Vector2(0.3, 0.3)}
+            />
+          </EffectComposer>
+        </>
+      )}
+    </VisualizerCanvas>
   );
 };
 
