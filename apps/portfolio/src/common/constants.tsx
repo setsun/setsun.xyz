@@ -52,8 +52,4 @@ export const NAVIGATION_ITEMS = [
     name: "Writing",
     link: "/writing",
   },
-  // {
-  //   name: "Now Playing",
-  //   link: "/now-playing",
-  // },
 ];
