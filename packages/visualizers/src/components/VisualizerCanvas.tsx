@@ -109,7 +109,7 @@ const VisualizerCanvas: React.FC<Props> = ({
           </div>
         )}
 
-        <p className="font-antonio text-3xl">{headline}</p>
+        <p className="font-antonio text-2xl">{headline}</p>
       </div>
     </div>
   );

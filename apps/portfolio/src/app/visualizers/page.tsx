@@ -37,7 +37,11 @@ const linkData = [
 
 const Visualizer: React.FC = () => {
   return (
-    <div className="h-screen w-full overflow-y-auto text-2xl">
+    <div className="h-screen w-full overflow-y-auto">
+      <div className="block w-full border-b-2 p-4">
+        <p className="font-antonio text-2xl">Visualizers</p>
+      </div>
+
       {linkData.map((data, index) => (
         <VisualizerItem key={index} pageNumber={index + 1} title={data.title} />
       ))}
