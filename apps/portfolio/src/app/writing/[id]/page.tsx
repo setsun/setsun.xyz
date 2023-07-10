@@ -28,10 +28,10 @@ export default async function Post(props) {
 
   return (
     <>
-      <div>
+      <div className="p-4">
         <h2>{title}</h2>
         <p>By {post.author.name || "Unknown author"}</p>
-        <ReactMarkdown>{props.content}</ReactMarkdown>
+        <ReactMarkdown>{post.content}</ReactMarkdown>
       </div>
     </>
   );

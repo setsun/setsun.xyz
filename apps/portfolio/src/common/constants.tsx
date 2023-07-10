@@ -36,22 +36,22 @@ export const NAVIGATION_ITEMS = [
     name: "Home",
     link: "/",
   },
-  // {
-  //   name: "Writing",
-  //   link: "/writing",
-  // },
   {
     name: "Visualizers",
     link: "/visualizers",
   },
-  // {
-  //   name: "Games",
-  //   link: "/games",
-  // },
-  // {
-  //   name: "Photos",
-  //   link: "/photos",
-  // },
+  {
+    name: "Shaders",
+    link: "/shaders",
+  },
+  {
+    name: "Data",
+    link: "/data",
+  },
+  {
+    name: "Writing",
+    link: "/writing",
+  },
   // {
   //   name: "Now Playing",
   //   link: "/now-playing",

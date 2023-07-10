@@ -47,11 +47,11 @@ const SideNavigation: React.FC<Props> = ({ className }) => {
         {transition((style, isOpen) => {
           return isOpen ? (
             <animated.div
-              className="absolute top-0 flex flex-col gap-1"
+              className="absolute top-0 flex flex-col gap-2"
               style={style}
             >
               {NAVIGATION_ITEMS.map(({ name, link }) => (
-                <a href={link} key={link}>
+                <a href={link} key={link} className="border-b-[1px] py-1">
                   {name}
                 </a>
               ))}

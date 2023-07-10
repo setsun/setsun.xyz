@@ -10,9 +10,9 @@ import WireframePlanet from "../components/hero-scenes/WireframePlanet";
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative h-screen">
       <Canvas
-        className="aspect-video w-full"
+        className="w-full"
         camera={{
           position: [0, 0, -30],
         }}
