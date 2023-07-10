@@ -8,6 +8,7 @@ import {
   useMask,
 } from "@react-three/drei";
 import { useMemo, useRef } from "react";
+import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import {
   CatmullRomCurve3,
   DoubleSide,
@@ -16,10 +17,10 @@ import {
   MeshNormalMaterial,
   Vector3,
 } from "three";
+
+import VisualizerCanvas from "@/components/VisualizerCanvas";
+import { useTurntable } from "@/hooks/useTurntable";
 import { SketchCat } from "./SketchCat";
-import { useTurntable } from "../../hooks/useTurntable";
-import { MeshLineGeometry, MeshLineMaterial } from "meshline";
-import VisualizerCanvas from "../../components/VisualizerCanvas";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 

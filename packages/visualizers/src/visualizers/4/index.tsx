@@ -5,16 +5,17 @@ import {
   Physics,
 } from "@react-three/rapier";
 import { useRef, Suspense, useMemo } from "react";
-import { AttractorSun, AttractorSunRefData } from "./AttractorSun";
 import { Bloom, EffectComposer, GodRays } from "@react-three/postprocessing";
 import { Displace, LayerMaterial } from "lamina";
 import { Displace as DisplaceType } from "lamina/vanilla";
 import clamp from "lodash.clamp";
 import { AudioAnalyser, Vector3 } from "three";
 import * as random from "maath/random";
-import { useTurntable } from "../../hooks/useTurntable";
 import { GodRaysEffect } from "postprocessing";
-import VisualizerCanvas from "../../components/VisualizerCanvas";
+
+import { useTurntable } from "@/hooks/useTurntable";
+import VisualizerCanvas from "@/components/VisualizerCanvas";
+import { AttractorSun, AttractorSunRefData } from "./AttractorSun";
 
 const COUNT = 250;
 const SUN_RADIUS = 6;
