@@ -1,8 +1,9 @@
 import { Canvas, CanvasProps } from "@react-three/fiber";
 import { PlayIcon, PauseIcon } from "@radix-ui/react-icons";
-import { useAudioAnalyzer } from "../hooks/useAudioAnalyzer";
 import { useEffect, useState } from "react";
 import { AudioAnalyser } from "three";
+
+import { useAudioAnalyzer } from "@/hooks/useAudioAnalyzer";
 
 type FunctionAsChildren = (props: {
   analyzer: AudioAnalyser;

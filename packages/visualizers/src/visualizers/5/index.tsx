@@ -1,10 +1,11 @@
 import { Stars } from "@react-three/drei";
 import { AudioAnalyser, Color, Euler } from "three";
 import ThreeGlobe from "three-globe";
+
+import VisualizerCanvas from "@/components/VisualizerCanvas";
+import RadialBarFrequencyGraph from "@/components/RadialBarFrequencyGraph";
+import { useTurntable } from "@/hooks/useTurntable";
 import json from "./data/globe.json";
-import { useTurntable } from "../../hooks/useTurntable";
-import RadialBarFrequencyGraph from "../../components/RadialBarFrequencyGraph";
-import VisualizerCanvas from "../../components/VisualizerCanvas";
 
 const arcsData = [...new Array(300)].map(() => ({
   startLat: (Math.random() - 0.5) * 180,

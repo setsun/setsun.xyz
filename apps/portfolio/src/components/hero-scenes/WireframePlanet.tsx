@@ -1,5 +1,5 @@
 import { DoubleSide } from "three";
-import { useTurntable } from "../../hooks/useTurntable";
+import { useTurntable } from "@/hooks/useTurntable";
 
 const WireframePlanet = () => {
   const ringOneTurntable = useTurntable({ speed: 0.001, axis: "x" });

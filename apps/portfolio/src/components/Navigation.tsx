@@ -4,7 +4,7 @@ import { animated, useTransition, useSpring } from "@react-spring/web";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import classNames from "classnames";
-import { NAVIGATION_ITEMS, SOCIAL_LINKS } from "../common/constants";
+import { NAVIGATION_ITEMS, SOCIAL_LINKS } from "@/common/constants";
 
 interface Props {
   className?: string;

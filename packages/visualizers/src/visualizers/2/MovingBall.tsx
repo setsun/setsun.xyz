@@ -2,7 +2,9 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { createNoise3D } from "simplex-noise";
 import { Mesh, AudioAnalyser } from "three";
-import { updateGeometryVertices } from "../../utils/updateGeometryVertices";
+
+import { updateGeometryVertices } from "@/utils/updateGeometryVertices";
+
 interface Props {
   radius?: number;
   detail?: number;

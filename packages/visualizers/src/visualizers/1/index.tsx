@@ -1,10 +1,11 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { HilbertCurve, HilbertCurveRefData } from "./HibertCurve";
-import { useTurntable } from "../../hooks/useTurntable";
+import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import VisualizerCanvas from "../../components/VisualizerCanvas";
 import { AudioAnalyser } from "three";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
+
+import VisualizerCanvas from "@/components/VisualizerCanvas";
+import { useTurntable } from "@/hooks/useTurntable";
+import { HilbertCurve, HilbertCurveRefData } from "./HibertCurve";
 
 const MainScene = ({
   analyzer,

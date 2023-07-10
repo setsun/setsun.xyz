@@ -16,8 +16,9 @@ import {
   Mesh,
   Vector3,
 } from "three";
-import { useTurntable } from "../../hooks/useTurntable";
-import VisualizerCanvas from "../../components/VisualizerCanvas";
+
+import VisualizerCanvas from "@/components/VisualizerCanvas";
+import { useTurntable } from "@/hooks/useTurntable";
 
 const box = new BoxGeometry();
 const cyl = new CylinderGeometry(0.6, 0.6, 1.5, 32);

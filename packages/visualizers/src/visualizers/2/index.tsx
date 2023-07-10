@@ -1,12 +1,13 @@
 import { Stars } from "@react-three/drei";
 import { EffectComposer, Glitch } from "@react-three/postprocessing";
 import { GlitchMode } from "postprocessing";
-import { useTurntable } from "../../hooks/useTurntable";
 import { AudioAnalyser, Vector2 } from "three";
+
+import VisualizerCanvas from "@/components/VisualizerCanvas";
+import RadialBarFrequencyGraph from "@/components/RadialBarFrequencyGraph";
+import { useTurntable } from "@/hooks/useTurntable";
 import MovingBall from "./MovingBall";
 import PulsingRing from "./PulsingRing";
-import RadialBarFrequencyGraph from "../../components/RadialBarFrequencyGraph";
-import VisualizerCanvas from "../../components/VisualizerCanvas";
 
 const MainScene = ({
   analyzer,

@@ -1,10 +1,10 @@
-import "../styles/globals.css";
+import "@/styles/globals.css";
 // include styles from the ui package
 import "ui/styles.css";
 
 import { Antonio, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import Layout from "../components/Layout";
+import Layout from "@/components/Layout";
 
 const inter = Inter({
   subsets: ["latin"],
