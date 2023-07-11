@@ -9,7 +9,8 @@
     "dev:essential": "pnpm dev --filter=!./packages/storybook",
     "lint": "turbo lint",
     "clean": "turbo clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "scripts:generate-previews": "turbo --filter=./packages/scripts scripts:generate-previews"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -18,5 +19,5 @@
     "prettier-plugin-tailwindcss": "^0.1.11",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@7.15.0"
+  "packageManager": "pnpm@8.6.6"
 }
