@@ -9,6 +9,8 @@ module.exports = {
       })
     );
 
+    config.externals.push('chrome-aws-lambda');
+
     return config;
   }
 };
