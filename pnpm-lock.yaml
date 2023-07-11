@@ -36,6 +36,7 @@ importers:
       '@vercel/analytics': ^1.0.1
       '@vercel/edge-config': ^0.2.1
       autoprefixer: ^10.4.14
+      chrome-aws-lambda: ^10.1.0
       classnames: ^2.3.2
       database: workspace:*
       eslint-config-custom: workspace:*
@@ -46,6 +47,7 @@ importers:
       postcss: ^8.4.25
       prisma: ^4.16.2
       puppeteer: ^20.8.1
+      puppeteer-core: 20.8.1
       puppeteer-screen-recorder: ^2.1.2
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -81,6 +83,7 @@ importers:
       '@react-three/rapier-addons': 3.0.1_g3zm4ctcr5jr3ciau7ny4eqyhu
       '@vercel/analytics': 1.0.1
       '@vercel/edge-config': 0.2.1
+      chrome-aws-lambda: 10.1.0_puppeteer-core@20.8.1
       classnames: 2.3.2
       database: link:../../packages/database
       graphql: 16.7.1
@@ -88,6 +91,7 @@ importers:
       lodash.clamp: 4.0.3
       next: 13.4.9_biqbaboplfbrettd7655fr4n2y
       puppeteer: 20.8.1_typescript@5.1.6
+      puppeteer-core: 20.8.1_typescript@5.1.6
       puppeteer-screen-recorder: 2.1.2_puppeteer@20.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -6388,6 +6392,16 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /chrome-aws-lambda/10.1.0_puppeteer-core@20.8.1:
+    resolution: {integrity: sha512-NZQVf+J4kqG4sVhRm3WNmOfzY0OtTSm+S8rg77pwePa9RCYHzhnzRs8YvNI6L9tALIW6RpmefWiPURt3vURXcw==}
+    engines: {node: '>= 10.16'}
+    peerDependencies:
+      puppeteer-core: ^10.1.0
+    dependencies:
+      lambdafs: 2.1.1
+      puppeteer-core: 20.8.1_typescript@5.1.6
+    dev: false
+
   /chromium-bidi/0.4.16_slszgqoozoov7l7e2utet62hsy:
     resolution: {integrity: sha512-7ZbXdWERxRxSwo3txsBjjmc/NLxqb1Bk30mRb0BMS4YIaiV6zvKZqL/UAH+DdqcDYayDWk2n/y8klkBDODrPvA==}
     peerDependencies:
@@ -9426,6 +9440,14 @@ packages:
   /ktx-parse/0.4.5:
     resolution: {integrity: sha512-MK3FOody4TXbFf8Yqv7EBbySw7aPvEcPX++Ipt6Sox+/YMFvR5xaTyhfNSk1AEmMy+RYIw81ctN4IMxCB8OAlg==}
     dev: false
+
+  /lambdafs/2.1.1:
+    resolution: {integrity: sha512-x5k8JcoJWkWLvCVBzrl4pzvkEHSgSBqFjg3Dpsc4AcTMq7oUMym4cL/gRTZ6VM4mUMY+M0dIbQ+V1c1tsqqanQ==}
+    engines: {node: '>= 10.16'}
+    hasBin: true
+    dev: false
+    bundledDependencies:
+      - tar-fs
 
   /lamina/1.1.23_t36guyvrdqxltcytniiakqkx4i:
     resolution: {integrity: sha512-sxcoOyws9fK73tHJFsXgZlIJho++nf+FwWzpbvAheUvayl30DyJmPd0U0Q6v/ECcJuuujb7Txcr4SLOZrdDPJA==}
