@@ -1,4 +1,4 @@
-import { Canvas, useFrame, extend } from "@react-three/fiber";
+import { useFrame, extend } from "@react-three/fiber";
 import {
   Center,
   Environment,
