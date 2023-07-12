@@ -10,8 +10,9 @@ type FunctionAsChildren = (props: {
   isPlaying: boolean;
 }) => React.ReactNode;
 
-interface Props {
+export interface VisualizerCanvasProps {
   children: FunctionAsChildren;
+  fallback?: React.ReactNode;
   headline: string;
   songProps?: {
     url: string;
@@ -50,19 +51,29 @@ const VisualizerControls: React.FC<VisualizerControlsProps> = ({
   return children({ analyzer, isPlaying });
 };
 
-const VisualizerCanvas: React.FC<Props> = ({
+const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   children,
+  fallback,
   songProps,
   headline,
   className,
   camera,
 }) => {
+  const [isCanvasCreated, setIsCanvasCreated] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+
+
+  console.log({ fallback });
 
   return (
     <div className={`relative h-screen ${className}`}>
+      {!isCanvasCreated && fallback}
+
       <Canvas
         shadows
+        onCreated={() => {
+          setIsCanvasCreated(true);
+        }}
         camera={{
           type: "PerspectiveCamera",
           fov: 75,
@@ -83,35 +94,37 @@ const VisualizerCanvas: React.FC<Props> = ({
         )}
       </Canvas>
 
-      <div className="absolute left-0 top-0 flex h-full w-full justify-between p-4 text-xs">
-        {songProps && (
-          <div>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center"
-              href={songProps.externalHref}
-            >
-              <b>{songProps.name} ↗</b>
-            </a>
-            <p className="m-0">⸻</p>
+      {isCanvasCreated && (
+        <div className="absolute left-0 top-0 flex h-full w-full justify-between p-4 text-xs">
+          {songProps && (
+            <div>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center"
+                href={songProps.externalHref}
+              >
+                <b>{songProps.name} ↗</b>
+              </a>
+              <p className="m-0">⸻</p>
 
-            <button
-              className="flex items-center"
-              onClick={() => setIsPlaying(!isPlaying)}
-            >
-              {isPlaying ? (
-                <PauseIcon className="mr-1 inline" />
-              ) : (
-                <PlayIcon className="mr-1 inline" />
-              )}
-              {isPlaying ? "Pause" : "Play"}
-            </button>
-          </div>
-        )}
+              <button
+                className="flex items-center"
+                onClick={() => setIsPlaying(!isPlaying)}
+              >
+                {isPlaying ? (
+                  <PauseIcon className="mr-1 inline" />
+                ) : (
+                  <PlayIcon className="mr-1 inline" />
+                )}
+                {isPlaying ? "Pause" : "Play"}
+              </button>
+            </div>
+          )}
 
-        <p className="font-antonio text-2xl">{headline}</p>
-      </div>
+          <p className="font-antonio text-2xl">{headline}</p>
+        </div>
+      )}
     </div>
   );
 };

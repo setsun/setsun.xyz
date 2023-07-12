@@ -31,7 +31,7 @@ const MainScene = ({
   </>
 );
 
-const Visualizer = () => (
+const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => (
   <VisualizerCanvas
     headline="VISUALIZER_06"
     songProps={{
@@ -43,6 +43,7 @@ const Visualizer = () => (
     camera={{
       position: [0, 0.05, 1.1],
     }}
+    fallback={fallback}
   >
     {({ analyzer, isPlaying }) => (
       <MainScene analyzer={analyzer} isPlaying={isPlaying} />

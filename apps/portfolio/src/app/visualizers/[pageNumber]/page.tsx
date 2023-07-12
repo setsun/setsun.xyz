@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import RingLoader from "react-spinners/RingLoader";
+import SquareLoader from "react-spinners/SquareLoader";
 
 interface Props {}
 
@@ -39,24 +39,27 @@ const VisualizerEight = dynamic(
   { ssr: false }
 );
 
-const Visualizer: React.FC<{ index: number }> = ({ index }) => {
-  switch (index) {
+const Visualizer: React.FC<{
+  pageNumber: number;
+  fallback: React.ReactNode;
+}> = ({ pageNumber, fallback }) => {
+  switch (pageNumber) {
     case 1:
-      return <VisualizerOne />;
+      return <VisualizerOne fallback={fallback} />;
     case 2:
-      return <VisualizerTwo />;
+      return <VisualizerTwo fallback={fallback} />;
     case 3:
-      return <VisualizerThree />;
+      return <VisualizerThree fallback={fallback} />;
     case 4:
-      return <VisualizerFour />;
+      return <VisualizerFour fallback={fallback} />;
     case 5:
-      return <VisualizerFive />;
+      return <VisualizerFive fallback={fallback} />;
     case 6:
-      return <VisualizerSix />;
+      return <VisualizerSix fallback={fallback} />;
     case 7:
-      return <VisualizerSeven />;
+      return <VisualizerSeven fallback={fallback} />;
     case 8:
-      return <VisualizerEight />;
+      return <VisualizerEight fallback={fallback} />;
     default:
       return null;
   }
@@ -64,11 +67,17 @@ const Visualizer: React.FC<{ index: number }> = ({ index }) => {
 
 const Visualizers: React.FC<Props> = (props) => {
   // @ts-ignore
-  const index = parseInt(props.params.index);
+  const pageNumber = parseInt(props.params.pageNumber);
+
+  const fallback = (
+    <div className="h-screen flex items-center justify-center">
+      <SquareLoader loading color="white" />
+    </div>
+  );
 
   return (
-    <Suspense fallback={<RingLoader loading color="white" size={48} />}>
-      <Visualizer index={index} />
+    <Suspense fallback={fallback}>
+      <Visualizer pageNumber={pageNumber} fallback={fallback} />
     </Suspense>
   );
 };
