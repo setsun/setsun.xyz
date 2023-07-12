@@ -30,14 +30,13 @@ export const SOCIAL_LINKS = [
   // }
 ];
 
-// todo: uncomment pages as they are ready
 export const NAVIGATION_ITEMS = [
   {
     name: "Home",
     link: "/",
   },
   {
-    name: "Visualizers",
+    name: "3D Visualizers",
     link: "/visualizers",
   },
   {
@@ -45,7 +44,7 @@ export const NAVIGATION_ITEMS = [
     link: "/shaders",
   },
   {
-    name: "Data",
+    name: "DataVis",
     link: "/data",
   },
   {

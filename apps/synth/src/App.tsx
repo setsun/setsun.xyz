@@ -1,5 +1,5 @@
-import { Hydra, generators } from 'hydra-ts';
-import REGL from 'regl';
+import { Hydra, generators } from "hydra-ts";
+import REGL from "regl";
 import { useState, useLayoutEffect } from "react";
 
 const regl = REGL();
@@ -8,7 +8,11 @@ function App() {
   const [hydra, setHydra] = useState<Hydra>();
 
   useLayoutEffect(() => {
-    const hydra = new Hydra({ regl, width: window.innerWidth, height: window.innerHeight });
+    const hydra = new Hydra({
+      regl,
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
 
     const { sources, outputs, loop } = hydra;
 
@@ -18,7 +22,7 @@ function App() {
 
     setHydra(hydra);
 
-    osc(4, 0.1, 1.2).out(o0)
+    osc(4, 0.1, 1.2).out(o0);
 
     loop.start();
   }, []);

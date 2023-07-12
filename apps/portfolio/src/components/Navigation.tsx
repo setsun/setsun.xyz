@@ -11,7 +11,7 @@ interface Props {
 }
 
 const MIN_WIDTH = "64px";
-const MAX_WIDTH = "128px";
+const MAX_WIDTH = "156px";
 
 const SideNavigation: React.FC<Props> = ({ className }) => {
   const [isOpen, setOpen] = useState(false);
@@ -47,7 +47,7 @@ const SideNavigation: React.FC<Props> = ({ className }) => {
         {transition((style, isOpen) => {
           return isOpen ? (
             <animated.div
-              className="absolute top-0 flex flex-col gap-2"
+              className="absolute top-0 flex flex-col gap-2 whitespace-nowrap"
               style={style}
             >
               {NAVIGATION_ITEMS.map(({ name, link }) => (
