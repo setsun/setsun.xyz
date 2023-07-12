@@ -9,7 +9,7 @@ import {
 } from "three";
 
 // @ts-ignore
-import { initializeUnmute } from '@/vendor/unmute';
+import { initializeUnmute } from "@/vendor/unmute";
 
 interface Props {
   url: string;
