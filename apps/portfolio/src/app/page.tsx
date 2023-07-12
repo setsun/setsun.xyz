@@ -21,6 +21,7 @@ export default function Home() {
 
       <Canvas
         className="w-full"
+        resize={{ debounce: 0 }}
         camera={{
           position: [0, 0, -30],
         }}
