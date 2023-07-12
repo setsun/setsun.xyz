@@ -6,7 +6,6 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev --concurrency 16",
-    "dev:essential": "pnpm dev --filter=!./packages/storybook",
     "lint": "turbo lint",
     "clean": "turbo clean",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

@@ -1,5 +1,6 @@
 // styles
-import "./styles.css";
+import "./styles/globals.css";
 
 // components
-export * from "./Button";
+export { Button } from "./components/ui/Button";
+export { Skeleton } from "./components/ui/Skeleton";
