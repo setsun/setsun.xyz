@@ -64,6 +64,8 @@ function MetaBall({ color, position, audioAnalyzer, ...props }: MetaBallProps) {
     const multiplier = averageFrequency > 30 ? -1 : 1;
     const modifier = (averageFrequency / 100) * 0.15;
 
+    if (!rigidBodyRef.current) return;
+
     // todo: tinker with impulse after @react-three/rapier is updated
     rigidBodyRef.current.applyImpulse(
       vec
@@ -108,7 +110,7 @@ const MainScene = ({
   const ref5 = useRef<Mesh>(null!);
   const ref6 = useRef<Mesh>(null!);
 
-  useFrame(({ clock, camera }) => {
+  useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() / 2;
 
     const mesh1 = ref1.current;
@@ -117,6 +119,8 @@ const MainScene = ({
     const mesh4 = ref4.current;
     const mesh5 = ref5.current;
     const mesh6 = ref6.current;
+
+    if (!mesh1 || !mesh2 || !mesh3 || !mesh4 || !mesh5 || !mesh6) return;
 
     mesh1.position.set(
       Math.sin(elapsedTime) * -0.5,
