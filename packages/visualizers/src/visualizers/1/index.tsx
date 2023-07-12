@@ -47,18 +47,19 @@ const MainScene = ({
   );
 };
 
-const Visualizer = () => {
+const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
     <VisualizerCanvas
+      headline="VISUALIZER_01"
       songProps={{
         url: "https://www.setsun.xyz/audio/Bring_Back.mp3",
         name: "Qrion - Bring Back",
         externalHref: "https://soundcloud.com/nesthq/qrion-bring-back",
       }}
-      headline="VISUALIZER_01"
       camera={{
         position: [-125, 75, 25],
       }}
+      fallback={fallback}
     >
       {({ analyzer, isPlaying }) => (
         <>

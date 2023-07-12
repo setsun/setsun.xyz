@@ -151,19 +151,20 @@ const MainScene = ({
   );
 };
 
-const Visualizer = () => {
+const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
     <VisualizerCanvas
+      headline="VISUALIZER_04"
       songProps={{
         url: "https://www.setsun.xyz/audio/Bloodstream.mp3",
         name: "Ferry Corsten - Bloodstream",
         externalHref:
           "https://soundcloud.com/ferry-corsten/ferry-corsten-ruben-de-ronde",
       }}
-      headline="VISUALIZER_04"
       camera={{
         position: [0, 16, -16],
       }}
+      fallback={fallback}
     >
       {({ analyzer, isPlaying }) => (
         <Suspense>

@@ -212,19 +212,20 @@ const MainScene = ({
   );
 };
 
-const Visualizer = () => {
+const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
     <VisualizerCanvas
+      headline="VISUALIZER_03"
       songProps={{
         url: "https://www.setsun.xyz/audio/Ghost_Voices_Remix.mp3",
         name: "Virtual Self - Ghost Voices (Lane 8 Remix)",
         externalHref:
           "https://soundcloud.com/thisneverhappenedlabel/virtual-self-ghost-voices-lane-8-remix",
       }}
-      headline="VISUALIZER_03"
       camera={{
         position: [0, 0, -2.25],
       }}
+      fallback={fallback}
     >
       {({ analyzer, isPlaying }) => (
         <>

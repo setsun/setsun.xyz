@@ -168,10 +168,10 @@ const MainScene = () => {
   );
 };
 
-const Visualizer = () => {
+const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
     <VisualizerCanvas
-      headline="VISUALIZER_06"
+      headline="VISUALIZER_08"
       camera={{
         position: [0, 0, 7.5],
         rotation: new Euler(
@@ -180,6 +180,7 @@ const Visualizer = () => {
           -0.0994871453099729
         ),
       }}
+      fallback={fallback}
     >
       {() => <MainScene />}
     </VisualizerCanvas>
