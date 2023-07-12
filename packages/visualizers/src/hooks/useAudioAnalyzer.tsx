@@ -1,5 +1,5 @@
-import { useMemo, useState, useEffect, useRef } from "react";
-import { useLoader, useThree } from "@react-three/fiber";
+import { useEffect, useRef } from "react";
+import { useThree } from "@react-three/fiber";
 import {
   AudioLoader,
   AudioListener,
@@ -7,6 +7,9 @@ import {
   Audio as ThreeAudio,
   Camera,
 } from "three";
+
+// @ts-ignore
+import { initializeUnmute } from '@/vendor/unmute';
 
 interface Props {
   url: string;
@@ -68,6 +71,8 @@ export function useAudioAnalyzer(props: Props) {
   );
 
   useEffect(() => {
+    initializeUnmute();
+
     return () => {
       audioAnalyser.cleanup();
     };
