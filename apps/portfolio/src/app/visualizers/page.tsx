@@ -33,6 +33,12 @@ const linkData = [
   {
     title: "_06",
   },
+  {
+    title: "_07",
+  },
+  {
+    title: "_08",
+  },
 ] as const;
 
 const Visualizer: React.FC = () => {

@@ -7,6 +7,8 @@
     ".": "./dist"
   },
   "dependencies": {
+    "lodash.clamp": "^4.0.3",
+    "lodash.sample": "^4.2.1",
     "lamina": "1.1.23",
     "meshline": "^3.1.6",
     "three-globe": "2.27.4",
@@ -26,13 +28,14 @@
     "@react-three/postprocessing": "^2.14.13",
     "@react-three/rapier": "^1.1.1",
     "@react-three/rapier-addons": "^3.0.1",
-    "lodash.clamp": "^4.0.3",
+    "maath": "^0.7.0",
     "react": "^18.2.0",
     "simplex-noise": "^4.0.1",
     "three": "^0.151.3"
   },
   "devDependencies": {
     "@types/lodash.clamp": "^4.0.7",
+    "@types/lodash.sample": "^4.2.7",
     "@types/react": "^18.2.14",
     "@types/three": "0.152.1",
     "eslint": "^8.44.0",
