@@ -68,6 +68,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
 
       <Canvas
         shadows
+        resize={{ debounce: 0 }}
         onCreated={() => {
           setIsCanvasCreated(true);
         }}
