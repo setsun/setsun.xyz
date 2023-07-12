@@ -1,4 +1,5 @@
 import { Canvas, CanvasProps } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import { PlayIcon, PauseIcon } from "@radix-ui/react-icons";
 import { useEffect, useState } from "react";
 import { AudioAnalyser } from "three";
@@ -90,16 +91,22 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
           // @ts-ignore
           children()
         )}
+
+        <OrbitControls />
       </Canvas>
 
       {isCanvasCreated && (
-        <div className="absolute left-0 top-0 flex h-full w-full justify-between p-4 text-xs">
+        <div
+          className="absolute left-0 top-0 flex h-full w-full justify-between p-4 text-xs"
+          style={{ pointerEvents: "none" }}
+        >
           {songProps && (
             <div>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center"
+                style={{ pointerEvents: "all" }}
                 href={songProps.externalHref}
               >
                 <b>{songProps.name} ↗</b>
@@ -108,6 +115,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
 
               <button
                 className="flex items-center"
+                style={{ pointerEvents: "all" }}
                 onClick={() => setIsPlaying(!isPlaying)}
               >
                 {isPlaying ? (
