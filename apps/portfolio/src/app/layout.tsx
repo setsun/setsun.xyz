@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
+
+// todo: fix overriding styles
 // include styles from the ui package
-import "ui/styles.css";
+// import "ui/styles.css";
 
 import { Antonio, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
