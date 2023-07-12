@@ -1,10 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import SquareLoader from "react-spinners/SquareLoader";
 
-interface Props {}
+import { initializeUnmute } from "@/vendor/unmute";
 
 const VisualizerOne = dynamic(
   () => import("visualizers").then((mod) => mod.VisualizerOne),
@@ -65,8 +65,7 @@ const Visualizer: React.FC<{
   }
 };
 
-const Visualizers: React.FC<Props> = (props) => {
-  // @ts-ignore
+const Visualizers: React.FC<{ params: { pageNumber: string } }> = (props) => {
   const pageNumber = parseInt(props.params.pageNumber);
 
   const fallback = (
@@ -74,6 +73,14 @@ const Visualizers: React.FC<Props> = (props) => {
       <SquareLoader loading color="white" />
     </div>
   );
+
+  useEffect(() => {
+    const unmute = initializeUnmute();
+
+    return () => {
+      unmute.dispose();
+    };
+  }, []);
 
   return (
     <Suspense fallback={fallback}>
