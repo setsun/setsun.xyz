@@ -1,8 +1,4 @@
-import {
-  InstagramLogoIcon,
-  GitHubLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
+import { GitHubLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
 
 export const SOCIAL_LINKS = [
   {
@@ -14,11 +10,6 @@ export const SOCIAL_LINKS = [
     name: "Instagram",
     link: "https://instagram.com/i.am.setsun",
     icon: <InstagramLogoIcon />,
-  },
-  {
-    name: "Twitter",
-    link: "https://twitter.com/setsun_",
-    icon: <TwitterLogoIcon />,
   },
   // {
   //   name: "Spotify",
