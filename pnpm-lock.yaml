@@ -74,9 +74,9 @@ importers:
       graphql-yoga:
         specifier: ^4.0.3
         version: 4.0.3(graphql@16.7.1)
-      lodash.clamp:
-        specifier: ^4.0.3
-        version: 4.0.3
+      maath:
+        specifier: ^0.7.0
+        version: 0.7.0(@types/three@0.152.1)(three@0.151.3)
       next:
         specifier: ^13.4.9
         version: 13.4.9(react-dom@18.2.0)(react@18.2.0)
@@ -132,9 +132,6 @@ importers:
         specifier: ^4.3.9
         version: 4.3.9(react@18.2.0)
     devDependencies:
-      '@types/lodash.clamp':
-        specifier: ^4.0.7
-        version: 4.0.7
       '@types/node':
         specifier: ^20.4.1
         version: 20.4.1
@@ -467,6 +464,12 @@ importers:
       lodash.clamp:
         specifier: ^4.0.3
         version: 4.0.3
+      lodash.sample:
+        specifier: ^4.2.1
+        version: 4.2.1
+      maath:
+        specifier: ^0.7.0
+        version: 0.7.0(@types/three@0.152.1)(three@0.151.3)
       meshline:
         specifier: ^3.1.6
         version: 3.1.6(three@0.151.3)
@@ -489,6 +492,9 @@ importers:
       '@types/lodash.clamp':
         specifier: ^4.0.7
         version: 4.0.7
+      '@types/lodash.sample':
+        specifier: ^4.2.7
+        version: 4.2.7
       '@types/react':
         specifier: ^18.2.14
         version: 18.2.14
@@ -5682,6 +5688,12 @@ packages:
       '@types/lodash': 4.14.195
     dev: true
 
+  /@types/lodash.sample@4.2.7:
+    resolution: {integrity: sha512-4gJC5XsTynqOujDJL0OQiLZzuOv5SuxjIqoKlkE5qddZdWOdSpH0rTtcBGb3UBxp1w3455YRORjRtie/Pa+0Xg==}
+    dependencies:
+      '@types/lodash': 4.14.195
+    dev: true
+
   /@types/lodash@4.14.195:
     resolution: {integrity: sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==}
     dev: true
@@ -10046,6 +10058,10 @@ packages:
     resolution: {integrity: sha512-hXt6Ul/5yWjfklSGvLQl8vM//l3FtyHZeuelpzK6mm99pNvN9yTDruNZPEJZD1oWrqo+izBmB7oUfWgcCX7s4Q==}
     dev: false
 
+  /lodash.sample@4.2.1:
+    resolution: {integrity: sha512-odCZufa8jYDBZQ+JOSePWRs+iApPdvIp3qAiKc9F22RdSCMLuUu60Jvgs2M6qMisKAeBZoumAkqDiGr9HDym/Q==}
+    dev: false
+
   /lodash.sortby@4.7.0:
     resolution: {integrity: sha512-HDWXG8isMntAyRF5vZ7xKuEvOhT4AhlRt/3czTSjvGUxjYCBVRQY48ViDHyfYz9VIoBkW4TMGQNapx+l3RUwdA==}
     dev: true
@@ -10105,6 +10121,16 @@ packages:
 
   /maath@0.6.0(@types/three@0.152.1)(three@0.151.3):
     resolution: {integrity: sha512-dSb2xQuP7vDnaYqfoKzlApeRcR2xtN8/f7WV/TMAkBC8552TwTLtOO0JTcSygkYMjNDPoo6V01jTw/aPi4JrMw==}
+    peerDependencies:
+      '@types/three': '>=0.144.0'
+      three: '>=0.144.0'
+    dependencies:
+      '@types/three': 0.152.1
+      three: 0.151.3
+    dev: false
+
+  /maath@0.7.0(@types/three@0.152.1)(three@0.151.3):
+    resolution: {integrity: sha512-JQ1JZrQLDgJ59snCk2AcSb/jdGwNgGQXlLcfZChN8lmpMR7g3bpMM3ugcqGfU1ROwjVvX5CvcVJHc8TkxljG8Q==}
     peerDependencies:
       '@types/three': '>=0.144.0'
       three: '>=0.144.0'

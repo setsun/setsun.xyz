@@ -30,6 +30,14 @@ const VisualizerSix = dynamic(
   () => import("visualizers").then((mod) => mod.VisualizerSix),
   { ssr: false }
 );
+const VisualizerSeven = dynamic(
+  () => import("visualizers").then((mod) => mod.VisualizerSeven),
+  { ssr: false }
+);
+const VisualizerEight = dynamic(
+  () => import("visualizers").then((mod) => mod.VisualizerEight),
+  { ssr: false }
+);
 
 const Visualizer: React.FC<{ index: number }> = ({ index }) => {
   switch (index) {
@@ -45,6 +53,10 @@ const Visualizer: React.FC<{ index: number }> = ({ index }) => {
       return <VisualizerFive />;
     case 6:
       return <VisualizerSix />;
+    case 7:
+      return <VisualizerSeven />;
+    case 8:
+      return <VisualizerEight />;
     default:
       return null;
   }

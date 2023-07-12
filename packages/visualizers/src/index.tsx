@@ -4,3 +4,5 @@ export { default as VisualizerThree } from "@/visualizers/3";
 export { default as VisualizerFour } from "@/visualizers/4";
 export { default as VisualizerFive } from "@/visualizers/5";
 export { default as VisualizerSix } from "@/visualizers/6";
+export { default as VisualizerSeven } from "@/visualizers/7";
+export { default as VisualizerEight } from "@/visualizers/8";
