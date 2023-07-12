@@ -33,9 +33,6 @@ async function generatePreviews() {
   // Set screen size
   await page.setViewport({ width: 1200, height: 700 });
 
-  // Configure the navigation timeout
-  await page.setDefaultNavigationTimeout(0);
-
   for (let pageNumber of PAGE_NUMBERS) {
     await page.goto(`https://setsun.xyz/visualizers/${pageNumber}`, {
       waitUntil: "networkidle0",
