@@ -39,7 +39,7 @@ const Visualizer: React.FC = () => {
   return (
     <div className="h-screen w-full overflow-y-auto">
       <div className="block w-full border-b-2 p-4">
-        <p className="font-antonio text-2xl">Visualizers</p>
+        <p className="font-antonio text-2xl">3D Visualizers</p>
       </div>
 
       {linkData.map((data, index) => (
