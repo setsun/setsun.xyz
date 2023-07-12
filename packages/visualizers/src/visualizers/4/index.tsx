@@ -79,11 +79,13 @@ const MainScene = ({
       true
     );
 
-    godraysRef.current.godRaysMaterial.weight = clamp(
-      analyzer.getAverageFrequency() / 150,
-      0.8,
-      1.05
-    );
+    if (godraysRef.current?.godRaysMaterial) {
+      godraysRef.current.godRaysMaterial.weight = clamp(
+        analyzer.getAverageFrequency() / 150,
+        0.8,
+        1.05
+      );
+    }
 
     rigidBodiesRef.current.forEach((api, index) => {
       if (index > COUNT / 1.5) return;
