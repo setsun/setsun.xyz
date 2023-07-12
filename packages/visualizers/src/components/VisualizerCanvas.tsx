@@ -62,9 +62,6 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   const [isCanvasCreated, setIsCanvasCreated] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
-
-  console.log({ fallback });
-
   return (
     <div className={`relative h-screen ${className}`}>
       {!isCanvasCreated && fallback}

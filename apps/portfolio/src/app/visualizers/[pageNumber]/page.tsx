@@ -34,10 +34,10 @@ const VisualizerSeven = dynamic(
   () => import("visualizers").then((mod) => mod.VisualizerSeven),
   { ssr: false }
 );
-const VisualizerEight = dynamic(
-  () => import("visualizers").then((mod) => mod.VisualizerEight),
-  { ssr: false }
-);
+// const VisualizerEight = dynamic(
+//   () => import("visualizers").then((mod) => mod.VisualizerEight),
+//   { ssr: false }
+// );
 
 const Visualizer: React.FC<{
   pageNumber: number;
@@ -58,8 +58,8 @@ const Visualizer: React.FC<{
       return <VisualizerSix fallback={fallback} />;
     case 7:
       return <VisualizerSeven fallback={fallback} />;
-    case 8:
-      return <VisualizerEight fallback={fallback} />;
+    // case 8:
+    //   return <VisualizerEight fallback={fallback} />;
     default:
       return null;
   }
@@ -70,7 +70,7 @@ const Visualizers: React.FC<Props> = (props) => {
   const pageNumber = parseInt(props.params.pageNumber);
 
   const fallback = (
-    <div className="h-screen flex items-center justify-center">
+    <div className="flex h-screen items-center justify-center">
       <SquareLoader loading color="white" />
     </div>
   );
