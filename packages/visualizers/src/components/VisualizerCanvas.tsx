@@ -34,19 +34,19 @@ const VisualizerControls: React.FC<VisualizerControlsProps> = ({
   songUrl,
   isPlaying,
 }) => {
-  const { audio, analyzer } = useAudioAnalyzer({
+  const { play, pause, analyzer } = useAudioAnalyzer({
     url: songUrl,
     loop: true,
     fftSize: 512,
   });
 
   useEffect(() => {
-    if (isPlaying && !audio.isPlaying) {
-      audio.play();
+    if (isPlaying) {
+      play();
     } else {
-      audio.pause();
+      pause();
     }
-  }, [audio, isPlaying]);
+  }, [play, pause, isPlaying]);
 
   return children({ analyzer, isPlaying });
 };

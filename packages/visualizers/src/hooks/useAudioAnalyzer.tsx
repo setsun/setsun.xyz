@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { useLoader, useThree } from "@react-three/fiber";
 import {
   AudioLoader,
   AudioListener,
   AudioAnalyser,
   Audio as ThreeAudio,
+  Camera,
 } from "three";
 
 interface Props {
@@ -13,30 +14,72 @@ interface Props {
   fftSize?: number;
 }
 
-export function useAudioAnalyzer({ url, loop, fftSize = 32 }: Props) {
-  const { camera } = useThree();
-  const [listener] = useState(() => new AudioListener());
-  const [audio] = useState(() => new ThreeAudio(listener));
-  const [analyzer] = useState(() => new AudioAnalyser(audio, fftSize));
-  const buffer = useLoader(AudioLoader, url);
+function initializeAudioAnalyzer(
+  { url, loop, fftSize }: Props,
+  camera: Camera
+) {
+  const listener = new AudioListener();
+  const audio = new ThreeAudio(listener);
+  const analyzer = new AudioAnalyser(audio, fftSize);
+  const loader = new AudioLoader();
 
-  useEffect(() => {
-    audio.setBuffer(buffer);
-    audio.setLoop(loop);
-    camera.add(listener);
+  let hasAudioLoaded = false;
 
-    return () => {
-      if (audio.isPlaying) {
-        audio.stop();
-        audio.disconnect();
-      }
+  function loadAudio() {
+    return new Promise((resolve) => {
+      loader.load(url, (buffer) => {
+        audio.setBuffer(buffer);
+        audio.setLoop(loop);
+        camera.add(listener);
 
-      camera.remove(listener);
-    };
-  }, [camera, listener, audio, buffer, loop]);
+        hasAudioLoaded = true;
+
+        resolve(true);
+      });
+    });
+  }
 
   return {
-    audio,
     analyzer,
+    listener,
+    cleanup: () => {
+      camera.remove(listener);
+    },
+    play: async () => {
+      if (!hasAudioLoaded) {
+        await loadAudio();
+      }
+
+      audio.setVolume(1.0);
+
+      audio.play();
+    },
+    pause: () => {
+      audio.pause();
+    },
+  };
+}
+
+export function useAudioAnalyzer(props: Props) {
+  const { camera } = useThree();
+
+  const { current: audioAnalyser } = useRef(
+    initializeAudioAnalyzer(props, camera)
+  );
+
+  useEffect(() => {
+    return () => {
+      audioAnalyser.cleanup();
+    };
+  });
+
+  return {
+    play: async () => {
+      await audioAnalyser.play();
+    },
+    pause: () => {
+      audioAnalyser.pause();
+    },
+    analyzer: audioAnalyser.analyzer,
   };
 }
