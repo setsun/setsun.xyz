@@ -4,12 +4,10 @@ import Link from "next/link";
 export type PostProps = {
   id: string;
   title: string;
+  content: string;
   author: {
     name: string;
-    email: string;
   } | null;
-  content: string;
-  published: boolean;
 };
 
 const Post: React.FC<{ post: PostProps }> = ({ post }) => (
@@ -35,7 +33,7 @@ async function getFeed() {
 }
 
 export default async function Blog() {
-  // const feed = await getFeed();
+  const feed = await getFeed();
 
   return (
     <div className="h-screen w-full overflow-y-auto">
@@ -43,12 +41,10 @@ export default async function Blog() {
         <p className="font-antonio text-2xl">Writing</p>
       </div>
 
-      <div className="p-4">🚧 🚧 🚧</div>
-
-      {/* {feed.map((post, i) => (
+      {feed.map((post, i) => (
         // @ts-ignore
         <Post key={i} post={post} />
-      ))} */}
+      ))}
     </div>
   );
 }

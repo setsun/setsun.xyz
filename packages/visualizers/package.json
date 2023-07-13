@@ -11,6 +11,7 @@
     "lodash.sample": "^4.2.1",
     "lamina": "1.1.23",
     "meshline": "^3.1.6",
+    "simplex-noise": "^4.0.1",
     "three-globe": "2.27.4",
     "three-stdlib": "^2.23.13"
   },
@@ -30,7 +31,6 @@
     "@react-three/rapier-addons": "^3.0.1",
     "maath": "^0.7.0",
     "react": "^18.2.0",
-    "simplex-noise": "^4.0.1",
     "three": "^0.154.0"
   },
   "devDependencies": {
