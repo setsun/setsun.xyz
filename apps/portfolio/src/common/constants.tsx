@@ -57,8 +57,8 @@ export const NAVIGATION_ITEMS = [
   //   name: "DataVis",
   //   link: "/data",
   // },
-  {
-    name: "Writing",
-    link: "/writing",
-  },
+  // {
+  //   name: "Writing",
+  //   link: "/writing",
+  // },
 ];

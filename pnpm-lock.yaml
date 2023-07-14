@@ -246,6 +246,9 @@ importers:
 
   packages/multiplayer:
     dependencies:
+      lib0:
+        specifier: 0.2.78
+        version: 0.2.78
       ws:
         specifier: ^8.13.0
         version: 8.13.0
@@ -261,6 +264,9 @@ importers:
       yjs:
         specifier: ^13.6.6
         version: 13.6.6
+      zustand:
+        specifier: ^4.3.9
+        version: 4.3.9(react@18.2.0)
     devDependencies:
       eslint:
         specifier: ^8.44.0
@@ -271,6 +277,9 @@ importers:
       tailwind-config:
         specifier: workspace:*
         version: link:../tailwind-config
+      ts-node:
+        specifier: ^10.9.1
+        version: 10.9.1(@types/node@20.4.1)(typescript@5.1.6)
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
