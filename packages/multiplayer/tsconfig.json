@@ -6,6 +6,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/server/webrtc/signaling-server.ts"],
   "exclude": ["node_modules"]
 }

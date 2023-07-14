@@ -3,19 +3,25 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "turbo build"
+    "build": "turbo build",
+    "start:signaling-server": "ts-node ./src/server/webrtc/signaling-server.ts"
   },
   "dependencies": {
+    "lib0": "0.2.78",
     "ws": "^8.13.0",
     "y-indexeddb": "^9.0.11",
     "y-webrtc": "^10.2.5",
     "y-websocket": "^1.5.0",
     "yjs": "^13.6.6"
   },
+  "peerDependencies": {
+    "zustand": "^4.3.9"
+  },
   "devDependencies": {
     "eslint": "^8.44.0",
     "eslint-config-custom": "workspace:*",
     "tailwind-config": "workspace:*",
+    "ts-node": "^10.9.1",
     "tsconfig": "workspace:*",
     "tsup": "^7.1.0",
     "typescript": "^5.1.6"
