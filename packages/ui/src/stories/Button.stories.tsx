@@ -21,12 +21,6 @@ export const Primary: Story = {
   },
 };
 
-export const Secondary: Story = {
-  args: {
-    children: "Button",
-  },
-};
-
 export const Large: Story = {
   args: {
     size: "lg",
