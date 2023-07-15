@@ -9,7 +9,7 @@
     "@observablehq/plot": "^0.6.9"
   },
   "devDependencies": {
-    "eslint": "^8.44.0",
+    "eslint": "^8.45.0",
     "eslint-config-custom": "workspace:*",
     "tailwind-config": "workspace:*",
     "tsconfig": "workspace:*",
