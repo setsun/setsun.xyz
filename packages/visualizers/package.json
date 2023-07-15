@@ -36,9 +36,9 @@
   "devDependencies": {
     "@types/lodash.clamp": "^4.0.7",
     "@types/lodash.sample": "^4.2.7",
-    "@types/react": "^18.2.14",
+    "@types/react": "^18.2.15",
     "@types/three": "0.154.0",
-    "eslint": "^8.44.0",
+    "eslint": "^8.45.0",
     "eslint-config-custom": "workspace:*",
     "tailwind-config": "workspace:*",
     "tsconfig": "workspace:*",
