@@ -6,7 +6,7 @@ import { useToast } from "@/components/ui/use-toast";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: "Example/Toaster",
+  title: "Components/Toaster",
   component: Toaster,
   tags: ["autodocs"],
 } satisfies Meta<typeof Toaster>;

@@ -16,29 +16,28 @@ vec3 palette(float t) {
 }
 
 void main(){
-  // normalize the pixel coordinates to [0, 1]
-  float aspect_ratio = u_resolution.x / u_resolution.y;
-  vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-  vec3 finalColor = vec3(0.);
-
-  // center the origin of the coordinate space [-0.5, 0.5]
-  uv = uv - 0.5;
-
-  // remap coordinates, so it goes from [-1, 1]
-  uv = uv * 2.;
+  // 1. normalize the pixel coordinates by dividing pixel coord by resolution to [0, 1]
+  // 2. center the origin of the coordinate space by subtracting 0.5 [-0.5, 0.5]
+  // 3. remap coordinates by multiplying by 2, so it goes from [-1, 1]
+  vec2 uv = ((gl_FragCoord.xy / u_resolution.xy) - 0.5) * 2.;
 
   // correct the aspect ratio
+  float aspect_ratio = u_resolution.x / u_resolution.y;
   uv.x *= aspect_ratio;
 
+  // store the original uv coordinates
   vec2 uv0 = uv;
 
-  for (float i = 0.; i < 3.; i++) {
+  vec3 finalColor = vec3(0.);
+
+  for (float i = 0.; i < 5.; i++) {
     // divide the scene into multiple repeating sections
-    uv *= 2.5;
+    uv *= 1.5;
     uv = fract(uv);
     uv -= 0.5;
 
-    float d = length(uv) * exp(-length(uv0));
+    float d = length(uv);
+    d *= exp(-length(uv0));
 
     vec3 color = palette(length(uv0) + u_time);
 
