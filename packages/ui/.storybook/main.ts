@@ -1,5 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import { mergeConfig } from "vite";
+import glslify from "vite-plugin-glslify";
 import path from "path";
 
 const config: StorybookConfig = {
@@ -20,6 +21,7 @@ const config: StorybookConfig = {
   async viteFinal(config) {
     // Merge custom configuration into the default config
     return mergeConfig(config, {
+      plugins: [glslify()],
       resolve: {
         alias: {
           "@": path.resolve(__dirname, "../src"),

@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: "Example/Input",
+  title: "Components/Input",
   component: Input,
   tags: ["autodocs"],
 } satisfies Meta<typeof Input>;

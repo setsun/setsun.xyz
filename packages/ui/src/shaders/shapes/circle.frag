@@ -28,6 +28,7 @@ void main(){
   // c. sqrt of vector from pixel to the center (0.5)
   // using hypothenuse equation c = sqrt(a^2 + b^2)
   vec2 to_center=center_coordinates-normalized;
+
   percent=sqrt(
     to_center.x*to_center.x+to_center.y*to_center.y
   );

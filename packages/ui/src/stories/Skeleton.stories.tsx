@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: "Example/Skeleton",
+  title: "Components/Skeleton",
   component: Skeleton,
   tags: ["autodocs"],
 } satisfies Meta<typeof Skeleton>;
