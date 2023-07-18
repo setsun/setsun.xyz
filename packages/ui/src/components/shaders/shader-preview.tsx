@@ -8,21 +8,26 @@ interface Props {
 }
 
 const ShaderPreview: React.FC<Props> = ({ fragmentShader, vertexShader }) => {
-  const { size } = useThree();
+  const { size, mouse } = useThree();
 
   const meshRef = useRef<Mesh>(null!);
 
   const uniforms = useMemo(
     () => ({
       u_resolution: { value: [size.width, size.height] },
+      u_mouse: { value: [mouse.x, mouse.y] },
       u_time: { value: 0 },
     }),
     []
   );
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock, mouse, size }) => {
     const shaderMaterial = meshRef.current.material as ShaderMaterial;
+
+    // update uniforms
     shaderMaterial.uniforms.u_time.value = clock.getElapsedTime();
+    shaderMaterial.uniforms.u_resolution.value = [size.width, size.height];
+    shaderMaterial.uniforms.u_mouse.value = [mouse.x, mouse.y];
   });
 
   return (
@@ -37,4 +42,4 @@ const ShaderPreview: React.FC<Props> = ({ fragmentShader, vertexShader }) => {
   );
 };
 
-export default ShaderPreview;
+export { ShaderPreview };
