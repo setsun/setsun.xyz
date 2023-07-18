@@ -15,30 +15,35 @@ float circle(in vec2 _st,in float _radius){
 }
 
 void main(){
-  vec2 normalized=gl_FragCoord.xy/u_resolution.xy;
+  vec2 uv=gl_FragCoord.xy/u_resolution.xy;
+
+  // correct the aspect ratio
+  float aspect_ratio = u_resolution.x / u_resolution.y;
+  uv.x *= aspect_ratio;
+
   float percent=0.;
 
   // a. distance from pixel to the center (0.5)
-  // percent = distance(normalized, center_coordinates);
+  // percent = distance(uv, center_coordinates);
 
   // b. length of vector from pixel to the center (0.5)
-  // vec2 to_center = center_coordinates - normalized;
+  // vec2 to_center = center_coordinates - uv;
   // percent = length(to_center);
 
   // c. sqrt of vector from pixel to the center (0.5)
   // using hypothenuse equation c = sqrt(a^2 + b^2)
-  vec2 to_center=center_coordinates-normalized;
+  vec2 to_center=center_coordinates-uv;
 
   percent=sqrt(
     to_center.x*to_center.x+to_center.y*to_center.y
   );
 
   // d. trying out combining distance fields
-  // percent = distance(normalized,vec2(0.4)) + distance(normalized,vec2(0.6));
-  // percent = distance(normalized,vec2(0.4)) * distance(normalized,vec2(0.6));
-  // percent = min(distance(normalized,vec2(0.4)), distance(normalized,vec2(0.6)));
-  // percent = max(distance(normalized,vec2(0.4)), distance(normalized,vec2(0.6)));
-  // percent = pow(distance(normalized,vec2(0.4)), distance(normalized,vec2(0.6)));
+  // percent = distance(uv,vec2(0.4)) + distance(uv,vec2(0.6));
+  // percent = distance(uv,vec2(0.4)) * distance(uv,vec2(0.6));
+  // percent = min(distance(uv,vec2(0.4)), distance(uv,vec2(0.6)));
+  // percent = max(distance(uv,vec2(0.4)), distance(uv,vec2(0.6)));
+  // percent = pow(distance(uv,vec2(0.4)), distance(uv,vec2(0.6)));
 
   float should_color=step(percent,.5);
 

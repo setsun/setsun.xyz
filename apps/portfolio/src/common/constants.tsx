@@ -49,10 +49,10 @@ export const NAVIGATION_ITEMS = [
     name: "3D Visualizers",
     link: "/visualizers",
   },
-  // {
-  //   name: "Shaders",
-  //   link: "/shaders",
-  // },
+  {
+    name: "Shaders",
+    link: "/shaders",
+  },
   // {
   //   name: "DataVis",
   //   link: "/data",

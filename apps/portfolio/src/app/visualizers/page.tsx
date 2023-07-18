@@ -1,37 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-
-const VisualizerItem: React.FC<{
-  title: string;
-  imageSrc: string;
-  pageNumber: number;
-}> = ({ title, imageSrc, pageNumber }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  return (
-    <Link
-      className="font-antonio relative block h-1/5 w-full overflow-hidden border-b-2 p-4 text-2xl"
-      href={`/visualizers/${pageNumber}`}
-    >
-      <p className="relative z-10">{title}</p>
-
-      <Image
-        src={imageSrc}
-        alt={`Image preview for visualizer ${pageNumber}`}
-        fill={true}
-        className="transition-opacity duration-500 ease-in-out"
-        style={{
-          objectFit: "cover",
-          opacity: imageLoaded ? 0.3 : 0,
-        }}
-        onLoad={() => setImageLoaded(true)}
-      />
-    </Link>
-  );
-};
+import PagePreviewLink from "@/components/PagePreviewLink";
 
 const linkData = [
   {
@@ -76,9 +45,9 @@ const Visualizer: React.FC = () => {
       </div>
 
       {linkData.map(({ title, imageSrc }, index) => (
-        <VisualizerItem
+        <PagePreviewLink
           key={index}
-          pageNumber={index + 1}
+          href={`/visualizers/${index + 1}`}
           title={title}
           imageSrc={imageSrc}
         />
