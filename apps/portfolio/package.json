@@ -36,8 +36,7 @@
     "three": "^0.154.0",
     "tunnel-rat": "^0.1.2",
     "ui": "workspace:*",
-    "visualizers": "workspace:*",
-    "zustand": "^4.3.9"
+    "visualizers": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.4.2",

@@ -25,6 +25,7 @@ export default defineConfig({
       external: [
         "react",
         "react-dom",
+        "leva",
         "three",
         "@react-three/fiber",
         "@react-three/drei",

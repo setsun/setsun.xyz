@@ -5,18 +5,26 @@ import { Mesh, ShaderMaterial } from "three";
 interface Props {
   fragmentShader?: string;
   vertexShader?: string;
+  uniforms?: ShaderMaterial["uniforms"];
+  onUniformUpdate?: (uniforms: ShaderMaterial["uniforms"]) => void;
 }
 
-const ShaderPreview: React.FC<Props> = ({ fragmentShader, vertexShader }) => {
+const ShaderPreview: React.FC<Props> = ({
+  fragmentShader,
+  vertexShader,
+  uniforms,
+  onUniformUpdate,
+}) => {
   const { size, mouse } = useThree();
 
   const meshRef = useRef<Mesh>(null!);
 
-  const uniforms = useMemo(
+  const initialUniforms: ShaderMaterial["uniforms"] = useMemo(
     () => ({
       u_resolution: { value: [size.width, size.height] },
       u_mouse: { value: [mouse.x, mouse.y] },
       u_time: { value: 0 },
+      ...uniforms,
     }),
     []
   );
@@ -28,6 +36,9 @@ const ShaderPreview: React.FC<Props> = ({ fragmentShader, vertexShader }) => {
     shaderMaterial.uniforms.u_time.value = clock.getElapsedTime();
     shaderMaterial.uniforms.u_resolution.value = [size.width, size.height];
     shaderMaterial.uniforms.u_mouse.value = [mouse.x, mouse.y];
+
+    // update uniform callback
+    onUniformUpdate?.(shaderMaterial.uniforms);
   });
 
   return (
@@ -36,7 +47,7 @@ const ShaderPreview: React.FC<Props> = ({ fragmentShader, vertexShader }) => {
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}
-        uniforms={uniforms}
+        uniforms={initialUniforms}
       />
     </mesh>
   );
