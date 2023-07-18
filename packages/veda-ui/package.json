@@ -6,7 +6,7 @@
   ],
   "types": "./dist/src/index.d.ts",
   "exports": {
-    ".": "./dist/ui.mjs",
+    ".": "./dist/veda-ui.mjs",
     "./styles.css": "./dist/style.css"
   },
   "license": "MIT",
