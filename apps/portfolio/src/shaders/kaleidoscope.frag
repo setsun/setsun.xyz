@@ -15,6 +15,8 @@ uniform vec3 u_color_d;
 // other modifiers
 uniform float u_scale;
 
+#pragma glslify: rotate2d = require(./rotate.glsl)
+
 vec3 palette(float t) {
   return u_color_a + u_color_b*cos( 6.28318*(u_color_c*t+u_color_d) );
 }
@@ -28,6 +30,8 @@ void main(){
   // correct the aspect ratio
   float aspect_ratio = u_resolution.x / u_resolution.y;
   uv.x *= aspect_ratio;
+
+  uv = rotate2d( u_time*3.14*0.03 ) * uv;
 
   // store the original uv coordinates
   vec2 uv0 = uv;
