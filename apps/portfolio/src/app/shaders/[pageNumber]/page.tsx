@@ -2,7 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 
-import ShaderPreview from "@/components/ShaderPreview";
+import { ShaderPreview } from "ui";
 import kaledioscope from "@/shaders/kaleidoscope.frag";
 
 const Shader: React.FC<{
