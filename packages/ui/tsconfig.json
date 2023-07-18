@@ -6,6 +6,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": [".", "src/types"],
+  "include": [".", "@types"],
   "exclude": ["dist", "build", "node_modules"]
 }

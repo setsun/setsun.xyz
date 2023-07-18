@@ -1,3 +1,13 @@
+"use client";
+
+import PagePreviewLink from "@/components/PagePreviewLink";
+
+const linkData = [
+  {
+    title: "_01",
+  },
+] as const;
+
 const Shaders: React.FC = () => {
   return (
     <div className="h-screen w-full overflow-y-auto">
@@ -5,7 +15,13 @@ const Shaders: React.FC = () => {
         <p className="font-antonio text-2xl">Shaders</p>
       </div>
 
-      <div className="p-4">🚧 🚧 🚧</div>
+      {linkData.map(({ title }, index) => (
+        <PagePreviewLink
+          href={`/shaders/${index + 1}`}
+          key={index}
+          title={title}
+        />
+      ))}
     </div>
   );
 };

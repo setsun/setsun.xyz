@@ -1,7 +1,7 @@
 // styles
 import "./styles/globals.css";
 
-// components
+// UI components
 export * from "./components/ui/button";
 export * from "./components/ui/card";
 export * from "./components/ui/command";
