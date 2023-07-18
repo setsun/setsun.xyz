@@ -42,7 +42,6 @@ export default async function Blog() {
       </div>
 
       {feed.map((post, i) => (
-        // @ts-ignore
         <Post key={i} post={post} />
       ))}
     </div>

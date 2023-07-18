@@ -74,7 +74,6 @@ const StormLine = ({
       }
     }
 
-    // @ts-ignore
     line.current.advance(nextPosition);
   });
 
