@@ -5,7 +5,7 @@ import { useControls, Leva } from "leva";
 import { Color } from "three";
 import tunnel from "tunnel-rat";
 
-import { ShaderPreview } from "ui";
+import { ShaderPreview } from "veda-ui";
 import kaledioscope from "@/shaders/kaleidoscope.frag";
 
 const HtmlTunnel = tunnel();
