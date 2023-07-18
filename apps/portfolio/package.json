@@ -25,6 +25,7 @@
     "database": "workspace:*",
     "graphql": "^16.7.1",
     "graphql-yoga": "^4.0.3",
+    "leva": "^0.9.35",
     "maath": "^0.7.0",
     "next": "^13.4.10",
     "react": "^18.2.0",
