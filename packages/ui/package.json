@@ -4,10 +4,10 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "types": "./dist/index.d.mts",
+  "types": "./dist/src/index.d.ts",
   "exports": {
-    ".": "./dist",
-    "./styles.css": "./dist/index.css"
+    ".": "./dist/ui.mjs",
+    "./styles.css": "./dist/style.css"
   },
   "license": "MIT",
   "scripts": {
@@ -35,6 +35,7 @@
   "peerDependencies": {
     "@react-three/drei": "^9.78.2",
     "@react-three/fiber": "^8.13.5",
+    "@observablehq/plot": "^0.6.9",
     "react": "^18.2.0",
     "tailwind": "^4.0.0",
     "three": "^0.154.0"

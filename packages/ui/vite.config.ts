@@ -12,11 +12,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  define: {
+    global: "window",
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.tsx"),
       name: "ui",
     },
+    // todo: determine if we need to do anything else here for externals
     rollupOptions: {
       external: [
         "react",
@@ -25,18 +29,6 @@ export default defineConfig({
         "@react-three/fiber",
         "@react-three/drei",
       ],
-      output: {
-        globals: {
-          react: "react",
-          "react-dom": "react-dom",
-          three: "three",
-          "@react-three/fiber": "@react-three/fiber",
-          "@react-three/drei": "@react-three/drei",
-        },
-      },
     },
-  },
-  define: {
-    global: "window",
   },
 });

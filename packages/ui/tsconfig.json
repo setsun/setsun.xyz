@@ -6,6 +6,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": [".", "@types"],
+  "include": [".", "../tsconfig/@types/*.ts"],
   "exclude": ["dist", "build", "node_modules"]
 }
