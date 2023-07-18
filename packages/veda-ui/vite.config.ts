@@ -18,7 +18,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.tsx"),
-      name: "ui",
+      name: "veda-ui",
     },
     // todo: determine if we need to do anything else here for externals
     rollupOptions: {

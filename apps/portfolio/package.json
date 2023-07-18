@@ -35,7 +35,7 @@
     "react-spinners": "^0.13.8",
     "three": "^0.154.0",
     "tunnel-rat": "^0.1.2",
-    "ui": "workspace:*",
+    "veda-ui": "workspace:*",
     "visualizers": "workspace:*"
   },
   "devDependencies": {
