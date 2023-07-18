@@ -113,9 +113,6 @@ importers:
       visualizers:
         specifier: workspace:*
         version: link:../../packages/visualizers
-      zustand:
-        specifier: ^4.3.9
-        version: 4.3.9(react@18.2.0)
     devDependencies:
       '@types/node':
         specifier: ^20.4.2
@@ -254,9 +251,6 @@ importers:
       yjs:
         specifier: ^13.6.6
         version: 13.6.6
-      zustand:
-        specifier: ^4.3.9
-        version: 4.3.9(react@18.2.0)
     devDependencies:
       eslint:
         specifier: ^8.44.0

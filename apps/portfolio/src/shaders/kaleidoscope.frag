@@ -2,23 +2,28 @@
 precision mediump float;
 #endif
 
+// screen resolution / elapsed time
 uniform vec2 u_resolution;
 uniform float u_time;
 
-vec3 palette(float t) {
-  vec3 a = vec3(0.938, 0.328, 0.718);
-  vec3 b = vec3(0.659, 0.438, 0.328);
-  vec3 c = vec3(0.388, 0.388, 0.296);
-  vec3 d = vec3(2.538, 2.478, 0.168);
+// color palette
+uniform vec3 u_color_a;
+uniform vec3 u_color_b;
+uniform vec3 u_color_c;
+uniform vec3 u_color_d;
 
-  return a + b*cos( 6.28318*(c*t+d) );
+// other modifiers
+uniform float u_scale;
+
+vec3 palette(float t) {
+  return u_color_a + u_color_b*cos( 6.28318*(u_color_c*t+u_color_d) );
 }
 
 void main(){
   // 1. normalize the pixel coordinates by dividing pixel coord by resolution to [0, 1]
   // 2. center the origin of the coordinate space by subtracting 1. [-1.0, 0]
   // 3. remap coordinates by multiplying by 2, so it goes from [-1, 1]
-  vec2 uv = ((gl_FragCoord.xy / u_resolution.xy) -1.) * 2.;
+  vec2 uv = ((gl_FragCoord.xy / u_resolution.xy) -1.) * u_scale;
 
   // correct the aspect ratio
   float aspect_ratio = u_resolution.x / u_resolution.y;
