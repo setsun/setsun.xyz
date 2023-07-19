@@ -15,7 +15,7 @@ uniform vec3 u_color_d;
 // other modifiers
 uniform float u_scale;
 
-#pragma glslify: rotate2d = require(./rotate.glsl)
+#pragma glslify: rotate2d = require(./transforms/rotate2d.glsl)
 
 vec3 palette(float t) {
   return u_color_a + u_color_b*cos( 6.28318*(u_color_c*t+u_color_d) );
