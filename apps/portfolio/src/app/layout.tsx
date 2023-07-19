@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 // todo: fix overriding styles
 // include styles from the ui package
-// import "ui/styles.css";
+import "veda-ui/styles.css";
 
 import { Antonio, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${antonio.variable}`}>
+    <html lang="en" className={`${inter.variable} ${antonio.variable} dark`}>
       <body>
         <Layout>{children}</Layout>
       </body>

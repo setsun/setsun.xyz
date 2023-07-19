@@ -33,7 +33,7 @@
     "tailwindcss-animate": "^1.0.6"
   },
   "peerDependencies": {
-    "@react-three/drei": "^9.78.2",
+    "@react-three/drei": "^9.79.3",
     "@react-three/fiber": "^8.13.5",
     "@observablehq/plot": "^0.6.9",
     "leva": "^0.9.35",
