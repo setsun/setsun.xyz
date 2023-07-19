@@ -69,7 +69,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
     <VisualizerCanvas
       headline="VISUALIZER_02"
       songProps={{
-        url: "https://www.setsun.xyz/audio/Funk.mp3",
+        url: "/audio/Funk.mp3",
         name: "Martin Garrix & Julian Jordan - Funk",
         externalHref:
           "https://soundcloud.com/martingarrix/martin-garrix-julian-jordan-the-funk",

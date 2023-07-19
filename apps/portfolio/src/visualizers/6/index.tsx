@@ -35,7 +35,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => (
   <VisualizerCanvas
     headline="VISUALIZER_06"
     songProps={{
-      url: "https://www.setsun.xyz/audio/Hold_On_Remix.mp3",
+      url: "/audio/Hold_On_Remix.mp3",
       name: "Rezident - The Anjunadeep Edition 328",
       externalHref:
         "https://soundcloud.com/anjunadeep/the-anjunadeep-edition-328",

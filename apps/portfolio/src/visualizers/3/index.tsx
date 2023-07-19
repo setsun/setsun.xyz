@@ -221,7 +221,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
     <VisualizerCanvas
       headline="VISUALIZER_03"
       songProps={{
-        url: "https://www.setsun.xyz/audio/Ghost_Voices_Remix.mp3",
+        url: "/audio/Ghost_Voices_Remix.mp3",
         name: "Virtual Self - Ghost Voices (Lane 8 Remix)",
         externalHref:
           "https://soundcloud.com/thisneverhappenedlabel/virtual-self-ghost-voices-lane-8-remix",
