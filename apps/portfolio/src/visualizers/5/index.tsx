@@ -89,7 +89,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
     <VisualizerCanvas
       headline="VISUALIZER_05"
       songProps={{
-        url: "https://www.setsun.xyz/audio/Sun_&_Moon_Remix.mp3",
+        url: "/audio/Sun_&_Moon_Remix.mp3",
         name: "Above & Beyond feat. Richard Bedford - Sun & Moon (ilan Bluestone Remix)",
         externalHref:
           "https://soundcloud.com/aboveandbeyond/above-beyond-feat-richard-bedford-sun-moon-ilan-bluestone-remix",

@@ -158,7 +158,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
     <VisualizerCanvas
       headline="VISUALIZER_04"
       songProps={{
-        url: "https://www.setsun.xyz/audio/Bloodstream.mp3",
+        url: "/audio/Bloodstream.mp3",
         name: "Ferry Corsten - Bloodstream",
         externalHref:
           "https://soundcloud.com/ferry-corsten/ferry-corsten-ruben-de-ronde",
