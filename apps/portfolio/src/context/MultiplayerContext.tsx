@@ -1,8 +1,6 @@
 import {
   createContext,
   createRef,
-  useMemo,
-  useRef,
   useCallback,
   useReducer,
   useEffect,
@@ -10,7 +8,7 @@ import {
   RefObject,
 } from "react";
 import { Mesh } from "three";
-import * as Y from "yjs";
+import { Doc } from "yjs";
 import { WebrtcProvider } from "y-webrtc";
 
 interface Player {
@@ -93,36 +91,29 @@ const MultiplayerContext = createContext<{
 
 interface Props {
   children: React.ReactNode;
-  roomName: string;
-  signalingServerUrl: string;
+  yDoc: Doc;
+  yNetworkProvider: WebrtcProvider;
 }
 
 // todo: still in progress
 const MultiplayerContextProvider = ({
+  yDoc,
+  yNetworkProvider,
   children,
-  roomName,
-  signalingServerUrl,
 }: Props) => {
   const [state, dispatch] = useReducer<MultiplayerReducer>(
     multiplayerReducer,
     initialState
   );
 
-  const { yDoc, yNetworkProvider } = useMemo(() => {
-    const yDoc = new Y.Doc();
-    const yNetworkProvider = new WebrtcProvider(roomName, yDoc, {
-      signaling: [signalingServerUrl],
-    });
-
-    return { yDoc, yNetworkProvider };
-  }, [roomName, signalingServerUrl]);
-
   useEffect(() => {
-    // add the current player to the state
+    // add the current players to the state
     const currentClientId = yDoc.clientID;
+    const currentPlayerIds = [...yNetworkProvider.awareness.getStates().keys()];
+
     dispatch({
       type: MultiplayerActionTypes.ADD_PLAYER,
-      payload: [currentClientId],
+      payload: [...new Set([currentClientId, ...currentPlayerIds])],
     });
 
     yNetworkProvider.awareness.on("change", (changes) => {
