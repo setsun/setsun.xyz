@@ -21,7 +21,7 @@ export interface VisualizerCanvasProps {
     externalHref: string;
   };
   className?: string;
-  camera?: Partial<Omit<CanvasProps["camera"], "attach">>;
+  camera?: Partial<Omit<CanvasProps["camera"], "attach" | "children">>;
 }
 
 type VisualizerControlsProps = {
@@ -73,6 +73,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
         onCreated={() => {
           setIsCanvasCreated(true);
         }}
+        // @ts-ignore
         camera={{
           type: "PerspectiveCamera",
           fov: 75,

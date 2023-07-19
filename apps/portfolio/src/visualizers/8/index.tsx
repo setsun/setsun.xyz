@@ -22,8 +22,6 @@ import VisualizerCanvas from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 import { SketchCat } from "./SketchCat";
 
-extend({ MeshLineGeometry, MeshLineMaterial });
-
 const colors = ["#fbe555", "#fb9224", "#f45905", "#ffeed0", "#feff89"];
 
 interface PortalLineProps {

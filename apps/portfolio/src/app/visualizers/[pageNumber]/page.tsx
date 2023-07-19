@@ -1,43 +1,30 @@
 "use client";
 
+import { extend } from "@react-three/fiber";
 import dynamic from "next/dynamic";
 import { Suspense, useEffect } from "react";
 import SquareLoader from "react-spinners/SquareLoader";
+import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 
 import { initializeUnmute } from "@/vendor/unmute";
 
-const VisualizerOne = dynamic(
-  () => import("visualizers").then((mod) => mod.VisualizerOne),
-  { ssr: false }
-);
-const VisualizerTwo = dynamic(
-  () => import("visualizers").then((mod) => mod.VisualizerTwo),
-  { ssr: false }
-);
-const VisualizerThree = dynamic(
-  () => import("visualizers").then((mod) => mod.VisualizerThree),
-  { ssr: false }
-);
-const VisualizerFour = dynamic(
-  () => import("visualizers").then((mod) => mod.VisualizerFour),
-  { ssr: false }
-);
-const VisualizerFive = dynamic(
-  () => import("visualizers").then((mod) => mod.VisualizerFive),
-  { ssr: false }
-);
-const VisualizerSix = dynamic(
-  () => import("visualizers").then((mod) => mod.VisualizerSix),
-  { ssr: false }
-);
-const VisualizerSeven = dynamic(
-  () => import("visualizers").then((mod) => mod.VisualizerSeven),
-  { ssr: false }
-);
-// const VisualizerEight = dynamic(
-//   () => import("visualizers").then((mod) => mod.VisualizerEight),
-//   { ssr: false }
-// );
+// add <meshLineGeometry /> and <meshLineMaterial /> to the r3f scope
+extend({ MeshLineGeometry, MeshLineMaterial });
+
+const VisualizerOne = dynamic(() => import("@/visualizers/1"), { ssr: false });
+const VisualizerTwo = dynamic(() => import("@/visualizers/2"), { ssr: false });
+const VisualizerThree = dynamic(() => import("@/visualizers/3"), {
+  ssr: false,
+});
+const VisualizerFour = dynamic(() => import("@/visualizers/4"), { ssr: false });
+const VisualizerFive = dynamic(() => import("@/visualizers/5"), { ssr: false });
+const VisualizerSix = dynamic(() => import("@/visualizers/6"), { ssr: false });
+const VisualizerSeven = dynamic(() => import("@/visualizers/7"), {
+  ssr: false,
+});
+// const VisualizerEight = dynamic(() => import("@/visualizers/8"), {
+//   ssr: false,
+// });
 
 const Visualizer: React.FC<{
   pageNumber: number;

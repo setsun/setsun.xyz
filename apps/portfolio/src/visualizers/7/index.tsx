@@ -48,7 +48,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => (
   <VisualizerCanvas
     headline="VISUALIZER_07"
     songProps={{
-      url: "https://www.setsun.xyz/audio/Burning.mp3",
+      url: "/audio/Burning.mp3",
       name: "Eli & Fur - Burning ft. Camden Cox",
       externalHref:
         "https://soundcloud.com/eliandfur/burning-feat-camden-cox-1",
