@@ -69,7 +69,11 @@ const StormLine = ({
 
         const firstPosition = positions[0].toArray();
 
-        currentPosition.set(firstPosition[0], firstPosition[1], firstPosition[2]);
+        currentPosition.set(
+          firstPosition[0],
+          firstPosition[1],
+          firstPosition[2]
+        );
         nextPosition.set(firstPosition[0], firstPosition[1], firstPosition[2]);
       }
     }

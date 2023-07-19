@@ -13,7 +13,7 @@ const HtmlTunnel = tunnel();
 const KaledioscopeShader = () => {
   const [{ u_scale, u_color_a, u_color_b, u_color_c, u_color_d }, set] =
     useControls(() => ({
-      u_scale: 1.0,
+      u_scale: 1.5,
       u_color_a: "#f89bdc",
       u_color_b: "#d4b19b",
       u_color_c: "#a7a794",
