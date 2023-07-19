@@ -1,16 +1,19 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
+import { useState } from "react";
 import { useControls, Leva } from "leva";
 import { Color } from "three";
 import tunnel from "tunnel-rat";
 
-import { ShaderPreview } from "veda-ui";
+import { Button, ShaderPreview } from "veda-ui";
 import kaledioscope from "@/shaders/kaleidoscope.frag";
 
 const HtmlTunnel = tunnel();
 
 const KaledioscopeShader = () => {
+  const [showControls, setShowControls] = useState(false);
+
   const [{ u_scale, u_color_a, u_color_b, u_color_c, u_color_d }, set] =
     useControls(() => ({
       u_scale: 1.5,
@@ -41,15 +44,25 @@ const KaledioscopeShader = () => {
       />
 
       <HtmlTunnel.In>
-        <p className="font-antonio absolute right-0 top-0 p-4 text-2xl">
-          SHADER_01
-        </p>
+        <div className="absolute right-0 top-0 p-4 text-right">
+          <p className="font-antonio text-2xl">SHADER_01</p>
+
+          <Button
+            variant="link"
+            size="sm"
+            className="p-0 text-xs underline"
+            onClick={() => setShowControls(!showControls)}
+          >
+            {showControls ? "Hide Controls" : "Show Controls"}
+          </Button>
+        </div>
 
         <Leva
+          hidden={!showControls}
           titleBar={{
             position: {
               x: 0,
-              y: 48,
+              y: 72,
             },
           }}
         />
