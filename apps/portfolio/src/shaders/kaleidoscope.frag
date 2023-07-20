@@ -25,7 +25,7 @@ vec3 palette(float t) {
 void main(){
   // 1. normalize the pixel coordinates by dividing pixel coord by resolution to [0, 1]
   // 2. center the origin of the coordinate space by subtracting 1. [-1.0, 0]
-  // 3. remap coordinates by multiplying by 2, so it goes from [-1, 1]
+  // 3. remap coordinates by multiplying by the scale factor
   vec2 uv = ((gl_FragCoord.xy / u_resolution.xy) -1.) * u_scale;
 
   // correct the aspect ratio
