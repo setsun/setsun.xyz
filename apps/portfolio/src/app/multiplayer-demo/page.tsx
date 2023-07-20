@@ -14,7 +14,7 @@ import {
 // the shared document / network providers are singletons to be initialized only once
 const yDoc = new Y.Doc();
 const yNetworkProvider = new WebrtcProvider("multiplayer-demo-room", yDoc, {
-  signaling: ['wss://y-webrtc-signaling-eu.herokuapp.com']
+  signaling: ["wss://y-webrtc-signaling-eu.herokuapp.com"],
 });
 
 const MainScene = () => {
