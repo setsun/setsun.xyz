@@ -1,6 +1,14 @@
+import { useResponseCache as createResponseCache } from "@graphql-yoga/plugin-response-cache";
+import { createRedisCache } from "@envelop/response-cache-redis";
 import { client } from "database";
-import { NextResponse } from "next/server";
 import { createYoga, createSchema } from "graphql-yoga";
+import Redis from "ioredis";
+import { NextResponse } from "next/server";
+
+// eslint-disable-next-line turbo/no-undeclared-env-vars
+const redis = new Redis(process.env.KV_SECURE_URL);
+
+const cache = createRedisCache({ redis });
 
 const typeDefs = /* GraphQL */ `
   type User {
@@ -54,6 +62,14 @@ const { handleRequest } = createYoga({
     typeDefs,
     resolvers,
   }),
+
+  plugins: [
+    createResponseCache({
+      session: () => null,
+      // @ts-ignore
+      cache,
+    }),
+  ],
 
   // While using Next.js file convention for routing, we need to configure Yoga to use the correct endpoint
   graphqlEndpoint: "/api/graphql",
