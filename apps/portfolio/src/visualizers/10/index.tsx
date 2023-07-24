@@ -1,13 +1,13 @@
-import { Canvas } from "@react-three/fiber";
 import { Color } from "three";
 import { useShaderUniforms } from "veda-ui";
 
+import VisualizerCanvas from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 
 import planetFragmentShader from "./planet.frag";
 import planetVertexShader from "./planet.vert";
 
-const PlanetShader = () => {
+const MainScene = () => {
   const { meshRef, uniforms } = useShaderUniforms({
     uniforms: {
       u_color_a: { value: new Color("#ff0000") },
@@ -33,11 +33,11 @@ const PlanetShader = () => {
   );
 };
 
-const Visualizer = () => {
+const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
-    <Canvas style={{ height: "100vh" }}>
-      <PlanetShader />
-    </Canvas>
+    <VisualizerCanvas headline="VISUALIZER_10" fallback={fallback}>
+      {() => <MainScene />}
+    </VisualizerCanvas>
   );
 };
 
