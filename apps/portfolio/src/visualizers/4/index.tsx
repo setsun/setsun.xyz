@@ -6,16 +6,17 @@ import {
 } from "@react-three/rapier";
 import { useRef, Suspense, useMemo } from "react";
 import { Bloom, EffectComposer, GodRays } from "@react-three/postprocessing";
-import { Displace, LayerMaterial } from "lamina";
-import { Displace as DisplaceType } from "lamina/vanilla";
+import CustomShaderMaterial from "three-custom-shader-material";
 import clamp from "lodash.clamp";
-import { AudioAnalyser, Vector3 } from "three";
+import { AudioAnalyser, MeshPhysicalMaterial, Vector3 } from "three";
 import * as random from "maath/random";
 import { GodRaysEffect } from "postprocessing";
+import { useShaderUniforms } from "veda-ui";
 
 import { useTurntable } from "@/hooks/useTurntable";
 import VisualizerCanvas from "@/components/VisualizerCanvas";
 import { AttractorSun, AttractorSunRefData } from "./AttractorSun";
+import displaceInstancesVertexShader from "./displace-instances.vert";
 
 const COUNT = 250;
 const SUN_RADIUS = 6;
@@ -30,8 +31,20 @@ const MainScene = ({
 }) => {
   const attractorSunRef = useRef<AttractorSunRefData>(null!);
   const rigidBodiesRef = useRef<RapierRigidBody[]>(null!);
-  const displaceLayerRef = useRef<DisplaceType>(null!);
   const godraysRef = useRef<GodRaysEffect>(null!);
+
+  const { meshRef, uniforms } = useShaderUniforms({
+    uniforms: {
+      u_displacement_offset: { value: 0 },
+    },
+    onUniformUpdate(uniforms) {
+      const modifier = clamp(analyzer.getAverageFrequency() / 100, 0, 5);
+
+      const displacementModifier = 0.01 * modifier;
+
+      uniforms.u_displacement_offset.value += displacementModifier;
+    },
+  });
 
   const rigidBodyInstances = useMemo(() => {
     const instances = [];
@@ -58,17 +71,6 @@ const MainScene = ({
     if (!rigidBody) return;
 
     const modifier = clamp(analyzer.getAverageFrequency() / 100, 0, 5);
-
-    const displacementModifier = 0.05 * modifier;
-
-    // @ts-ignore
-    displaceLayerRef.current.offset.add(
-      new Vector3(
-        displacementModifier,
-        displacementModifier,
-        displacementModifier
-      )
-    );
 
     rigidBody.setTranslation(
       {
@@ -118,23 +120,19 @@ const MainScene = ({
       />
 
       <InstancedRigidBodies ref={rigidBodiesRef} instances={rigidBodyInstances}>
-        <instancedMesh args={[undefined, undefined, COUNT]}>
+        {/** @ts-ignore */}
+        <instancedMesh args={[undefined, undefined, COUNT]} ref={meshRef}>
           <sphereGeometry args={[CELL_RADIUS, 24, 24]} />
-          <LayerMaterial
+          <CustomShaderMaterial
+            baseMaterial={MeshPhysicalMaterial}
             wireframe
-            color="#8a8a8a"
-            lighting="physical"
+            color="#3a3a3a"
             transmission={0.5}
             roughness={0.5}
             thickness={2}
-          >
-            <Displace
-              ref={displaceLayerRef}
-              strength={0.5}
-              offset={[0, 0, 0]}
-              type="perlin"
-            />
-          </LayerMaterial>
+            vertexShader={displaceInstancesVertexShader}
+            uniforms={uniforms}
+          />
         </instancedMesh>
       </InstancedRigidBodies>
 

@@ -38,7 +38,6 @@
     "ioredis": "^5.3.2",
     "lodash.clamp": "^4.0.3",
     "lodash.sample": "^4.2.1",
-    "lamina": "1.1.23",
     "meshline": "^3.1.6",
     "leva": "^0.9.35",
     "maath": "^0.7.0",
