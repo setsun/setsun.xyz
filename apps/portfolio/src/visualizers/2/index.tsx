@@ -6,7 +6,7 @@ import { AudioAnalyser, Vector2 } from "three";
 import VisualizerCanvas from "@/components/VisualizerCanvas";
 import RadialBarFrequencyGraph from "@/components/RadialBarFrequencyGraph";
 import { useTurntable } from "@/hooks/useTurntable";
-import MovingBall from "./MovingBall";
+import Blob from "./Blob";
 import PulsingRing from "./PulsingRing";
 
 const MainScene = ({
@@ -17,7 +17,6 @@ const MainScene = ({
   isPlaying: boolean;
 }) => {
   const starRef = useTurntable({ speed: 0.0005 });
-  const curveRef = useTurntable({ speed: 0.0005, reverse: true });
   const ringTwoRef = useTurntable({ speed: 0.005, reverse: true });
   const ringThreeRef = useTurntable({ speed: 0.005, reverse: true });
 
@@ -34,6 +33,8 @@ const MainScene = ({
           countOverride={160}
           audioAnalyzer={analyzer}
         />
+
+        <Blob radius={135} detail={8} amplitude={35} audioAnalyzer={analyzer} />
       </mesh>
 
       <mesh rotation={[0, Math.PI / 2, 0]} ref={ringTwoRef}>
@@ -48,15 +49,6 @@ const MainScene = ({
         <PulsingRing
           innerRadius={350}
           outerRadius={350.5}
-          audioAnalyzer={analyzer}
-        />
-      </mesh>
-
-      <mesh ref={curveRef}>
-        <MovingBall
-          radius={125}
-          detail={10}
-          amplitude={35}
           audioAnalyzer={analyzer}
         />
       </mesh>
