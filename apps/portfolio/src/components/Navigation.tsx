@@ -12,7 +12,7 @@ interface Props {
 }
 
 const MIN_WIDTH = "64px";
-const MAX_WIDTH = "128px";
+const MAX_WIDTH = "160px";
 
 const SideNavigation: React.FC<Props> = ({ className }) => {
   const [isOpen, setOpen] = useState(false);
