@@ -7,7 +7,7 @@ import WireframePlanet from "@/components/hero-scenes/WireframePlanet";
 export default function Home() {
   return (
     <div
-      className="relative h-screen animate-fade-in opacity-0"
+      className="animate-fade-in relative h-screen opacity-0"
       style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
     >
       <div className="absolute left-0 top-0 flex h-screen w-full items-center justify-center">

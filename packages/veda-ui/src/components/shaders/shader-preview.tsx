@@ -1,6 +1,6 @@
-import { useMemo, useRef } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
-import { Mesh, ShaderMaterial } from "three";
+import { useThree } from "@react-three/fiber";
+import { ShaderMaterial } from "three";
+import { useShaderUniforms } from "@/hooks/use-shader-uniforms";
 
 interface Props {
   fragmentShader?: string;
@@ -15,30 +15,11 @@ const ShaderPreview: React.FC<Props> = ({
   uniforms,
   onUniformUpdate,
 }) => {
-  const { size, mouse } = useThree();
+  const { size } = useThree();
 
-  const meshRef = useRef<Mesh>(null!);
-
-  const initialUniforms: ShaderMaterial["uniforms"] = useMemo(
-    () => ({
-      u_resolution: { value: [size.width, size.height] },
-      u_mouse: { value: [mouse.x, mouse.y] },
-      u_time: { value: 0 },
-      ...uniforms,
-    }),
-    []
-  );
-
-  useFrame(({ clock, mouse, size }) => {
-    const shaderMaterial = meshRef.current.material as ShaderMaterial;
-
-    // update uniforms
-    shaderMaterial.uniforms.u_time.value = clock.getElapsedTime();
-    shaderMaterial.uniforms.u_resolution.value = [size.width, size.height];
-    shaderMaterial.uniforms.u_mouse.value = [mouse.x, mouse.y];
-
-    // update uniform callback
-    onUniformUpdate?.(shaderMaterial.uniforms);
+  const { meshRef, uniforms: allUniforms } = useShaderUniforms({
+    uniforms,
+    onUniformUpdate,
   });
 
   return (
@@ -47,7 +28,7 @@ const ShaderPreview: React.FC<Props> = ({
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}
-        uniforms={initialUniforms}
+        uniforms={allUniforms}
       />
     </mesh>
   );
