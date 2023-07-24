@@ -6,8 +6,8 @@ import {
   MeshReflectorMaterial,
   useMask,
 } from "@react-three/drei";
-import { extend, useFrame } from "@react-three/fiber";
-import { MeshLineGeometry, MeshLineMaterial } from "meshline";
+import { useFrame } from "@react-three/fiber";
+import { MeshLineMaterial } from "meshline";
 import { useMemo, useRef } from "react";
 import {
   CatmullRomCurve3,
