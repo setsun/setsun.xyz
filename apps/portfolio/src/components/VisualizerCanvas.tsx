@@ -1,6 +1,7 @@
-import { Canvas, CanvasProps } from "@react-three/fiber";
+import { PauseIcon, PlayIcon } from "@radix-ui/react-icons";
 import { OrbitControls } from "@react-three/drei";
-import { PlayIcon, PauseIcon } from "@radix-ui/react-icons";
+import { Canvas, CanvasProps } from "@react-three/fiber";
+import { Leva, useControls } from "leva";
 import { useEffect, useState } from "react";
 import { AudioAnalyser } from "three";
 
@@ -15,7 +16,7 @@ export interface VisualizerCanvasProps {
   children: FunctionAsChildren;
   fallback?: React.ReactNode;
   headline: string;
-  songProps?: {
+  audioProps?: {
     url: string;
     name: string;
     externalHref: string;
@@ -55,7 +56,7 @@ const VisualizerControls: React.FC<VisualizerControlsProps> = ({
 const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   children,
   fallback,
-  songProps,
+  audioProps,
   headline,
   className,
   camera,
@@ -83,8 +84,8 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
           ...camera,
         }}
       >
-        {songProps ? (
-          <VisualizerControls songUrl={songProps.url} isPlaying={isPlaying}>
+        {audioProps ? (
+          <VisualizerControls songUrl={audioProps.url} isPlaying={isPlaying}>
             {children}
           </VisualizerControls>
         ) : (
@@ -98,19 +99,19 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
 
       {isCanvasCreated && (
         <div
-          className="absolute left-0 top-0 flex h-full w-full justify-between p-4 text-xs"
+          className="absolute left-0 top-0 h-full w-full p-4 text-xs"
           style={{ pointerEvents: "none" }}
         >
-          {songProps && (
-            <div>
+          {audioProps && (
+            <div className="absolute left-0 top-0 p-4">
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center"
                 style={{ pointerEvents: "all" }}
-                href={songProps.externalHref}
+                href={audioProps.externalHref}
               >
-                <b>{songProps.name} ↗</b>
+                <b>{audioProps.name} ↗</b>
               </a>
               <p className="m-0">⸻</p>
 
@@ -129,7 +130,9 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
             </div>
           )}
 
-          <p className="font-antonio text-2xl">{headline}</p>
+          <p className="font-antonio absolute right-0 top-0 p-4 text-2xl">
+            {headline}
+          </p>
         </div>
       )}
     </div>

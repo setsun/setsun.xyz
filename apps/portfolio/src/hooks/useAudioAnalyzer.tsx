@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
 import { useLoader, useThree } from "@react-three/fiber";
+import { useEffect, useState } from "react";
 import {
-  AudioLoader,
-  AudioListener,
-  AudioAnalyser,
   Audio as ThreeAudio,
+  AudioAnalyser,
+  AudioListener,
+  AudioLoader,
 } from "three";
 
 interface Props {

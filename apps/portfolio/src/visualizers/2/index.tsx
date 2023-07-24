@@ -3,9 +3,10 @@ import { EffectComposer, Glitch } from "@react-three/postprocessing";
 import { GlitchMode } from "postprocessing";
 import { AudioAnalyser, Vector2 } from "three";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
 import RadialBarFrequencyGraph from "@/components/RadialBarFrequencyGraph";
+import VisualizerCanvas from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
+
 import Blob from "./Blob";
 import PulsingRing from "./PulsingRing";
 
@@ -60,7 +61,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_02"
-      songProps={{
+      audioProps={{
         url: "/audio/Funk.mp3",
         name: "Martin Garrix & Julian Jordan - Funk",
         externalHref:

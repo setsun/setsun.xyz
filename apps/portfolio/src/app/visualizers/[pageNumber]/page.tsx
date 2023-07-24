@@ -1,10 +1,10 @@
 "use client";
 
 import { extend } from "@react-three/fiber";
+import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import dynamic from "next/dynamic";
 import { Suspense, useEffect } from "react";
 import SquareLoader from "react-spinners/SquareLoader";
-import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 
 import { initializeUnmute } from "@/vendor/unmute";
 
@@ -22,9 +22,15 @@ const VisualizerSix = dynamic(() => import("@/visualizers/6"), { ssr: false });
 const VisualizerSeven = dynamic(() => import("@/visualizers/7"), {
   ssr: false,
 });
-// const VisualizerEight = dynamic(() => import("@/visualizers/8"), {
-//   ssr: false,
-// });
+const VisualizerEight = dynamic(() => import("@/visualizers/8"), {
+  ssr: false,
+});
+const VisualizerNine = dynamic(() => import("@/visualizers/9"), {
+  ssr: false,
+});
+const VisualizerTen = dynamic(() => import("@/visualizers/10"), {
+  ssr: false,
+});
 
 const Visualizer: React.FC<{
   pageNumber: number;
@@ -45,8 +51,12 @@ const Visualizer: React.FC<{
       return <VisualizerSix fallback={fallback} />;
     case 7:
       return <VisualizerSeven fallback={fallback} />;
-    // case 8:
-    //   return <VisualizerEight fallback={fallback} />;
+    case 8:
+      return <VisualizerEight fallback={fallback} />;
+    case 9:
+      return <VisualizerNine />;
+    case 10:
+      return <VisualizerTen />;
     default:
       return null;
   }

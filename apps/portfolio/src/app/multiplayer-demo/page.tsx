@@ -3,12 +3,12 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useContext } from "react";
-import * as Y from "yjs";
 import { WebrtcProvider } from "y-webrtc";
+import * as Y from "yjs";
 
 import {
-  MultiplayerContextProvider,
   MultiplayerContext,
+  MultiplayerContextProvider,
 } from "@/context/MultiplayerContext";
 
 // the shared document / network providers are singletons to be initialized only once

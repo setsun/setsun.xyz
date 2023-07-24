@@ -1,4 +1,4 @@
-import { RigidBody, RapierRigidBody } from "@react-three/rapier";
+import { RapierRigidBody, RigidBody } from "@react-three/rapier";
 import { Attractor } from "@react-three/rapier-addons";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { Mesh } from "three";

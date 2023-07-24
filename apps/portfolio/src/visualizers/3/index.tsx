@@ -1,13 +1,13 @@
-import { Suspense, useRef } from "react";
+import { Base, Geometry, Subtraction } from "@react-three/csg";
 import { MarchingCube, MarchingCubes } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { Geometry, Base, Subtraction } from "@react-three/csg";
 import {
   BallCollider,
   Physics,
-  RigidBody,
   RapierRigidBody,
+  RigidBody,
 } from "@react-three/rapier";
+import { Suspense, useRef } from "react";
 import {
   AudioAnalyser,
   BoxGeometry,
@@ -220,7 +220,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_03"
-      songProps={{
+      audioProps={{
         url: "/audio/Ghost_Voices_Remix.mp3",
         name: "Virtual Self - Ghost Voices (Lane 8 Remix)",
         externalHref:

@@ -1,7 +1,7 @@
-import { useMemo, useRef, forwardRef, useImperativeHandle } from "react";
-import { GeometryUtils, Line2 } from "three-stdlib";
 import { Line, LineProps } from "@react-three/drei";
+import { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import { Vector3 } from "three";
+import { GeometryUtils, Line2 } from "three-stdlib";
 
 interface Props {
   lineProps?: Partial<LineProps>;

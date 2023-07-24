@@ -1,11 +1,11 @@
 import "@/styles/globals.css";
-
 // todo: fix overriding styles
 // include styles from the ui package
 import "veda-ui/styles.css";
 
-import { Antonio, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { Antonio, Inter } from "next/font/google";
+
 import Layout from "@/components/Layout";
 
 const inter = Inter({

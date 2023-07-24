@@ -31,10 +31,18 @@ const linkData = [
     title: "_07",
     imageSrc: "/images/visualizer-previews/7.png",
   },
-  // {
-  //   title: "_08",
-  //   imageSrc: "/images/visualizer-previews/8.png"
-  // },
+  {
+    title: "_08",
+    imageSrc: "/images/visualizer-previews/8.png",
+  },
+  {
+    title: "_09",
+    imageSrc: "/images/visualizer-previews/9.png",
+  },
+  {
+    title: "_10",
+    imageSrc: "/images/visualizer-previews/10.png",
+  },
 ] as const;
 
 const Visualizer: React.FC = () => {

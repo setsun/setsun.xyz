@@ -1,7 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { Color } from "three";
 import { useShaderUniforms } from "veda-ui";
+
 import { useTurntable } from "@/hooks/useTurntable";
+
 import planetFragmentShader from "./planet.frag";
 import planetVertexShader from "./planet.vert";
 

@@ -2,7 +2,7 @@ import { GradientTexture } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { EffectComposer, Noise, Vignette } from "@react-three/postprocessing";
 import { useRef } from "react";
-import { TextureLoader, Mesh, SpotLight, AudioAnalyser } from "three";
+import { AudioAnalyser, Mesh, SpotLight, TextureLoader } from "three";
 
 import CircleWaveform from "@/components/CircleWaveform";
 import RadialBarFrequencyGraph from "@/components/RadialBarFrequencyGraph";

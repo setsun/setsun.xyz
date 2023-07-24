@@ -1,10 +1,11 @@
 import { useFrame } from "@react-three/fiber";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { useRef } from "react";
 import { AudioAnalyser } from "three";
-import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 import VisualizerCanvas from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
+
 import { HilbertCurve, HilbertCurveRefData } from "./HibertCurve";
 
 const MainScene = ({
@@ -51,7 +52,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_01"
-      songProps={{
+      audioProps={{
         url: "/audio/Bring_Back.mp3",
         name: "Qrion - Bring Back",
         externalHref: "https://soundcloud.com/nesthq/qrion-bring-back",

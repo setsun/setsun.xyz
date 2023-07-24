@@ -1,7 +1,7 @@
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
-import { AudioAnalyser, Mesh, DoubleSide } from "three";
 import clamp from "lodash.clamp";
+import { useRef } from "react";
+import { AudioAnalyser, DoubleSide, Mesh } from "three";
 
 interface Props {
   audioAnalyzer: AudioAnalyser;

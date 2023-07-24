@@ -1,6 +1,6 @@
-import { useFrame } from "@react-three/fiber";
 import { Segment, SegmentObject, Segments } from "@react-three/drei";
-import { useState, createRef } from "react";
+import { useFrame } from "@react-three/fiber";
+import { createRef, useState } from "react";
 import { AudioAnalyser, Vector3 } from "three";
 
 interface Props {

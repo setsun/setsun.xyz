@@ -1,7 +1,7 @@
-import { useResponseCache as createResponseCache } from "@graphql-yoga/plugin-response-cache";
 import { createRedisCache } from "@envelop/response-cache-redis";
+import { useResponseCache as createResponseCache } from "@graphql-yoga/plugin-response-cache";
 import { client } from "database";
-import { createYoga, createSchema } from "graphql-yoga";
+import { createSchema, createYoga } from "graphql-yoga";
 import Redis from "ioredis";
 import { NextResponse } from "next/server";
 

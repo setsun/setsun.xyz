@@ -1,8 +1,8 @@
 import { useFrame } from "@react-three/fiber";
+import clamp from "lodash.clamp";
+import { MeshLineMaterial } from "meshline";
 import { useMemo, useRef } from "react";
 import { AudioAnalyser, CatmullRomCurve3, MathUtils, Vector3 } from "three";
-import { MeshLineMaterial } from "meshline";
-import clamp from "lodash.clamp";
 
 interface SparkLineProps {
   curve: Vector3[];
