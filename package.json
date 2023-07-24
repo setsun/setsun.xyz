@@ -8,8 +8,8 @@
     "dev": "turbo dev --concurrency 16",
     "lint": "turbo lint",
     "clean": "turbo clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "scripts:generate-previews": "turbo --filter=./packages/scripts scripts:generate-previews"
+    "format": "prettier --write \"**/*.{ts,tsx,md,css,glsl,frag,vert}\"",
+    "scripts:generate-previews": "turbo --filter=./packages/scripts spcripts:generate-previews"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -19,5 +19,5 @@
     "prettier-plugin-tailwindcss": "^0.1.11",
     "turbo": "^1.10.9"
   },
-  "packageManager": "pnpm@8.6.9"
+  "packageManager": "pnpm@8.6.10"
 }

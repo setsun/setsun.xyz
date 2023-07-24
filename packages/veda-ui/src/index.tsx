@@ -15,3 +15,6 @@ export * from "./components/ui/use-toast";
 
 // Shader UI components
 export * from "./components/shaders/shader-preview";
+
+// Hooks
+export * from "./hooks/use-shader-uniforms";

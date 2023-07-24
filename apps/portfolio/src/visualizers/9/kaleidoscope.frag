@@ -2,6 +2,8 @@
 precision mediump float;
 #endif
 
+#pragma glslify: PI = require(glsl-constants/PI)
+
 // screen resolution / elapsed time
 uniform vec2 u_resolution;
 uniform float u_time;
@@ -15,11 +17,11 @@ uniform vec3 u_color_d;
 // other modifiers
 uniform float u_scale;
 
-#pragma glslify: rotate2d = require(./transforms/rotate2d.glsl)
-#pragma glslify: scale2d = require(./transforms/scale2d.glsl)
+#pragma glslify: rotate2d = require(../../shaders/transforms/rotate2d.glsl)
+#pragma glslify: scale2d = require(../../shaders/transforms/scale2d.glsl)
 
 vec3 palette(float t) {
-  return u_color_a + u_color_b*cos( 6.28318*(u_color_c*t+u_color_d) );
+  return u_color_a + u_color_b*cos(PI * 2. * (u_color_c * t + u_color_d));
 }
 
 void main(){
