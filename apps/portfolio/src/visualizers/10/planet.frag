@@ -9,7 +9,8 @@ uniform vec3 u_color_c;
 uniform vec3 u_color_d;
 
 // data from the vertex shader
-varying vec2 vUv;
+varying vec2 v_uv;
+varying float v_displacement;
 
 #pragma glslify: fbm2 = require(../../shaders/noise/fbm2d)
 #pragma glslify: palette = require(../../shaders/color/palette)
@@ -30,7 +31,7 @@ float pattern(in vec2 p, float multiplier) {
 
 void main() {
   // assign uv coordinates sent from the vertex shader
-  vec2 uv = vUv;
+  vec2 uv = v_uv;
 
   // correct the aspect ratio
   float aspect_ratio = u_resolution.x / u_resolution.y;
@@ -44,8 +45,10 @@ void main() {
     5. + sin(u_time * 0.3) + sin(u_time * 0.2) + cos(u_time * 0.3)
   );
 
+  float distortion_factor = v_displacement * 0.3;
+
   vec3 color = palette(
-    noise,
+    noise + distortion_factor,
     u_color_a,
     u_color_b,
     u_color_c,
