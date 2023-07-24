@@ -1,19 +1,20 @@
-import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import clamp from "lodash.clamp";
 import sample from "lodash.sample";
+import { MeshLineGeometry } from "meshline";
+import { useMemo, useRef } from "react";
 import { AudioAnalyser, MathUtils } from "three";
+
 import {
-  createAttractor,
-  updateAttractor,
   aizawaAttractor,
   arneodoAttractor,
+  createAttractor,
   dadrasAttractor,
   dequanAttractor,
   lorenzAttractor,
   lorenzMod2Attractor,
+  updateAttractor,
 } from "@/utils/attractors";
-import { MeshLineGeometry } from "meshline";
 
 const simulation = () =>
   sample<Function>([

@@ -1,10 +1,10 @@
 import { Canvas } from "@react-three/fiber";
+import { Leva, useControls } from "leva";
 import { useState } from "react";
-import { useControls, Leva } from "leva";
 import { Color } from "three";
 import tunnel from "tunnel-rat";
-
 import { Button, ShaderPreview } from "veda-ui";
+
 import kaledioscope from "./kaleidoscope.frag";
 
 const HtmlTunnel = tunnel();

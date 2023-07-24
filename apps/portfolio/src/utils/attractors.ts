@@ -1,5 +1,5 @@
-import { Vector3, Vector3Tuple } from "three";
 import * as random from "maath/random";
+import { Vector3, Vector3Tuple } from "three";
 
 export function createAttractor(length: number, start?: number[]) {
   const positions = [];

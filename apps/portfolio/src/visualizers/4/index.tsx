@@ -1,20 +1,21 @@
 import { useFrame } from "@react-three/fiber";
+import { Bloom, EffectComposer, GodRays } from "@react-three/postprocessing";
 import {
   InstancedRigidBodies,
-  RapierRigidBody,
   Physics,
+  RapierRigidBody,
 } from "@react-three/rapier";
-import { useRef, Suspense, useMemo } from "react";
-import { Bloom, EffectComposer, GodRays } from "@react-three/postprocessing";
-import CustomShaderMaterial from "three-custom-shader-material";
 import clamp from "lodash.clamp";
-import { AudioAnalyser, MeshPhysicalMaterial, Vector3 } from "three";
 import * as random from "maath/random";
 import { GodRaysEffect } from "postprocessing";
+import { Suspense, useMemo, useRef } from "react";
+import { AudioAnalyser, MeshPhysicalMaterial, Vector3 } from "three";
+import CustomShaderMaterial from "three-custom-shader-material";
 import { useShaderUniforms } from "veda-ui";
 
-import { useTurntable } from "@/hooks/useTurntable";
 import VisualizerCanvas from "@/components/VisualizerCanvas";
+import { useTurntable } from "@/hooks/useTurntable";
+
 import { AttractorSun, AttractorSunRefData } from "./AttractorSun";
 import displaceInstancesVertexShader from "./displace-instances.vert";
 
@@ -155,7 +156,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_04"
-      songProps={{
+      audioProps={{
         url: "/audio/Bloodstream.mp3",
         name: "Ferry Corsten - Bloodstream",
         externalHref:

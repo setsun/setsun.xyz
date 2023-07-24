@@ -7,12 +7,12 @@ Source: https://sketchfab.com/3d-models/sketch-cat-79c1321b05ca47b79ee3111ff4495
 Title: Sketch Cat
 */
 
-import * as THREE from "three";
-import { useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
-import { GLTF } from "three-stdlib";
 import { GroupProps } from "@react-three/fiber";
+import { useMemo } from "react";
+import * as THREE from "three";
 import { Material } from "three";
+import { GLTF } from "three-stdlib";
 
 type GLTFResult = GLTF & {
   nodes: {

@@ -1,4 +1,3 @@
-import { useFrame, extend } from "@react-three/fiber";
 import {
   Center,
   Environment,
@@ -7,8 +6,9 @@ import {
   MeshReflectorMaterial,
   useMask,
 } from "@react-three/drei";
-import { useMemo, useRef } from "react";
+import { extend, useFrame } from "@react-three/fiber";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
+import { useMemo, useRef } from "react";
 import {
   CatmullRomCurve3,
   DoubleSide,
@@ -20,6 +20,7 @@ import {
 
 import VisualizerCanvas from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
+
 import { SketchCat } from "./SketchCat";
 
 const colors = ["#fbe555", "#fb9224", "#f45905", "#ffeed0", "#feff89"];

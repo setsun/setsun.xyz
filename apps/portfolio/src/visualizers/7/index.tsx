@@ -3,6 +3,7 @@ import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { AudioAnalyser } from "three";
 
 import VisualizerCanvas from "@/components/VisualizerCanvas";
+
 import AttractorsStorm from "./AttractorsStorm";
 import Sparks from "./Sparks";
 
@@ -47,7 +48,7 @@ const MainScene = ({
 const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => (
   <VisualizerCanvas
     headline="VISUALIZER_07"
-    songProps={{
+    audioProps={{
       url: "/audio/Burning.mp3",
       name: "Eli & Fur - Burning ft. Camden Cox",
       externalHref:

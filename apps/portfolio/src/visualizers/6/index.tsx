@@ -2,6 +2,7 @@ import { CameraShake, Sparkles } from "@react-three/drei";
 import { AudioAnalyser } from "three";
 
 import VisualizerCanvas from "@/components/VisualizerCanvas";
+
 import MovingRoad from "./MovingRoad";
 
 const MainScene = ({
@@ -34,7 +35,7 @@ const MainScene = ({
 const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => (
   <VisualizerCanvas
     headline="VISUALIZER_06"
-    songProps={{
+    audioProps={{
       url: "/audio/Hold_On_Remix.mp3",
       name: "Rezident - The Anjunadeep Edition 328",
       externalHref:

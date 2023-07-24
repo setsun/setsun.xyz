@@ -2,9 +2,10 @@ import { Stars } from "@react-three/drei";
 import { AudioAnalyser, Color, Euler } from "three";
 import ThreeGlobe from "three-globe";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
 import RadialBarFrequencyGraph from "@/components/RadialBarFrequencyGraph";
+import VisualizerCanvas from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
+
 import json from "./data/globe.json";
 
 const arcsData = [...new Array(300)].map(() => ({
@@ -88,7 +89,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_05"
-      songProps={{
+      audioProps={{
         url: "/audio/Sun_&_Moon_Remix.mp3",
         name: "Above & Beyond feat. Richard Bedford - Sun & Moon (ilan Bluestone Remix)",
         externalHref:

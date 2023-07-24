@@ -1,9 +1,10 @@
 "use client";
 
-import { animated, useTransition, useSpring } from "@react-spring/web";
-import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
-import { useState } from "react";
+import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { animated, useSpring, useTransition } from "@react-spring/web";
 import classNames from "classnames";
+import { useState } from "react";
+
 import { NAVIGATION_ITEMS, SOCIAL_LINKS } from "@/common/constants";
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
 }
 
 const MIN_WIDTH = "64px";
-const MAX_WIDTH = "192px";
+const MAX_WIDTH = "128px";
 
 const SideNavigation: React.FC<Props> = ({ className }) => {
   const [isOpen, setOpen] = useState(false);
