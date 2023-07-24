@@ -50,6 +50,7 @@
     "react-spinners": "^0.13.8",
     "simplex-noise": "^4.0.1",
     "three": "^0.154.0",
+    "three-custom-shader-material": "^5.4.0",
     "three-globe": "2.27.4",
     "three-stdlib": "^2.23.13",
     "tunnel-rat": "^0.1.2",
