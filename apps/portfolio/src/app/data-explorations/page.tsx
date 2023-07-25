@@ -11,7 +11,7 @@ const linkData = [
 const DataExplorations: React.FC = () => {
   return (
     <div className="h-screen w-full overflow-y-auto">
-      <div className="block w-full border-b-2 p-4">
+      <div className="block w-full border-b-2 border-r-2 p-4">
         <h2 className="font-antonio mb-2 text-2xl">Data Explorations</h2>
         <p className="font-inter text-xs font-thin">
           Deriving meaning and visual insights from data

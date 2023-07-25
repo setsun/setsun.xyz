@@ -41,6 +41,15 @@ const VisualizerEleven = dynamic(() => import("@/visualizers/11"), {
 const VisualizerTwelve = dynamic(() => import("@/visualizers/12"), {
   ssr: false,
 });
+const VisualizerThirteen = dynamic(() => import("@/visualizers/13"), {
+  ssr: false,
+});
+const VisualizerFourteen = dynamic(() => import("@/visualizers/14"), {
+  ssr: false,
+});
+const VisualizerFifteen = dynamic(() => import("@/visualizers/15"), {
+  ssr: false,
+});
 
 const VisualizerScene: React.FC<{
   pageNumber: number;
@@ -71,6 +80,12 @@ const VisualizerScene: React.FC<{
       return <VisualizerEleven fallback={fallback} />;
     case 12:
       return <VisualizerTwelve fallback={fallback} />;
+    case 13:
+      return <VisualizerThirteen fallback={fallback} />;
+    case 14:
+      return <VisualizerFourteen fallback={fallback} />;
+    case 15:
+      return <VisualizerFifteen fallback={fallback} />;
     default:
       return null;
   }

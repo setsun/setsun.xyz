@@ -37,7 +37,7 @@ export default async function Writing() {
 
   return (
     <div className="h-screen w-full overflow-y-auto">
-      <div className="block w-full border-b-2 p-4">
+      <div className="block w-full border-b-2 border-r-2 p-4">
         <h2 className="font-antonio mb-2 text-2xl">Writing</h2>
         <p className="font-inter text-xs font-thin">
           Personal musings and technical distillations
