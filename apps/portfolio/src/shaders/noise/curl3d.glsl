@@ -1,11 +1,11 @@
 // source: https://github.com/cabbibo/glsl-curl-noise
 
-#pragma glslify: snoise = require(glsl-noise/simplex/3d)
+#pragma glslify: snoise3d = require(glsl-noise/simplex/3d)
 
 vec3 snoise_vec3(vec3 x) {
-  float s = snoise(vec3(x));
-  float s1 = snoise(vec3(x.y - 19.1, x.z + 33.4, x.x + 47.2));
-  float s2 = snoise(vec3(x.z + 74.2, x.x - 124.5, x.y + 99.4));
+  float s = snoise3d(vec3(x));
+  float s1 = snoise3d(vec3(x.y - 19.1, x.z + 33.4, x.x + 47.2));
+  float s2 = snoise3d(vec3(x.z + 74.2, x.x - 124.5, x.y + 99.4));
   vec3 c = vec3(s, s1, s2);
   return c;
 }
