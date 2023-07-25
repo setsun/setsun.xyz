@@ -1,10 +1,18 @@
-import { PauseIcon, PlayIcon } from "@radix-ui/react-icons";
+import { InfoCircledIcon, PauseIcon, PlayIcon } from "@radix-ui/react-icons";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, CanvasProps } from "@react-three/fiber";
 import { Leva, useControls } from "leva";
 import { useEffect, useState } from "react";
 import { AudioAnalyser } from "three";
-import { Button } from "veda-ui";
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "veda-ui";
 
 import { useAudioAnalyzer } from "@/hooks/useAudioAnalyzer";
 
@@ -28,6 +36,7 @@ export interface VisualizerCanvasProps {
   controls?: Record<string, any>;
   className?: string;
   camera?: Partial<Omit<CanvasProps["camera"], "attach" | "children">>;
+  info?: React.ReactNode;
 }
 
 type VisualizerControlsProps = {
@@ -68,6 +77,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   headline,
   className,
   camera,
+  info,
 }) => {
   const [isCanvasCreated, setIsCanvasCreated] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -144,30 +154,48 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
             )}
           </div>
 
-          <div className="text-right">
-            <p className="font-antonio text-2xl">{headline}</p>
+          <div className="flex flex-col items-end justify-between text-right">
+            <div>
+              <p className="font-antonio text-2xl">{headline}</p>
 
-            {controls && (
-              <>
-                <Button
-                  variant="link"
-                  size="sm"
-                  className="p-0 text-xs underline"
-                  onClick={() => setShowControls(!showControls)}
-                >
-                  {showControls ? "Hide Controls" : "Show Controls"}
-                </Button>
+              {controls && (
+                <>
+                  <Button
+                    variant="link"
+                    size="sm"
+                    className="p-0 text-xs"
+                    onClick={() => setShowControls(!showControls)}
+                  >
+                    {showControls ? "Hide Controls" : "Show Controls"}
+                  </Button>
 
-                <Leva
-                  hidden={!showControls}
-                  titleBar={{
-                    position: {
-                      x: 0,
-                      y: 72,
-                    },
-                  }}
-                />
-              </>
+                  <Leva
+                    hidden={!showControls}
+                    titleBar={{
+                      position: {
+                        x: 0,
+                        y: 72,
+                      },
+                    }}
+                  />
+                </>
+              )}
+            </div>
+
+            {info && (
+              <Dialog>
+                <DialogTrigger>
+                  <Button variant="link" size="icon" className="p-0">
+                    <InfoCircledIcon />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle className="mb-2">{headline}</DialogTitle>
+                    <DialogDescription>{info}</DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
             )}
           </div>
         </div>
