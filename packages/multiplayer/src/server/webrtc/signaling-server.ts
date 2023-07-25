@@ -102,13 +102,13 @@ const onconnection = (conn) => {
                   const topic = map.setIfUndefined(
                     topics,
                     topicName,
-                    () => new Set()
+                    () => new Set(),
                   );
                   topic.add(conn);
                   // add topic to conn
                   subscribedTopics.add(topicName);
                 }
-              }
+              },
             );
             break;
           case "unsubscribe":
@@ -118,7 +118,7 @@ const onconnection = (conn) => {
                 if (subs) {
                   subs.delete(conn);
                 }
-              }
+              },
             );
             break;
           case "publish":
@@ -134,7 +134,7 @@ const onconnection = (conn) => {
             send(conn, { type: "pong" });
         }
       }
-    }
+    },
   );
 };
 wss.on("connection", onconnection);

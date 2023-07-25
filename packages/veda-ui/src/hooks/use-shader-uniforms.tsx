@@ -19,7 +19,7 @@ const useShaderUniforms = ({ uniforms, onUniformUpdate }: Args) => {
       u_time: { value: 0 },
       ...uniforms,
     }),
-    []
+    [],
   );
 
   useFrame(({ clock, mouse, size }) => {

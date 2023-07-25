@@ -10,8 +10,8 @@ export function updateGeometryVertices(
   onUpdate: (
     currentVertex: Vector3,
     positionAttribute: BufferAttribute | InterleavedBufferAttribute,
-    index: number
-  ) => void
+    index: number,
+  ) => void,
 ) {
   const positionAttribute = geometry.getAttribute("position");
 

@@ -34,6 +34,6 @@ export default function Icon() {
     // ImageResponse options
     {
       ...size,
-    }
+    },
   );
 }

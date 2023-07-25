@@ -37,7 +37,7 @@
 function unmute(
   context,
   allowBackgroundPlayback?: boolean,
-  forceIOSBehavior?: boolean
+  forceIOSBehavior?: boolean,
 ) {
   if (allowBackgroundPlayback === void 0) {
     allowBackgroundPlayback = false;
@@ -139,7 +139,7 @@ function unmute(
       [pageVisibilityAPI.visibilitychange],
       doc_visChange,
       true,
-      true
+      true,
     );
   /**
    * Handles blur events (only used on iOS because it doesn't dispatch vis change events properly).
@@ -302,7 +302,7 @@ function unmute(
     mediaPlaybackEvents,
     win_mediaPlaybackEvent,
     true,
-    true
+    true,
   );
   //#endregion
   return {
@@ -319,7 +319,7 @@ function unmute(
           [pageVisibilityAPI.visibilitychange],
           doc_visChange,
           true,
-          true
+          true,
         );
       if (isIOS)
         removeEventListeners(
@@ -327,21 +327,21 @@ function unmute(
           ["focus", "blur"],
           win_focusChange,
           true,
-          true
+          true,
         );
       removeEventListeners(
         window,
         mediaPlaybackEvents,
         win_mediaPlaybackEvent,
         true,
-        true
+        true,
       );
       removeEventListeners(
         context,
         ["statechange"],
         context_statechange,
         true,
-        true
+        true,
       );
       if (context.onstatechange === context_statechange)
         context.onstatechange = null;

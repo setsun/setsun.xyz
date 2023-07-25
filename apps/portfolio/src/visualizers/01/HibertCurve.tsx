@@ -26,7 +26,7 @@ export const HilbertCurve = forwardRef<HilbertCurveRefData, Props>(
           p.y,
           p.z,
         ]),
-      [size, iterations]
+      [size, iterations],
     );
 
     const vertexColors = useMemo<[number, number, number][]>(
@@ -34,7 +34,7 @@ export const HilbertCurve = forwardRef<HilbertCurveRefData, Props>(
         new Array(points.length)
           .fill(0)
           .map(() => [Math.random(), Math.random(), Math.random()]),
-      [points.length]
+      [points.length],
     );
 
     // forward ref data for usage for modification, such as for animations
@@ -60,7 +60,7 @@ export const HilbertCurve = forwardRef<HilbertCurveRefData, Props>(
         vertexColors={vertexColors}
       />
     );
-  }
+  },
 );
 
 HilbertCurve.displayName = "HilbertCurve";

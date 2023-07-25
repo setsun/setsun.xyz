@@ -32,7 +32,7 @@ const PATH = new CatmullRomCurve3(
     const z = point[1];
 
     return new Vector3(x, y, z);
-  })
+  }),
 );
 
 const MainScene = () => {
