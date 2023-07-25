@@ -43,10 +43,10 @@ const linkData = [
     title: "_10",
     imageSrc: "/images/visualizer-previews/10.png",
   },
-  // {
-  //   title: "_11",
-  //   imageSrc: "/images/visualizer-previews/11.png",
-  // },
+  {
+    title: "_11",
+    imageSrc: "/images/visualizer-previews/11.png",
+  },
   // {
   //   title: "_12",
   //   imageSrc: "/images/visualizer-previews/12.png",
@@ -57,7 +57,10 @@ const Visualizer: React.FC = () => {
   return (
     <div className="h-screen w-full overflow-y-auto">
       <div className="block w-full border-b-2 p-4">
-        <p className="font-antonio text-2xl">3D Visualizers</p>
+        <h2 className="font-antonio mb-2 text-2xl">Visualizers</h2>
+        <p className="font-inter text-xs font-thin">
+          A collection of 3D & 2D visual experiments
+        </p>
       </div>
 
       {linkData.map(({ title, imageSrc }, index) => (
