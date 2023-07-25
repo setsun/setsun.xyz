@@ -43,6 +43,14 @@ const linkData = [
     title: "_10",
     imageSrc: "/images/visualizer-previews/10.png",
   },
+  // {
+  //   title: "_11",
+  //   imageSrc: "/images/visualizer-previews/11.png",
+  // },
+  // {
+  //   title: "_12",
+  //   imageSrc: "/images/visualizer-previews/12.png",
+  // },
 ] as const;
 
 const Visualizer: React.FC = () => {

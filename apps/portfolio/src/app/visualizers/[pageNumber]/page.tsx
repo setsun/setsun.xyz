@@ -11,24 +11,34 @@ import { initializeUnmute } from "@/vendor/unmute";
 // add <meshLineGeometry /> and <meshLineMaterial /> to the r3f scope
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-const VisualizerOne = dynamic(() => import("@/visualizers/1"), { ssr: false });
-const VisualizerTwo = dynamic(() => import("@/visualizers/2"), { ssr: false });
-const VisualizerThree = dynamic(() => import("@/visualizers/3"), {
+const VisualizerOne = dynamic(() => import("@/visualizers/01"), { ssr: false });
+const VisualizerTwo = dynamic(() => import("@/visualizers/02"), { ssr: false });
+const VisualizerThree = dynamic(() => import("@/visualizers/03"), {
   ssr: false,
 });
-const VisualizerFour = dynamic(() => import("@/visualizers/4"), { ssr: false });
-const VisualizerFive = dynamic(() => import("@/visualizers/5"), { ssr: false });
-const VisualizerSix = dynamic(() => import("@/visualizers/6"), { ssr: false });
-const VisualizerSeven = dynamic(() => import("@/visualizers/7"), {
+const VisualizerFour = dynamic(() => import("@/visualizers/04"), {
   ssr: false,
 });
-const VisualizerEight = dynamic(() => import("@/visualizers/8"), {
+const VisualizerFive = dynamic(() => import("@/visualizers/05"), {
   ssr: false,
 });
-const VisualizerNine = dynamic(() => import("@/visualizers/9"), {
+const VisualizerSix = dynamic(() => import("@/visualizers/06"), { ssr: false });
+const VisualizerSeven = dynamic(() => import("@/visualizers/07"), {
+  ssr: false,
+});
+const VisualizerEight = dynamic(() => import("@/visualizers/08"), {
+  ssr: false,
+});
+const VisualizerNine = dynamic(() => import("@/visualizers/09"), {
   ssr: false,
 });
 const VisualizerTen = dynamic(() => import("@/visualizers/10"), {
+  ssr: false,
+});
+const VisualizerEleven = dynamic(() => import("@/visualizers/11"), {
+  ssr: false,
+});
+const VisualizerTwelve = dynamic(() => import("@/visualizers/12"), {
   ssr: false,
 });
 
@@ -54,9 +64,13 @@ const Visualizer: React.FC<{
     case 8:
       return <VisualizerEight fallback={fallback} />;
     case 9:
-      return <VisualizerNine />;
+      return <VisualizerNine fallback={fallback} />;
     case 10:
-      return <VisualizerTen />;
+      return <VisualizerTen fallback={fallback} />;
+    case 11:
+      return <VisualizerEleven fallback={fallback} />;
+    case 12:
+      return <VisualizerTwelve fallback={fallback} />;
     default:
       return null;
   }
