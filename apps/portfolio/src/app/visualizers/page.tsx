@@ -53,7 +53,7 @@ const linkData = [
   // },
 ] as const;
 
-const Visualizer: React.FC = () => {
+const Visualizers: React.FC = () => {
   return (
     <div className="h-screen w-full overflow-y-auto">
       <div className="block w-full border-b-2 p-4">
@@ -75,4 +75,4 @@ const Visualizer: React.FC = () => {
   );
 };
 
-export default Visualizer;
+export default Visualizers;
