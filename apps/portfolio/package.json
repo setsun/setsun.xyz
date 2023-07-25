@@ -33,6 +33,7 @@
     "glsl-rotate": "^2.0.0",
     "glsl-sdf-ops": "^0.0.3",
     "glsl-sdf-primitives": "^0.0.1",
+    "glsl-voronoi-noise": "^1.2.2",
     "graphql": "^16.7.1",
     "graphql-yoga": "^4.0.3",
     "ioredis": "^5.3.2",
