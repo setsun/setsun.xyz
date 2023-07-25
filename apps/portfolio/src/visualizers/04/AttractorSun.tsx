@@ -40,7 +40,7 @@ export const AttractorSun = forwardRef<AttractorSunRefData, Props>(
         </mesh>
       </RigidBody>
     );
-  }
+  },
 );
 
 AttractorSun.displayName = "AttractorSun";

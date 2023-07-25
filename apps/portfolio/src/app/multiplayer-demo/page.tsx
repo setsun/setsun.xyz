@@ -40,7 +40,7 @@ const MainScene = () => {
       playerMesh?.position?.set?.(
         playerPosition[0],
         playerPosition[1],
-        playerPosition[2]
+        playerPosition[2],
       );
     }
   });

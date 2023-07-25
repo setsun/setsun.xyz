@@ -19,7 +19,7 @@ export function updateAttractor(
   currentPosition: Vector3,
   scale: number,
   simulation: Function,
-  timeStep: number
+  timeStep: number,
 ) {
   const [dx, dy, dz] = simulation(currentPosition.toArray(), timeStep);
 
@@ -120,7 +120,7 @@ export function lorenzMod2Attractor([x, y, z]: Vector3Tuple, timestep: number) {
 
 export function threeScrollUnifiedChaoticSystemAttractor(
   [x, y, z]: Vector3Tuple,
-  timestep: number
+  timestep: number,
 ) {
   const a = 40;
   const b = 0.833;

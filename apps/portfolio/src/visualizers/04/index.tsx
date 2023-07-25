@@ -79,14 +79,14 @@ const MainScene = ({
         y: Math.sin(clock.getElapsedTime()) * 1.25,
         z: 0,
       },
-      true
+      true,
     );
 
     if (godraysRef.current?.godRaysMaterial) {
       godraysRef.current.godRaysMaterial.weight = clamp(
         analyzer.getAverageFrequency() / 150,
         0.8,
-        1.05
+        1.05,
       );
     }
 

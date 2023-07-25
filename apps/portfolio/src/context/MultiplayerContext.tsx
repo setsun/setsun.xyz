@@ -42,7 +42,7 @@ type MultiplayerAction =
 
 type MultiplayerReducer = (
   state: MultiplayerState,
-  action: MultiplayerAction
+  action: MultiplayerAction,
 ) => MultiplayerState;
 
 const initialState: MultiplayerState = {
@@ -55,7 +55,7 @@ const multiplayerReducer: MultiplayerReducer = (state, action) => {
       // todo: check if there is a better way to check duplicates
       const existingPlayerIds = new Set(state.players.map(({ id }) => id));
       const newPlayerIds = action.payload.filter(
-        (id) => !existingPlayerIds.has(id)
+        (id) => !existingPlayerIds.has(id),
       );
 
       const newPlayers = newPlayerIds.map((id) => ({
@@ -103,7 +103,7 @@ const MultiplayerContextProvider = ({
 }: Props) => {
   const [state, dispatch] = useReducer<MultiplayerReducer>(
     multiplayerReducer,
-    initialState
+    initialState,
   );
 
   useEffect(() => {
@@ -138,7 +138,7 @@ const MultiplayerContextProvider = ({
         position: data.position,
       });
     },
-    [yNetworkProvider]
+    [yNetworkProvider],
   );
 
   const getPlayerStates = useCallback(() => {

@@ -115,34 +115,36 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
       </Canvas>
 
       {isCanvasCreated && (
-        <div className="absolute left-0 top-0 h-full w-full p-4 text-xs">
-          {audioProps && (
-            <div className="absolute left-0 top-0 p-4">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center"
-                href={audioProps.externalHref}
-              >
-                <b>{audioProps.name} ↗</b>
-              </a>
-              <p className="m-0">⸻</p>
+        <div className="absolute left-0 top-0 flex h-full w-full justify-between p-4 text-xs">
+          <div className="mr-4 text-left">
+            {audioProps && (
+              <>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center"
+                  href={audioProps.externalHref}
+                >
+                  <b>{audioProps.name} ↗</b>
+                </a>
+                <p className="m-0">⸻</p>
 
-              <button
-                className="flex items-center"
-                onClick={() => setIsPlaying(!isPlaying)}
-              >
-                {isPlaying ? (
-                  <PauseIcon className="mr-1 inline" />
-                ) : (
-                  <PlayIcon className="mr-1 inline" />
-                )}
-                {isPlaying ? "Pause" : "Play"}
-              </button>
-            </div>
-          )}
+                <button
+                  className="flex items-center"
+                  onClick={() => setIsPlaying(!isPlaying)}
+                >
+                  {isPlaying ? (
+                    <PauseIcon className="mr-1 inline" />
+                  ) : (
+                    <PlayIcon className="mr-1 inline" />
+                  )}
+                  {isPlaying ? "Pause" : "Play"}
+                </button>
+              </>
+            )}
+          </div>
 
-          <div className="absolute right-0 top-0 p-4 text-right">
+          <div className="text-right">
             <p className="font-antonio text-2xl">{headline}</p>
 
             {controls && (
@@ -151,7 +153,6 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
                   variant="link"
                   size="sm"
                   className="p-0 text-xs underline"
-                  style={{ pointerEvents: "all" }}
                   onClick={() => setShowControls(!showControls)}
                 >
                   {showControls ? "Hide Controls" : "Show Controls"}

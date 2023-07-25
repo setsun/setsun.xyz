@@ -72,7 +72,7 @@ function MetaBall({ color, position, audioAnalyzer, ...props }: MetaBallProps) {
         .copy(rigidBodyRef.current.translation() as Vector3)
         .normalize()
         .multiplyScalar(delta * multiplier * modifier),
-      true
+      true,
     );
   });
 
@@ -125,32 +125,32 @@ const MainScene = ({
     mesh1.position.set(
       Math.sin(elapsedTime) * -0.5,
       0,
-      Math.cos(elapsedTime) * 0.5
+      Math.cos(elapsedTime) * 0.5,
     );
     mesh2.position.set(
       0,
       Math.cos(elapsedTime) * 0.5,
-      Math.sin(elapsedTime) * 0.5
+      Math.sin(elapsedTime) * 0.5,
     );
     mesh3.position.set(
       Math.sin(elapsedTime) * 0.5,
       Math.cos(elapsedTime) * 0.5,
-      0
+      0,
     );
     mesh4.position.set(
       Math.sin(elapsedTime) * -0.5,
       0,
-      Math.cos(elapsedTime) * 0.5
+      Math.cos(elapsedTime) * 0.5,
     );
     mesh5.position.set(
       Math.cos(elapsedTime) * 0.5,
       0,
-      Math.sin(elapsedTime) * -0.5
+      Math.sin(elapsedTime) * -0.5,
     );
     mesh6.position.set(
       Math.cos(elapsedTime) * -0.5,
       Math.sin(elapsedTime) * 0.5,
-      0
+      0,
     );
   });
 

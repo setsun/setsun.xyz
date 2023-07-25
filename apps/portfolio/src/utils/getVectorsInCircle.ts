@@ -6,7 +6,7 @@ import { Vector3 } from "three";
 export const getVectorsInCircle = (
   values: number[],
   radius: number,
-  modifier: number
+  modifier: number,
 ): Vector3[] => {
   // todo: why dis work tho 🤷🏻‍♂️
   return [...values, 0].map((value, index) => {

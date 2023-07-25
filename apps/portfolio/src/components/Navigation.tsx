@@ -33,7 +33,7 @@ const SideNavigation: React.FC<Props> = ({ className }) => {
       style={springStyle}
       className={classNames(
         "relative flex flex-col items-center border-r-2 border-r-zinc-200",
-        className
+        className,
       )}
     >
       <button onClick={() => setOpen(!isOpen)} className="my-4">
