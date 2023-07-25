@@ -42,7 +42,7 @@ const VisualizerTwelve = dynamic(() => import("@/visualizers/12"), {
   ssr: false,
 });
 
-const Visualizer: React.FC<{
+const VisualizerScene: React.FC<{
   pageNumber: number;
   fallback: React.ReactNode;
 }> = ({ pageNumber, fallback }) => {
@@ -76,7 +76,7 @@ const Visualizer: React.FC<{
   }
 };
 
-const Visualizers: React.FC<{ params: { pageNumber: string } }> = (props) => {
+const Visualizer: React.FC<{ params: { pageNumber: string } }> = (props) => {
   const pageNumber = parseInt(props.params.pageNumber);
 
   const fallback = (
@@ -95,9 +95,9 @@ const Visualizers: React.FC<{ params: { pageNumber: string } }> = (props) => {
 
   return (
     <Suspense fallback={fallback}>
-      <Visualizer pageNumber={pageNumber} fallback={fallback} />
+      <VisualizerScene pageNumber={pageNumber} fallback={fallback} />
     </Suspense>
   );
 };
 
-export default Visualizers;
+export default Visualizer;
