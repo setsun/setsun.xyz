@@ -22,7 +22,7 @@ const MainScene = () => {
   return (
     <group ref={turntableRef}>
       <mesh ref={meshRef}>
-        <dodecahedronGeometry args={[2, 10]} />
+        <dodecahedronGeometry args={[2, 32]} />
         <shaderMaterial
           fragmentShader={planetFragmentShader}
           vertexShader={planetVertexShader}
