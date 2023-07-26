@@ -1,3 +1,4 @@
+import { Color } from "three";
 import { useShaderUniforms } from "veda-ui";
 
 import VisualizerCanvas from "@/components/VisualizerCanvas";
@@ -6,7 +7,13 @@ import gradientFragmentShader from "./gradient.frag";
 import gradientVertexShader from "./gradient.vert";
 
 const MainScene = () => {
-  const { meshRef, uniforms } = useShaderUniforms({});
+  const { meshRef, uniforms } = useShaderUniforms({
+    uniforms: {
+      u_bg_color: { value: new Color("#ffaff8") },
+      u_color_a: { value: new Color("#00ffff") },
+      u_color_b: { value: new Color("#6ceec8") },
+    },
+  });
 
   return (
     <mesh ref={meshRef}>

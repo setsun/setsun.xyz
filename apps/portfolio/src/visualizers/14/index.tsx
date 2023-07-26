@@ -1,7 +1,12 @@
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 import { createNoise3D } from "simplex-noise";
-import { CatmullRomCurve3, MeshBasicMaterial, Vector3 } from "three";
+import {
+  CatmullRomCurve3,
+  MeshBasicMaterial,
+  TextureLoader,
+  Vector3,
+} from "three";
 import CustomShaderMaterial from "three-custom-shader-material";
 import { useShaderUniforms } from "veda-ui";
 
@@ -37,6 +42,8 @@ const MainScene = () => {
   const percentageRef = useRef(0);
 
   const { meshRef, uniforms } = useShaderUniforms({});
+
+  const texture = useLoader(TextureLoader, "/images/eye-sketch.png");
 
   useFrame(({ camera }) => {
     percentageRef.current += 0.0002;
