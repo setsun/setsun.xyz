@@ -3,7 +3,7 @@ import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { useRef } from "react";
 import { AudioAnalyser } from "three";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 
 import { HilbertCurve, HilbertCurveRefData } from "./HibertCurve";
@@ -48,7 +48,10 @@ const MainScene = ({
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_01"
@@ -60,7 +63,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
       camera={{
         position: [-125, 75, 25],
       }}
-      fallback={fallback}
+      {...props}
     >
       {({ analyzer, isPlaying }) => (
         <>

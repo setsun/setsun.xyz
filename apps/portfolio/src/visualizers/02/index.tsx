@@ -4,7 +4,7 @@ import { GlitchMode } from "postprocessing";
 import { AudioAnalyser, Vector2 } from "three";
 
 import RadialBarFrequencyGraph from "@/components/RadialBarFrequencyGraph";
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 
 import Blob from "./Blob";
@@ -57,7 +57,10 @@ const MainScene = ({
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_02"
@@ -70,7 +73,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
       camera={{
         position: [550, 325, -500],
       }}
-      fallback={fallback}
+      {...props}
     >
       {({ analyzer, isPlaying }) => (
         <>

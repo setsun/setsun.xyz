@@ -10,7 +10,7 @@ import {
 import CustomShaderMaterial from "three-custom-shader-material";
 import { useShaderUniforms } from "veda-ui";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 
 import displaceTubeVertexShader from "./displace-tube.vert";
 
@@ -73,7 +73,10 @@ const MainScene = () => {
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_14"
@@ -83,7 +86,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
         externalHref:
           "https://soundcloud.com/anjunabeats/grum-feat-natalie-shay-afterglow",
       }}
-      fallback={fallback}
+      {...props}
     >
       {() => <MainScene />}
     </VisualizerCanvas>

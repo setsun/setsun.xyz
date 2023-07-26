@@ -2,7 +2,7 @@ import { Stars } from "@react-three/drei";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { AudioAnalyser } from "three";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 
 import AttractorsStorm from "./AttractorsStorm";
 import Sparks from "./Sparks";
@@ -45,7 +45,10 @@ const MainScene = ({
   </>
 );
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => (
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => (
   <VisualizerCanvas
     headline="VISUALIZER_07"
     audioProps={{
@@ -57,7 +60,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => (
     camera={{
       position: [0, 0, -60],
     }}
-    fallback={fallback}
+    {...props}
   >
     {({ analyzer, isPlaying }) => (
       <MainScene analyzer={analyzer} isPlaying={isPlaying} />

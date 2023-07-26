@@ -1,7 +1,7 @@
 import { Color } from "three";
 import { useShaderUniforms } from "veda-ui";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 
 import planetFragmentShader from "./planet.frag";
@@ -33,9 +33,12 @@ const MainScene = () => {
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
-    <VisualizerCanvas headline="VISUALIZER_10" fallback={fallback}>
+    <VisualizerCanvas headline="VISUALIZER_10" {...props}>
       {() => <MainScene />}
     </VisualizerCanvas>
   );

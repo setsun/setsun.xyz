@@ -18,7 +18,7 @@ import {
   Vector3,
 } from "three";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 
 import { SketchCat } from "./SketchCat";
@@ -167,7 +167,10 @@ const MainScene = () => {
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_08"
@@ -179,7 +182,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
           -0.0994871453099729,
         ),
       }}
-      fallback={fallback}
+      {...props}
     >
       {() => <MainScene />}
     </VisualizerCanvas>

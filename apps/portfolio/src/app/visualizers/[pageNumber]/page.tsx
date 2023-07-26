@@ -6,10 +6,13 @@ import dynamic from "next/dynamic";
 import { Suspense, useEffect } from "react";
 import SquareLoader from "react-spinners/SquareLoader";
 
+import { Pagination } from "@/components/VisualizerCanvas";
 import { initializeUnmute } from "@/vendor/unmute";
 
 // add <meshLineGeometry /> and <meshLineMaterial /> to the r3f scope
 extend({ MeshLineGeometry, MeshLineMaterial });
+
+const TOTAL_PUBLIC_PAGES = 12;
 
 const VisualizerOne = dynamic(() => import("@/visualizers/01"), { ssr: false });
 const VisualizerTwo = dynamic(() => import("@/visualizers/02"), { ssr: false });
@@ -52,40 +55,42 @@ const VisualizerFifteen = dynamic(() => import("@/visualizers/15"), {
 });
 
 const VisualizerScene: React.FC<{
-  pageNumber: number;
+  pagination: Pagination;
   fallback: React.ReactNode;
-}> = ({ pageNumber, fallback }) => {
-  switch (pageNumber) {
+}> = ({ pagination, fallback }) => {
+  const { currentPage } = pagination;
+
+  switch (currentPage) {
     case 1:
-      return <VisualizerOne fallback={fallback} />;
+      return <VisualizerOne fallback={fallback} pagination={pagination} />;
     case 2:
-      return <VisualizerTwo fallback={fallback} />;
+      return <VisualizerTwo fallback={fallback} pagination={pagination} />;
     case 3:
-      return <VisualizerThree fallback={fallback} />;
+      return <VisualizerThree fallback={fallback} pagination={pagination} />;
     case 4:
-      return <VisualizerFour fallback={fallback} />;
+      return <VisualizerFour fallback={fallback} pagination={pagination} />;
     case 5:
-      return <VisualizerFive fallback={fallback} />;
+      return <VisualizerFive fallback={fallback} pagination={pagination} />;
     case 6:
-      return <VisualizerSix fallback={fallback} />;
+      return <VisualizerSix fallback={fallback} pagination={pagination} />;
     case 7:
-      return <VisualizerSeven fallback={fallback} />;
+      return <VisualizerSeven fallback={fallback} pagination={pagination} />;
     case 8:
-      return <VisualizerEight fallback={fallback} />;
+      return <VisualizerEight fallback={fallback} pagination={pagination} />;
     case 9:
-      return <VisualizerNine fallback={fallback} />;
+      return <VisualizerNine fallback={fallback} pagination={pagination} />;
     case 10:
-      return <VisualizerTen fallback={fallback} />;
+      return <VisualizerTen fallback={fallback} pagination={pagination} />;
     case 11:
-      return <VisualizerEleven fallback={fallback} />;
+      return <VisualizerEleven fallback={fallback} pagination={pagination} />;
     case 12:
-      return <VisualizerTwelve fallback={fallback} />;
+      return <VisualizerTwelve fallback={fallback} pagination={pagination} />;
     case 13:
-      return <VisualizerThirteen fallback={fallback} />;
+      return <VisualizerThirteen fallback={fallback} pagination={pagination} />;
     case 14:
-      return <VisualizerFourteen fallback={fallback} />;
+      return <VisualizerFourteen fallback={fallback} pagination={pagination} />;
     case 15:
-      return <VisualizerFifteen fallback={fallback} />;
+      return <VisualizerFifteen fallback={fallback} pagination={pagination} />;
     default:
       return null;
   }
@@ -108,9 +113,14 @@ const Visualizer: React.FC<{ params: { pageNumber: string } }> = (props) => {
     };
   }, []);
 
+  const pagination = {
+    currentPage: pageNumber,
+    totalPages: TOTAL_PUBLIC_PAGES,
+  };
+
   return (
     <Suspense fallback={fallback}>
-      <VisualizerScene pageNumber={pageNumber} fallback={fallback} />
+      <VisualizerScene pagination={pagination} fallback={fallback} />
     </Suspense>
   );
 };
