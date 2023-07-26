@@ -1,5 +1,6 @@
 import { useThree } from "@react-three/fiber";
 import { ShaderMaterial } from "three";
+
 import { useShaderUniforms } from "@/hooks/use-shader-uniforms";
 
 interface Props {
