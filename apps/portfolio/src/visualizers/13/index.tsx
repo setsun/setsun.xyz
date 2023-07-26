@@ -1,5 +1,5 @@
 import { Center } from "@react-three/drei";
-import { Color, ShaderMaterial } from "three";
+import { Color } from "three";
 import { useShaderUniforms } from "veda-ui";
 
 import VisualizerCanvas from "@/components/VisualizerCanvas";
@@ -25,15 +25,15 @@ const MainScene = () => {
   return (
     <>
       <Center
-        scale={[0.2, 0.2, 0.2]}
+        scale={[0.3, 0.3, 0.3]}
         rotation={[0, -Math.PI / 2, -Math.PI / 16]}
         ref={turntableRef}
       >
         <LilyFlower />
       </Center>
 
-      <mesh ref={meshRef} position={[0, 0, -1]}>
-        <planeGeometry args={[16, 16, 128, 128]} />
+      <mesh ref={meshRef} position={[0, 0, -2]}>
+        <planeGeometry args={[20, 20, 128, 128]} />
         <shaderMaterial
           vertexShader={gradientVertexShader}
           fragmentShader={gradientFragmentShader}
