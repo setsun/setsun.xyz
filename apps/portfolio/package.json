@@ -25,6 +25,7 @@
     "@vercel/edge-config": "^0.2.1",
     "classnames": "^2.3.2",
     "database": "workspace:*",
+    "gl-matrix": "^3.4.3",
     "glsl-conditionals": "^2.0.1",
     "glsl-constants": "^2.0.0",
     "glsl-easings": "^1.0.0",
