@@ -2,8 +2,22 @@ import { useShaderUniforms } from "veda-ui";
 
 import VisualizerCanvas from "@/components/VisualizerCanvas";
 
+import gradientFragmentShader from "./gradient.frag";
+import gradientVertexShader from "./gradient.vert";
+
 const MainScene = () => {
-  return null;
+  const { meshRef, uniforms } = useShaderUniforms({});
+
+  return (
+    <mesh ref={meshRef}>
+      <planeGeometry args={[16, 16, 128, 128]} />
+      <shaderMaterial
+        vertexShader={gradientVertexShader}
+        fragmentShader={gradientFragmentShader}
+        uniforms={uniforms}
+      />
+    </mesh>
+  );
 };
 
 const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
@@ -11,10 +25,9 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
     <VisualizerCanvas
       headline="VISUALIZER_13"
       audioProps={{
-        name: "Agents Of Time - The Mirage",
-        url: "/audio/The_Mirage.mp3",
-        externalHref:
-          "https://soundcloud.com/afterlifeofc/agents-of-time-the-mirage",
+        name: "Madeon - Miracle",
+        url: "/audio/Miracle.mp3",
+        externalHref: "https://soundcloud.com/madeon/miracle",
       }}
       fallback={fallback}
     >
