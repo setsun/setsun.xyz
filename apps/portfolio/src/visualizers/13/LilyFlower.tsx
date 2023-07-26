@@ -4,7 +4,12 @@ Command: npx gltfjsx@6.2.10 models/lily_flower.gltf --transform
 Files: models/lily_flower.gltf [410.78KB] > lily_flower-transformed.glb [23.9KB] (94%)
 */
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { MeshBasicMaterial } from "three";
+import CustomShaderMaterial from "three-custom-shader-material/vanilla";
 import { GLTF } from "three-stdlib";
+
+import displaceFlowerInstancedVertexShader from "./displace-flower-instanced.vert";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -16,34 +21,46 @@ type GLTFResult = GLTF & {
   materials: {};
 };
 
-type Props = JSX.IntrinsicElements["group"] & {
-  customMaterial?: THREE.Material;
-};
+const instancedShaderMaterial = new CustomShaderMaterial({
+  baseMaterial: MeshBasicMaterial,
+  wireframe: true,
+  uniforms: {
+    u_time: { value: 0 },
+    u_amplitude: { value: 2 },
+    u_base_frequency: { value: 2 },
+    u_top_frequency: { value: 16 },
+  },
+  vertexShader: displaceFlowerInstancedVertexShader,
+});
 
-export function LilyFlower({ customMaterial, ...rest }: Props) {
+export function LilyFlower(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/lily_flower-transformed.glb",
   ) as GLTFResult;
 
+  useFrame(({ clock }) => {
+    instancedShaderMaterial.uniforms.u_time.value = clock.getElapsedTime();
+  });
+
   return (
-    <group {...rest} dispose={null}>
+    <group {...props} dispose={null}>
       <mesh
         geometry={nodes.Cube_2.geometry}
-        material={nodes.Cube_2.material}
+        material={new MeshBasicMaterial({ wireframe: true })}
         position={[-2.459, 2.215, 1.645]}
         rotation={[-Math.PI, Math.PI / 3, -2.644]}
         scale={0.01}
       />
       <instancedMesh
-        args={[nodes.mesh_1.geometry, nodes.mesh_1.material, 7]}
+        args={[nodes.mesh_1.geometry, instancedShaderMaterial, 7]}
         instanceMatrix={nodes.mesh_1.instanceMatrix}
       />
       <instancedMesh
-        args={[nodes.mesh_2.geometry, nodes.mesh_2.material, 7]}
+        args={[nodes.mesh_2.geometry, instancedShaderMaterial, 7]}
         instanceMatrix={nodes.mesh_2.instanceMatrix}
       />
       <instancedMesh
-        args={[nodes.mesh_3.geometry, nodes.mesh_3.material, 7]}
+        args={[nodes.mesh_3.geometry, instancedShaderMaterial, 7]}
         instanceMatrix={nodes.mesh_3.instanceMatrix}
       />
     </group>
