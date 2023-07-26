@@ -1,10 +1,13 @@
-import { Color } from "three";
+import { Center } from "@react-three/drei";
+import { Color, ShaderMaterial } from "three";
 import { useShaderUniforms } from "veda-ui";
 
 import VisualizerCanvas from "@/components/VisualizerCanvas";
+import { useTurntable } from "@/hooks/useTurntable";
 
 import gradientFragmentShader from "./gradient.frag";
 import gradientVertexShader from "./gradient.vert";
+import { LilyFlower } from "./LilyFlower";
 
 const MainScene = () => {
   const { meshRef, uniforms } = useShaderUniforms({
@@ -15,15 +18,29 @@ const MainScene = () => {
     },
   });
 
+  const turntableRef = useTurntable({
+    speed: 0.003,
+  });
+
   return (
-    <mesh ref={meshRef}>
-      <planeGeometry args={[16, 16, 128, 128]} />
-      <shaderMaterial
-        vertexShader={gradientVertexShader}
-        fragmentShader={gradientFragmentShader}
-        uniforms={uniforms}
-      />
-    </mesh>
+    <>
+      <Center
+        scale={[0.2, 0.2, 0.2]}
+        rotation={[0, -Math.PI / 2, -Math.PI / 16]}
+        ref={turntableRef}
+      >
+        <LilyFlower />
+      </Center>
+
+      <mesh ref={meshRef} position={[0, 0, -1]}>
+        <planeGeometry args={[16, 16, 128, 128]} />
+        <shaderMaterial
+          vertexShader={gradientVertexShader}
+          fragmentShader={gradientFragmentShader}
+          uniforms={uniforms}
+        />
+      </mesh>
+    </>
   );
 };
 
