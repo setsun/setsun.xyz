@@ -1,7 +1,7 @@
 import { Color } from "three";
 import { ShaderPreview } from "veda-ui";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 
 import kaledioscope from "./kaleidoscope.frag";
 
@@ -29,7 +29,10 @@ const MainScene = ({ controls }: { controls: Record<string, any> }) => {
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_9"
@@ -40,7 +43,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
         u_color_c: "#a7a794",
         u_color_d: "#ffff72",
       }}
-      fallback={fallback}
+      {...props}
     >
       {({ controls }) => <MainScene controls={controls} />}
     </VisualizerCanvas>

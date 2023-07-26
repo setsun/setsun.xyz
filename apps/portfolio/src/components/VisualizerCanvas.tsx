@@ -1,8 +1,15 @@
-import { InfoCircledIcon, PauseIcon, PlayIcon } from "@radix-ui/react-icons";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  InfoCircledIcon,
+  PauseIcon,
+  PlayIcon,
+} from "@radix-ui/react-icons";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, CanvasProps } from "@react-three/fiber";
 import classNames from "classnames";
 import { Leva, useControls } from "leva";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AudioAnalyser } from "three";
 import {
@@ -24,10 +31,17 @@ type FunctionAsChildren = (props: {
   isPlaying: boolean;
 }) => React.ReactNode;
 
+export interface Pagination {
+  currentPage: number;
+  totalPages: number;
+}
+
 export interface VisualizerCanvasProps {
   children: FunctionAsChildren;
-  fallback?: React.ReactNode;
   headline: string;
+  pagination: Pagination;
+  className?: string;
+  fallback?: React.ReactNode;
   audioProps?: {
     url: string;
     name: string;
@@ -35,7 +49,6 @@ export interface VisualizerCanvasProps {
   };
   // todo: this type could be better
   controls?: Record<string, any>;
-  className?: string;
   camera?: Partial<Omit<CanvasProps["camera"], "attach" | "children">>;
   info?: React.ReactNode;
 }
@@ -72,6 +85,7 @@ const VisualizerControls: React.FC<VisualizerControlsProps> = ({
 
 const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   children,
+  pagination,
   fallback,
   audioProps,
   controls,
@@ -87,6 +101,9 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   const [{ ...controlsData }] = useControls(() => ({
     ...controls,
   }));
+
+  const isFirstPage = pagination.currentPage === 1;
+  const isLastPage = pagination.currentPage === pagination.totalPages;
 
   return (
     <div
@@ -130,63 +147,93 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
       </Canvas>
 
       {isCanvasCreated && (
-        <div className="absolute left-0 top-0 flex h-full w-full justify-between p-4 text-xs">
-          <div className="mr-4 text-left">
-            {audioProps && (
-              <>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center"
-                  href={audioProps.externalHref}
-                >
-                  <b>{audioProps.name} ↗</b>
-                </a>
-                <p className="m-0">⸻</p>
-
-                <button
-                  className="flex items-center"
-                  onClick={() => setIsPlaying(!isPlaying)}
-                >
-                  {isPlaying ? (
-                    <PauseIcon className="mr-1 inline" />
-                  ) : (
-                    <PlayIcon className="mr-1 inline" />
-                  )}
-                  {isPlaying ? "Pause" : "Play"}
-                </button>
-              </>
-            )}
-          </div>
-
-          <div className="flex flex-col items-end justify-between text-right">
-            <div>
-              <p className="font-antonio text-2xl">{headline}</p>
-
-              {controls && (
+        <div className="absolute left-0 top-0 grid h-full w-full grid-cols-1 grid-rows-3 justify-between p-4 text-xs">
+          <div className="flex items-start justify-between">
+            <div className="mr-4 text-left">
+              {audioProps && (
                 <>
-                  <Button
-                    variant="link"
-                    size="sm"
-                    className="p-0 text-xs"
-                    onClick={() => setShowControls(!showControls)}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center"
+                    href={audioProps.externalHref}
                   >
-                    {showControls ? "Hide Controls" : "Show Controls"}
-                  </Button>
+                    <b>{audioProps.name} ↗</b>
+                  </a>
+                  <p className="m-0">⸻</p>
 
-                  <Leva
-                    hidden={!showControls}
-                    titleBar={{
-                      position: {
-                        x: 0,
-                        y: 72,
-                      },
-                    }}
-                  />
+                  <button
+                    className="flex items-center"
+                    onClick={() => setIsPlaying(!isPlaying)}
+                  >
+                    {isPlaying ? (
+                      <PauseIcon className="mr-1 inline" />
+                    ) : (
+                      <PlayIcon className="mr-1 inline" />
+                    )}
+                    {isPlaying ? "Pause" : "Play"}
+                  </button>
                 </>
               )}
             </div>
 
+            <div className="text-right">
+              <div>
+                <p className="font-antonio text-2xl">{headline}</p>
+
+                {controls && (
+                  <>
+                    <Button
+                      variant="link"
+                      size="sm"
+                      className="p-0 text-xs"
+                      onClick={() => setShowControls(!showControls)}
+                    >
+                      {showControls ? "Hide Controls" : "Show Controls"}
+                    </Button>
+
+                    <Leva
+                      hidden={!showControls}
+                      titleBar={{
+                        position: {
+                          x: 0,
+                          y: 72,
+                        },
+                      }}
+                    />
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <Button
+              variant="link"
+              size="icon"
+              className="p-0"
+              disabled={isFirstPage}
+            >
+              {/** todo: this component is getting to be a little messy / not reusable in many contexts */}
+              <Link href={`/visualizers/${pagination.currentPage - 1}`}>
+                <ArrowLeftIcon />
+              </Link>
+            </Button>
+
+            <Button
+              variant="link"
+              size="icon"
+              className="p-0"
+              disabled={isLastPage}
+            >
+              {/** todo: this component is getting to be a little messy / not reusable in many contexts */}
+              <Link href={`/visualizers/${pagination.currentPage + 1}`}>
+                <ArrowRightIcon />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="flex items-end justify-end">
             {info && (
               <Dialog>
                 <DialogTrigger>

@@ -2,7 +2,7 @@ import { Center } from "@react-three/drei";
 import { AudioAnalyser, Color } from "three";
 import { useShaderUniforms } from "veda-ui";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 import { avg, max } from "@/utils/arrays";
 import { modulate } from "@/utils/math";
@@ -84,7 +84,10 @@ const MainScene = ({
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_12"
@@ -93,7 +96,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
         url: "/audio/Miracle.mp3",
         externalHref: "https://soundcloud.com/madeon/miracle",
       }}
-      fallback={fallback}
+      {...props}
     >
       {({ analyzer, isPlaying }) => (
         <MainScene analyzer={analyzer} isPlaying={isPlaying} />

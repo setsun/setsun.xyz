@@ -1,7 +1,7 @@
 import { CameraShake, Sparkles } from "@react-three/drei";
 import { AudioAnalyser } from "three";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 
 import MovingRoad from "./MovingRoad";
 
@@ -32,7 +32,10 @@ const MainScene = ({
   </>
 );
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => (
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => (
   <VisualizerCanvas
     headline="VISUALIZER_06"
     audioProps={{
@@ -44,7 +47,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => (
     camera={{
       position: [0, 0.05, 1.1],
     }}
-    fallback={fallback}
+    {...props}
   >
     {({ analyzer, isPlaying }) => (
       <MainScene analyzer={analyzer} isPlaying={isPlaying} />

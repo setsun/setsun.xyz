@@ -1,6 +1,6 @@
 import { AudioAnalyser } from "three";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 
 import { FBOParticles } from "./FBOParticles";
 
@@ -14,7 +14,10 @@ const MainScene = ({
   return <FBOParticles size={512} />;
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_13"
@@ -24,7 +27,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
         externalHref:
           "https://soundcloud.com/afterlifeofc/agents-of-time-the-mirage",
       }}
-      fallback={fallback}
+      {...props}
       camera={{
         position: [0, 0, 3],
       }}

@@ -17,7 +17,7 @@ import {
   Vector3,
 } from "three";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 
 const box = new BoxGeometry();
@@ -216,7 +216,10 @@ const MainScene = ({
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_03"
@@ -229,7 +232,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
       camera={{
         position: [0, 0, -2.25],
       }}
-      fallback={fallback}
+      {...props}
     >
       {({ analyzer, isPlaying }) => (
         <>

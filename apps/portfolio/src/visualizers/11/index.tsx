@@ -1,7 +1,7 @@
 import { Color, Vector2 } from "three";
 import { useShaderUniforms } from "veda-ui";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 
 import oceanFragmentShader from "./ocean.frag";
 import oceanVertexShader from "./ocean.vert";
@@ -48,11 +48,14 @@ const MainScene = ({ controls }: { controls: Record<string, any> }) => {
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_11"
-      fallback={fallback}
+      {...props}
       controls={{
         u_amplitude: 0.25,
         u_speed: 0.25,

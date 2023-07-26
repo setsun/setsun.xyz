@@ -3,7 +3,7 @@ import { AudioAnalyser, Color, Euler } from "three";
 import ThreeGlobe from "three-globe";
 
 import RadialBarFrequencyGraph from "@/components/RadialBarFrequencyGraph";
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 
 import json from "./data/globe.json";
@@ -85,7 +85,10 @@ const MainScene = ({
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_05"
@@ -99,7 +102,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
         position: [135, 10, 160],
         rotation: new Euler(-0.075, 0.68, 0.05),
       }}
-      fallback={fallback}
+      {...props}
     >
       {({ analyzer, isPlaying }) => (
         <MainScene analyzer={analyzer} isPlaying={isPlaying} />

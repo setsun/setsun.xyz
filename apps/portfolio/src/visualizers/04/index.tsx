@@ -13,7 +13,7 @@ import { AudioAnalyser, MeshPhysicalMaterial, Vector3 } from "three";
 import CustomShaderMaterial from "three-custom-shader-material";
 import { useShaderUniforms } from "veda-ui";
 
-import VisualizerCanvas from "@/components/VisualizerCanvas";
+import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
 
 import { AttractorSun, AttractorSunRefData } from "./AttractorSun";
@@ -152,7 +152,10 @@ const MainScene = ({
   );
 };
 
-const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
+const Visualizer: React.FC<{
+  pagination: Pagination;
+  fallback?: React.ReactNode;
+}> = (props) => {
   return (
     <VisualizerCanvas
       headline="VISUALIZER_04"
@@ -165,7 +168,7 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
       camera={{
         position: [0, 16, -16],
       }}
-      fallback={fallback}
+      {...props}
     >
       {({ analyzer, isPlaying }) => (
         <Suspense>
