@@ -1,47 +1,17 @@
-import { Center } from "@react-three/drei";
-import { Color } from "three";
-import { useShaderUniforms } from "veda-ui";
+import { AudioAnalyser } from "three";
 
 import VisualizerCanvas from "@/components/VisualizerCanvas";
-import { useTurntable } from "@/hooks/useTurntable";
 
-import gradientFragmentShader from "./gradient.frag";
-import gradientVertexShader from "./gradient.vert";
-import { LilyFlower } from "./LilyFlower";
+import { FBOParticles } from "./FBOParticles";
 
-const MainScene = () => {
-  const { meshRef, uniforms } = useShaderUniforms({
-    uniforms: {
-      u_bg_color: { value: new Color("#ffaff8") },
-      u_color_a: { value: new Color("#00ffff") },
-      u_color_b: { value: new Color("#6ceec8") },
-    },
-  });
-
-  const turntableRef = useTurntable({
-    speed: 0.003,
-  });
-
-  return (
-    <>
-      <Center
-        scale={[0.3, 0.3, 0.3]}
-        rotation={[0, -Math.PI / 2, -Math.PI / 16]}
-        ref={turntableRef}
-      >
-        <LilyFlower />
-      </Center>
-
-      <mesh ref={meshRef} position={[0, 0, -2]}>
-        <planeGeometry args={[20, 20, 128, 128]} />
-        <shaderMaterial
-          vertexShader={gradientVertexShader}
-          fragmentShader={gradientFragmentShader}
-          uniforms={uniforms}
-        />
-      </mesh>
-    </>
-  );
+const MainScene = ({
+  analyzer,
+  isPlaying,
+}: {
+  analyzer: AudioAnalyser;
+  isPlaying: boolean;
+}) => {
+  return <FBOParticles size={512} />;
 };
 
 const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
@@ -49,13 +19,19 @@ const Visualizer: React.FC<{ fallback?: React.ReactNode }> = ({ fallback }) => {
     <VisualizerCanvas
       headline="VISUALIZER_13"
       audioProps={{
-        name: "Madeon - Miracle",
-        url: "/audio/Miracle.mp3",
-        externalHref: "https://soundcloud.com/madeon/miracle",
+        name: "Agents Of Time - The Mirage",
+        url: "/audio/The_Mirage.mp3",
+        externalHref:
+          "https://soundcloud.com/afterlifeofc/agents-of-time-the-mirage",
       }}
       fallback={fallback}
+      camera={{
+        position: [0, 0, 3],
+      }}
     >
-      {() => <MainScene />}
+      {({ analyzer, isPlaying }) => (
+        <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+      )}
     </VisualizerCanvas>
   );
 };
