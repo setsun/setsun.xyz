@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
 import { Canvas } from "@react-three/fiber";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { ShaderPreview } from "@/components/shaders/shader-preview";
 import practiceFrag from "@/shaders/practice.frag";

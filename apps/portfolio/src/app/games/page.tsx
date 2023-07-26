@@ -11,7 +11,7 @@ const linkData = [
 const Games: React.FC = () => {
   return (
     <div className="h-screen w-full overflow-y-auto">
-      <div className="block w-full border-b-2 border-r-2 p-4">
+      <div className="block w-full border-b border-r p-4">
         <h2 className="font-antonio mb-2 text-2xl">Games</h2>
         <p className="font-inter text-xs font-thin">
           A collection of games made for the web

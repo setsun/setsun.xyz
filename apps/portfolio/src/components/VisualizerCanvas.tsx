@@ -1,6 +1,7 @@
 import { InfoCircledIcon, PauseIcon, PlayIcon } from "@radix-ui/react-icons";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, CanvasProps } from "@react-three/fiber";
+import classNames from "classnames";
 import { Leva, useControls } from "leva";
 import { useEffect, useState } from "react";
 import { AudioAnalyser } from "three";
@@ -88,9 +89,13 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   }));
 
   return (
-    <div className={`relative h-screen ${className}`}>
-      {!isCanvasCreated && fallback}
-
+    <div
+      className={classNames(
+        `relative h-screen ${className}`,
+        isCanvasCreated ? "animate-fade-in" : "opacity-0",
+      )}
+      style={{ animationFillMode: "forwards", animationDuration: "2s" }}
+    >
       <Canvas
         shadows
         resize={{ debounce: 0 }}

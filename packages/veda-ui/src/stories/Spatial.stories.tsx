@@ -1,12 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
 import { Html, Icosahedron, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import type { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-
 import { Calendar } from "@/components/ui/calendar";
-
 import {
   Dialog,
   DialogContent,
@@ -15,10 +13,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
-import { useState } from "react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {

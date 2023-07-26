@@ -1,5 +1,5 @@
-import { useMemo, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
+import { useMemo, useRef } from "react";
 import { Mesh, ShaderMaterial } from "three";
 
 interface Args {
@@ -19,6 +19,7 @@ const useShaderUniforms = ({ uniforms, onUniformUpdate }: Args) => {
       u_time: { value: 0 },
       ...uniforms,
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
 

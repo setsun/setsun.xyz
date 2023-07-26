@@ -12,7 +12,7 @@ export type PostProps = {
 
 const Post: React.FC<{ post: PostProps }> = ({ post }) => (
   <Link
-    className="block h-1/3 w-1/2 border-b-2 border-r-2 p-4"
+    className="block h-1/3 w-1/2 border-b border-r p-4"
     href={`/writing/${post.id}`}
   >
     <p className="font-antonio mb-2 text-2xl">{post.title}</p>
@@ -37,7 +37,7 @@ export default async function Writing() {
 
   return (
     <div className="h-screen w-full overflow-y-auto">
-      <div className="block w-full border-b-2 border-r-2 p-4">
+      <div className="block w-full border-b border-r p-4">
         <h2 className="font-antonio mb-2 text-2xl">Writing</h2>
         <p className="font-inter text-xs font-thin">
           Personal musings and technical distillations
