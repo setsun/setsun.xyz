@@ -2,6 +2,9 @@ import { AudioAnalyser, MeshBasicMaterial } from "three";
 import CustomShaderMaterial from "three-custom-shader-material";
 import { useShaderUniforms } from "veda-ui";
 
+import { avg, max } from "@/utils/arrays";
+import { modulate } from "@/utils/math";
+
 import blobVertexShader from "./blob.vert";
 
 interface Props {
@@ -9,35 +12,6 @@ interface Props {
   detail?: number;
   amplitude?: number;
   audioAnalyzer: AudioAnalyser;
-}
-
-function fractionate(val: number, minVal: number, maxVal: number) {
-  return (val - minVal) / (maxVal - minVal);
-}
-
-function modulate(
-  val: number,
-  minVal: number,
-  maxVal: number,
-  outMin: number,
-  outMax: number,
-) {
-  let fr = fractionate(val, minVal, maxVal);
-  let delta = outMax - outMin;
-  return outMin + fr * delta;
-}
-
-function avg(arr: number[]) {
-  let total = arr.reduce(function (sum, b) {
-    return sum + b;
-  });
-  return total / arr.length;
-}
-
-function max(arr: number[]) {
-  return arr.reduce(function (a, b) {
-    return Math.max(a, b);
-  });
 }
 
 const Blob = ({
