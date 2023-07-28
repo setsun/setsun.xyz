@@ -68,7 +68,7 @@ const generateRandomData = (width: number, height: number) => {
 // The simulation material is used to store the position data for the particles, to eventually
 // be rendered in the final material which will display the particles in those positions
 class SimulationMaterial extends ShaderMaterial {
-  constructor(size: number, frequency: number) {
+  constructor(size: number, frequency: number, scale: number) {
     const positionsTexture = new DataTexture(
       generateRandomData(size, size),
       size,
@@ -83,6 +83,7 @@ class SimulationMaterial extends ShaderMaterial {
       uniforms: {
         u_positions: { value: positionsTexture },
         u_frequency: { value: frequency },
+        u_scale: { value: scale },
         u_time: { value: 0 },
       },
       vertexShader: simulationVertexShader,
@@ -96,9 +97,16 @@ extend({ SimulationMaterial });
 interface Props {
   size?: number;
   frequency?: number;
+  scale?: number;
+  onUniformUpdate?: (uniforms: ShaderMaterial["uniforms"]) => void;
 }
 
-const FBOParticles = ({ size = 128, frequency = 0.2 }: Props) => {
+const FBOParticles = ({
+  size = 128,
+  frequency = 0.2,
+  scale = 1.0,
+  onUniformUpdate,
+}: Props) => {
   const simulationMaterialRef = useRef<SimulationMaterial>(null!);
   const pointsRef = useRef<Points>(null!);
   const pointsUniforms = useMemo(() => {
@@ -149,6 +157,8 @@ const FBOParticles = ({ size = 128, frequency = 0.2 }: Props) => {
     // update the time for both material uniforms
     pointsMaterial.uniforms.u_time.value = clock.getElapsedTime();
     simulationMaterial.uniforms.u_time.value = clock.getElapsedTime();
+
+    onUniformUpdate?.(simulationMaterial.uniforms);
   });
 
   return (
@@ -158,7 +168,7 @@ const FBOParticles = ({ size = 128, frequency = 0.2 }: Props) => {
           {/* @ts-ignore */}
           <simulationMaterial
             ref={simulationMaterialRef}
-            args={[size, frequency]}
+            args={[size, frequency, scale]}
           />
           <bufferGeometry>
             <bufferAttribute
