@@ -18,7 +18,7 @@ const MainScene = ({
   return (
     <>
       <FBOParticles
-        size={768}
+        size={512}
         frequency={0.2}
         scale={0}
         onUniformUpdate={(uniforms) => {
@@ -58,6 +58,7 @@ const Visualizer: React.FC<{
       camera={{
         position: [0, 0, 2],
       }}
+      hasOrbitControls
     >
       {({ analyzer, isPlaying }) => (
         <MainScene analyzer={analyzer} isPlaying={isPlaying} />

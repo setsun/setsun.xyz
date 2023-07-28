@@ -63,6 +63,7 @@ const Visualizer: React.FC<{
       camera={{
         position: [-125, 75, 25],
       }}
+      hasOrbitControls
       {...props}
     >
       {({ analyzer, isPlaying }) => (

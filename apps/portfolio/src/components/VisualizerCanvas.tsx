@@ -51,6 +51,7 @@ export interface VisualizerCanvasProps {
   controls?: Record<string, any>;
   camera?: Partial<Omit<CanvasProps["camera"], "attach" | "children">>;
   info?: React.ReactNode;
+  hasOrbitControls?: boolean;
 }
 
 type VisualizerControlsProps = {
@@ -93,6 +94,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   className,
   camera,
   info,
+  hasOrbitControls,
 }) => {
   const [isCanvasCreated, setIsCanvasCreated] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -143,11 +145,13 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
           children({ controls: controlsData })
         )}
 
-        <OrbitControls />
+        {hasOrbitControls && <OrbitControls />}
       </Canvas>
 
       {isCanvasCreated && (
-        <div className="absolute left-0 top-0 grid h-full w-full grid-cols-1 grid-rows-3 justify-between p-4 text-xs">
+        <div className="pointer-events-none absolute left-0 top-0 grid h-full w-full grid-cols-1 grid-rows-3 justify-between p-4 text-xs">
+          {/** Note: we add "pointer-events-none to the container div above, because we want the Canvas to be clickable." */}
+          {/** We attach explicit pointer-event CSS classes to individual DOM button / link elements that we want to be interactive */}
           <div className="flex items-start justify-between">
             <div className="mr-4 text-left">
               {audioProps && (
@@ -155,7 +159,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center"
+                    className="pointer-events-auto inline-flex items-center"
                     href={audioProps.externalHref}
                   >
                     <b>{audioProps.name} ↗</b>
@@ -163,7 +167,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
                   <p className="m-0">⸻</p>
 
                   <button
-                    className="flex items-center"
+                    className="pointer-events-auto flex items-center"
                     onClick={() => setIsPlaying(!isPlaying)}
                   >
                     {isPlaying ? (
@@ -186,7 +190,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
                     <Button
                       variant="link"
                       size="sm"
-                      className="p-0 text-xs"
+                      className="pointer-events-auto p-0 text-xs"
                       onClick={() => setShowControls(!showControls)}
                     >
                       {showControls ? "Hide Controls" : "Show Controls"}
@@ -211,7 +215,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
             <Button
               variant="link"
               size="icon"
-              className="p-0"
+              className="pointer-events-auto p-0"
               disabled={isFirstPage}
             >
               {/** todo: this component is getting to be a little messy / not reusable in many contexts */}
@@ -223,7 +227,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
             <Button
               variant="link"
               size="icon"
-              className="p-0"
+              className="pointer-events-auto p-0"
               disabled={isLastPage}
             >
               {/** todo: this component is getting to be a little messy / not reusable in many contexts */}
@@ -237,7 +241,11 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
             {info && (
               <Dialog>
                 <DialogTrigger>
-                  <Button variant="link" size="icon" className="p-0">
+                  <Button
+                    variant="link"
+                    size="icon"
+                    className="pointer-events-auto p-0"
+                  >
                     <InfoCircledIcon />
                   </Button>
                 </DialogTrigger>
