@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "start:signaling-server": "ts-node ./src/server/webrtc/signaling-server.ts"
+    "build": "exit 0",
+    "dev": "node index.js",
+    "start": "node index.js"
   },
   "dependencies": {
     "lib0": "0.2.78",
