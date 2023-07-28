@@ -2,6 +2,7 @@ import clamp from "lodash.clamp";
 import { AudioAnalyser } from "three";
 
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
+import { useTurntable } from "@/hooks/useTurntable";
 
 import { FBOParticles } from "./FBOParticles";
 
@@ -15,8 +16,10 @@ const MainScene = ({
   analyzer: AudioAnalyser;
   isPlaying: boolean;
 }) => {
+  const turntableRef = useTurntable({ speed: 0.005 });
+
   return (
-    <>
+    <group ref={turntableRef}>
       <FBOParticles
         size={512}
         frequency={0.2}
@@ -37,7 +40,7 @@ const MainScene = ({
           uniforms.u_frequency.value = nextFrequency;
         }}
       />
-    </>
+    </group>
   );
 };
 
