@@ -2,6 +2,7 @@
 uniform sampler2D u_positions;
 uniform float u_time;
 uniform float u_frequency;
+uniform float u_scale;
 
 varying vec2 v_uv;
 
@@ -17,5 +18,5 @@ void main() {
 
   curl_pos += curl3d(curl_pos * u_frequency * 2.0) * 0.5;
 
-  gl_FragColor = vec4(mix(pos, curl_pos, u_time), 1.0);
+  gl_FragColor = vec4(mix(pos, curl_pos, u_scale), 1.0);
 }

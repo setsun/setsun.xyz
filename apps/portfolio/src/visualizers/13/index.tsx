@@ -1,8 +1,12 @@
+import clamp from "lodash.clamp";
 import { AudioAnalyser } from "three";
 
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 
 import { FBOParticles } from "./FBOParticles";
+
+const GROWTH_FACTOR = 0.0002;
+const DECAY_FACTOR = 0.0001;
 
 const MainScene = ({
   analyzer,
@@ -11,7 +15,30 @@ const MainScene = ({
   analyzer: AudioAnalyser;
   isPlaying: boolean;
 }) => {
-  return <FBOParticles size={512} />;
+  return (
+    <>
+      <FBOParticles
+        size={768}
+        frequency={0.2}
+        scale={0}
+        onUniformUpdate={(uniforms) => {
+          const averageFrequency = analyzer.getAverageFrequency();
+
+          let nextFrequency = uniforms.u_frequency.value;
+
+          if (averageFrequency > 0) {
+            nextFrequency += GROWTH_FACTOR;
+          } else {
+            nextFrequency -= DECAY_FACTOR;
+          }
+
+          nextFrequency = clamp(nextFrequency, 0.01, 0.6);
+
+          uniforms.u_frequency.value = nextFrequency;
+        }}
+      />
+    </>
+  );
 };
 
 const Visualizer: React.FC<{
@@ -29,7 +56,7 @@ const Visualizer: React.FC<{
       }}
       {...props}
       camera={{
-        position: [0, 0, 3],
+        position: [0, 0, 2],
       }}
     >
       {({ analyzer, isPlaying }) => (
