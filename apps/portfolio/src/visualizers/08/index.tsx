@@ -182,6 +182,7 @@ const Visualizer: React.FC<{
           -0.0994871453099729,
         ),
       }}
+      hasOrbitControls
       {...props}
     >
       {() => <MainScene />}

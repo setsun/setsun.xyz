@@ -38,7 +38,7 @@ const Visualizer: React.FC<{
   fallback?: React.ReactNode;
 }> = (props) => {
   return (
-    <VisualizerCanvas headline="VISUALIZER_10" {...props}>
+    <VisualizerCanvas headline="VISUALIZER_10" hasOrbitControls {...props}>
       {() => <MainScene />}
     </VisualizerCanvas>
   );
