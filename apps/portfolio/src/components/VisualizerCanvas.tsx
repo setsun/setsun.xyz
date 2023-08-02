@@ -117,6 +117,11 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
     >
       <Canvas
         shadows
+        gl={{
+          // todo: remove by Three.js 165
+          // https://discourse.threejs.org/t/updates-to-lighting-in-three-js-r155/53733
+          useLegacyLights: true
+        }}
         resize={{ debounce: 0 }}
         onCreated={() => {
           setIsCanvasCreated(true);

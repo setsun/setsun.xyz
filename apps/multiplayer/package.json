@@ -16,12 +16,12 @@
     "yjs": "^13.6.7"
   },
   "devDependencies": {
-    "eslint": "^8.45.0",
+    "eslint": "^8.46.0",
     "eslint-config-custom": "workspace:*",
     "tailwind-config": "workspace:*",
     "ts-node": "^10.9.1",
     "tsconfig": "workspace:*",
-    "tsup": "^7.1.0",
+    "tsup": "^7.2.0",
     "typescript": "^5.1.6"
   }
 }

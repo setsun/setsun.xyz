@@ -5,10 +5,10 @@
   "license": "MIT",
   "dependencies": {
     "eslint-config-next": "^13.4.12",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-react": "7.33.0",
-    "eslint-config-turbo": "^1.10.9"
+    "eslint-plugin-react": "7.33.1",
+    "eslint-config-turbo": "^1.10.12"
   },
   "publishConfig": {
     "access": "public"
