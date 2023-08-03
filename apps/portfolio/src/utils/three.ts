@@ -1,6 +1,7 @@
 import {
   BufferAttribute,
   BufferGeometry,
+  CatmullRomCurve3,
   InterleavedBufferAttribute,
   Vector3,
 } from "three";
@@ -74,4 +75,36 @@ export function getCanvasImageData(imageSrc: string) {
       return resolve(imageData);
     };
   });
+}
+
+export function getLogarithmicCurve({
+  linearCoefficient = 5,
+  logarithmicCoefficient = 0.01,
+  zScale = 1,
+}: {
+  linearCoefficient: number;
+  logarithmicCoefficient: number;
+  zScale: number;
+}) {
+  const points = [];
+
+  for (let i = 0.01; i <= 100; i += 0.1) {
+    const x =
+      linearCoefficient *
+      Math.pow(Math.E, logarithmicCoefficient * i) *
+      Math.cos(+i);
+
+    const y =
+      linearCoefficient *
+      Math.pow(Math.E, logarithmicCoefficient * i) *
+      Math.sin(+i);
+
+    const z = i * zScale;
+
+    points.push(new Vector3(x, y, z));
+  }
+
+  const curve = new CatmullRomCurve3(points).getPoints(5000);
+
+  return curve;
 }

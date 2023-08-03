@@ -10,7 +10,6 @@ import { useFrame } from "@react-three/fiber";
 import { MeshLineMaterial } from "meshline";
 import { useMemo, useRef } from "react";
 import {
-  CatmullRomCurve3,
   DoubleSide,
   Euler,
   MathUtils,
@@ -20,6 +19,7 @@ import {
 
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";
+import { getLogarithmicCurve } from "@/utils/three";
 
 import { SketchCat } from "./SketchCat";
 
@@ -61,29 +61,11 @@ const PortalLines = () => {
   const curves = useMemo(
     () =>
       new Array(4).fill(undefined).map((_, i) => {
-        const points = [];
-        const linearCoefficient = 5;
-        const logarithmicCoefficient = 0.01 * getVariance();
-
-        for (let i = 0.01; i <= 100; i += 0.1) {
-          const x =
-            linearCoefficient *
-            Math.pow(Math.E, logarithmicCoefficient * i) *
-            Math.cos(+i);
-
-          const y =
-            linearCoefficient *
-            Math.pow(Math.E, logarithmicCoefficient * i) *
-            Math.sin(+i);
-
-          const z = 0;
-
-          points.push(new Vector3(x, y, z));
-        }
-
-        const curve = new CatmullRomCurve3(points).getPoints(5000);
-
-        return curve;
+        return getLogarithmicCurve({
+          linearCoefficient: 5,
+          logarithmicCoefficient: 0.01 * getVariance(),
+          zScale: 0,
+        });
       }),
     [],
   );
