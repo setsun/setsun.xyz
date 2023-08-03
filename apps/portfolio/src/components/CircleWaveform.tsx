@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { AudioAnalyser, BufferGeometry } from "three";
 
-import { getVectorsInCircle } from "@/utils/getVectorsInCircle";
+import { getVectorsInCircle } from "@/utils/three";
 
 interface Props {
   audioAnalyzer: AudioAnalyser;
