@@ -81,10 +81,10 @@ const Visualizer: React.FC<{
     <VisualizerCanvas
       headline="VISUALIZER_14"
       audioProps={{
-        url: "/audio/Afterglow.mp3",
-        name: "Grum feat. Natalie Shay - Afterglow",
+        url: "/audio/Tomorrow.mp3",
+        name: "Grum feat. Dom Youdan - Tomorrow",
         externalHref:
-          "https://soundcloud.com/anjunabeats/grum-feat-natalie-shay-afterglow",
+          "https://soundcloud.com/anjunabeats/4-grum-feat-dom-youdan-tomorrow-extended-mix",
       }}
       {...props}
     >

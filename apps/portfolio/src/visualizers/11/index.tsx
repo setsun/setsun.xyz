@@ -1,49 +1,74 @@
-import { Color, Vector2 } from "three";
-import { useShaderUniforms } from "veda-ui";
+import { useFrame } from "@react-three/fiber";
+import { MeshLineMaterial } from "meshline";
+import { useMemo, useRef } from "react";
+import { AudioAnalyser, MathUtils, Vector3 } from "three";
 
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
+import { getLogarithmicCurve } from "@/utils/three";
 
-import oceanFragmentShader from "./ocean.frag";
-import oceanVertexShader from "./ocean.vert";
+const getVariance = () => MathUtils.randFloat(1.5, 2);
 
-const MainScene = ({ controls }: { controls: Record<string, any> }) => {
-  const {
-    u_amplitude,
-    u_speed,
-    u_frequency,
-    u_high_color,
-    u_low_color,
-    wireframe,
-  } = controls;
+const BlackHoleLine: React.FC<{
+  curve: Vector3[];
+  analyzer: AudioAnalyser;
+}> = ({ curve, analyzer }) => {
+  const material = useRef<MeshLineMaterial>(null!);
 
-  const { meshRef, uniforms } = useShaderUniforms({
-    uniforms: {
-      u_amplitude: { value: u_amplitude },
-      u_speed: { value: u_speed },
-      u_frequency: { value: u_frequency },
-      u_high_color: { value: new Color(u_high_color) },
-      u_low_color: { value: new Color(u_low_color) },
-    },
-    onUniformUpdate(uniforms) {
-      uniforms.u_amplitude.value = u_amplitude;
-      uniforms.u_speed.value = u_speed;
-      uniforms.u_frequency.value = u_frequency;
-      uniforms.u_high_color.value = new Color(u_high_color);
-      uniforms.u_low_color.value = new Color(u_low_color);
-    },
+  const dashOffset = useMemo(() => getVariance(), []);
+
+  useFrame(() => {
+    const averageFrequency = analyzer.getAverageFrequency();
+    const minimumOffset = 0.00003;
+    const offset = averageFrequency / 300_000;
+
+    material.current.uniforms.dashOffset.value -= offset + minimumOffset;
   });
 
   return (
-    <group rotation={[-Math.PI / 3, 0, -Math.PI / 3]}>
-      <mesh ref={meshRef}>
-        <planeGeometry args={[8, 8, 128, 128]} />
-        <shaderMaterial
-          wireframe={wireframe}
-          vertexShader={oceanVertexShader}
-          fragmentShader={oceanFragmentShader}
-          uniforms={uniforms}
-        />
-      </mesh>
+    <mesh>
+      <meshLineGeometry
+        attach="geometry"
+        points={curve as unknown as number[]}
+      />
+      <meshLineMaterial
+        ref={material}
+        transparent
+        depthTest={false}
+        lineWidth={0.005}
+        color="white"
+        dashArray={0.05}
+        dashOffset={dashOffset}
+        dashRatio={0.9}
+      />
+    </mesh>
+  );
+};
+
+const MainScene = ({
+  analyzer,
+  isPlaying,
+}: {
+  analyzer: AudioAnalyser;
+  isPlaying: boolean;
+}) => {
+  const curves = useMemo(
+    () =>
+      new Array(150).fill(undefined).map((_, i) =>
+        getLogarithmicCurve({
+          linearCoefficient: 1.25,
+          logarithmicCoefficient: 0.005 + i * 0.0005,
+          zScale: 0.01 + i * 0.0025,
+          mirror: true,
+        }),
+      ),
+    [],
+  );
+
+  return (
+    <group rotation={[-Math.PI / 5, Math.PI / 6, 0]}>
+      {curves.map((curve, i) => (
+        <BlackHoleLine key={i} curve={curve} analyzer={analyzer} />
+      ))}
     </group>
   );
 };
@@ -55,17 +80,20 @@ const Visualizer: React.FC<{
   return (
     <VisualizerCanvas
       headline="VISUALIZER_11"
-      {...props}
-      controls={{
-        u_amplitude: 0.25,
-        u_speed: 0.25,
-        u_frequency: new Vector2(4, 1),
-        u_high_color: "#8888ff",
-        u_low_color: "#0000ff",
-        wireframe: true,
+      camera={{
+        position: [0, -12, 0],
       }}
+      audioProps={{
+        url: "/audio/Tomorrow.mp3",
+        name: "Grum feat. Dom Youdan - Tomorrow",
+        externalHref:
+          "https://soundcloud.com/anjunabeats/4-grum-feat-dom-youdan-tomorrow-extended-mix",
+      }}
+      {...props}
     >
-      {({ controls }) => <MainScene controls={controls} />}
+      {({ analyzer, isPlaying }) => (
+        <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+      )}
     </VisualizerCanvas>
   );
 };
