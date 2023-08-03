@@ -81,14 +81,37 @@ export function getLogarithmicCurve({
   linearCoefficient = 5,
   logarithmicCoefficient = 0.01,
   zScale = 1,
+  mirror,
 }: {
   linearCoefficient: number;
   logarithmicCoefficient: number;
   zScale: number;
+  mirror?: boolean;
 }) {
   const points = [];
 
-  for (let i = 0.01; i <= 100; i += 0.1) {
+  // if we are mirroring the curve, we need to generate the points in reverse order
+  if (mirror) {
+    for (let i = 100; i >= 0; i -= 0.05) {
+      const x =
+        linearCoefficient *
+        Math.pow(Math.E, logarithmicCoefficient * i) *
+        Math.cos(+i) *
+        -1;
+
+      const y =
+        linearCoefficient *
+        Math.pow(Math.E, logarithmicCoefficient * i) *
+        Math.sin(+i) *
+        -1;
+
+      const z = -(i * zScale);
+
+      points.push(new Vector3(x, y, z));
+    }
+  }
+
+  for (let i = 0; i <= 100; i += 0.05) {
     const x =
       linearCoefficient *
       Math.pow(Math.E, logarithmicCoefficient * i) *

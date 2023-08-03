@@ -51,10 +51,10 @@ const linkData = [
     title: "_12",
     imageSrc: "/images/visualizer-previews/12.png",
   },
-  // {
-  //   title: "_13",
-  //   imageSrc: "/images/visualizer-previews/13.png",
-  // },
+  {
+    title: "_13",
+    imageSrc: "/images/visualizer-previews/13.png",
+  },
   // {
   //   title: "_14",
   //   imageSrc: "/images/visualizer-previews/14.png",
