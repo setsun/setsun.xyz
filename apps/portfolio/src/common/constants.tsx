@@ -50,16 +50,16 @@ export const NAVIGATION_ITEMS = [
     link: "/visualizers",
   },
   // {
-  //   name: "Games",
-  //   link: "/games",
+  //   name: "UI",
+  //   link: "/user-interfaces",
   // },
   // {
   //   name: "Data",
   //   link: "/data-explorations",
   // },
   // {
-  //   name: "UI",
-  //   link: "/user-interfaces",
+  //   name: "Games",
+  //   link: "/games",
   // },
   // {
   //   name: "Writing",
