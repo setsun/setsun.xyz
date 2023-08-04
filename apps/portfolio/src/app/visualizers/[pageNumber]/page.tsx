@@ -60,7 +60,7 @@ const VisualizerFifteen = dynamic(() => import("@/projects/visualizers/15"), {
   ssr: false,
 });
 
-const VisualizerScene: React.FC<{
+const VisualizerDisplay: React.FC<{
   pagination: Pagination;
   fallback: React.ReactNode;
 }> = ({ pagination, fallback }) => {
@@ -126,7 +126,7 @@ const Visualizer: React.FC<{ params: { pageNumber: string } }> = (props) => {
 
   return (
     <Suspense fallback={fallback}>
-      <VisualizerScene pagination={pagination} fallback={fallback} />
+      <VisualizerDisplay pagination={pagination} fallback={fallback} />
     </Suspense>
   );
 };
