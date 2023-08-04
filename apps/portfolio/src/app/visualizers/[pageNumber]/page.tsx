@@ -14,43 +14,49 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 
 const TOTAL_PUBLIC_PAGES = 14;
 
-const VisualizerOne = dynamic(() => import("@/visualizers/01"), { ssr: false });
-const VisualizerTwo = dynamic(() => import("@/visualizers/02"), { ssr: false });
-const VisualizerThree = dynamic(() => import("@/visualizers/03"), {
+const VisualizerOne = dynamic(() => import("@/projects/visualizers/01"), {
   ssr: false,
 });
-const VisualizerFour = dynamic(() => import("@/visualizers/04"), {
+const VisualizerTwo = dynamic(() => import("@/projects/visualizers/02"), {
   ssr: false,
 });
-const VisualizerFive = dynamic(() => import("@/visualizers/05"), {
+const VisualizerThree = dynamic(() => import("@/projects/visualizers/03"), {
   ssr: false,
 });
-const VisualizerSix = dynamic(() => import("@/visualizers/06"), { ssr: false });
-const VisualizerSeven = dynamic(() => import("@/visualizers/07"), {
+const VisualizerFour = dynamic(() => import("@/projects/visualizers/04"), {
   ssr: false,
 });
-const VisualizerEight = dynamic(() => import("@/visualizers/08"), {
+const VisualizerFive = dynamic(() => import("@/projects/visualizers/05"), {
   ssr: false,
 });
-const VisualizerNine = dynamic(() => import("@/visualizers/09"), {
+const VisualizerSix = dynamic(() => import("@/projects/visualizers/06"), {
   ssr: false,
 });
-const VisualizerTen = dynamic(() => import("@/visualizers/10"), {
+const VisualizerSeven = dynamic(() => import("@/projects/visualizers/07"), {
   ssr: false,
 });
-const VisualizerEleven = dynamic(() => import("@/visualizers/11"), {
+const VisualizerEight = dynamic(() => import("@/projects/visualizers/08"), {
   ssr: false,
 });
-const VisualizerTwelve = dynamic(() => import("@/visualizers/12"), {
+const VisualizerNine = dynamic(() => import("@/projects/visualizers/09"), {
   ssr: false,
 });
-const VisualizerThirteen = dynamic(() => import("@/visualizers/13"), {
+const VisualizerTen = dynamic(() => import("@/projects/visualizers/10"), {
   ssr: false,
 });
-const VisualizerFourteen = dynamic(() => import("@/visualizers/14"), {
+const VisualizerEleven = dynamic(() => import("@/projects/visualizers/11"), {
   ssr: false,
 });
-const VisualizerFifteen = dynamic(() => import("@/visualizers/15"), {
+const VisualizerTwelve = dynamic(() => import("@/projects/visualizers/12"), {
+  ssr: false,
+});
+const VisualizerThirteen = dynamic(() => import("@/projects/visualizers/13"), {
+  ssr: false,
+});
+const VisualizerFourteen = dynamic(() => import("@/projects/visualizers/14"), {
+  ssr: false,
+});
+const VisualizerFifteen = dynamic(() => import("@/projects/visualizers/15"), {
   ssr: false,
 });
 

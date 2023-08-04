@@ -11,9 +11,9 @@ uniform vec3 u_color_d;
 // other modifiers
 uniform float u_scale;
 
-#pragma glslify: palette = require(../../shaders/color/palette.glsl)
-#pragma glslify: rotate2d = require(../../shaders/transforms/rotate2d.glsl)
-#pragma glslify: scale2d = require(../../shaders/transforms/scale2d.glsl)
+#pragma glslify: palette = require(../../../shaders/color/palette.glsl)
+#pragma glslify: rotate2d = require(../../../shaders/transforms/rotate2d.glsl)
+#pragma glslify: scale2d = require(../../../shaders/transforms/scale2d.glsl)
 
 void main(){
   // 1. normalize the pixel coordinates by dividing pixel coord by resolution to [0, 1]

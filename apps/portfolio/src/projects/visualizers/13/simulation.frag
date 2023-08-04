@@ -6,7 +6,7 @@ uniform float u_scale;
 
 varying vec2 v_uv;
 
-#pragma glslify: curl3d = require(../../shaders/noise/curl3d)
+#pragma glslify: curl3d = require(../../../shaders/noise/curl3d)
 
 void main() {
   vec3 pos = texture2D(u_positions, v_uv).rgb;
