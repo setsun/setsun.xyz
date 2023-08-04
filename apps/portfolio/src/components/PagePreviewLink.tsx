@@ -13,7 +13,7 @@ const PagePreviewLink: React.FC<{
 
   return (
     <Link
-      className="font-antonio relative m-0 inline-flex h-1/3 w-1/2 overflow-hidden border-b border-r p-4 text-2xl"
+      className="font-antonio relative m-0 inline-flex h-1/3 w-1/2 overflow-hidden border-b border-r p-4 text-2xl sm:h-1/2 sm:w-1/3"
       href={href}
     >
       <p className="relative z-10">{title}</p>

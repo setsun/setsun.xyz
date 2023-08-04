@@ -1,15 +1,19 @@
-import { useFrame, useLoader } from "@react-three/fiber";
+import {
+  Float,
+  PerspectiveCamera,
+  Trail,
+} from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import {
   ChromaticAberration,
   EffectComposer,
   Scanline,
 } from "@react-three/postprocessing";
 import { useRef } from "react";
-import { createNoise3D } from "simplex-noise";
 import {
+  AudioAnalyser,
   CatmullRomCurve3,
   MeshBasicMaterial,
-  TextureLoader,
   Vector2,
   Vector3,
 } from "three";
@@ -19,40 +23,38 @@ import { useShaderUniforms } from "veda-ui";
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 
 import displaceTubeVertexShader from "./displace-tube.vert";
+import { Spaceship } from "./Spaceship";
 
-const POINTS = [
-  [68.5, 185.5],
-  [1, 262.5],
-  [270.9, 281.9],
-  [300, 212.8],
-  [178, 155.7],
-  [240.3, 72.3],
-  [153.4, 0.6],
-  [52.6, 53.3],
-  [68.5, 185.5],
-];
+const points = new Array(1000).fill(undefined).map((value, index) => {
+  const theta = (index / 1000) * Math.PI * 2;
+  const radius = 750;
 
-const noise3d = createNoise3D();
+  const x = Math.cos(theta) * radius;
+  const y = Math.sin(theta) * radius;
+  const z = Math.sin(theta) * radius;
 
-const PATH = new CatmullRomCurve3(
-  POINTS.map((point) => {
-    const x = point[0];
-    const y = (noise3d(point[0], point[1], 0) - 0.5) * 10;
-    const z = point[1];
+  return new Vector3(x, y, z);
+});
 
-    return new Vector3(x, y, z);
-  }),
-);
+points.push(points[0]);
 
-const MainScene = () => {
+const PATH = new CatmullRomCurve3(points);
+
+const MainScene = ({
+  analyzer,
+  isPlaying,
+}: {
+  analyzer: AudioAnalyser;
+  isPlaying: boolean;
+}) => {
   const percentageRef = useRef(0);
 
   const { meshRef, uniforms } = useShaderUniforms({});
 
-  const texture = useLoader(TextureLoader, "/images/eye-sketch.png");
-
   useFrame(({ camera }) => {
-    percentageRef.current += 0.0002;
+    const averageFrequency = analyzer.getAverageFrequency();
+
+    percentageRef.current += averageFrequency > 0 ? 0.0005 : 0.0001;
 
     const p1 = PATH.getPointAt(percentageRef.current % 1);
     const p2 = PATH.getPointAt((percentageRef.current + 0.01) % 1);
@@ -63,6 +65,18 @@ const MainScene = () => {
 
   return (
     <>
+      <PerspectiveCamera makeDefault>
+        <Float floatIntensity={0.1} rotationIntensity={0.1}>
+          <group position={[0, 0, -10]}>
+            <Trail width={1} length={4} attenuation={(t) => t * t}>
+              <Spaceship />
+
+              <meshLineMaterial color="white" />
+            </Trail>
+          </group>
+        </Float>
+      </PerspectiveCamera>
+
       <mesh ref={meshRef}>
         <tubeGeometry args={[PATH, 300, 20, 30, true]} />
 
@@ -102,7 +116,9 @@ const Visualizer: React.FC<{
       }}
       {...props}
     >
-      {() => <MainScene />}
+      {({ analyzer, isPlaying }) => (
+        <MainScene analyzer={analyzer} isPlaying={isPlaying} />
+      )}
     </VisualizerCanvas>
   );
 };
