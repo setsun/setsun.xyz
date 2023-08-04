@@ -11,6 +11,7 @@
   "dependencies": {
     "@envelop/response-cache-redis": "^3.1.0",
     "@graphql-yoga/plugin-response-cache": "^2.1.0",
+    "@observablehq/plot": "^0.6.9",
     "@radix-ui/colors": "^1.0.1",
     "@radix-ui/react-icons": "^1.3.0",
     "@react-spring/web": "^9.7.3",
