@@ -7,8 +7,8 @@ uniform float u_time;
 
 #pragma glslify: cnoise3 = require(glsl-noise/classic/3d)
 
-float amplitude = 3.0;
-float base_displacement = 2.0;
+float amplitude = 5.0;
+float base_displacement = 2.5;
 
 void main() {
   float displacement = base_displacement + cnoise3(normal + u_time) * amplitude;

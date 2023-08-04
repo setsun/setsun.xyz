@@ -12,7 +12,7 @@ import { initializeUnmute } from "@/vendor/unmute";
 // add <meshLineGeometry /> and <meshLineMaterial /> to the r3f scope
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-const TOTAL_PUBLIC_PAGES = 13;
+const TOTAL_PUBLIC_PAGES = 14;
 
 const VisualizerOne = dynamic(() => import("@/visualizers/01"), { ssr: false });
 const VisualizerTwo = dynamic(() => import("@/visualizers/02"), { ssr: false });

@@ -55,10 +55,10 @@ const linkData = [
     title: "_13",
     imageSrc: "/images/visualizer-previews/13.png",
   },
-  // {
-  //   title: "_14",
-  //   imageSrc: "/images/visualizer-previews/14.png",
-  // },
+  {
+    title: "_14",
+    imageSrc: "/images/visualizer-previews/14.png",
+  },
   // {
   //   title: "_15",
   //   imageSrc: "/images/visualizer-previews/15.png",

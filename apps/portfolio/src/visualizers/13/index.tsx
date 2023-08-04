@@ -6,6 +6,8 @@ import { useTurntable } from "@/hooks/useTurntable";
 
 import { FBOParticles } from "./FBOParticles";
 
+const MIN_SPEED = 0.01;
+const MAX_SPEED = 0.6;
 const GROWTH_FACTOR = 0.0002;
 const DECAY_FACTOR = 0.0001;
 
@@ -35,7 +37,7 @@ const MainScene = ({
             nextFrequency -= DECAY_FACTOR;
           }
 
-          nextFrequency = clamp(nextFrequency, 0.01, 0.6);
+          nextFrequency = clamp(nextFrequency, MIN_SPEED, MAX_SPEED);
 
           uniforms.u_frequency.value = nextFrequency;
         }}

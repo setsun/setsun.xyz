@@ -5,7 +5,7 @@ Files: spaceship.gltf [932.92KB] > spaceship-transformed.glb [726.76KB] (22%)
 */
 
 import { useGLTF } from "@react-three/drei";
-import React, { useRef } from "react";
+import React, { forwardRef } from "react";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 
@@ -22,13 +22,16 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Spaceship(props: JSX.IntrinsicElements["group"]) {
+export const Spaceship = forwardRef<
+  THREE.Group,
+  JSX.IntrinsicElements["group"]
+>((props, ref) => {
   const { nodes, materials } = useGLTF(
     "/models/spaceship-transformed.glb",
   ) as GLTFResult;
 
   return (
-    <group {...props} dispose={null}>
+    <group {...props} ref={ref} dispose={null}>
       <mesh
         geometry={nodes.Cube005.geometry}
         material={new THREE.MeshBasicMaterial({ wireframe: true })}
@@ -43,6 +46,8 @@ export function Spaceship(props: JSX.IntrinsicElements["group"]) {
       />
     </group>
   );
-}
+});
+
+Spaceship.displayName = "Spaceship";
 
 useGLTF.preload("/spaceship-transformed.glb");

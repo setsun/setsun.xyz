@@ -61,7 +61,7 @@
   "devDependencies": {
     "@types/lodash.clamp": "^4.0.7",
     "@types/lodash.sample": "^4.2.7",
-    "@types/node": "^20.4.6",
+    "@types/node": "^20.4.7",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
     "@types/three": "0.155.0",
@@ -70,7 +70,7 @@
     "glslify": "^7.1.1",
     "glslify-loader": "^2.0.0",
     "postcss": "^8.4.27",
-    "prisma": "^5.1.0",
+    "prisma": "^5.1.1",
     "raw-loader": "^4.0.2",
     "tailwind-config": "workspace:*",
     "tailwindcss": "^3.3.3",
