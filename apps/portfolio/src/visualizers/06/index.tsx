@@ -45,7 +45,7 @@ const Visualizer: React.FC<{
         "https://soundcloud.com/anjunadeep/the-anjunadeep-edition-328",
     }}
     camera={{
-      position: [0, 0.05, 1.1],
+      position: [0, 0.05, 1],
     }}
     {...props}
   >

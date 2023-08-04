@@ -1,10 +1,16 @@
 import { useFrame, useLoader } from "@react-three/fiber";
+import {
+  ChromaticAberration,
+  EffectComposer,
+  Scanline,
+} from "@react-three/postprocessing";
 import { useRef } from "react";
 import { createNoise3D } from "simplex-noise";
 import {
   CatmullRomCurve3,
   MeshBasicMaterial,
   TextureLoader,
+  Vector2,
   Vector3,
 } from "three";
 import CustomShaderMaterial from "three-custom-shader-material";
@@ -31,7 +37,7 @@ const noise3d = createNoise3D();
 const PATH = new CatmullRomCurve3(
   POINTS.map((point) => {
     const x = point[0];
-    const y = (noise3d(point[0], point[1], 0) - 0.5) * 200;
+    const y = (noise3d(point[0], point[1], 0) - 0.5) * 10;
     const z = point[1];
 
     return new Vector3(x, y, z);
@@ -69,6 +75,15 @@ const MainScene = () => {
           uniforms={uniforms}
         />
       </mesh>
+
+      <EffectComposer>
+        <Scanline density={15} />
+        <ChromaticAberration
+          radialModulation={false}
+          modulationOffset={0.1}
+          offset={new Vector2(0.01, 0.01)}
+        />
+      </EffectComposer>
     </>
   );
 };
@@ -81,10 +96,9 @@ const Visualizer: React.FC<{
     <VisualizerCanvas
       headline="VISUALIZER_14"
       audioProps={{
-        url: "/audio/Tomorrow.mp3",
-        name: "Grum feat. Dom Youdan - Tomorrow",
-        externalHref:
-          "https://soundcloud.com/anjunabeats/4-grum-feat-dom-youdan-tomorrow-extended-mix",
+        url: "/audio/dashstar.mp3",
+        name: "Knock2 - dashstar*",
+        externalHref: "https://soundcloud.com/nightmoderecs/knock2-dashstar-1",
       }}
       {...props}
     >
