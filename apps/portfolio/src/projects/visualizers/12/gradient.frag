@@ -8,7 +8,7 @@ uniform vec3 u_color_b;
 
 varying vec2 v_uv;
 
-#pragma glslify: fbm2 = require(../../shaders/noise/fbm2d)
+#pragma glslify: fbm2 = require(../../../shaders/noise/fbm2d)
 
 float pattern(in vec2 p, float multiplier) {
   vec2 q = vec2(fbm2(p + vec2(0.0,0.0)),

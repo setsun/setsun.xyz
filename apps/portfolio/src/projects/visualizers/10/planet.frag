@@ -12,8 +12,8 @@ uniform vec3 u_color_d;
 varying vec2 v_uv;
 varying float v_displacement;
 
-#pragma glslify: fbm2 = require(../../shaders/noise/fbm2d)
-#pragma glslify: palette = require(../../shaders/color/palette)
+#pragma glslify: fbm2 = require(../../../shaders/noise/fbm2d)
+#pragma glslify: palette = require(../../../shaders/color/palette)
 
 // noise warping described in https://iquilezles.org/articles/warp/
 float pattern(in vec2 p, float multiplier) {
