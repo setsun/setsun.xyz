@@ -5,7 +5,7 @@ import {
   PauseIcon,
   PlayIcon,
 } from "@radix-ui/react-icons";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, StatsGl } from "@react-three/drei";
 import { Canvas, CanvasProps } from "@react-three/fiber";
 import classNames from "classnames";
 import { Leva, useControls } from "leva";
@@ -52,6 +52,7 @@ export interface VisualizerCanvasProps {
   camera?: Partial<Omit<CanvasProps["camera"], "attach" | "children">>;
   info?: React.ReactNode;
   hasOrbitControls?: boolean;
+  debug?: boolean;
 }
 
 type VisualizerControlsProps = {
@@ -95,6 +96,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   camera,
   info,
   hasOrbitControls,
+  debug,
 }) => {
   const [isCanvasCreated, setIsCanvasCreated] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -151,6 +153,8 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
         )}
 
         {hasOrbitControls && <OrbitControls />}
+
+        {debug && <StatsGl />}
       </Canvas>
 
       {isCanvasCreated && (
