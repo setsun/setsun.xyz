@@ -184,6 +184,9 @@ importers:
       '@react-three/rapier-addons':
         specifier: ^3.0.1
         version: 3.0.1(@react-three/fiber@8.13.6)(@react-three/rapier@1.1.1)(react@18.2.0)(three@0.155.0)
+      '@urql/next':
+        specifier: ^1.0.0
+        version: 1.0.0(next@13.4.12)(react@18.2.0)(urql@4.0.5)
       '@vercel/analytics':
         specifier: ^1.0.1
         version: 1.0.1
@@ -289,6 +292,9 @@ importers:
       tunnel-rat:
         specifier: ^0.1.2
         version: 0.1.2(react@18.2.0)
+      urql:
+        specifier: ^4.0.5
+        version: 4.0.5(graphql@16.7.1)(react@18.2.0)
       veda-ui:
         specifier: workspace:*
         version: link:../../packages/veda-ui
@@ -552,6 +558,17 @@ importers:
         version: 2.0.2(vite@4.4.1)
 
 packages:
+
+  /@0no-co/graphql.web@1.0.4(graphql@16.7.1):
+    resolution: {integrity: sha512-W3ezhHGfO0MS1PtGloaTpg0PbaT8aZSmmaerL7idtU5F7oCI+uu25k+MsMS31BVFlp4aMkHSrNRxiD72IlK8TA==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+    peerDependenciesMeta:
+      graphql:
+        optional: true
+    dependencies:
+      graphql: 16.7.1
+    dev: false
 
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
@@ -6187,6 +6204,27 @@ packages:
       '@typescript-eslint/types': 5.62.0
       eslint-visitor-keys: 3.4.2
     dev: true
+
+  /@urql/core@4.1.1(graphql@16.7.1):
+    resolution: {integrity: sha512-iIoAy6BY+BUZZ7KIpnMT7C9q+ULf5ZCVxGe3/i7WZSJBrQa2h1QkIMhL+8fAKmOn9gt83jSIv5drWWnhZ9izEA==}
+    dependencies:
+      '@0no-co/graphql.web': 1.0.4(graphql@16.7.1)
+      wonka: 6.3.4
+    transitivePeerDependencies:
+      - graphql
+    dev: false
+
+  /@urql/next@1.0.0(next@13.4.12)(react@18.2.0)(urql@4.0.5):
+    resolution: {integrity: sha512-t3c3eBccmbAzi1Y2vH8ZubSwFgJ3yA2rc4427oYfnJdLl0o7Zh4LrPxUCz1yVdCz4N/MebrnLzDiM5tAeDd9yA==}
+    peerDependencies:
+      next: '>=13.0.0'
+      react: '>=18.0.0'
+      urql: ^4.0.0
+    dependencies:
+      next: 13.4.12(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      urql: 4.0.5(graphql@16.7.1)(react@18.2.0)
+    dev: false
 
   /@use-gesture/core@10.2.27:
     resolution: {integrity: sha512-V4XV7hn9GAD2MYu8yBBVi5iuWBsAMfjPRMsEVzoTNGYH72tf0kFP+OKqGKc8YJFQIJx6yj+AOqxmEHOmx2/MEA==}
@@ -14440,6 +14478,18 @@ packages:
     resolution: {integrity: sha512-WHN8KDQblxd32odxeIgo83rdVDE2bvdkb86it7bMhYZwWKJz0+O0RK/eZiHYnM+zgt/U7hAHOlCQGfjjvSkw2g==}
     dev: false
 
+  /urql@4.0.5(graphql@16.7.1)(react@18.2.0):
+    resolution: {integrity: sha512-VicPBQXWicSbE+0oPzU2HMyDa//76FmwyQ7LayaYQxX97nhvMLs2ZWQdUmEzQQqvmw4YFaI0wPz1Qisp+PrZIQ==}
+    peerDependencies:
+      react: '>= 16.8.0'
+    dependencies:
+      '@urql/core': 4.1.1(graphql@16.7.1)
+      react: 18.2.0
+      wonka: 6.3.4
+    transitivePeerDependencies:
+      - graphql
+    dev: false
+
   /use-asset@1.0.4(react@18.2.0):
     resolution: {integrity: sha512-7/hqDrWa0iMnCoET9W1T07EmD4Eg/Wmoj/X8TGBc++ECRK4m5yTsjP4O6s0yagbxfqIOuUkIxe2/sA+VR2GxZA==}
     peerDependencies:
@@ -14860,6 +14910,10 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
+
+  /wonka@6.3.4:
+    resolution: {integrity: sha512-CjpbqNtBGNAeyNS/9W6q3kSkKE52+FjIj7AkFlLr11s/VWGUu6a2CdYSdGxocIhIVjaW/zchesBQUKPVU69Cqg==}
+    dev: false
 
   /word-wrap@1.2.3:
     resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==}

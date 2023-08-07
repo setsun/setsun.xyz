@@ -1,5 +1,21 @@
-import { client } from "database";
+"use client";
+
+import { gql, useQuery } from "@urql/next";
 import Link from "next/link";
+import { Suspense } from "react";
+
+const ListPostsQuery = gql`
+  query {
+    listPosts {
+      id
+      title
+      content
+      author {
+        name
+      }
+    }
+  }
+`;
 
 export type PostProps = {
   id: string;
@@ -19,22 +35,19 @@ const Post: React.FC<{ post: PostProps }> = ({ post }) => (
   </Link>
 );
 
-async function getFeed() {
-  const feed = await client.post.findMany({
-    where: { published: true },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-  });
+const Posts = () => {
+  const [result] = useQuery({ query: ListPostsQuery });
 
-  return feed;
-}
+  if (!result.data) {
+    return null;
+  }
 
-export default async function Writing() {
-  const feed = await getFeed();
+  const posts = result.data.listPosts;
 
+  return posts.map((post, i) => <Post key={i} post={post} />);
+};
+
+export default function Writing() {
   return (
     <div className="h-screen w-full overflow-y-auto">
       <div className="block w-full border-b border-r p-4">
@@ -44,9 +57,9 @@ export default async function Writing() {
         </p>
       </div>
 
-      {feed.map((post, i) => (
-        <Post key={i} post={post} />
-      ))}
+      <Suspense>
+        <Posts />
+      </Suspense>
     </div>
   );
 }
