@@ -1,7 +1,6 @@
 import {
-  Float,
   MeshDiscardMaterial,
-  PerspectiveCamera,
+  PerspectiveCamera as DreiPerspectiveCamera,
   Trail,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
@@ -16,6 +15,7 @@ import {
   AudioAnalyser,
   CatmullRomCurve3,
   MeshBasicMaterial,
+  PerspectiveCamera,
   Vector2,
   Vector3,
 } from "three";
@@ -46,14 +46,20 @@ const points = new Array(1000).fill(undefined).map((value, index) => {
   return new Vector3(x, y, z);
 });
 
+// close the path, so it's a loop
 points.push(points[0]);
 
 const PATH = new CatmullRomCurve3(points);
 
 const MIN_SPEED = 0.00003;
 const MAX_SPEED = 0.0002;
-const GROWTH_FACTOR = 0.0000005;
-const DECAY_FACTOR = -0.001;
+const SPEED_GROWTH_FACTOR = 0.0000005;
+const SPEED_DECAY_FACTOR = -0.001;
+
+const MIN_FOV = 60;
+const MAX_FOV = 120;
+const FOV_GROWTH_FACTOR = -0.2;
+const FOV_DECAY_FACTOR = 0.2;
 
 const MainScene = ({
   analyzer,
@@ -67,29 +73,32 @@ const MainScene = ({
 
   const { meshRef, uniforms } = useShaderUniforms({});
 
-  const countRef = useRef(0);
   const currentSpeed = useRef(MIN_SPEED);
 
-  useFrame(({ camera }) => {
+  useFrame(({ clock, camera }) => {
+    const perspectiveCamera = camera as PerspectiveCamera;
+    const elapsedTime = clock.getElapsedTime();
     const averageFrequency = analyzer.getAverageFrequency();
 
-    const modifier = averageFrequency > 0 ? GROWTH_FACTOR : DECAY_FACTOR;
+    const speedModifier =
+      averageFrequency > 0 ? SPEED_GROWTH_FACTOR : SPEED_DECAY_FACTOR;
+    const fovModifier =
+      averageFrequency > 0 ? FOV_GROWTH_FACTOR : FOV_DECAY_FACTOR;
 
-    let nextSpeed = currentSpeed.current + modifier;
+    let nextSpeed = currentSpeed.current + speedModifier;
+    let nextFov = perspectiveCamera.fov + fovModifier;
 
     currentSpeed.current = clamp(nextSpeed, MIN_SPEED, MAX_SPEED);
-
+    perspectiveCamera.fov = clamp(nextFov, MIN_FOV, MAX_FOV);
     percentageRef.current += currentSpeed.current;
 
     const p1 = PATH.getPointAt(percentageRef.current % 1);
     const p2 = PATH.getPointAt((percentageRef.current + 0.01) % 1);
 
-    countRef.current++;
-
     // use counter to change offset percentage every x frames
-    const offsetX = Math.sin(countRef.current / 60) * 0.5;
-    const offsetY = Math.cos(countRef.current / 60) * 1;
-    const offsetZ = Math.sin(countRef.current / 120) * 2.5;
+    const offsetX = Math.sin(elapsedTime) * 0.5;
+    const offsetY = Math.cos(elapsedTime) * 1;
+    const offsetZ = Math.sin(elapsedTime) * 2.5;
 
     spaceshipRef.current.position.set(offsetX, offsetY, offsetZ);
     spaceshipRef.current.lookAt(
@@ -102,11 +111,12 @@ const MainScene = ({
 
     camera.position.set(p1.x, p1.y, p1.z);
     camera.lookAt(p2);
+    camera.updateProjectionMatrix();
   });
 
   return (
     <>
-      <PerspectiveCamera makeDefault>
+      <DreiPerspectiveCamera fov={90} makeDefault>
         <group position={[0, 0, -15]}>
           <group ref={spaceshipRef}>
             <Spaceship rotation={[0, -Math.PI, 0]} />
@@ -123,7 +133,7 @@ const MainScene = ({
             </Trail>
           </group>
         </group>
-      </PerspectiveCamera>
+      </DreiPerspectiveCamera>
 
       <mesh ref={meshRef}>
         <tubeGeometry args={[PATH, 300, 50, 50, true]} />
