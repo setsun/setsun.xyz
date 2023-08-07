@@ -1,7 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { MeshLineMaterial } from "meshline";
 import { useMemo, useRef } from "react";
-import { AudioAnalyser, MathUtils, Vector3 } from "three";
+import { AudioAnalyser, Group, MathUtils, Vector3 } from "three";
 
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { getLogarithmicCurve } from "@/utils/three";
@@ -51,6 +51,8 @@ const MainScene = ({
   analyzer: AudioAnalyser;
   isPlaying: boolean;
 }) => {
+  const groupRef = useRef<Group>(null!);
+
   const curves = useMemo(
     () =>
       new Array(150).fill(undefined).map((_, i) =>
@@ -64,8 +66,17 @@ const MainScene = ({
     [],
   );
 
+  useFrame(() => {
+    const averageFrequency = analyzer.getAverageFrequency();
+
+    const rotation = averageFrequency > 0 ? 0.002 : 0.0005;
+
+    groupRef.current.rotation.x += rotation;
+    groupRef.current.rotation.z += rotation;
+  });
+
   return (
-    <group rotation={[-Math.PI / 5, Math.PI / 6, 0]}>
+    <group ref={groupRef} rotation={[-Math.PI / 5, Math.PI / 6, 0]}>
       {curves.map((curve, i) => (
         <BlackHoleLine key={i} curve={curve} analyzer={analyzer} />
       ))}
