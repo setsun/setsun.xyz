@@ -69,7 +69,7 @@ const MainScene = ({
   useFrame(() => {
     const averageFrequency = analyzer.getAverageFrequency();
 
-    const rotation = averageFrequency > 0 ? 0.002 : 0.0005;
+    const rotation = averageFrequency > 0 ? 0.003 : 0.001;
 
     groupRef.current.rotation.x += rotation;
     groupRef.current.rotation.z += rotation;
