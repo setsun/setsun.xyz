@@ -1,69 +1,63 @@
 import * as Plot from "@observablehq/plot";
-import { useEffect, useRef } from "react";
+import SquareLoader from "react-spinners/SquareLoader";
+import useSWR from "swr";
+
+import PlotHelper from "@/components/PlotHelper";
+
+// quick and dirty data transformation to get it into a tidy spot
+function transformNYCPopulationData(data) {
+  const years = [1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2030, 2040];
+  const transformed = [];
+
+  for (const datum of data) {
+    for (const year of years) {
+      transformed.push({
+        borough: datum.borough.trim(),
+        // i hate meta-programming, but the data be what it be 🤷‍♂️
+        population: parseInt(datum[`_${year}`], 10),
+        percentage: parseFloat(datum[`_${year}_boro_share_of_nyc_total`]),
+        year,
+      });
+    }
+  }
+
+  return transformed;
+}
 
 const DataExploration = () => {
-  const containerRef = useRef<HTMLDivElement>(null!);
+  const { data, error, isLoading } = useSWR(
+    "https://data.cityofnewyork.us/resource/xywu-7bv9.json",
+    (url) =>
+      fetch(url)
+        .then((res) => res.json())
+        .then(transformNYCPopulationData),
+  );
 
-  useEffect(() => {
-    const appleStockData = [
-      {
-        Date: new Date("2013-05-13"),
-        Open: 64.501427,
-        High: 65.414284,
-        Low: 64.5,
-        Close: 64.96286,
-        Volume: 79237200,
-      },
-      {
-        Date: new Date("2013-05-14"),
-        Open: 64.835716,
-        High: 65.028572,
-        Low: 63.164288,
-        Close: 63.408573,
-        Volume: 111779500,
-      },
-      {
-        Date: new Date("2013-05-15"),
-        Open: 62.737144,
-        High: 63.0,
-        Low: 60.337143,
-        Close: 61.264286,
-        Volume: 185403400,
-      },
-      {
-        Date: new Date("2013-05-16"),
-        Open: 60.462856,
-        High: 62.549999,
-        Low: 59.842857,
-        Close: 62.082859,
-        Volume: 150801000,
-      },
-      {
-        Date: new Date("2013-05-17"),
-        Open: 62.721428,
-        High: 62.869999,
-        Low: 61.572857,
-        Close: 61.894287,
-        Volume: 106976100,
-      },
-    ];
-
-    const plot = Plot.plot({
-      style: { background: "transparent" },
-      caption: "Figure 1. Apple Stock Performance.",
-      color: { legend: true },
-      marks: [
-        Plot.frame(),
-        Plot.lineY(appleStockData, { x: "Date", y: "Close", stroke: "blue" }),
-      ],
-    });
-
-    containerRef.current.append(plot);
-
-    return () => plot.remove();
-  }, []);
-
-  return <div className="bg-transparent" ref={containerRef} />;
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <SquareLoader loading color="white" />
+      </div>
+    );
+  }
+  return (
+    <PlotHelper
+      options={{
+        style: { background: "transparent" },
+        color: { legend: true },
+        marks: [
+          Plot.frame(),
+          Plot.lineY(data, { x: "year", y: "population" }),
+          Plot.text(data, {
+            x: "year",
+            y: "population",
+            text: (d) => d.borough,
+            lineAnchor: "bottom",
+          }),
+        ],
+      }}
+    />
+  );
 };
 
 export default DataExploration;
