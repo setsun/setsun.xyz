@@ -1,9 +1,15 @@
 import * as Plot from "@observablehq/plot";
 import useSWR from "swr";
+import * as topojson from "topojson-client";
 
 import PlotHelper from "@/components/PlotHelper";
+import countiesJSON from "@/json/counties.json";
+import usJSON from "@/json/us.json";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
+
+// link: https://observablehq.com/@observablehq/build-your-first-choropleth-map-with-observable-plot
+const counties = topojson.feature(usJSON, usJSON.objects.counties);
 
 const DataExploration = () => {
   return (
@@ -12,22 +18,12 @@ const DataExploration = () => {
         options={{
           style: { background: "transparent" },
           color: { legend: true },
-          projection: { type: "orthographic", rotate: [0, -30, 20] },
+          projection: "albers-usa", // Set the projection
           marks: [
-            Plot.sphere({ fill: "black", stroke: "currentColor" }),
-            Plot.graticule({ strokeOpacity: 0.3 }),
+            Plot.geo(counties, {stroke: "white"}) // Add county boundaries using the geo mark
           ],
         }}
       />
-
-      {/* <PlotHelper
-        options={{
-          projection: 'albers-usa',
-          marks: [
-
-          ]
-        }}
-      /> */}
     </>
   );
 };
