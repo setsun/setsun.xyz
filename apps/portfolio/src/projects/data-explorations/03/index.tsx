@@ -8,16 +8,14 @@ const gods = [
   "Chaos/Gaia/Uranus",
   "Chaos/Eros",
   "Chaos/Erebus",
-  "Chaos/Tartarus"
+  "Chaos/Tartarus",
 ];
 
 const DataExploration = () => {
   return (
     <PlotHelper
       options={{
-        marks: [
-          Plot.tree(gods, {textStroke: "black"})
-        ]
+        marks: [Plot.tree(gods, { textStroke: "black" })],
       }}
     />
   );

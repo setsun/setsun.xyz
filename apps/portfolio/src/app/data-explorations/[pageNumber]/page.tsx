@@ -22,6 +22,12 @@ const DataExplorationThree = dynamic(
     ssr: false,
   },
 );
+const DataExplorationFour = dynamic(
+  () => import("@/projects/data-explorations/04"),
+  {
+    ssr: false,
+  },
+);
 
 const DataExplorationDisplay: React.FC<{
   pageNumber: number;
@@ -34,6 +40,8 @@ const DataExplorationDisplay: React.FC<{
       return <DataExplorationTwo />;
     case 3:
       return <DataExplorationThree />;
+    case 4:
+      return <DataExplorationFour />;
     default:
       return null;
   }
