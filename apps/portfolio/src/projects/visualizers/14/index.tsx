@@ -53,7 +53,7 @@ const PATH = new CatmullRomCurve3(points);
 
 const MIN_SPEED = 0.00003;
 const MAX_SPEED = 0.0002;
-const SPEED_GROWTH_FACTOR = 0.0001;
+const SPEED_GROWTH_FACTOR = 0.00005;
 const SPEED_DECAY_FACTOR = -0.00005;
 
 const MIN_FOV = 60;
@@ -90,7 +90,7 @@ const MainScene = ({
 
     currentSpeed.current = clamp(nextSpeed, MIN_SPEED, MAX_SPEED);
     perspectiveCamera.fov = clamp(nextFov, MIN_FOV, MAX_FOV);
-    percentageRef.current += currentSpeed.current;
+    percentageRef.current += (currentSpeed.current * delta * 120);
 
     const p1 = PATH.getPointAt(percentageRef.current % 1);
     const p2 = PATH.getPointAt((percentageRef.current + 0.01) % 1);
