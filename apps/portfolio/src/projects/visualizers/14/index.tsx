@@ -53,13 +53,13 @@ const PATH = new CatmullRomCurve3(points);
 
 const MIN_SPEED = 0.00003;
 const MAX_SPEED = 0.0002;
-const SPEED_GROWTH_FACTOR = 0.0000005;
-const SPEED_DECAY_FACTOR = -0.001;
+const SPEED_GROWTH_FACTOR = 0.0001;
+const SPEED_DECAY_FACTOR = -0.00005;
 
 const MIN_FOV = 60;
 const MAX_FOV = 120;
-const FOV_GROWTH_FACTOR = -0.2;
-const FOV_DECAY_FACTOR = 0.2;
+const FOV_GROWTH_FACTOR = -12;
+const FOV_DECAY_FACTOR = 12;
 
 const MainScene = ({
   analyzer,
@@ -75,7 +75,7 @@ const MainScene = ({
 
   const currentSpeed = useRef(MIN_SPEED);
 
-  useFrame(({ clock, camera }) => {
+  useFrame(({ clock, camera }, delta) => {
     const perspectiveCamera = camera as PerspectiveCamera;
     const elapsedTime = clock.getElapsedTime();
     const averageFrequency = analyzer.getAverageFrequency();
@@ -85,8 +85,8 @@ const MainScene = ({
     const fovModifier =
       averageFrequency > 0 ? FOV_GROWTH_FACTOR : FOV_DECAY_FACTOR;
 
-    let nextSpeed = currentSpeed.current + speedModifier;
-    let nextFov = perspectiveCamera.fov + fovModifier;
+    let nextSpeed = currentSpeed.current + (speedModifier * delta);
+    let nextFov = perspectiveCamera.fov + (fovModifier * delta);
 
     currentSpeed.current = clamp(nextSpeed, MIN_SPEED, MAX_SPEED);
     perspectiveCamera.fov = clamp(nextFov, MIN_FOV, MAX_FOV);
