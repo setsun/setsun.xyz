@@ -41,22 +41,23 @@ const DataExploration = () => {
     );
   }
   return (
-    <PlotHelper
-      options={{
-        style: { background: "transparent" },
-        color: { legend: true },
-        marks: [
-          Plot.frame(),
-          Plot.lineY(data, { x: "year", y: "population" }),
-          Plot.text(data, {
-            x: "year",
-            y: "population",
-            text: (d) => d.borough,
-            lineAnchor: "bottom",
-          }),
-        ],
-      }}
-    />
+    <>
+      <PlotHelper
+        options={{
+          style: { background: "transparent" },
+          color: { legend: true },
+          marks: [
+            Plot.frame(),
+            Plot.lineY(data, { x: "year", y: "percentage" }),
+            Plot.text(data, {
+              x: "year",
+              y: "percentage",
+              lineAnchor: "bottom",
+            }),
+          ],
+        }}
+      />
+    </>
   );
 };
 

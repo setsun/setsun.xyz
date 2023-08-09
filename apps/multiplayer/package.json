@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "lib0": "0.2.78",
+    "lib0": "0.2.80",
     "ws": "^8.13.0",
     "y-indexeddb": "^9.0.11",
     "y-webrtc": "^10.2.5",
