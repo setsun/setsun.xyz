@@ -20,7 +20,7 @@ const DataExploration = () => {
           color: { legend: true },
           projection: "albers-usa", // Set the projection
           marks: [
-            Plot.geo(counties, {stroke: "white"}) // Add county boundaries using the geo mark
+            Plot.geo(counties, { stroke: "white" }), // Add county boundaries using the geo mark
           ],
         }}
       />
