@@ -4,47 +4,31 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import SquareLoader from "react-spinners/SquareLoader";
 
-const DataExplorationOne = dynamic(
-  () => import("@/projects/data-explorations/01"),
-  {
+const Components = [
+  dynamic(() => import("@/projects/data-explorations/01"), {
     ssr: false,
-  },
-);
-const DataExplorationTwo = dynamic(
-  () => import("@/projects/data-explorations/02"),
-  {
+  }),
+  dynamic(() => import("@/projects/data-explorations/02"), {
     ssr: false,
-  },
-);
-const DataExplorationThree = dynamic(
-  () => import("@/projects/data-explorations/03"),
-  {
+  }),
+  dynamic(() => import("@/projects/data-explorations/03"), {
     ssr: false,
-  },
-);
-const DataExplorationFour = dynamic(
-  () => import("@/projects/data-explorations/04"),
-  {
+  }),
+  dynamic(() => import("@/projects/data-explorations/04"), {
     ssr: false,
-  },
-);
+  }),
+];
 
 const DataExplorationDisplay: React.FC<{
   pageNumber: number;
   fallback: React.ReactNode;
 }> = ({ pageNumber, fallback }) => {
-  switch (pageNumber) {
-    case 1:
-      return <DataExplorationOne />;
-    case 2:
-      return <DataExplorationTwo />;
-    case 3:
-      return <DataExplorationThree />;
-    case 4:
-      return <DataExplorationFour />;
-    default:
-      return null;
-  }
+  const index = pageNumber - 1;
+  const Component = Components[index];
+
+  if (!Component) return null;
+
+  return <Component />;
 };
 
 const DataExploration: React.FC<{ params: { pageNumber: string } }> = (
