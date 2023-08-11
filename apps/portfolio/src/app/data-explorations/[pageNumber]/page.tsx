@@ -17,6 +17,9 @@ const Components = [
   dynamic(() => import("@/projects/data-explorations/04"), {
     ssr: false,
   }),
+  dynamic(() => import("@/projects/data-explorations/05"), {
+    ssr: false,
+  }),
 ];
 
 const DataExplorationDisplay: React.FC<{

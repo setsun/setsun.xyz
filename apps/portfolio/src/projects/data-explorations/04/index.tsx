@@ -1,38 +1,15 @@
-// Line explorations: https://observablehq.com/plot/marks/line
+// Delaunay explorations: https://observablehq.com/plot/marks/delaunay
 
 import * as Plot from "@observablehq/plot";
+import { csv } from "d3-fetch";
 import SquareLoader from "react-spinners/SquareLoader";
 import useSWR from "swr";
 
 import PlotHelper from "@/components/PlotHelper";
 
-// quick and dirty data transformation to get it into a tidy spot
-function transformNYCPopulationData(data) {
-  const years = [1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2030, 2040];
-  const transformed = [];
-
-  for (const datum of data) {
-    for (const year of years) {
-      transformed.push({
-        borough: datum.borough.trim(),
-        // i hate meta-programming, but the data be what it be 🤷‍♂️
-        population: parseInt(datum[`_${year}`], 10),
-        percentage: parseFloat(datum[`_${year}_boro_share_of_nyc_total`]),
-        year,
-      });
-    }
-  }
-
-  return transformed;
-}
-
 const DataExploration = () => {
-  const { data, error, isLoading } = useSWR(
-    "https://data.cityofnewyork.us/resource/xywu-7bv9.json",
-    (url) =>
-      fetch(url)
-        .then((res) => res.json())
-        .then(transformNYCPopulationData),
+  const { data, error, isLoading } = useSWR("/data/penguins.csv", (url) =>
+    csv(url).then((data) => data),
   );
 
   if (isLoading) {
@@ -42,24 +19,33 @@ const DataExploration = () => {
       </div>
     );
   }
+
   return (
-    <>
-      <PlotHelper
-        options={{
-          style: { background: "transparent" },
-          color: { legend: true },
-          marks: [
-            Plot.frame(),
-            Plot.lineY(data, { x: "year", y: "percentage" }),
-            Plot.text(data, {
-              x: "year",
-              y: "percentage",
-              lineAnchor: "bottom",
-            }),
-          ],
-        }}
-      />
-    </>
+    <PlotHelper
+      options={{
+        style: { background: "transparent" },
+        width: 1024,
+        height: 1024,
+        color: { legend: true },
+        marks: [
+          Plot.delaunayLink(data, {
+            x: "culmen_depth_mm",
+            y: "culmen_length_mm",
+            stroke: "body_mass_g",
+            strokeWidth: 1.5,
+          }),
+          Plot.voronoiMesh(data, {
+            x: "culmen_depth_mm",
+            y: "culmen_length_mm",
+          }),
+          Plot.dot(data, {
+            x: "culmen_depth_mm",
+            y: "culmen_length_mm",
+            fill: "species",
+          }),
+        ],
+      }}
+    />
   );
 };
 
