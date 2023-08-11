@@ -26,6 +26,8 @@ const DataExploration = () => {
         style: { background: "transparent" },
         width: 1024,
         height: 1024,
+        x: { type: "point" },
+        y: { type: "point" },
         color: { legend: true },
         marks: [
           Plot.delaunayLink(data, {
@@ -37,6 +39,12 @@ const DataExploration = () => {
           Plot.voronoiMesh(data, {
             x: "culmen_depth_mm",
             y: "culmen_length_mm",
+          }),
+          Plot.hull(data, {
+            x: "culmen_depth_mm",
+            y: "culmen_length_mm",
+            fill: "species",
+            fillOpacity: 0.2,
           }),
           Plot.dot(data, {
             x: "culmen_depth_mm",
