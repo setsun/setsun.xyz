@@ -1,21 +1,28 @@
+// Contour explorations: https://observablehq.com/plot/marks/contour
+
 import * as Plot from "@observablehq/plot";
 
 import PlotHelper from "@/components/PlotHelper";
 
-const gods = [
-  "Chaos/Gaia/Mountains",
-  "Chaos/Gaia/Pontus",
-  "Chaos/Gaia/Uranus",
-  "Chaos/Eros",
-  "Chaos/Erebus",
-  "Chaos/Tartarus",
-];
+import volcanoJSON from "./volcano.json";
 
 const DataExploration = () => {
   return (
     <PlotHelper
       options={{
-        marks: [Plot.tree(gods, { textStroke: "black" })],
+        style: { background: "transparent" },
+        color: {
+          // legend: true,
+          label: "Elevation (m)",
+        },
+        marks: [
+          Plot.contour(volcanoJSON.values, {
+            width: volcanoJSON.width,
+            height: volcanoJSON.height,
+            fill: Plot.identity,
+            stroke: "black",
+          }),
+        ],
       }}
     />
   );

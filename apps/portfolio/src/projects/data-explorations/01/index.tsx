@@ -1,63 +1,52 @@
+// Vector explorations: https://observablehq.com/plot/marks/vector
+
 import * as Plot from "@observablehq/plot";
-import SquareLoader from "react-spinners/SquareLoader";
-import useSWR from "swr";
+import { createNoise2D } from "simplex-noise";
 
 import PlotHelper from "@/components/PlotHelper";
+import { poisson } from "@/utils/random";
 
-// quick and dirty data transformation to get it into a tidy spot
-function transformNYCPopulationData(data) {
-  const years = [1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2030, 2040];
-  const transformed = [];
+const noise2D = createNoise2D();
 
-  for (const datum of data) {
-    for (const year of years) {
-      transformed.push({
-        borough: datum.borough.trim(),
-        // i hate meta-programming, but the data be what it be 🤷‍♂️
-        population: parseInt(datum[`_${year}`], 10),
-        percentage: parseFloat(datum[`_${year}_boro_share_of_nyc_total`]),
-        year,
-      });
-    }
-  }
+function curlNoise(x, y) {
+  const eps = 0.0001;
 
-  return transformed;
+  //Find rate of change in X direction
+  let n1 = noise2D(x + eps, y);
+  let n2 = noise2D(x - eps, y);
+
+  //Average to find approximate derivative
+  const a = (n1 - n2) / (2 * eps);
+
+  //Find rate of change in Y direction
+  n1 = noise2D(x, y + eps);
+  n2 = noise2D(x, y - eps);
+
+  //Average to find approximate derivative
+  const b = (n1 - n2) / (2 * eps);
+
+  //Curl
+  return [b, -a];
 }
 
 const DataExploration = () => {
-  const { data, error, isLoading } = useSWR(
-    "https://data.cityofnewyork.us/resource/xywu-7bv9.json",
-    (url) =>
-      fetch(url)
-        .then((res) => res.json())
-        .then(transformNYCPopulationData),
-  );
-
-  if (isLoading) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <SquareLoader loading color="white" />
-      </div>
-    );
-  }
   return (
-    <>
-      <PlotHelper
-        options={{
-          style: { background: "transparent" },
-          color: { legend: true },
-          marks: [
-            Plot.frame(),
-            Plot.lineY(data, { x: "year", y: "percentage" }),
-            Plot.text(data, {
-              x: "year",
-              y: "percentage",
-              lineAnchor: "bottom",
-            }),
-          ],
-        }}
-      />
-    </>
+    <PlotHelper
+      options={{
+        inset: 6,
+        width: 1024,
+        height: 1024,
+        aspectRatio: 1,
+        axis: null,
+        marks: [
+          Plot.vector(poisson([0, 0, 2, 2], { n: 4000 }), {
+            length: ([x, y]) => (noise2D(x + 2, y) + 0.5) * 24,
+            rotate: ([x, y]) => noise2D(x, y) * 360,
+            stroke: ([x, y]) => Math.hypot(x, y),
+          }),
+        ],
+      }}
+    />
   );
 };
 

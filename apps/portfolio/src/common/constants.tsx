@@ -53,10 +53,10 @@ export const NAVIGATION_ITEMS = [
   //   name: "UI",
   //   link: "/user-interfaces",
   // },
-  // {
-  //   name: "Data",
-  //   link: "/data-explorations",
-  // },
+  {
+    name: "Data",
+    link: "/data-explorations",
+  },
   // {
   //   name: "Games",
   //   link: "/games",
