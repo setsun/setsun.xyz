@@ -28,4 +28,8 @@ body {
   .font-antonio {
     font-family: var(--font-antonio);
   }
+
+  .view-transition-component {
+    view-transition-name: view-transition-component;
+  }
 }
