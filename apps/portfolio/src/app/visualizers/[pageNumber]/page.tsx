@@ -60,6 +60,9 @@ const Components = [
   dynamic(() => import("@/projects/visualizers/15"), {
     ssr: false,
   }),
+  dynamic(() => import("@/projects/visualizers/16"), {
+    ssr: false,
+  }),
 ];
 
 const VisualizerDisplay: React.FC<{

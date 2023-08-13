@@ -26,6 +26,7 @@
     "@vercel/analytics": "^1.0.1",
     "@vercel/edge-config": "^0.2.1",
     "classnames": "^2.3.2",
+    "colormap": "^2.3.2",
     "d3-fetch": "^3.0.1",
     "d3-geo": "^3.1.0",
     "database": "workspace:*",
@@ -66,6 +67,7 @@
     "veda-ui": "workspace:*"
   },
   "devDependencies": {
+    "@types/colormap": "^2.3.1",
     "@types/lodash.clamp": "^4.0.7",
     "@types/lodash.sample": "^4.2.7",
     "@types/node": "^20.4.9",
