@@ -151,8 +151,6 @@ export const Spectogram = ({
       "displacement",
       new Uint8BufferAttribute(displacementHeights, 1),
     );
-
-    console.log(meshRef.current.geometry);
   });
 
   return (

@@ -1,4 +1,8 @@
-import { GitHubLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
+import {
+  ExclamationTriangleIcon,
+  GitHubLogoIcon,
+  InstagramLogoIcon,
+} from "@radix-ui/react-icons";
 
 // inline Threads SVG logo for now 🥲
 const ThreadsLogoIcon = () => (
@@ -29,6 +33,11 @@ export const SOCIAL_LINKS = [
     name: "Threads",
     link: "https://threads.net/i.am.setsun",
     icon: <ThreadsLogoIcon />,
+  },
+  {
+    name: "",
+    link: "https://raycaster.fm",
+    icon: <ExclamationTriangleIcon />,
   },
   // {
   //   name: "Spotify",

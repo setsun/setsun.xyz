@@ -64,7 +64,8 @@
     "topojson-client": "^3.1.0",
     "tunnel-rat": "^0.1.2",
     "urql": "^4.0.5",
-    "veda-ui": "workspace:*"
+    "veda-ui": "workspace:*",
+    "yjs": "^13.6.7"
   },
   "devDependencies": {
     "@types/colormap": "^2.3.1",
@@ -79,6 +80,7 @@
     "glslify": "^7.1.1",
     "glslify-loader": "^2.0.0",
     "postcss": "^8.4.27",
+    "postcss-import": "^15.1.0",
     "prisma": "^5.1.1",
     "raw-loader": "^4.0.2",
     "tailwind-config": "workspace:*",
