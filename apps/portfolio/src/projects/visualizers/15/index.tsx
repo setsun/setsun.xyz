@@ -1,49 +1,20 @@
-import { Color, Vector2 } from "three";
+import { AudioAnalyser, Color, Vector2 } from "three";
 import { useShaderUniforms } from "veda-ui";
 
+import { Spectogram } from "@/components/Spectogram";
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 
-import oceanFragmentShader from "./ocean.frag";
-import oceanVertexShader from "./ocean.vert";
+const frequencySamples = 256;
+const timeSamples = 512;
 
-const MainScene = ({ controls }: { controls: Record<string, any> }) => {
-  const {
-    u_amplitude,
-    u_speed,
-    u_frequency,
-    u_high_color,
-    u_low_color,
-    wireframe,
-  } = controls;
-
-  const { meshRef, uniforms } = useShaderUniforms({
-    uniforms: {
-      u_amplitude: { value: u_amplitude },
-      u_speed: { value: u_speed },
-      u_frequency: { value: u_frequency },
-      u_high_color: { value: new Color(u_high_color) },
-      u_low_color: { value: new Color(u_low_color) },
-    },
-    onUniformUpdate(uniforms) {
-      uniforms.u_amplitude.value = u_amplitude;
-      uniforms.u_speed.value = u_speed;
-      uniforms.u_frequency.value = u_frequency;
-      uniforms.u_high_color.value = new Color(u_high_color);
-      uniforms.u_low_color.value = new Color(u_low_color);
-    },
-  });
-
+const MainScene = ({ analyzer }: { analyzer: AudioAnalyser }) => {
   return (
-    <group rotation={[-Math.PI / 3, 0, -Math.PI / 3]}>
-      <mesh ref={meshRef}>
-        <planeGeometry args={[8, 8, 128, 128]} />
-        <shaderMaterial
-          wireframe={wireframe}
-          vertexShader={oceanVertexShader}
-          fragmentShader={oceanFragmentShader}
-          uniforms={uniforms}
-        />
-      </mesh>
+    <group position={[0, 0, -40]} rotation={[-Math.PI / 3, 0, -Math.PI / 2]}>
+      <Spectogram
+        audioAnalyser={analyzer}
+        frequencySamples={frequencySamples}
+        timeSamples={timeSamples}
+      />
     </group>
   );
 };
@@ -61,16 +32,8 @@ const Visualizer: React.FC<{
         externalHref: "https://soundcloud.com/fkj-2/fkj-skyline",
       }}
       {...props}
-      controls={{
-        u_amplitude: 0.25,
-        u_speed: 0.25,
-        u_frequency: new Vector2(4, 1),
-        u_high_color: "#8888ff",
-        u_low_color: "#0000ff",
-        wireframe: true,
-      }}
     >
-      {({ controls }) => <MainScene controls={controls} />}
+      {({ analyzer }) => <MainScene analyzer={analyzer} />}
     </VisualizerCanvas>
   );
 };
