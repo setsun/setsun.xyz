@@ -36,7 +36,7 @@ export const SOCIAL_LINKS = [
   },
   {
     name: "",
-    link: "https://raycaster.fm",
+    link: "https://raycaster.io",
     icon: <ExclamationTriangleIcon />,
   },
   // {
