@@ -61,7 +61,7 @@ const Visualizer: React.FC<{
       }}
       {...props}
       camera={{
-        position: [0, 0, 2],
+        position: [0, 0, 2.5],
       }}
       hasOrbitControls
     >
