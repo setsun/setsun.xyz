@@ -1,4 +1,4 @@
-import { Point, PointMaterial, Points } from "@react-three/drei";
+import { Point, PointMaterial, Points, PositionPoint } from "@react-three/drei";
 import {
   createRef,
   forwardRef,
@@ -7,7 +7,7 @@ import {
   useImperativeHandle,
   useState,
 } from "react";
-import { AdditiveBlending, Mesh } from "three";
+import { AdditiveBlending } from "three";
 
 import { getCanvasImageData } from "@/utils/three";
 
@@ -17,7 +17,7 @@ interface Props {
 
 export interface PointsImageRefData {
   pointVectors: [number, number][];
-  pointRefs: RefObject<Mesh>[];
+  pointRefs: RefObject<PositionPoint>[];
 }
 
 const PointsImage = forwardRef<PointsImageRefData, Props>(
@@ -57,7 +57,7 @@ const PointsImage = forwardRef<PointsImageRefData, Props>(
         setPointsData({
           pointVectors,
           pointRefs: Array.from({ length: pointVectors.length }).map(() =>
-            createRef<Mesh>(),
+            createRef<PositionPoint>(),
           ),
         });
       });
