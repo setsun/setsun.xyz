@@ -18,6 +18,8 @@ export function useAudioAnalyzer({ url, loop, fftSize = 32 }: Props) {
   const [listener] = useState(() => new AudioListener());
   const [audio] = useState(() => new ThreeAudio(listener));
   const [analyzer] = useState(() => new AudioAnalyser(audio, fftSize));
+
+  // @ts-ignore
   const buffer = useLoader(AudioLoader, url);
 
   useEffect(() => {

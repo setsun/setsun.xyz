@@ -31,6 +31,7 @@ const MovingRoad = ({
   secondSpotlight.current?.target.position.set(0.25, 0.25, 0.25);
 
   const [roadMap, roadDisplacementMap, roadMetalnessMap] = useLoader(
+    // @ts-ignore
     TextureLoader,
     [
       "https://www.setsun.xyz/images/textures/road/map.png",
