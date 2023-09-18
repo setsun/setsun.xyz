@@ -1,10 +1,10 @@
 "use client";
 
-import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { animated, useSpring, useTransition } from "@react-spring/web";
 import classNames from "classnames";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 
 import { NAVIGATION_ITEMS, SOCIAL_LINKS } from "@/common/constants";
 
@@ -45,9 +45,9 @@ const Navigation: React.FC<Props> = ({ className }) => {
     >
       <button onClick={() => setOpen(!isOpen)} className="my-4">
         {isOpen ? (
-          <Cross1Icon className="h-6 w-6" />
+          <RxCross1 className="h-6 w-6" />
         ) : (
-          <HamburgerMenuIcon className="h-6 w-6" />
+          <RxHamburgerMenu className="h-6 w-6" />
         )}
       </button>
 

@@ -1,16 +1,16 @@
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  InfoCircledIcon,
-  PauseIcon,
-  PlayIcon,
-} from "@radix-ui/react-icons";
 import { OrbitControls, StatsGl } from "@react-three/drei";
 import { Canvas, CanvasProps } from "@react-three/fiber";
 import classNames from "classnames";
 import { Leva, useControls } from "leva";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import {
+  RxArrowLeft,
+  RxArrowRight,
+  RxInfoCircled,
+  RxPause,
+  RxPlay,
+} from "react-icons/rx";
 import { AudioAnalyser } from "three";
 import {
   Button,
@@ -180,9 +180,9 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
                     onClick={() => setIsPlaying(!isPlaying)}
                   >
                     {isPlaying ? (
-                      <PauseIcon className="mr-1 inline" />
+                      <RxPause className="mr-1 inline" />
                     ) : (
-                      <PlayIcon className="mr-1 inline" />
+                      <RxPlay className="mr-1 inline" />
                     )}
                     {isPlaying ? "Pause" : "Play"}
                   </button>
@@ -229,7 +229,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
             >
               {/** todo: this component is getting to be a little messy / not reusable in many contexts */}
               <Link href={`/visualizers/${pagination.currentPage - 1}`}>
-                <ArrowLeftIcon />
+                <RxArrowLeft />
               </Link>
             </Button>
 
@@ -241,7 +241,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
             >
               {/** todo: this component is getting to be a little messy / not reusable in many contexts */}
               <Link href={`/visualizers/${pagination.currentPage + 1}`}>
-                <ArrowRightIcon />
+                <RxArrowRight />
               </Link>
             </Button>
           </div>
@@ -255,7 +255,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
                     size="icon"
                     className="pointer-events-auto p-0"
                   >
-                    <InfoCircledIcon />
+                    <RxInfoCircled />
                   </Button>
                 </DialogTrigger>
                 <DialogContent>
