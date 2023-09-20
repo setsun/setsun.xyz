@@ -12,7 +12,6 @@ import {
 
 // 1. Compute the number of vertices needed, given the frequency and time (seconds) required
 // 2. Create Grid geometry (plane that has vertices)
-// 3.
 
 const colorShades = 256;
 
