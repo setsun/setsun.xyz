@@ -17,7 +17,7 @@ const MainScene = () => {
     },
   });
 
-  const turntableRef = useTurntable({ speed: 0.001 });
+  const turntableRef = useTurntable({ speed: 0.0015 });
 
   return (
     <group ref={turntableRef}>
