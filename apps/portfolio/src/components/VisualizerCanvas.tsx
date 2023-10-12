@@ -3,6 +3,7 @@ import { Canvas, CanvasProps } from "@react-three/fiber";
 import classNames from "classnames";
 import { Leva, useControls } from "leva";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   RxArrowLeft,
@@ -109,6 +110,10 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
   const isFirstPage = pagination.currentPage === 1;
   const isLastPage = pagination.currentPage === pagination.totalPages;
 
+  // todo: quick and easy, prolly a better way to refactor later
+  const searchParams = useSearchParams();
+  const isImmersive = searchParams.get("immersive") === "true";
+
   return (
     <div
       className={classNames(
@@ -157,7 +162,7 @@ const VisualizerCanvas: React.FC<VisualizerCanvasProps> = ({
         {debug && <StatsGl />}
       </Canvas>
 
-      {isCanvasCreated && (
+      {isCanvasCreated && !isImmersive && (
         <div className="pointer-events-none absolute left-0 top-0 grid h-full w-full grid-cols-1 grid-rows-3 justify-between p-4 text-xs">
           {/** Note: we add "pointer-events-none to the container div above, because we want the Canvas to be clickable." */}
           {/** We attach explicit pointer-event CSS classes to individual DOM button / link elements that we want to be interactive */}
