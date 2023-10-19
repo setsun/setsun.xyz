@@ -8,15 +8,15 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "lib0": "0.2.85",
-    "ws": "^8.14.1",
+    "lib0": "0.2.87",
+    "ws": "^8.14.2",
     "y-indexeddb": "^9.0.11",
     "y-webrtc": "^10.2.5",
     "y-websocket": "^1.5.0",
-    "yjs": "13.6.7"
+    "yjs": "13.6.8"
   },
   "devDependencies": {
-    "eslint": "^8.49.0",
+    "eslint": "^8.51.0",
     "eslint-config-custom": "workspace:*",
     "tailwind-config": "workspace:*",
     "ts-node": "^10.9.1",

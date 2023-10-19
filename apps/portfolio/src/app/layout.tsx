@@ -7,7 +7,6 @@ import "veda-ui/styles.css";
 
 import { Analytics } from "@vercel/analytics/react";
 import { Antonio, Inter } from "next/font/google";
-import { useSearchParams } from "next/navigation";
 
 import Layout from "@/components/Layout";
 
@@ -26,25 +25,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // todo: quick and easy, prolly a better way to refactor later
-  const searchParams = useSearchParams();
-  const backgroundColor = searchParams.get("background")
-    ? `#${searchParams.get("background")}`
-    : "";
-
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${antonio.variable} dark`}
-      style={{
-        backgroundColor: backgroundColor,
-      }}
-    >
-      <body
-        style={{
-          backgroundColor: backgroundColor,
-        }}
-      >
+    <html lang="en" className={`${inter.variable} ${antonio.variable} dark`}>
+      <body>
         <Layout>{children}</Layout>
       </body>
 
