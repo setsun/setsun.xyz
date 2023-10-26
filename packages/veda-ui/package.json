@@ -33,12 +33,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "peerDependencies": {
-    "@react-three/drei": "^9.88.4",
-    "@react-three/fiber": "^8.15.3",
+    "@react-three/drei": "^9.88.7",
+    "@react-three/fiber": "^8.15.8",
     "@observablehq/plot": "^0.6.11",
     "leva": "^0.9.35",
     "react": "^18.2.0",
-    "tailwindcss": "^3.3.3",
+    "tailwindcss": "^3.3.5",
     "three": "^0.157.0",
     "tunnel-rat": "^0.1.2"
   },
@@ -51,7 +51,7 @@
     "@storybook/react": "^7.5.1",
     "@storybook/react-vite": "^7.5.1",
     "@storybook/testing-library": "^0.2.2",
-    "@types/react": "^18.2.31",
+    "@types/react": "^18.2.33",
     "@types/three": "^0.157.2",
     "@vitejs/plugin-react": "^4.1.0",
     "eslint": "^8.52.0",
@@ -68,6 +68,6 @@
     "typescript": "^5.2.2",
     "vite": "4.5.0",
     "vite-plugin-glslify": "^2.0.2",
-    "vite-plugin-dts": "^3.6.0"
+    "vite-plugin-dts": "^3.6.1"
   }
 }

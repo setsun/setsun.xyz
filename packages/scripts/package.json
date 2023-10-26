@@ -6,12 +6,12 @@
     "scripts:generate-previews": "ts-node ./src/generate-previews.ts"
   },
   "dependencies": {
-    "puppeteer": "^21.3.8",
+    "puppeteer": "^21.4.1",
     "puppeteer-screen-recorder": "^2.1.2",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
-    "eslint": "^8.51.0",
+    "eslint": "^8.52.0",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
     "tsup": "^7.2.0",
