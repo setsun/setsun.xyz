@@ -1,21 +1,9 @@
 "use client";
 
-import { gql, useQuery } from "@urql/next";
 import Link from "next/link";
 import { Suspense } from "react";
 
-const ListPostsQuery = gql`
-  query {
-    listPosts {
-      id
-      title
-      content
-      author {
-        name
-      }
-    }
-  }
-`;
+import { trpc } from "@/utils/trpc";
 
 export type PostProps = {
   id: string;
@@ -36,13 +24,11 @@ const Post: React.FC<{ post: PostProps }> = ({ post }) => (
 );
 
 const Posts = () => {
-  const [result] = useQuery({ query: ListPostsQuery });
+  const { data: posts } = trpc.post.listPosts.useQuery();
 
-  if (!result.data) {
-    return null;
+  if (!posts) {
+    return;
   }
-
-  const posts = result.data.listPosts;
 
   return posts.map((post, i) => <Post key={i} post={post} />);
 };

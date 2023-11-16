@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Antonio, Inter } from "next/font/google";
 
 import Layout from "@/components/Layout";
+import { trpc } from "@/utils/trpc";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,11 +21,7 @@ const antonio = Antonio({
   variable: "--font-antonio",
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${antonio.variable} dark`}>
       <body>
@@ -35,3 +32,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default trpc.withTRPC(RootLayout);

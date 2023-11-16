@@ -6,7 +6,6 @@
 
 import * as Plot from "@observablehq/plot";
 import { ProjectionName } from "@observablehq/plot";
-import useSWR from "swr";
 import * as topojson from "topojson-client";
 
 import PlotHelper from "@/components/PlotHelper";

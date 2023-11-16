@@ -1,20 +1,10 @@
-import {
-  RiGithubFill,
-  RiInstagramLine,
-  RiSpotifyLine,
-  RiThreadsFill,
-} from "react-icons/ri";
+import { RiGithubFill, RiSpotifyLine, RiThreadsFill } from "react-icons/ri";
 
 export const SOCIAL_LINKS = [
   {
     name: "GitHub",
     link: "https://github.com/setsun",
     icon: <RiGithubFill className="h-4 w-4" />,
-  },
-  {
-    name: "Instagram",
-    link: "https://instagram.com/i.am.setsun",
-    icon: <RiInstagramLine className="h-4 w-4" />,
   },
   {
     name: "Threads",

@@ -1,33 +1,16 @@
 "use client";
 
-import { gql, useQuery } from "@urql/next";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-const GetPostQuery = gql`
-  query ($id: String) {
-    getPostById(id: $id) {
-      id
-      title
-      content
-      author {
-        name
-      }
-    }
-  }
-`;
+import { trpc } from "@/utils/trpc";
 
 const Post = ({ id }: { id: string }) => {
-  const [result] = useQuery({
-    query: GetPostQuery,
-    variables: { id },
-  });
+  const { data: post } = trpc.post.getPostById.useQuery({ id });
 
-  if (!result.data) {
-    return null;
+  if (!post) {
+    return;
   }
-
-  const post = result.data.getPostById;
 
   return (
     <div className="p-4">
