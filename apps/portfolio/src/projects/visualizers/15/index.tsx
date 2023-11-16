@@ -1,6 +1,6 @@
 import { Sky, Stage } from "@react-three/drei";
 import { AudioAnalyser, Color, Vector2 } from "three";
-import { useShaderUniforms } from "veda-ui";
+import { useShaderUniforms } from "ui";
 
 import { Spectogram } from "@/components/Spectogram";
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";

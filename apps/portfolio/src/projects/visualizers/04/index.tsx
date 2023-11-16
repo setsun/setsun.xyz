@@ -11,7 +11,7 @@ import { GodRaysEffect } from "postprocessing";
 import { Suspense, useMemo, useRef } from "react";
 import { AudioAnalyser, MeshPhysicalMaterial, Vector3 } from "three";
 import CustomShaderMaterial from "three-custom-shader-material";
-import { useShaderUniforms } from "veda-ui";
+import { useShaderUniforms } from "ui";
 
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";

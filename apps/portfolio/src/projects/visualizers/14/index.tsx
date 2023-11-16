@@ -20,7 +20,7 @@ import {
   Vector3,
 } from "three";
 import CustomShaderMaterial from "three-custom-shader-material";
-import { useShaderUniforms } from "veda-ui";
+import { useShaderUniforms } from "ui";
 
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 

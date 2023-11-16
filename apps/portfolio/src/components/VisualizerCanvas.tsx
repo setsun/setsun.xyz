@@ -20,7 +20,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "veda-ui";
+} from "ui";
 
 import { useAudioAnalyzer } from "@/hooks/useAudioAnalyzer";
 

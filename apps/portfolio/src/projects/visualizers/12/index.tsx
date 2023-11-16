@@ -1,6 +1,6 @@
 import { Center } from "@react-three/drei";
 import { AudioAnalyser, Color } from "three";
-import { useShaderUniforms } from "veda-ui";
+import { useShaderUniforms } from "ui";
 
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 import { useTurntable } from "@/hooks/useTurntable";

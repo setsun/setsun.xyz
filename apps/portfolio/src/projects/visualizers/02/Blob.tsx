@@ -1,6 +1,6 @@
 import { AudioAnalyser, MeshBasicMaterial } from "three";
 import CustomShaderMaterial from "three-custom-shader-material";
-import { useShaderUniforms } from "veda-ui";
+import { useShaderUniforms } from "ui";
 
 import { avg, max } from "@/utils/arrays";
 import { modulate } from "@/utils/math";

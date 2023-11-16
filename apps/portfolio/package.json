@@ -64,9 +64,7 @@
     "three-stdlib": "^2.28.5",
     "topojson-client": "^3.1.0",
     "tunnel-rat": "^0.1.2",
-    "veda-ui": "workspace:*",
-    "y-webrtc": "^10.2.5",
-    "yjs": "13.6.8",
+    "ui": "workspace:*",
     "zod": "^3.22.4"
   },
   "devDependencies": {

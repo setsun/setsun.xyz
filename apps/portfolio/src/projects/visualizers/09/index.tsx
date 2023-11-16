@@ -1,5 +1,5 @@
 import { Color } from "three";
-import { ShaderPreview } from "veda-ui";
+import { ShaderPreview } from "ui";
 
 import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
 

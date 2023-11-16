@@ -3,7 +3,7 @@
 import "@/styles/globals.css";
 // todo: fix overriding styles
 // include styles from the ui package
-import "veda-ui/styles.css";
+import "ui/styles.css";
 
 import { Analytics } from "@vercel/analytics/react";
 import { Antonio, Inter } from "next/font/google";
