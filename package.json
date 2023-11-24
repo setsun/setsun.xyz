@@ -12,7 +12,7 @@
     "scripts:generate-previews": "turbo --filter=./packages/scripts spcripts:generate-previews"
   },
   "devDependencies": {
-    "eslint": "^8.53.0",
+    "eslint": "^8.54.0",
     "eslint-config-custom": "workspace:*",
     "prettier": "^3.1.0",
     "prettier-plugin-glsl": "^0.1.3",
