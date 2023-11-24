@@ -1,4 +1,5 @@
 import { RiGithubFill, RiSpotifyLine, RiThreadsFill } from "react-icons/ri";
+import { TbBrandLetterboxd } from "react-icons/tb";
 
 export const SOCIAL_LINKS = [
   {
@@ -15,6 +16,11 @@ export const SOCIAL_LINKS = [
     name: "Spotify",
     link: "https://open.spotify.com/user/3cl7vscgpyz5agjjh7fxg0l1z?si=66806580a1d24d68",
     icon: <RiSpotifyLine className="h-4 w-4" />,
+  },
+  {
+    name: "Letterboxd",
+    link: "https://letterboxd.com/setsun/",
+    icon: <TbBrandLetterboxd className="h-4 w-4" />,
   },
   // {
   //   name: "",
