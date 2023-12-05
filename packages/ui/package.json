@@ -66,7 +66,7 @@
     "tailwind-config": "workspace:*",
     "tsconfig": "workspace:*",
     "typescript": "^5.3.2",
-    "vite": "5.0.4",
+    "vite": "5.0.5",
     "vite-plugin-glslify": "^2.0.2",
     "vite-plugin-dts": "^3.6.4"
   }
