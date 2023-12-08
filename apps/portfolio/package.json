@@ -27,6 +27,7 @@
     "@vercel/edge-config": "^0.4.1",
     "@vercel/kv": "^1.0.0",
     "@vercel/postgres": "^0.5.1",
+    "@vercel/speed-insights": "^1.0.0",
     "classnames": "^2.3.2",
     "colormap": "^2.3.2",
     "d3-fetch": "^3.0.1",
