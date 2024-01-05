@@ -6,7 +6,7 @@ import "@/styles/globals.css";
 import "ui/styles.css";
 
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Antonio, Inter } from "next/font/google";
 
 import Layout from "@/components/Layout";

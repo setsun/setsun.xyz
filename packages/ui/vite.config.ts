@@ -1,8 +1,8 @@
+import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import glslify from "vite-plugin-glslify";
 import dts from "vite-plugin-dts";
+import glslify from "vite-plugin-glslify";
 
 // https://vitejs.dev/config/
 export default defineConfig({

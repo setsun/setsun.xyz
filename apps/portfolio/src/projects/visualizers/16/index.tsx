@@ -1,50 +1,63 @@
-import { Color, Vector2 } from "three";
-import { useShaderUniforms } from "ui";
+import { Center, Line, OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import {
+  Bloom,
+  EffectComposer,
+} from "@react-three/postprocessing";
+import { noise } from "maath/random";
+import { useRef } from "react";
+import { Vector3 } from "three";
+import { GeometryUtils, Line2 } from "three-stdlib";
 
-import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
+import { Pagination } from "@/components/VisualizerCanvas";
+import { useTurntable } from "@/hooks/useTurntable";
 
-import oceanFragmentShader from "./ocean.frag";
-import oceanVertexShader from "./ocean.vert";
+function getHilbertPoints(delta: number = 0): [number, number, number][] {
+  return GeometryUtils.hilbert3D(new Vector3(0), 10, 3).map((p) => [
+    p.x + noise.simplex3(p.x, p.y, p.z + delta) * 0.3,
+    p.y + noise.simplex3(p.x, p.y, p.z + delta) * 0.3,
+    p.z + noise.simplex3(p.x, p.y, p.z + delta) * 0.3,
+  ]);
+}
 
-const MainScene = ({ controls }: { controls: Record<string, any> }) => {
-  const {
-    u_amplitude,
-    u_speed,
-    u_frequency,
-    u_high_color,
-    u_low_color,
-    wireframe,
-  } = controls;
-
-  const { meshRef, uniforms } = useShaderUniforms({
-    uniforms: {
-      u_amplitude: { value: u_amplitude },
-      u_speed: { value: u_speed },
-      u_frequency: { value: u_frequency },
-      u_high_color: { value: new Color(u_high_color) },
-      u_low_color: { value: new Color(u_low_color) },
-    },
-    onUniformUpdate(uniforms) {
-      uniforms.u_amplitude.value = u_amplitude;
-      uniforms.u_speed.value = u_speed;
-      uniforms.u_frequency.value = u_frequency;
-      uniforms.u_high_color.value = new Color(u_high_color);
-      uniforms.u_low_color.value = new Color(u_low_color);
-    },
-  });
+const NoisyCurve = ({
+  color,
+  lineWidth,
+}: {
+  color: string;
+  lineWidth: number;
+}) => {
+  const lineRef = useRef<Line2>(null!);
 
   return (
-    <group rotation={[-Math.PI / 3, 0, -Math.PI / 3]}>
-      <mesh ref={meshRef}>
-        <planeGeometry args={[8, 8, 128, 128]} />
-        <shaderMaterial
-          wireframe={wireframe}
-          vertexShader={oceanVertexShader}
-          fragmentShader={oceanFragmentShader}
-          uniforms={uniforms}
-        />
-      </mesh>
-    </group>
+    <Line
+      ref={lineRef}
+      color={color}
+      lineWidth={lineWidth}
+      points={getHilbertPoints()}
+    />
+  );
+};
+
+const MainScene = () => {
+  const turntable1 = useTurntable({ speed: 0.001, axis: "x" });
+  const turntable2 = useTurntable({ speed: 0.001, axis: "y" });
+  const turntable3 = useTurntable({ speed: 0.001, axis: "z" });
+
+  return (
+    <Center>
+      <group position={[0, 0, 0]} rotation={[Math.PI / 4, -Math.PI / 4, 0]}>
+        <mesh ref={turntable1}>
+          <NoisyCurve color="white" lineWidth={0.5} />
+        </mesh>
+        <mesh ref={turntable2}>
+          <NoisyCurve color="white" lineWidth={0.1} />
+        </mesh>
+        <mesh ref={turntable3}>
+          <NoisyCurve color="white" lineWidth={0.1} />
+        </mesh>
+      </group>
+    </Center>
   );
 };
 
@@ -52,27 +65,27 @@ const Visualizer: React.FC<{
   pagination: Pagination;
   fallback?: React.ReactNode;
 }> = (props) => {
+
   return (
-    <VisualizerCanvas
-      headline="VISUALIZER_15"
-      audioProps={{
-        url: "/audio/Skyline.mp3",
-        name: "FKJ - Skyline",
-        externalHref: "https://soundcloud.com/fkj-2/fkj-skyline",
-      }}
-      {...props}
-      controls={{
-        u_amplitude: 0.25,
-        u_speed: 0.25,
-        u_frequency: new Vector2(4, 1),
-        u_high_color: "#8888ff",
-        u_low_color: "#0000ff",
-        wireframe: true,
-      }}
-    >
-      {({ controls }) => <MainScene controls={controls} />}
-    </VisualizerCanvas>
-  );
+    <div className="h-screen">
+      <Canvas camera={{
+        type: "PerspectiveCamera",
+        fov: 75,
+        aspect: window.innerWidth / window.innerHeight,
+        near: 0.01,
+        far: 5000,
+        position: [-30, 0, 0]
+      }}>
+        <OrbitControls />
+
+        <MainScene />
+
+        <EffectComposer>
+          <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
+        </EffectComposer>
+      </Canvas>
+    </div>
+  )
 };
 
 export default Visualizer;
