@@ -1,9 +1,6 @@
 import { Center, Line, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import {
-  Bloom,
-  EffectComposer,
-} from "@react-three/postprocessing";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { noise } from "maath/random";
 import { useRef } from "react";
 import { Vector3 } from "three";
@@ -14,9 +11,9 @@ import { useTurntable } from "@/hooks/useTurntable";
 
 function getHilbertPoints(delta: number = 0): [number, number, number][] {
   return GeometryUtils.hilbert3D(new Vector3(0), 10, 3).map((p) => [
-    p.x + noise.simplex3(p.x, p.y, p.z + delta) * 0.3,
-    p.y + noise.simplex3(p.x, p.y, p.z + delta) * 0.3,
-    p.z + noise.simplex3(p.x, p.y, p.z + delta) * 0.3,
+    p.x + noise.simplex3(p.x, p.y, p.z + delta) * 2,
+    p.y + noise.simplex3(p.x, p.y, p.z + delta) * 2,
+    p.z + noise.simplex3(p.x, p.y, p.z + delta) * 2,
   ]);
 }
 
@@ -43,18 +40,22 @@ const MainScene = () => {
   const turntable1 = useTurntable({ speed: 0.001, axis: "x" });
   const turntable2 = useTurntable({ speed: 0.001, axis: "y" });
   const turntable3 = useTurntable({ speed: 0.001, axis: "z" });
+  const turntable4 = useTurntable({ speed: 0.001, axis: "z" });
 
   return (
     <Center>
       <group position={[0, 0, 0]} rotation={[Math.PI / 4, -Math.PI / 4, 0]}>
-        <mesh ref={turntable1}>
+        <mesh ref={turntable1} position={[0, 20, 0]}>
           <NoisyCurve color="white" lineWidth={0.5} />
         </mesh>
-        <mesh ref={turntable2}>
-          <NoisyCurve color="white" lineWidth={0.1} />
+        <mesh ref={turntable2} position={[0, -20, 0]}>
+          <NoisyCurve color="red" lineWidth={0.5} />
         </mesh>
-        <mesh ref={turntable3}>
-          <NoisyCurve color="white" lineWidth={0.1} />
+        <mesh ref={turntable3} position={[20, 0, 0]}>
+          <NoisyCurve color="green" lineWidth={0.5} />
+        </mesh>
+        <mesh ref={turntable4} position={[-20, 0, 0]}>
+          <NoisyCurve color="blue" lineWidth={0.5} />
         </mesh>
       </group>
     </Center>
@@ -65,17 +66,18 @@ const Visualizer: React.FC<{
   pagination: Pagination;
   fallback?: React.ReactNode;
 }> = (props) => {
-
   return (
     <div className="h-screen">
-      <Canvas camera={{
-        type: "PerspectiveCamera",
-        fov: 75,
-        aspect: window.innerWidth / window.innerHeight,
-        near: 0.01,
-        far: 5000,
-        position: [-30, 0, 0]
-      }}>
+      <Canvas
+        camera={{
+          type: "PerspectiveCamera",
+          fov: 75,
+          aspect: window.innerWidth / window.innerHeight,
+          near: 0.01,
+          far: 5000,
+          position: [-30, 0, 0],
+        }}
+      >
         <OrbitControls />
 
         <MainScene />
@@ -85,7 +87,7 @@ const Visualizer: React.FC<{
         </EffectComposer>
       </Canvas>
     </div>
-  )
+  );
 };
 
 export default Visualizer;

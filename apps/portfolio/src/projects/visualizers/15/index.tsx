@@ -1,62 +1,108 @@
-import { Sky, Stage } from "@react-three/drei";
-import { AudioAnalyser, Color, Vector2 } from "three";
-import { useShaderUniforms } from "ui";
+import { ReactP5Wrapper, Sketch } from "@p5-wrapper/react";
 
-import { Spectogram } from "@/components/Spectogram";
-import VisualizerCanvas, { Pagination } from "@/components/VisualizerCanvas";
+import { Pagination } from "@/components/VisualizerCanvas";
 
-import { TheThreeGraces } from "./TheThreeGraces";
+const MAX_LINES = 30;
 
-const frequencySamples = 256;
-const timeSamples = 512;
+type LineParameters = [x1: number, y1: number, x2: number, y2: number];
 
-const MainScene = ({ analyzer }: { analyzer: AudioAnalyser }) => {
-  return (
-    <>
-      <Stage />
+const ScreenSaver: Sketch = (p5) => {
+  const startTime = p5.millis();
 
-      <Sky
-        distance={1000}
-        inclination={0.6}
-        azimuth={0.1}
-        mieCoefficient={0.005}
-        mieDirectionalG={0.8}
-        rayleigh={0.5}
-        turbidity={10}
-      />
+  function getParametricLineOne(t: number): LineParameters {
+    const x1 = p5.sin(t / 500) * 200;
+    const x2 = p5.cos(t / 500) * 300;
+    const y1 = p5.sin(t / 1000) * 100;
+    const y2 = p5.cos(t / 2000) * 200;
 
-      <group position={[0, -20, -10]} scale={0.1}>
-        <TheThreeGraces />
-      </group>
+    return [x1, x2, y1, y2];
+  }
 
-      <group position={[0, 0, -50]} rotation={[-Math.PI / 3, 0, -Math.PI / 2]}>
-        <Spectogram
-          audioAnalyser={analyzer}
-          frequencySamples={frequencySamples}
-          timeSamples={timeSamples}
-        />
-      </group>
-    </>
-  );
+  function getParametricLineTwo(t: number): LineParameters {
+    const x1 = p5.sin(t / 500) * 100;
+    const x2 = -p5.cos(t / 500) * 300;
+    const y1 = p5.sin(t / 1000) * 400;
+    const y2 = -p5.cos(t / 2000) * 200;
+
+    return [x1, x2, y1, y2];
+  }
+
+  function getParametricLineThree(t: number): LineParameters {
+    const x1 = -p5.sin(t / 500) * 100;
+    const x2 = p5.sin(t / 500) * 500;
+    const y1 = -p5.sin(t / 1000) * 400;
+    const y2 = p5.cos(t / 2000) * 100;
+
+    return [x1, x2, y1, y2];
+  }
+
+  function getParametricLineFour(t: number): LineParameters {
+    const x1 = -p5.sin(t / 500) * 100;
+    const x2 = -p5.sin(t / 500) * 500;
+    const y1 = -p5.sin(t / 500) * 400;
+    const y2 = -p5.cos(t / 200) * 100;
+
+    return [x1, x2, y1, y2];
+  }
+
+  p5.setup = () => {
+    p5.createCanvas(window.innerWidth, window.innerHeight);
+  };
+
+  p5.windowResized = () => {
+    p5.resizeCanvas(window.innerWidth, window.innerHeight);
+  };
+
+  p5.draw = () => {
+    const elapsedTime = p5.millis() - startTime;
+
+    p5.background("black");
+
+    p5.translate(p5.width / 2, p5.height / 2);
+
+    p5.strokeWeight(1);
+
+    for (let i = 0; i < MAX_LINES; i++) {
+      const staggerFactor = -(i * 25);
+
+      p5.stroke("#00FF00");
+
+      p5.line(...getParametricLineOne(elapsedTime + staggerFactor));
+    }
+
+    for (let i = 0; i < MAX_LINES; i++) {
+      const staggerFactor = -(i * 25);
+
+      p5.stroke("#FFFF00");
+
+      p5.line(...getParametricLineTwo(elapsedTime + staggerFactor));
+    }
+
+    for (let i = 0; i < MAX_LINES; i++) {
+      const staggerFactor = -(i * 25);
+
+      p5.stroke("#FF0000");
+
+      p5.line(...getParametricLineThree(elapsedTime + staggerFactor));
+    }
+
+    for (let i = 0; i < MAX_LINES; i++) {
+      const staggerFactor = -(i * 25);
+
+      p5.stroke("#0000FF");
+
+      p5.line(...getParametricLineFour(elapsedTime + staggerFactor));
+    }
+
+    p5.filter(p5.DILATE);
+  };
 };
 
 const Visualizer: React.FC<{
   pagination: Pagination;
   fallback?: React.ReactNode;
-}> = (props) => {
-  return (
-    <VisualizerCanvas
-      headline="VISUALIZER_15"
-      audioProps={{
-        url: "/audio/Skyline.mp3",
-        name: "FKJ - Skyline",
-        externalHref: "https://soundcloud.com/fkj-2/fkj-skyline",
-      }}
-      {...props}
-    >
-      {({ analyzer }) => <MainScene analyzer={analyzer} />}
-    </VisualizerCanvas>
-  );
+}> = () => {
+  return <ReactP5Wrapper sketch={ScreenSaver} />;
 };
 
 export default Visualizer;
