@@ -1,5 +1,5 @@
 export function avg(arr: number[]) {
-  let total = arr.reduce(function (sum, b) {
+  const total = arr.reduce(function (sum, b) {
     return sum + b;
   });
   return total / arr.length;

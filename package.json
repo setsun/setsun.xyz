@@ -7,7 +7,6 @@
     "build": "turbo build",
     "dev": "turbo dev --concurrency 16",
     "lint": "turbo lint",
-    "lint:fix": "turbo lint -- --fix",
     "clean": "turbo clean",
     "format": "prettier --write \"**/*.{ts,tsx,md,css,glsl,frag,vert}\"",
     "scripts:generate-previews": "turbo --filter=./packages/scripts spcripts:generate-previews"

@@ -47,7 +47,7 @@ function unmute(
   }
   //#region Helpers
   // Determine the page visibility api
-  var pageVisibilityAPI;
+  let pageVisibilityAPI;
   if (document.hidden !== undefined) {
     pageVisibilityAPI = {
       hidden: "hidden",
@@ -77,14 +77,14 @@ function unmute(
   }
   // Helpers to add/remove a bunch of event listeners
   function addEventListeners(target, events, handler, capture, passive) {
-    for (var i = 0; i < events.length; ++i)
+    for (let i = 0; i < events.length; ++i)
       target.addEventListener(events[i], handler, {
         capture: capture,
         passive: passive,
       });
   }
   function removeEventListeners(target, events, handler, capture, passive) {
-    for (var i = 0; i < events.length; ++i)
+    for (let i = 0; i < events.length; ++i)
       target.removeEventListener(events[i], handler, {
         capture: capture,
         passive: passive,
@@ -96,8 +96,8 @@ function unmute(
   function noop() {}
   //#endregion
   //#region iOS Detection
-  var ua = navigator.userAgent.toLowerCase();
-  var isIOS =
+  const ua = navigator.userAgent.toLowerCase();
+  const isIOS =
     forceIOSBehavior ||
     (ua.indexOf("iphone") >= 0 && ua.indexOf("like iphone") < 0) ||
     (ua.indexOf("ipad") >= 0 && ua.indexOf("like ipad") < 0) ||
@@ -106,13 +106,13 @@ function unmute(
   //#endregion
   //#region Playback Allowed State
   /** Indicates if audio should be allowed to play. */
-  var allowPlayback = true; // Assume page is visible and focused by default
+  let allowPlayback = true; // Assume page is visible and focused by default
   /**
    * Updates playback state.
    */
   function updatePlaybackState() {
     // Check if should be active
-    var shouldAllowPlayback =
+    const shouldAllowPlayback =
       allowBackgroundPlayback || // always be active if noPause is indicated
       ((!pageVisibilityAPI || !document[pageVisibilityAPI.hidden]) && // can be active if no page vis api, or page not hidden
         (!isIOS || document.hasFocus())) // if ios, then document must also be focused because their page vis api is buggy
@@ -193,7 +193,7 @@ function unmute(
   //#endregion
   //#region HTML Audio Channel State
   /** The html audio element that forces web audio playback onto the media channel instead of the ringer channel. */
-  var channelTag = null;
+  let channelTag = null;
   /**
    * A utility function for decompressing the base64 silence string. A poor-mans implementation of huffman decoding.
    * @param count The number of times the string is repeated in the string segment.
@@ -201,7 +201,7 @@ function unmute(
    * @returns The
    */
   function huffman(count, repeatStr) {
-    var e = repeatStr;
+    let e = repeatStr;
     for (; count > 1; count--) e += repeatStr;
     return e;
   }
@@ -211,7 +211,7 @@ function unmute(
    * This file is 0.01 seconds of silence VBR220-260 Joint Stereo 859B
    * The str below is a "compressed" version using poor mans huffman encoding, saves about 0.5kb
    */
-  var silence =
+  const silence =
     "data:audio/mpeg;base64,//uQx" +
     huffman(23, "A") +
     "WGluZwAAAA8AAAACAAACcQCA" +
@@ -238,7 +238,7 @@ function unmute(
         if (isMediaPlaybackEvent) {
           // Create a new channel tag if necessary
           if (!channelTag) {
-            var tmp = document.createElement("div");
+            const tmp = document.createElement("div");
             tmp.innerHTML = "<audio x-webkit-airplay='deny'></audio>"; // Airplay like controls on other devices, prevents casting of the tag, doesn't work on modern iOS
             channelTag = tmp.children.item(0);
             channelTag.controls = false;
@@ -250,7 +250,7 @@ function unmute(
           }
           // Play the channel tag
           if (channelTag.paused) {
-            var p = channelTag.play();
+            const p = channelTag.play();
             if (p) p.then(noop, destroyChannelTag).catch(destroyChannelTag); // If playback fails the tag is pretty much trash and needs to be recreated on next media playback event
           }
         }
@@ -274,7 +274,7 @@ function unmute(
   //#endregion
   //#region Input
   /** The event types that can trigger media playback. */
-  var mediaPlaybackEvents = [
+  const mediaPlaybackEvents = [
     "click",
     "contextmenu",
     "auxclick",
@@ -354,6 +354,6 @@ function unmute(
  */
 export function initializeUnmute() {
   // @ts-ignore
-  let context = new (window.AudioContext || window.webkitAudioContext)();
+  const context = new (window.AudioContext || window.webkitAudioContext)();
   return unmute(context);
 }

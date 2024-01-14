@@ -51,12 +51,12 @@ function createGridGeometry(
   ySize = 48,
 ) {
   const nVertices = (frequencySamples + 1) * (timeSamples + 1);
-  let xSegments = timeSamples;
-  let ySegments = frequencySamples;
-  let xHalfSize = xSize / 2;
-  let yHalfSize = ySize / 2;
-  let xSegmentSize = xSize / xSegments;
-  let ySegmentSize = ySize / ySegments;
+  const xSegments = timeSamples;
+  const ySegments = frequencySamples;
+  const xHalfSize = xSize / 2;
+  const yHalfSize = ySize / 2;
+  const xSegmentSize = xSize / xSegments;
+  const ySegmentSize = ySize / ySegments;
 
   const geometry = new BufferGeometry();
   const indices = [];
@@ -68,10 +68,10 @@ function createGridGeometry(
 
   // generate vertices for a simple grid geometry
   for (let i = 0; i <= xSegments; i++) {
-    let x = i * xSegmentSize - xHalfSize; //midpoint of mesh is 0,0
+    const x = i * xSegmentSize - xHalfSize; //midpoint of mesh is 0,0
     for (let j = 0; j <= ySegments; j++) {
-      let pow = ((ySegments - j) / ySegments) * yPowMax;
-      let y = -Math.pow(yBase, pow) + yHalfSize + 1;
+      const pow = ((ySegments - j) / ySegments) * yPowMax;
+      const y = -Math.pow(yBase, pow) + yHalfSize + 1;
       vertices.push(x, y, 0);
       heights.push(0); // for now our mesh is flat, so heights are zero
     }
@@ -79,10 +79,10 @@ function createGridGeometry(
 
   for (let i = 0; i < xSegments; i++) {
     for (let j = 0; j < ySegments; j++) {
-      let a = i * (ySegments + 1) + (j + 1);
-      let b = i * (ySegments + 1) + j;
-      let c = (i + 1) * (ySegments + 1) + j;
-      let d = (i + 1) * (ySegments + 1) + (j + 1);
+      const a = i * (ySegments + 1) + (j + 1);
+      const b = i * (ySegments + 1) + j;
+      const c = (i + 1) * (ySegments + 1) + j;
+      const d = (i + 1) * (ySegments + 1) + (j + 1);
       // generate two faces (triangles) per iteration
       indices.push(a, b, d); // face one
       indices.push(b, c, d); // face two

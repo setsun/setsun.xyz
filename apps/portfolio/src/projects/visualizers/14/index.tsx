@@ -85,8 +85,8 @@ const MainScene = ({
     const fovModifier =
       averageFrequency > 0 ? FOV_GROWTH_FACTOR : FOV_DECAY_FACTOR;
 
-    let nextSpeed = currentSpeed.current + speedModifier * delta;
-    let nextFov = perspectiveCamera.fov + fovModifier * delta;
+    const nextSpeed = currentSpeed.current + speedModifier * delta;
+    const nextFov = perspectiveCamera.fov + fovModifier * delta;
 
     currentSpeed.current = clamp(nextSpeed, MIN_SPEED, MAX_SPEED);
     perspectiveCamera.fov = clamp(nextFov, MIN_FOV, MAX_FOV);

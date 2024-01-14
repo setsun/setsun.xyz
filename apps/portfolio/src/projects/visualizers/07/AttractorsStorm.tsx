@@ -55,7 +55,7 @@ const StormLine = ({
       1.5,
     );
 
-    let nextPosition = updateAttractor(
+    const nextPosition = updateAttractor(
       currentPosition,
       radius,
       simulation,

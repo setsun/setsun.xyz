@@ -9,7 +9,7 @@ export function modulate(
   outMin: number,
   outMax: number,
 ) {
-  let fr = fractionate(val, minVal, maxVal);
-  let delta = outMax - outMin;
+  const fr = fractionate(val, minVal, maxVal);
+  const delta = outMax - outMin;
   return outMin + fr * delta;
 }
