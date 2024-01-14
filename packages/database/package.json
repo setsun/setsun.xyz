@@ -8,9 +8,9 @@
     "db:push": "prisma db push --skip-generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.7.1"
+    "@prisma/client": "^5.8.0"
   },
   "devDependencies": {
-    "prisma": "^5.7.1"
+    "prisma": "^5.8.0"
   }
 }

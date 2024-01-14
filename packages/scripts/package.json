@@ -6,7 +6,7 @@
     "scripts:generate-previews": "ts-node ./src/generate-previews.ts"
   },
   "dependencies": {
-    "puppeteer": "^21.6.1",
+    "puppeteer": "^21.7.0",
     "puppeteer-screen-recorder": "^2.1.2",
     "ts-node": "^10.9.2"
   },
