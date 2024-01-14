@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
-    "build": "next build",
+    "dev": "NEXT_PRIVATE_LOCAL_WEBPACK=true next dev --port 3000",
+    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -72,6 +72,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@module-federation/nextjs-mf": "^8.1.5",
     "@raycaster/eslint-config": "^0.3.3",
     "@types/colormap": "^2.3.4",
     "@types/lodash.clamp": "^4.0.9",
@@ -91,6 +92,7 @@
     "tailwind-config": "workspace:*",
     "tailwindcss": "^3.4.1",
     "tsconfig": "workspace:*",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0"
   }
 }
