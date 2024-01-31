@@ -26,7 +26,7 @@ const SparkLine = ({
     const modifier = clamp(
       audioAnalyzer.getAverageFrequency() / 100,
       0.05,
-      1.5
+      1.5,
     );
 
     material.current.uniforms.dashOffset.value -= speed * modifier;
@@ -73,7 +73,7 @@ const Sparks = ({
         const position = new Vector3(
           Math.sin(0) * radius * getRadiusVariance(),
           Math.cos(0) * radius * getRadiusVariance(),
-          0
+          0,
         );
 
         // increment angle to get all remaining points
@@ -85,8 +85,11 @@ const Sparks = ({
               new Vector3(
                 Math.sin(angle) * radius * getRadiusVariance(),
                 Math.cos(angle) * radius * getRadiusVariance(),
-                Math.sin(angle) * Math.cos(angle) * radius * getRadiusVariance()
-              )
+                Math.sin(angle) *
+                  Math.cos(angle) *
+                  radius *
+                  getRadiusVariance(),
+              ),
             )
             .clone();
         });
@@ -101,7 +104,7 @@ const Sparks = ({
           curve,
         };
       }),
-    [lineCount, radius, colors]
+    [lineCount, radius, colors],
   );
 
   return (

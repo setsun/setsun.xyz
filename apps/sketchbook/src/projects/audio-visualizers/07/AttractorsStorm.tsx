@@ -52,14 +52,14 @@ const StormLine = ({
     const modifier = clamp(
       audioAnalyzer.getAverageFrequency() / 100,
       0.005,
-      1.5
+      1.5,
     );
 
     const nextPosition = updateAttractor(
       currentPosition,
       radius,
       simulation,
-      speed * modifier
+      speed * modifier,
     );
 
     if (Number.isNaN(nextPosition.x)) {
@@ -73,7 +73,7 @@ const StormLine = ({
         currentPosition.set(
           firstPosition[0],
           firstPosition[1],
-          firstPosition[2]
+          firstPosition[2],
         );
         nextPosition.set(firstPosition[0], firstPosition[1], firstPosition[2]);
       }
@@ -121,7 +121,7 @@ const AttractorsStorm = ({
         speed: MathUtils.randFloat(0.004, 0.008),
         radius: MathUtils.randFloat(2.25, 3) * radius,
       })),
-    [count, colors, radius]
+    [count, colors, radius],
   );
 
   return (

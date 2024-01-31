@@ -69,7 +69,7 @@ const PortalLines = () => {
           zScale: 0,
         });
       }),
-    []
+    [],
   );
 
   return (
@@ -160,7 +160,7 @@ const Visualizer = () => {
         rotation: new Euler(
           -0.3959453296134719,
           -0.24111278576897252,
-          -0.0994871453099729
+          -0.0994871453099729,
         ),
       }}
       hasOrbitControls

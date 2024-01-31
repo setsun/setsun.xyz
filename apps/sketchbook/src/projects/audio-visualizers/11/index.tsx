@@ -44,7 +44,7 @@ const MainScene = ({
             const lowerHalfArray = values.slice(0, values.length / 2 - 1);
             const upperHalfArray = values.slice(
               values.length / 2 - 1,
-              values.length - 1
+              values.length - 1,
             );
             const lowerMax = max(lowerHalfArray);
             const upperAvg = avg(upperHalfArray);
@@ -54,7 +54,7 @@ const MainScene = ({
               0,
               1,
               0,
-              8
+              8,
             );
 
             const topFrequency = modulate(
@@ -62,7 +62,7 @@ const MainScene = ({
               0,
               1,
               0,
-              4
+              4,
             );
 
             // update the shader uniforms, based on the audio data

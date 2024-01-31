@@ -39,7 +39,7 @@ type Props = JSX.IntrinsicElements["group"] & {
 
 export function LilyFlower({ onUniformUpdate, ...rest }: Props) {
   const { nodes } = useGLTF(
-    "https://www.setsun.xyz/models/lily_flower-transformed.glb"
+    "https://www.setsun.xyz/models/lily_flower-transformed.glb",
   ) as GLTFResult;
 
   useFrame(({ clock }) => {

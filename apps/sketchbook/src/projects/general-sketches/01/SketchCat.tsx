@@ -45,7 +45,7 @@ type Props = GroupProps & {
 
 export function SketchCat({ customMaterial, stencil, ...props }: Props) {
   const { nodes, materials } = useGLTF(
-    "https://www.setsun.xyz/models/sketch_cat-transformed.glb"
+    "https://www.setsun.xyz/models/sketch_cat-transformed.glb",
   ) as GLTFResult;
 
   const materialsWithStencil = useMemo(() => {

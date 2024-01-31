@@ -12,7 +12,7 @@ import {
 export function getVectorsInCircle(
   values: number[],
   radius: number,
-  modifier: number
+  modifier: number,
 ): Vector3[] {
   // todo: why dis work tho 🤷🏻‍♂️
   return [...values, 0].map((value, index) => {
@@ -31,8 +31,8 @@ export function updateGeometryVertices(
   onUpdate: (
     currentVertex: Vector3,
     positionAttribute: BufferAttribute | InterleavedBufferAttribute,
-    index: number
-  ) => void
+    index: number,
+  ) => void,
 ) {
   const positionAttribute = geometry.getAttribute("position");
 

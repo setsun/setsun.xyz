@@ -74,7 +74,7 @@ class SimulationMaterial extends ShaderMaterial {
       size,
       size,
       RGBAFormat,
-      FloatType
+      FloatType,
     );
 
     positionsTexture.needsUpdate = true;
@@ -118,7 +118,7 @@ const FBOParticles = ({
 
   const { scene, camera, positions, uvs } = useMemo(
     () => getSimulationObjects(),
-    []
+    [],
   );
 
   // Generate the intial positions for the particles
@@ -185,7 +185,7 @@ const FBOParticles = ({
             />
           </bufferGeometry>
         </mesh>,
-        scene
+        scene,
       )}
 
       <points ref={pointsRef}>

@@ -106,8 +106,8 @@ const MainScene = ({
       new Vector3(
         camera.position.x + offsetX,
         camera.position.y + offsetY,
-        camera.position.z + offsetZ
-      )
+        camera.position.z + offsetZ,
+      ),
     );
 
     camera.position.set(p1.x, p1.y, p1.z);

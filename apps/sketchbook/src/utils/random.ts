@@ -1,7 +1,7 @@
 // https://observablehq.com/@mbostock/poisson-disk-sampling
 export function* poisson(
   [x0, y0, x1, y1],
-  { n = 2, k = 30, random = Math.random } = {}
+  { n = 2, k = 30, random = Math.random } = {},
 ) {
   const width = x1 - x0;
   const height = y1 - y0;
@@ -65,7 +65,7 @@ export function* poisson(
 
   function sample(x, y) {
     queue.push(
-      (grid[gridWidth * ((y / cellSize) | 0) + ((x / cellSize) | 0)] = [x, y])
+      (grid[gridWidth * ((y / cellSize) | 0) + ((x / cellSize) | 0)] = [x, y]),
     );
     return [x + x0, y + y0];
   }

@@ -37,7 +37,7 @@ const MovingRoad = ({
       "https://www.setsun.xyz/images/textures/road/map.png",
       "https://www.setsun.xyz/images/textures/road/displacementMap.png",
       "https://www.setsun.xyz/images/textures/road/metalnessMap.png",
-    ]
+    ],
   );
 
   useFrame((context) => {

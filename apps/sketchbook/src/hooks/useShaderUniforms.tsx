@@ -20,7 +20,7 @@ const useShaderUniforms = ({ uniforms, onUniformUpdate }: Args) => {
       ...uniforms,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   );
 
   useFrame(({ clock, mouse, size }) => {

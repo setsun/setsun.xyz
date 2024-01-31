@@ -27,7 +27,7 @@ export const Spaceship = forwardRef<
   JSX.IntrinsicElements["group"]
 >((props, ref) => {
   const { nodes, materials } = useGLTF(
-    "https://www.setsun.xyz/models/spaceship-transformed.glb"
+    "https://www.setsun.xyz/models/spaceship-transformed.glb",
   ) as GLTFResult;
 
   return (

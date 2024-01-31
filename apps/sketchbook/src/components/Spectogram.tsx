@@ -48,7 +48,7 @@ function createGridGeometry(
   frequencySamples: number,
   timeSamples: number,
   xSize = 128,
-  ySize = 48
+  ySize = 48,
 ) {
   const nVertices = (frequencySamples + 1) * (timeSamples + 1);
   const xSegments = timeSamples;
@@ -148,7 +148,7 @@ export const Spectogram = ({
 
     meshRef.current.geometry.setAttribute(
       "displacement",
-      new Uint8BufferAttribute(displacementHeights, 1)
+      new Uint8BufferAttribute(displacementHeights, 1),
     );
   });
 

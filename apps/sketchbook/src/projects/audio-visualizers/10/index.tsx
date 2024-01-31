@@ -61,9 +61,9 @@ const MainScene = ({
           logarithmicCoefficient: 0.005 + i * 0.0005,
           zScale: 0.01 + i * 0.0025,
           mirror: true,
-        })
+        }),
       ),
-    []
+    [],
   );
 
   useFrame(() => {

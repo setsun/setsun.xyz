@@ -32,7 +32,7 @@ const DataExploration = () => {
     (url) =>
       fetch(url)
         .then((res) => res.json())
-        .then(transformNYCPopulationData)
+        .then(transformNYCPopulationData),
   );
 
   if (isLoading) {

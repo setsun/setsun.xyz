@@ -1,5 +1,6 @@
 const {
   withNativeFederation,
+  shareAll,
   share,
 } = require('@softarc/native-federation/build');
 
@@ -32,26 +33,22 @@ module.exports = withNativeFederation({
     // './general-sketches-5': './src/projects/general-sketches/05/index.tsx',
   },
 
-  shared: {
-    ...share({
-      react: {
-        singleton: true,
-        requiredVersion: false,
-        version: '0',
-        includeSecondaries: false,
-      },
-      'react-dom': {
-        singleton: true,
-        requiredVersion: false,
-        version: '0',
-        includeSecondaries: false,
-      },
-      // 'three': {
-      //   singleton: true,
-      //   requiredVersion: false,
-      //   version: '0',
-      //   includeSecondaries: false
-      // },
-    }),
-  },
+  shared: share({
+    react: {
+      singleton: true,
+      requiredVersion: false,
+      version: '0',
+      includeSecondaries: false,
+    },
+    'react-dom': {
+      singleton: true,
+      requiredVersion: false,
+      version: '0',
+      includeSecondaries: false,
+    }
+  }),
+  skip: [
+    'react-dom/server',
+    'react-dom/server.node'
+  ],
 });

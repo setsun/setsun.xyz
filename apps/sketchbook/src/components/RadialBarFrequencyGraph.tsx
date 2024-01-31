@@ -21,7 +21,7 @@ const RadialBarFrequencyGraph = ({
   const count = countOverride ?? audioAnalyzer.analyser.frequencyBinCount;
 
   const [segmentRefs] = useState(
-    [...new Array(count)].map(() => createRef<SegmentObject>())
+    [...new Array(count)].map(() => createRef<SegmentObject>()),
   );
 
   useFrame(() => {

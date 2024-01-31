@@ -9,7 +9,7 @@ import PlotHelper from "@/components/PlotHelper";
 
 const DataExploration = () => {
   const { data, error, isLoading } = useSWR("/data/penguins.csv", (url) =>
-    csv(url).then((data) => data)
+    csv(url).then((data) => data),
   );
 
   if (isLoading) {

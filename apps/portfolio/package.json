@@ -20,6 +20,7 @@
     "@react-three/postprocessing": "^2.15.12",
     "@react-three/rapier": "^1.2.1",
     "@react-three/rapier-addons": "^3.0.3",
+    "@softarc/native-federation": "^2.0.7",
     "@trpc/client": "^10.45.0",
     "@trpc/next": "^10.45.0",
     "@trpc/server": "^10.45.0",
