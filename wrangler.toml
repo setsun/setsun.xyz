@@ -1,0 +1,12 @@
+name = "setsun-xyz"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
+main = "./.output/server/index.mjs"
+
+[assets]
+binding = "ASSETS"
+directory = "./.output/public"
+
+[[routes]]
+pattern = "setsun.xyz"
+custom_domain = true
