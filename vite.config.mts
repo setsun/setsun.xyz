@@ -38,26 +38,25 @@ const config = defineConfig({
       },
       customViteReactPlugin: true,
     }),
-    // federation({
-    //   name: "setsun-xyz-mf-host",
-    //   exposes: {},
-    //   filename: "remoteEntry.js",
-    //   remotes: {
-    //     sketches: {
-    //       name: "sketches",
-    //       entryGlobalName: "sketches",
-    //       type: "module",
-    //       shareScope: "default",
-    //       entry: "http://localhost:4174/remoteEntry.js",
-    //     },
-    //   },
-    //   shared: {
-    //     react: {
-    //       requiredVersion: dependencies.react,
-    //       singleton: true,
-    //     },
-    //   },
-    // }),
+    federation({
+      name: "setsun-xyz-mf-host",
+      filename: "remoteEntry.js",
+      remotes: {
+        sketches: {
+          name: "sketches",
+          entryGlobalName: "sketches",
+          type: "module",
+          shareScope: "default",
+          entry: "http://localhost:4174/remoteEntry.js",
+        },
+      },
+      shared: {
+        react: {
+          requiredVersion: dependencies.react,
+          singleton: true,
+        },
+      },
+    }),
     viteReact(),
   ],
 });
