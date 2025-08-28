@@ -6,7 +6,6 @@
   "file_scan_exclusions": [
     "**/routeTree.gen.ts",
     ".wrangler/**",
-    ".tanstack/**",
     ".git/**",
     ".output/**",
     ".nitro/**",

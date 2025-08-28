@@ -43,5 +43,8 @@
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "bun@1.2.21"
+  "packageManager": "bun@1.2.21",
+  "patchedDependencies": {
+    "@tanstack/start-plugin-core@1.131.28": "patches/@tanstack%2Fstart-plugin-core@1.131.28.patch"
+  }
 }

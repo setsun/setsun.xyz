@@ -30,6 +30,9 @@
       },
     },
   },
+  "patchedDependencies": {
+    "@tanstack/start-plugin-core@1.131.28": "patches/@tanstack%2Fstart-plugin-core@1.131.28.patch",
+  },
   "overrides": {
     "estree-walker": "2.0.2",
   },
