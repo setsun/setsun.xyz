@@ -18,10 +18,10 @@
         "three": "^0.179.1",
       },
       "devDependencies": {
-        "@module-federation/vite": "^1.7.1",
+        "@module-federation/vite": "^1.7.2",
         "@types/node": "^22.18.0",
         "@types/react": "^19.1.12",
-        "@types/react-dom": "^19.1.8",
+        "@types/react-dom": "^19.1.9",
         "@vitejs/plugin-react": "^5.0.2",
         "oxlint": "^1.13.0",
         "typescript": "5.9.2",
@@ -241,7 +241,7 @@
 
     "@module-federation/sdk": ["@module-federation/sdk@0.17.1", "", {}, "sha512-nlUcN6UTEi+3HWF+k8wPy7gH0yUOmCT+xNatihkIVR9REAnr7BUvHFGlPJmx7WEbLPL46+zJUbtQHvLzXwFhng=="],
 
-    "@module-federation/vite": ["@module-federation/vite@1.7.1", "", { "dependencies": { "@module-federation/runtime": "^0.17.1", "@rollup/pluginutils": "^5.1.0", "defu": "^6.1.4", "estree-walker": "^2", "magic-string": "^0.30.11", "pathe": "^1.1.2" } }, "sha512-SIjmBXOPqh9nH+Qb2nROWpOlIeWek/8WHYD6yhpDSGnGEeWzobymru6c5hab9nyWhkYSzjGxOEsBZ4HDZZXB9Q=="],
+    "@module-federation/vite": ["@module-federation/vite@1.7.2", "", { "dependencies": { "@module-federation/runtime": "^0.17.1", "@rollup/pluginutils": "^5.1.0", "defu": "^6.1.4", "estree-walker": "^2", "magic-string": "^0.30.11", "pathe": "^1.1.2" } }, "sha512-mNXkjDOdmwK5D/mGGtSRG8Kclu71AgeyRome4ln5UTcy28MpAy4OnOLTGI7BcydwOvS5XVjA746uYyZe+t1Pcg=="],
 
     "@netlify/binary-info": ["@netlify/binary-info@1.0.0", "", {}, "sha512-4wMPu9iN3/HL97QblBsBay3E1etIciR84izI3U+4iALY+JHCrI+a2jO0qbAZ/nxKoegypYEaiiqWXylm+/zfrw=="],
 
@@ -515,7 +515,7 @@
 
     "@types/react": ["@types/react@19.1.12", "", { "dependencies": { "csstype": "^3.0.2" } }, "sha512-cMoR+FoAf/Jyq6+Df2/Z41jISvGZZ2eTlnsaJRptmZ76Caldwy1odD4xTr/gNV9VLj0AWgg/nmkevIyUfIIq5w=="],
 
-    "@types/react-dom": ["@types/react-dom@19.1.8", "", { "peerDependencies": { "@types/react": "^19.0.0" } }, "sha512-xG7xaBMJCpcK0RpN8jDbAACQo54ycO6h4dSSmgv8+fu6ZIAdANkx/WsawASUjVXYfy+J9AbUpRMNNEsXCDfDBQ=="],
+    "@types/react-dom": ["@types/react-dom@19.1.9", "", { "peerDependencies": { "@types/react": "^19.0.0" } }, "sha512-qXRuZaOsAdXKFyOhRBg6Lqqc0yay13vN7KrIg4L7N4aaHN68ma9OK3NE1BoDFgFOTfM7zg+3/8+2n8rLUH3OKQ=="],
 
     "@types/react-reconciler": ["@types/react-reconciler@0.32.0", "", { "peerDependencies": { "@types/react": "*" } }, "sha512-+WHarFkJevhH1s655qeeSEf/yxFST0dVRsmSqUgxG8mMOKqycgYBv2wVpyubBY7MX8KiX5FQ03rNIwrxfm7Bmw=="],
 

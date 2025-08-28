@@ -42,12 +42,12 @@ const config = defineConfig({
       name: "setsun-xyz-mf-host",
       filename: "remoteEntry.js",
       remotes: {
-        sketches: {
-          name: "sketches",
-          entryGlobalName: "sketches",
+        sketchbook: {
+          name: "sketchbook",
+          entryGlobalName: "sketchbook",
           type: "module",
           shareScope: "default",
-          entry: "http://localhost:4174/remoteEntry.js",
+          entry: "https://sketchbook.setsun.xyz/remoteEntry.js",
         },
       },
       shared: {
