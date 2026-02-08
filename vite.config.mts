@@ -7,6 +7,13 @@ import tailwindcss from "@tailwindcss/vite";
 import { dependencies } from "./package.json";
 
 const config = defineConfig({
+  optimizeDeps: {
+    exclude: [
+      "@tanstack/start-server-core",
+      "@tanstack/start-client-core",
+      "@tanstack/react-start",
+    ],
+  },
   plugins: [
     // this is the plugin that enables path aliases
     viteTsConfigPaths({
@@ -14,7 +21,6 @@ const config = defineConfig({
     }),
     tailwindcss(),
     tanstackStart({
-      target: "cloudflare-module",
       prerender: {
         // Enable prerendering
         enabled: true,
@@ -36,7 +42,6 @@ const config = defineConfig({
           console.log(`Rendered ${page.path}!`);
         },
       },
-      customViteReactPlugin: true,
     }),
     federation({
       name: "setsun-xyz-mf-host",
