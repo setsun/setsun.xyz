@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
+import { cloudflare } from "@cloudflare/vite-plugin";
 import { federation } from "@module-federation/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import viteReact from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react";
 import viteTsConfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 import { dependencies } from "./package.json";
@@ -20,6 +21,7 @@ const config = defineConfig({
       projects: ["./tsconfig.json"],
     }),
     tailwindcss(),
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
     tanstackStart({
       prerender: {
         // Enable prerendering
@@ -43,26 +45,26 @@ const config = defineConfig({
         },
       },
     }),
-    federation({
-      name: "setsun-xyz-mf-host",
-      filename: "remoteEntry.js",
-      remotes: {
-        sketches: {
-          name: "sketches",
-          entryGlobalName: "sketches",
-          type: "module",
-          shareScope: "default",
-          entry: "http://localhost:4174/remoteEntry.js",
-        },
-      },
-      shared: {
-        react: {
-          requiredVersion: dependencies.react,
-          singleton: true,
-        },
-      },
-    }),
-    viteReact(),
+    react(),
+    // federation({
+    //   name: "setsun-xyz-mf-host",
+    //   filename: "remoteEntry.js",
+    //   remotes: {
+    //     sketches: {
+    //       name: "sketches",
+    //       entryGlobalName: "sketches",
+    //       type: "module",
+    //       shareScope: "default",
+    //       entry: "http://localhost:4174/remoteEntry.js",
+    //     },
+    //   },
+    //   shared: {
+    //     react: {
+    //       requiredVersion: dependencies.react,
+    //       singleton: true,
+    //     },
+    //   },
+    // }),
   ],
 });
 

@@ -1,7 +1,7 @@
 name = "setsun-xyz"
-compatibility_date = "2026-01-20"
+compatibility_date = "2026-02-08"
 compatibility_flags = ["nodejs_compat"]
-main = "./.output/server/index.mjs"
+main = "@tanstack/react-start/server-entry"
 
 [assets]
 binding = "ASSETS"
